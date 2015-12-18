@@ -18,7 +18,10 @@ class RadialChart: UIView {
 			setNeedsDisplay()
 		}
 	}
-	var arcWidth:CGFloat = 15.0
+//	var arcWidth:CGFloat = 20.0
+	
+	@IBInspectable var arcWidth : CGFloat = 20.0
+	
 	var arcColor = UIColor(red: 0.000, green: 0.624, blue: 0.706, alpha: 1.00)
 	var arcBackgroundColor = UIColor.clearColor()
 

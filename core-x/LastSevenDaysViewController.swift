@@ -17,12 +17,11 @@ class LastSevenDaysViewController: UIViewController {
 	@IBOutlet weak var fiveDaysAgo: PreviousDay!
 	@IBOutlet weak var sixDaysAgo: PreviousDay!
 	@IBOutlet weak var sevenDaysAgo: PreviousDay!
-	
+
 	var hasLoaded = false
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
-		
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,52 +38,55 @@ class LastSevenDaysViewController: UIViewController {
 			fiveDaysAgo.configView(getDayOfWeek(4), workedOut: didWorkOut(4))
 			sixDaysAgo.configView(getDayOfWeek(5), workedOut: didWorkOut(5))
 			sevenDaysAgo.configView(getDayOfWeek(6), workedOut: didWorkOut(6))
-			
+
 			hasLoaded = true
 		}
 	}
-	
+
 	func didWorkOut(daysAgo: Int)->Bool {
 		let today: NSDate = NSDate()
-		
-		let daysToAdd:Int = -daysAgo
-		
+
+		let daysToAdd : Int = -daysAgo
+
 		// Set up date components
 		let dateComponents: NSDateComponents = NSDateComponents()
 		dateComponents.day = daysToAdd
-		
+
 		let format = NSDateFormatter()
 		format.dateFormat = "MM-dd-yyyy"
-		
+
 		// Create a calendar
 		let gregorianCalendar: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-		let yesterDayDate: NSDate = gregorianCalendar.dateByAddingComponents(dateComponents, toDate: today, options:NSCalendarOptions(rawValue: 0))!
-		
+		let yesterDayDate: NSDate = gregorianCalendar.dateByAddingComponents(dateComponents,
+																			toDate: today,
+																			options:NSCalendarOptions(rawValue: 0))!
+
 		return NSUserDefaults.standardUserDefaults().boolForKey(format.stringFromDate(yesterDayDate))
 	}
-	
+
 	func getDayOfWeek(daysAgo: Int)->String {
-		
+
 		let today: NSDate = NSDate()
-		
-		let daysToAdd:Int = -daysAgo
-		
+
+		let daysToAdd : Int = -daysAgo
+
 		// Set up date components
 		let dateComponents: NSDateComponents = NSDateComponents()
 		dateComponents.day = daysToAdd
-		
+
 		let format = NSDateFormatter()
 		format.dateFormat = "MM-dd-yyyy"
-		
+
 		// Create a calendar
 		let gregorianCalendar: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-		let yesterDayDate: NSDate = gregorianCalendar.dateByAddingComponents(dateComponents, toDate: today, options:NSCalendarOptions(rawValue: 0))!
-		
-		
+		let yesterDayDate: NSDate = gregorianCalendar.dateByAddingComponents(dateComponents,
+																			toDate: today,
+																			options:NSCalendarOptions(rawValue: 0))!
+
 		let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
 		let myComponents = myCalendar.components(.Weekday, fromDate: yesterDayDate)
 		let weekDay = myComponents.weekday
-		
+
 		switch weekDay {
 		case 1:
 			return "Sun"

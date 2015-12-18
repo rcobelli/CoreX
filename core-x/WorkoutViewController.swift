@@ -67,8 +67,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
 			SweetAlert().showAlert("All Fields Required", subTitle: "You must provide a rest duration greater than or equal to 0", style: AlertStyle.Error)
 			return
 		}
-		
-		if !NSUserDefaults.standardUserDefaults().boolForKey("firstWorkout") {
+		if !NSUserDefaults.standardUserDefaults().boolForKey("firstWorkout") && !NSProcessInfo.processInfo().arguments.contains("testing") {
 			SweetAlert().showAlert("See Exercise Demonstration", subTitle: "Tap and hold the screen to see an image demonstrating the exercise", style: AlertStyle.None, buttonTitle: "Begin Workout", action: {(isOtherButton) -> Void in
 				self.performSegueWithIdentifier("startWorkout", sender: self)
 				NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstWorkout")

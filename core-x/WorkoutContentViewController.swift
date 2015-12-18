@@ -31,8 +31,6 @@ class WorkoutContentViewController: UIViewController, LTMorphingLabelDelegate {
 		
 		exerciseTitle.morphingEffect = .Anvil
 		
-		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInfo", name: "updateInfo", object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTime", name: "updateTime", object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "rest", name: "rest", object: nil)
     }
@@ -46,7 +44,7 @@ class WorkoutContentViewController: UIViewController, LTMorphingLabelDelegate {
 	}
 	
 	override func viewDidAppear(animated: Bool) {
-		if !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
+		if !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") && !NSProcessInfo.processInfo().arguments.contains("testing") {
 			Appodeal.showAd(AppodealShowStyle.BannerBottom, rootViewController: self)
 		}
 	}
@@ -77,27 +75,15 @@ class WorkoutContentViewController: UIViewController, LTMorphingLabelDelegate {
 			timeLeft.text = "0"
 		}
 		else {
-			circleChart.endArc = CGFloat(Float(exerciseDuration - time) / Float(exerciseDuration))
-			timeLeft.text = String(exerciseDuration - time)
+			if NSProcessInfo.processInfo().arguments.contains("testing") {
+				circleChart.endArc = 0.75
+				timeLeft.text = "28"
+			}
+			else {
+				circleChart.endArc = CGFloat(Float(exerciseDuration - time) / Float(exerciseDuration))
+				timeLeft.text = String(exerciseDuration - time)
+			}
 		}
-		
-	}
-	
-	func updateInfo() {
-//		time = 0
-//		timeLeft.text = String(exerciseDuration)
-//		circleChart.endArc = 1
-//		exerciseID = exerciseID + 1
-//		
-//		let exercises = NSUserDefaults.standardUserDefaults().dictionaryForKey("exercises")!
-//		let currentExercise = exercises["Item " + String(exerciseID)]!
-//		
-//		exerciseTitle.text = String(currentExercise["itemName"]!!)
-//		exerciseDescription.text = String(currentExercise["itemDescription"]!!)
-		
-		
-		
-//		exerciseImage.image = UIImage(named: String(currentExercise["itemImage"]!!))
 	}
 
 }

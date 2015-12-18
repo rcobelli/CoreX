@@ -101,6 +101,7 @@ class WorkoutManagerViewController: UIViewController {
 			format.dateFormat = "MM-dd-yyyy"
 			NSUserDefaults.standardUserDefaults().setBool(true, forKey: format.stringFromDate(today))
 			timer.invalidate()
+			
 			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:{
 				SweetAlert().showAlert("Workout Completed", subTitle: "Great job!", style: AlertStyle.Success)
 				if !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
@@ -115,14 +116,15 @@ class WorkoutManagerViewController: UIViewController {
 	}
 	
 	@IBAction func cancel(sender: AnyObject) {
-		self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:nil)
-		if !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
-			Appodeal.showAd(AppodealShowStyle.NonSkippableVideo, rootViewController: self)
-		}
-		else {
-			print("Ready for ad:" + String(Appodeal.isReadyForShowWithStyle(AppodealShowStyle.Interstitial)))
-			print("Ads IAP:" + String(NSUserDefaults.standardUserDefaults().boolForKey("removedAds")))
-		}
+		self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:{
+			if !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
+				Appodeal.showAd(AppodealShowStyle.NonSkippableVideo, rootViewController: self)
+			}
+			else {
+				print("Ready for ad:" + String(Appodeal.isReadyForShowWithStyle(AppodealShowStyle.Interstitial)))
+				print("Ads IAP:" + String(NSUserDefaults.standardUserDefaults().boolForKey("removedAds")))
+			}
+		})
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

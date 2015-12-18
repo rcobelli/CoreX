@@ -9,8 +9,9 @@
 import UIKit
 import Appodeal
 import StoreKit
+import MessageUI
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver  {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, MFMailComposeViewControllerDelegate  {
 
 	@IBOutlet weak var tableView: UITableView!
 	var workoutIDToSend = Int()
@@ -18,6 +19,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	var justShowedAd = Bool()
 	
 	@IBOutlet weak var removeAdsOutlet: UIButton!
+	@IBOutlet weak var submitNewWorkoutOutlet: UIButton!
+	@IBOutlet weak var restorePurchasesOutlet: UIButton!
 	
 	let productIdentifiers = Set(["com.rybel_llc.core_x.remove_ads", "com.rybel_llc.core_x.myrtl"])
 	var product: SKProduct?
@@ -28,6 +31,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		tableView.tableFooterView = UIView()
 		
 		requestProductData()
+		
+		removeAdsOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
+		submitNewWorkoutOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
+		restorePurchasesOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
 	}
 	
 	func requestProductData() {
@@ -141,7 +148,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	@IBAction func restorePurchases(sender: AnyObject) {
 		restorePurchases()
 	}
+
+	@IBAction func submitNewWorkout(sender: AnyObject) {
+		if MFMailComposeViewController.canSendMail() {
+			let picker = MFMailComposeViewController()
+			picker.mailComposeDelegate = self
+			picker.setSubject("New Workout Suggestion")
+			picker.setMessageBody("Let us know of a new workout you would like to see in the app!", isHTML: false)
+			
+			presentViewController(picker, animated: true, completion: nil)
+		}
+		else {
+			SweetAlert().showAlert("Can't Send Mail", subTitle: "Mail isn't working. Email us at rybelllc@gmail.com", style: AlertStyle.Error)
+		}
+	}
 	
+	func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+		dismissViewControllerAnimated(true, completion: nil)
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
@@ -151,12 +175,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	override func viewWillAppear(animated: Bool) {
 		if NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
 			removeAdsOutlet.enabled = false
+			removeAdsOutlet.alpha = 0.5
+		}
+		else {
+			removeAdsOutlet.enabled = true
+			removeAdsOutlet.alpha = 1
 		}
 		tableView.reloadData()
 	}
 	
 	override func viewDidAppear(animated: Bool) {
-		if !justShowedAd && Appodeal.isReadyForShowWithStyle(AppodealShowStyle.Interstitial) && !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
+		if !justShowedAd && Appodeal.isReadyForShowWithStyle(AppodealShowStyle.Interstitial) && !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") && !NSProcessInfo.processInfo().arguments.contains("testing") {
 			Appodeal.showAd(AppodealShowStyle.Interstitial, rootViewController: self)
 		}
 		else {
@@ -185,7 +214,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 		
 		if !NSUserDefaults.standardUserDefaults().boolForKey("workout" + String(indexPath.row)) {
-			cell.title.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+			cell.title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 			cell.backgroundImage.alpha = 0.25
 		}
 		
