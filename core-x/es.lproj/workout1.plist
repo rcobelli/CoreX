@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>workoutName</key>
+	<string>Myrtl</string>
+	<key>workoutDescription</key>
+	<string>Myrtl es una rutina de fuerza general que está diseñado para fortalecer el área de la cintura de la cadera</string>
+	<key>defaultRestDuration</key>
+	<integer>7</integer>
+	<key>defaultExerciseDuration</key>
+	<integer>20</integer>
+	<key>exercises</key>
+	<dict>
+		<key>Item 0</key>
+		<dict>
+			<key>itemName</key>
+			<string>Almejas (izquierda)</string>
+			<key>itemDescription</key>
+			<string>Acuéstese sobre su lado y doblar la pierna de arriba en la cadera para abrir sus piernas como una apertura de almeja para arriba</string>
+			<key>itemImage</key>
+			<string>workout1-0.png</string>
+		</dict>
+		<key>Item 1</key>
+		<dict>
+			<key>itemName</key>
+			<string>Almejas (derecha)</string>
+			<key>itemDescription</key>
+			<string>Acuéstese sobre su lado y doblar la pierna de arriba en la cadera para abrir sus piernas como una apertura de almeja para arriba</string>
+			<key>itemImage</key>
+			<string>workout1-1.png</string>
+		</dict>
+		<key>Item 2</key>
+		<dict>
+			<key>itemName</key>
+			<string>Elevación de la pierna lateral (izquierda)</string>
+			<key>itemDescription</key>
+			<string>Acuéstese sobre su lado izquierdo y la pierna de arriba a un ángulo de 45 grados alternando entre puntera arriba, dedo del pie hacia abajo, y neutral</string>
+			<key>itemImage</key>
+			<string>workout1-2.png</string>
+		</dict>
+		<key>Item 3</key>
+		<dict>
+			<key>itemName</key>
+			<string>Elevación de la pierna lateral (derecha)</string>
+			<key>itemDescription</key>
+			<string>Acuéstese sobre su lado izquierdo y la pierna de arriba a un ángulo de 45 grados alternando entre puntera arriba, dedo del pie hacia abajo, y neutral</string>
+			<key>itemImage</key>
+			<string>workout1-3.png</string>
+		</dict>
+		<key>Item 4</key>
+		<dict>
+			<key>itemName</key>
+			<string>Burro retrocesos (izquierda)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y patear la pierna de atrás en torno a la espalda</string>
+			<key>itemImage</key>
+			<string>workout1-4.png</string>
+		</dict>
+		<key>Item 5</key>
+		<dict>
+			<key>itemName</key>
+			<string>Burro retrocesos (derecha)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y patear la pierna de atrás en torno a la espalda</string>
+			<key>itemImage</key>
+			<string>workout1-5.png</string>
+		</dict>
+		<key>Item 6</key>
+		<dict>
+			<key>itemName</key>
+			<string>Burro azotes (izquierda)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y patear la pierna hacia un lado</string>
+			<key>itemImage</key>
+			<string>workout1-6.png</string>
+		</dict>
+		<key>Item 7</key>
+		<dict>
+			<key>itemName</key>
+			<string>Burro azotes (derecha)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y patear la pierna hacia un lado</string>
+			<key>itemImage</key>
+			<string>workout1-7.png</string>
+		</dict>
+		<key>Item 8</key>
+		<dict>
+			<key>itemName</key>
+			<string>Hidrantes (izquierda)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y levanta la pierna para arriba como un perro que a una boca de incendios</string>
+			<key>itemImage</key>
+			<string>workout1-8.png</string>
+		</dict>
+		<key>Item 9</key>
+		<dict>
+			<key>itemName</key>
+			<string>Hidrantes (derecha)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y levanta la pierna para arriba como un perro que a una boca de incendios</string>
+			<key>itemImage</key>
+			<string>workout1-9.png</string>
+		</dict>
+		<key>Item 10</key>
+		<dict>
+			<key>itemName</key>
+			<string>Círculos rodilla hacia adelante (a la izquierda)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y mover su rodilla en tan grande un círculo como se puede hacer</string>
+			<key>itemImage</key>
+			<string>workout1-10.png</string>
+		</dict>
+		<key>Item 11</key>
+		<dict>
+			<key>itemName</key>
+			<string>Círculos rodilla hacia adelante (a la derecha)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y mover su rodilla en tan grande un círculo como se puede hacer</string>
+			<key>itemImage</key>
+			<string>workout1-11.png</string>
+		</dict>
+		<key>Item 12</key>
+		<dict>
+			<key>itemName</key>
+			<string>Círculos de la rodilla hacia atrás (izquierda)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y mover su rodilla en tan grande un círculo como se puede hacer</string>
+			<key>itemImage</key>
+			<string>workout1-12.png</string>
+		</dict>
+		<key>Item 13</key>
+		<dict>
+			<key>itemName</key>
+			<string>Círculos de la rodilla hacia atrás (a la derecha)</string>
+			<key>itemDescription</key>
+			<string>Inicio en los cuatro y mover su rodilla en tan grande un círculo como se puede hacer</string>
+			<key>itemImage</key>
+			<string>workout1-13.png</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

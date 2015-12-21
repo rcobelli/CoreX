@@ -69,7 +69,7 @@ class WorkoutManagerViewController: UIViewController {
 		
 		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "update", userInfo: nil, repeats: true)
 		
-		self.navigationItem.title = "Exercise " + String(exercise+1) + "/" + String(exercises.count)
+		self.navigationItem.title = NSLocalizedString("Exercise ", comment: "") + String(exercise+1) + "/" + String(exercises.count)
 		NSUserDefaults.standardUserDefaults().setInteger(exercise, forKey: "workoutID")
 		NSNotificationCenter.defaultCenter().postNotificationName("updateInfo", object: nil)
 	}
@@ -80,13 +80,13 @@ class WorkoutManagerViewController: UIViewController {
 			NSNotificationCenter.defaultCenter().postNotificationName("updateTime", object: nil)
 		}
 		else if count == exerciseDuration + 1 && exercise < exercises.count-1 {
-			self.navigationItem.title = "REST"
+			self.navigationItem.title = NSLocalizedString("REST", comment: "")
 			exercise = exercise + 1
 			NSNotificationCenter.defaultCenter().postNotificationName("rest", object: nil)
 			AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 		}
 		else if count < exerciseDuration + restDuration && exercise < exercises.count-1 {
-			self.navigationItem.title = "REST"
+			self.navigationItem.title = NSLocalizedString("REST", comment: "")
 		}
 		else if (exercise < exercises.count-1) {
 			count = 0

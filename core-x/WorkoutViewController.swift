@@ -52,23 +52,23 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
 		self.view.endEditing(true)
 		
 		guard let exerciseDurationUnwrapped = exerciseDuration.text else {
-			SweetAlert().showAlert("All Fields Required", subTitle: "You must provide an exercise duration bigger than 0", style: AlertStyle.Error)
+			SweetAlert().showAlert(NSLocalizedString("All Fields Required", comment: ""), subTitle: NSLocalizedString("You must provide an exercise duration bigger than 0", comment: ""), style: AlertStyle.Error)
 			return
 		}
 		guard let restDurationUnwrapped = restDuration.text else {
-			SweetAlert().showAlert("All Fields Required", subTitle: "You must provide a rest duration greater than or equal to 0", style: AlertStyle.Error)
+			SweetAlert().showAlert(NSLocalizedString("All Fields Required", comment: ""), subTitle: NSLocalizedString("You must provide a rest duration greater than or equal to 0", comment: ""), style: AlertStyle.Error)
 			return
 		}
 		guard Int(exerciseDurationUnwrapped) > 0 else {
-			SweetAlert().showAlert("All Fields Required", subTitle: "You must provide an exercise duration bigger than 0", style: AlertStyle.Error)
+			SweetAlert().showAlert(NSLocalizedString("All Fields Required", comment: ""), subTitle: NSLocalizedString("You must provide an exercise duration bigger than 0", comment: ""), style: AlertStyle.Error)
 			return
 		}
 		guard Int(restDurationUnwrapped) >= 0 else {
-			SweetAlert().showAlert("All Fields Required", subTitle: "You must provide a rest duration greater than or equal to 0", style: AlertStyle.Error)
+			SweetAlert().showAlert(NSLocalizedString("All Fields Required", comment: ""), subTitle: NSLocalizedString("You must provide a rest duration greater than or equal to 0", comment: ""), style: AlertStyle.Error)
 			return
 		}
 		if !NSUserDefaults.standardUserDefaults().boolForKey("firstWorkout") && !NSProcessInfo.processInfo().arguments.contains("testing") {
-			SweetAlert().showAlert("See Exercise Demonstration", subTitle: "Tap and hold the screen to see an image demonstrating the exercise", style: AlertStyle.None, buttonTitle: "Begin Workout", action: {(isOtherButton) -> Void in
+			SweetAlert().showAlert(NSLocalizedString("See Exercise Demonstration", comment: ""), subTitle: NSLocalizedString("Tap and hold the screen to see an image demonstrating the exercise", comment: ""), style: AlertStyle.None, buttonTitle: NSLocalizedString("Begin Workout", comment: ""), action: {(isOtherButton) -> Void in
 				self.performSegueWithIdentifier("startWorkout", sender: self)
 				NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstWorkout")
 			})

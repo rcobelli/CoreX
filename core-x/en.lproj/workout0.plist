@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>workoutName</key>
+	<string>Core X</string>
+	<key>workoutDescription</key>
+	<string>Core X is a simple routine - 10 exercises, 30 seconds each exercises; 5 minutes total. While it is short and sweet, it is also very challenging.</string>
+	<key>defaultRestDuration</key>
+	<integer>5</integer>
+	<key>defaultExerciseDuration</key>
+	<integer>30</integer>
+	<key>exercises</key>
+	<dict>
+		<key>Item 0</key>
+		<dict>
+			<key>itemName</key>
+			<string>Running V-Sits</string>
+			<key>itemDescription</key>
+			<string>Sit in a V formation and move your arms in a sprinting motion</string>
+			<key>itemImage</key>
+			<string>workout0-0.png</string>
+		</dict>
+		<key>Item 1</key>
+		<dict>
+			<key>itemName</key>
+			<string>Land Swimming</string>
+			<key>itemDescription</key>
+			<string>Move your arms &amp; legs as if you are trying to swim on land while on your stomach</string>
+			<key>itemImage</key>
+			<string>workout0-1.png</string>
+		</dict>
+		<key>Item 2</key>
+		<dict>
+			<key>itemName</key>
+			<string>Flutter Kicks</string>
+			<key>itemDescription</key>
+			<string>Sit in a V formation and move your legs up and down</string>
+			<key>itemImage</key>
+			<string>workout0-2.png</string>
+		</dict>
+		<key>Item 3</key>
+		<dict>
+			<key>itemName</key>
+			<string>Side Plank Leg Lifts (left)</string>
+			<key>itemDescription</key>
+			<string>While doing a side plank, do leg lifts</string>
+			<key>itemImage</key>
+			<string>workout0-3.png</string>
+		</dict>
+		<key>Item 4</key>
+		<dict>
+			<key>itemName</key>
+			<string>Supine Plank Leg Lifts</string>
+			<key>itemDescription</key>
+			<string>While doing a supine (on your back) plank, do leg lifts</string>
+			<key>itemImage</key>
+			<string>workout0-4.png</string>
+		</dict>
+		<key>Item 5</key>
+		<dict>
+			<key>itemName</key>
+			<string>Side Plank Leg Lifts (right)</string>
+			<key>itemDescription</key>
+			<string>While doing a side plank, do leg lifts. This time with the other side</string>
+			<key>itemImage</key>
+			<string>workout0-5.png</string>
+		</dict>
+		<key>Item 6</key>
+		<dict>
+			<key>itemName</key>
+			<string>Superman</string>
+			<key>itemDescription</key>
+			<string>Lay on your stomach and left your arms/legs up for 2 seconds, then rest for 1. Rinse and repeat</string>
+			<key>itemImage</key>
+			<string>workout0-6.png</string>
+		</dict>
+		<key>Item 7</key>
+		<dict>
+			<key>itemName</key>
+			<string>Push Up To Side Plank</string>
+			<key>itemDescription</key>
+			<string>Do pushups, but when you come up, pivot to a side plank switching sides every time</string>
+			<key>itemImage</key>
+			<string>workout0-7.png</string>
+		</dict>
+		<key>Item 8</key>
+		<dict>
+			<key>itemName</key>
+			<string>Scissor Kicks</string>
+			<key>itemDescription</key>
+			<string>Sit in a V formation and move your legs side to side</string>
+			<key>itemImage</key>
+			<string>workout0-8.png</string>
+		</dict>
+		<key>Item 9</key>
+		<dict>
+			<key>itemName</key>
+			<string>Rockies</string>
+			<key>itemDescription</key>
+			<string>Clap pushups</string>
+			<key>itemImage</key>
+			<string>workout0-9.png</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

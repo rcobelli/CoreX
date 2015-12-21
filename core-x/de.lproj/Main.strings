@@ -1,0 +1,45 @@
+/* Class = "UILabel"; text = "Exercise Name"; ObjectID = "0Rj-oD-Zgn"; */
+"0Rj-oD-Zgn.text" = "Übung Name";
+
+/* Class = "UITextField"; placeholder = "Rest Duration (sec)"; ObjectID = "0cf-RI-aXF"; */
+"0cf-RI-aXF.placeholder" = "Ruhe Dauer (sek)";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchases"; ObjectID = "1bH-4q-0K9"; */
+"1bH-4q-0K9.normalTitle" = "Wiederherstellen Käufe";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "Ej6-TC-eWk"; */
+"Ej6-TC-eWk.normalTitle" = "Absagen";
+
+/* Class = "UILabel"; text = "Exercise description"; ObjectID = "KGs-4K-aec"; */
+"KGs-4K-aec.text" = "Übungsbeschreibung";
+
+/* Class = "UIButton"; normalTitle = "Remove Ads"; ObjectID = "LuZ-Jf-DJv"; */
+"LuZ-Jf-DJv.normalTitle" = "Anzeigen entfernen";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "OTy-Iu-VjK"; */
+"OTy-Iu-VjK.text" = "1";
+
+/* Class = "UILabel"; text = "Previous 7 Days:"; ObjectID = "RLu-Ts-Umv"; */
+"RLu-Ts-Umv.text" = "Zurück 7 Tage:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Tuh-PA-9pu"; */
+"Tuh-PA-9pu.text" = "Label";
+
+/* Class = "UILabel"; text = "Core X"; ObjectID = "Y9k-Xd-HhX"; */
+"Y9k-Xd-HhX.text" = "Core X";
+
+/* Class = "UIButton"; normalTitle = "Submit New Workout"; ObjectID = "b2A-Rr-DNR"; */
+"b2A-Rr-DNR.normalTitle" = "Neues Training";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "pen-eg-w96"; */
+"pen-eg-w96.normalTitle" = "Anfang";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "qA7-Fx-pqj"; */
+"qA7-Fx-pqj.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UINavigationItem"; title = "Exercise 1/10"; ObjectID = "qtI-Fx-GiE"; */
+"qtI-Fx-GiE.title" = "Übung 1/10";
+
+/* Class = "UITextField"; placeholder = "Exercise Duration (sec)"; ObjectID = "vay-6i-3WT"; */
+"vay-6i-3WT.placeholder" = "Trainingsdauer (sek)";
+

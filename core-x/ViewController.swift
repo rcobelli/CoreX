@@ -44,8 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			request.start()
 		}
 		else {
-			let alert = UIAlertController(title: "In-App Purchases Not Enabled", message: "Please enable In App Purchase in Settings", preferredStyle: UIAlertControllerStyle.Alert)
-			alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: { alertAction in
+			let alert = UIAlertController(title: NSLocalizedString("In-App Purchases Not Enabled", comment: ""), message: NSLocalizedString("Please enable In App Purchase in Settings", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+			alert.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.Default, handler: { alertAction in
 				alert.dismissViewControllerAnimated(true, completion: nil)
 				
 				let url: NSURL? = NSURL(string: UIApplicationOpenSettingsURLString)
@@ -135,7 +135,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			deliverProduct(transaction.payment.productIdentifier)
 		}
 		
-		let alert = UIAlertView(title: "Thank You", message: "Your purchase(s) were restored.", delegate: nil, cancelButtonTitle: "OK")
+		let alert = UIAlertView(title: NSLocalizedString("Thank You", comment: ""), message: NSLocalizedString("Your purchase(s) were restored.", comment: ""), delegate: nil, cancelButtonTitle: "Ok")
 		alert.show()
 	}
 	
@@ -159,7 +159,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			presentViewController(picker, animated: true, completion: nil)
 		}
 		else {
-			SweetAlert().showAlert("Can't Send Mail", subTitle: "Mail isn't working. Email us at rybelllc@gmail.com", style: AlertStyle.Error)
+			SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("Mail isn't working. Email us at rybelllc@gmail.com", comment: ""), style: AlertStyle.Error)
 		}
 	}
 	
