@@ -4,32 +4,26 @@
 /* Class = "UITextField"; placeholder = "Rest Duration (sec)"; ObjectID = "0cf-RI-aXF"; */
 "0cf-RI-aXF.placeholder" = "reste Durée (deu)";
 
-/* Class = "UIButton"; normalTitle = "Restore Purchases"; ObjectID = "1bH-4q-0K9"; */
-"1bH-4q-0K9.normalTitle" = "Reestore achats";
-
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "Ej6-TC-eWk"; */
 "Ej6-TC-eWk.normalTitle" = "Annuler";
 
 /* Class = "UILabel"; text = "Exercise description"; ObjectID = "KGs-4K-aec"; */
 "KGs-4K-aec.text" = "Description de l'exercice";
 
-/* Class = "UIButton"; normalTitle = "Remove Ads"; ObjectID = "LuZ-Jf-DJv"; */
-"LuZ-Jf-DJv.normalTitle" = "Supprimez la pub";
-
 /* Class = "UILabel"; text = "1"; ObjectID = "OTy-Iu-VjK"; */
 "OTy-Iu-VjK.text" = "1";
-
-/* Class = "UILabel"; text = "Previous 7 Days:"; ObjectID = "RLu-Ts-Umv"; */
-"RLu-Ts-Umv.text" = "7 jours précédents:";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "Tuh-PA-9pu"; */
 "Tuh-PA-9pu.text" = "Label";
 
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "U0d-8c-FnW"; */
+"U0d-8c-FnW.title" = "Paramètres";
+
 /* Class = "UILabel"; text = "Core X"; ObjectID = "Y9k-Xd-HhX"; */
 "Y9k-Xd-HhX.text" = "Core X";
 
-/* Class = "UIButton"; normalTitle = "Submit New Workout"; ObjectID = "b2A-Rr-DNR"; */
-"b2A-Rr-DNR.normalTitle" = "Proposez nouvelle séance d'entraînement";
+/* Class = "UILabel"; text = "Remove Ads"; ObjectID = "hH2-vs-hMe"; */
+"hH2-vs-hMe.text" = "Enlève les publicités";
 
 /* Class = "UIButton"; normalTitle = "Start"; ObjectID = "pen-eg-w96"; */
 "pen-eg-w96.normalTitle" = "Démarrer";
@@ -42,4 +36,7 @@
 
 /* Class = "UITextField"; placeholder = "Exercise Duration (sec)"; ObjectID = "vay-6i-3WT"; */
 "vay-6i-3WT.placeholder" = "Durée de l'exercice (deu)";
+
+/* Class = "UIBarButtonItem"; title = "Pause"; ObjectID = "xqS-6e-TMQ"; */
+"xqS-6e-TMQ.title" = "Pause";
 

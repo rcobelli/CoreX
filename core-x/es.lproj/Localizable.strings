@@ -1,4 +1,7 @@
 /* No comment provided by engineer. */
+" workout using Core-X (http://appstore.com/corex)!" = "entrenamiento utilizando Core-X (http://appstore.com/corex)!";
+
+/* No comment provided by engineer. */
 "All Fields Required" = "Todos los campos requeridos";
 
 /* No comment provided by engineer. */
@@ -8,13 +11,40 @@
 "Can't Send Mail" = "No se puede enviar correo";
 
 /* No comment provided by engineer. */
+"Done" = "Hecho";
+
+/* No comment provided by engineer. */
+"Exercise" = "Ejercicio";
+
+/* No comment provided by engineer. */
 "Exercise " = "Ejercicio";
+
+/* No comment provided by engineer. */
+"Feedback:" = "Retroalimentación:";
+
+/* No comment provided by engineer. */
+"Great job!" = "¡Buen trabajo!";
+
+/* No comment provided by engineer. */
+"I just completed the " = "Me acaba de terminar el";
+
+/* No comment provided by engineer. */
+"I like it" = "Eso me gusta";
 
 /* No comment provided by engineer. */
 "In-App Purchases Not Enabled" = "In-App compras Not Enabled";
 
 /* No comment provided by engineer. */
+"It Stinks" = "Apesta";
+
+/* No comment provided by engineer. */
+"Leg-Day" = "Día de la pierna";
+
+/* No comment provided by engineer. */
 "Mail isn't working. Email us at rybelllc@gmail.com" = "El correo no está funcionando. Envíanos un email a rybelllc@gmail.com";
+
+/* No comment provided by engineer. */
+"Pause" = "Pausa";
 
 /* No comment provided by engineer. */
 "Please enable In App Purchase in Settings" = "Por favor, activa Compras In-App en Configuración";
@@ -29,10 +59,31 @@
 "Settings" = "Ajustes";
 
 /* No comment provided by engineer. */
+"Share with Friends" = "Compartir con amigos";
+
+/* No comment provided by engineer. */
 "Tap and hold the screen to see an image demonstrating the exercise" = "Toque y mantenga pulsada la pantalla para ver una imagen que demuestre el ejercicio";
 
 /* No comment provided by engineer. */
+"Tell us what you really think about Core-X" = "Díganos lo que piensa de Core-X";
+
+/* No comment provided by engineer. */
 "Thank You" = "Gracias";
+
+/* No comment provided by engineer. */
+"Unpause" = "Reanudar";
+
+/* No comment provided by engineer. */
+"Version " = "Versión";
+
+/* No comment provided by engineer. */
+"What do you think of Core-X?" = "¿Qué piensas de Core-X?";
+
+/* No comment provided by engineer. */
+"Workout Completed!" = "Entrenamiento completado!";
+
+/* No comment provided by engineer. */
+"Workout Paused" = "Entrenamiento interrumpido";
 
 /* No comment provided by engineer. */
 "You must provide a rest duration greater than or equal to 0" = "Usted debe proporcionar una duración resto mayor o igual a 0";
@@ -42,7 +93,4 @@
 
 /* No comment provided by engineer. */
 "Your purchase(s) were restored." = "Se restauraron sus compras.";
-
-/* No comment provided by engineer. */
-"Leg-Day" = "Día de la pierna";
 
