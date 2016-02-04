@@ -10,6 +10,7 @@ This app not only has Core X, but we are adding new workouts in every update and
 
 -Core X
 -Myrtl
+-Leg-Day
 
 and many more to come!
 

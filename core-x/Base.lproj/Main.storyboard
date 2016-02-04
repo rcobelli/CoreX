@@ -197,9 +197,8 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pen-eg-w96">
-                                <rect key="frame" x="257" y="235" width="87" height="43"/>
+                                <rect key="frame" x="20" y="235" width="560" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="87" id="dfQ-cz-PeV"/>
                                     <constraint firstAttribute="height" constant="43" id="hNk-CG-oJO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -241,10 +240,9 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ej6-TC-eWk">
-                                <rect key="frame" x="250" y="570" width="100" height="30"/>
+                                <rect key="frame" x="20" y="570" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aT0-9b-dKj"/>
-                                    <constraint firstAttribute="width" constant="60" id="kTQ-0c-cY6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <state key="normal" title="Cancel">
@@ -270,11 +268,15 @@
                             <constraint firstItem="vay-6i-3WT" firstAttribute="top" secondItem="Tuh-PA-9pu" secondAttribute="bottom" constant="8" id="Jax-b2-EJt"/>
                             <constraint firstItem="0cf-RI-aXF" firstAttribute="top" secondItem="vay-6i-3WT" secondAttribute="bottom" constant="8" id="OW3-ur-U7Z"/>
                             <constraint firstItem="pen-eg-w96" firstAttribute="top" secondItem="0cf-RI-aXF" secondAttribute="bottom" constant="8" id="SKq-Ad-atS"/>
+                            <constraint firstItem="Ej6-TC-eWk" firstAttribute="leading" secondItem="kK8-Bz-2my" secondAttribute="leadingMargin" id="W3b-Y1-LkE"/>
                             <constraint firstItem="Tuh-PA-9pu" firstAttribute="trailing" secondItem="kK8-Bz-2my" secondAttribute="trailingMargin" id="XrE-1J-aHd"/>
+                            <constraint firstItem="pen-eg-w96" firstAttribute="leading" secondItem="kK8-Bz-2my" secondAttribute="leadingMargin" id="YGO-7O-Moc"/>
                             <constraint firstItem="0cf-RI-aXF" firstAttribute="trailing" secondItem="kK8-Bz-2my" secondAttribute="trailingMargin" id="ZLl-zH-7PL"/>
+                            <constraint firstItem="Ej6-TC-eWk" firstAttribute="trailing" secondItem="kK8-Bz-2my" secondAttribute="trailingMargin" id="aaU-iK-vyx"/>
                             <constraint firstItem="VWE-FC-CPo" firstAttribute="top" secondItem="Ej6-TC-eWk" secondAttribute="bottom" id="dkS-Kd-oXR"/>
                             <constraint firstItem="qA7-Fx-pqj" firstAttribute="top" secondItem="pen-eg-w96" secondAttribute="bottom" constant="8" id="fyk-az-Klf"/>
                             <constraint firstItem="vay-6i-3WT" firstAttribute="trailing" secondItem="kK8-Bz-2my" secondAttribute="trailingMargin" id="igJ-uF-nw4"/>
+                            <constraint firstItem="pen-eg-w96" firstAttribute="trailing" secondItem="kK8-Bz-2my" secondAttribute="trailingMargin" id="t9o-ao-qkh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qA7-Fx-pqj" secondAttribute="trailing" id="ug6-bE-Cbl"/>
                             <constraint firstItem="Tuh-PA-9pu" firstAttribute="top" secondItem="Q0k-fQ-sxJ" secondAttribute="bottom" id="vay-sb-kLf"/>
                         </constraints>

@@ -1,0 +1,3 @@
+Miglioramenti dell'interfaccia utente minori
+Aggiunta la possibilità di mettere in pausa un allenamento
+routine di allenamento Aggiunto Leg-Day

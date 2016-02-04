@@ -1,0 +1,3 @@
+Améliorations de l'interface utilisateur mineures
+Ajout de la possibilité de faire une pause d'une séance d'entraînement
+Ajouté Leg-Day routine d'entraînement

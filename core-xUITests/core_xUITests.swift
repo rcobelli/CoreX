@@ -15,7 +15,8 @@ class core_xUITests: XCTestCase {
 		
 		let app = XCUIApplication()
 		setupSnapshot(app)
-		app.launchArguments = [ "testing" ]
+		app.launchArguments += [ "testing" ]
+		continueAfterFailure = false
 		app.launch()
 	}
     
@@ -27,9 +28,9 @@ class core_xUITests: XCTestCase {
     func testExample() {
 		let app = XCUIApplication()
 		snapshot("1-homeScreen")
-		app.tables.staticTexts["Core X"].tap()
+		app.tables.cells.elementBoundByIndex(0).tap()
 		snapshot("2-workoutSetup")
-		app.buttons["Start"].tap()
+		app.buttons.elementBoundByIndex(0).tap()
 		sleep(12/5)
 		snapshot("0-midWorkout")
     }

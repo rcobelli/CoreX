@@ -1,0 +1,3 @@
+Mejoras en la interfaz de usuario de menor importancia
+Añadida la capacidad para hacer una pausa en un entrenamiento
+Agregado rutina de ejercicios de piernas en el día
