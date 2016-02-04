@@ -10,31 +10,43 @@ import UIKit
 import Appodeal
 import StoreKit
 import MessageUI
+import AVFoundation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, MFMailComposeViewControllerDelegate  {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate  {
 
 	@IBOutlet weak var tableView: UITableView!
 	var workoutIDToSend = Int()
 	
 	var justShowedAd = Bool()
 	
-	@IBOutlet weak var removeAdsOutlet: UIButton!
-	@IBOutlet weak var submitNewWorkoutOutlet: UIButton!
-	@IBOutlet weak var restorePurchasesOutlet: UIButton!
-	
-	let productIdentifiers = Set(["com.rybel_llc.core_x.remove_ads", "com.rybel_llc.core_x.myrtl"])
+	let productIdentifiers = Set(["com.rybel_llc.core_x.remove_ads", "com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day"])
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.tableFooterView = UIView()
+		tableView.delegate = self
+		tableView.dataSource = self
 		
+		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
 		requestProductData()
 		
-		removeAdsOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
-		submitNewWorkoutOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
-		restorePurchasesOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMenu", name: "showMenu", object: nil)
+	}
+	
+	
+	
+	func showMenu() {
+		let textToShare = NSLocalizedString("I just completed the ", comment: "") + NSUserDefaults.standardUserDefaults().stringForKey("workoutName")! + NSLocalizedString(" workout using Core-X (http://appstore.com/corex)!", comment: "")
+		
+		let workoutImageNamed = UIImage(named: "core-x")!
+	
+			let objectsToShare = [workoutImageNamed, textToShare]
+			let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+		
+		
+			presentViewController(activityVC, animated: true, completion: nil)
 	}
 	
 	func requestProductData() {
@@ -112,18 +124,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func deliverProduct(identifier: String) {
-		print(identifier)
+		print("Identifier: " + identifier)
 		if identifier == "com.rybel_llc.core_x.myrtl" {
 			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout1")
 		}
 		else if identifier == "com.rybel_llc.core_x.remove_ads" {
 			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "removedAds")
 		}
+		else if identifier == "com.rybel_llc.core_x.leg_day" {
+			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout2")
+		}
+		
+		NSUserDefaults.standardUserDefaults().synchronize()
+		viewWillAppear(true)
 	}
 	
 	func restorePurchases() {
 		print("Restore Purchases")
-		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
 		SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
 		tableView.reloadData()
 	}
@@ -135,37 +152,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			deliverProduct(transaction.payment.productIdentifier)
 		}
 		
-		let alert = UIAlertView(title: NSLocalizedString("Thank You", comment: ""), message: NSLocalizedString("Your purchase(s) were restored.", comment: ""), delegate: nil, cancelButtonTitle: "Ok")
-		alert.show()
+		SweetAlert().showAlert(NSLocalizedString("Thank You", comment: ""), subTitle: NSLocalizedString("Your purchase(s) were restored.", comment: ""), style: AlertStyle.Success)
 	}
 	
-	
-	@IBAction func removeAds(sender: AnyObject) {
-		let index = Array(productIdentifiers).indexOf("com.rybel_llc.core_x.remove_ads")
-		buyProduct(index!)
-	}
-	
-	@IBAction func restorePurchases(sender: AnyObject) {
-		restorePurchases()
-	}
-
-	@IBAction func submitNewWorkout(sender: AnyObject) {
-		if MFMailComposeViewController.canSendMail() {
-			let picker = MFMailComposeViewController()
-			picker.mailComposeDelegate = self
-			picker.setSubject("New Workout Suggestion")
-			picker.setMessageBody("Let us know of a new workout you would like to see in the app!", isHTML: false)
-			
-			presentViewController(picker, animated: true, completion: nil)
-		}
-		else {
-			SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("Mail isn't working. Email us at rybelllc@gmail.com", comment: ""), style: AlertStyle.Error)
-		}
-	}
-	
-	func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-		dismissViewControllerAnimated(true, completion: nil)
-	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
@@ -173,14 +162,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	override func viewWillAppear(animated: Bool) {
-		if NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
-			removeAdsOutlet.enabled = false
-			removeAdsOutlet.alpha = 0.5
-		}
-		else {
-			removeAdsOutlet.enabled = true
-			removeAdsOutlet.alpha = 1
-		}
 		tableView.reloadData()
 	}
 	
@@ -193,6 +174,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			print("Ads IAP:" + String(NSUserDefaults.standardUserDefaults().boolForKey("removedAds")))
 		}
 		justShowedAd = !justShowedAd
+		
 	}
 
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -202,20 +184,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		case 0:
 			cell.title.text = "Core X"
 			cell.backgroundImage.image = UIImage(named: "core-x")
-			cell.backgroundColor = UIColor(red: 0.776, green: 0.745, blue: 0.655, alpha: 1.00)
 			break
 		case 1:
 			cell.title.text = "Myrtl"
 			cell.backgroundImage.image = UIImage(named: "myrtl")
-			cell.backgroundColor = UIColor(red: 0.776, green: 0.745, blue: 0.655, alpha: 1.00)
+			break
+		case 2:
+			cell.title.text = NSLocalizedString("Leg-Day", comment: "")
+			cell.backgroundImage.image = UIImage(named: "leg-day")
+			
 			break
 		default:
 			break
 		}
 		
+		cell.backgroundColor = UIColor(red: 0.776, green: 0.745, blue: 0.655, alpha: 1.00)
+		
 		if !NSUserDefaults.standardUserDefaults().boolForKey("workout" + String(indexPath.row)) {
 			cell.title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 			cell.backgroundImage.alpha = 0.25
+			print("Cell \(indexPath.row) not purchased")
+		}
+		else {
+			cell.title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+			cell.backgroundImage.alpha = 1
+			print("Cell \(indexPath.row) purchased")
 		}
 		
 		return cell
@@ -228,8 +221,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		else {
 			switch indexPath.row {
 			case 1:
-				let index = Array(productIdentifiers).indexOf("com.rybel_llc.core_x.myrtl")
-				buyProduct(index!)
+				buyProduct(1)
+				break
+			case 2:
+				buyProduct(0)
 				break
 			default:
 				break
@@ -244,7 +239,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		return 3
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

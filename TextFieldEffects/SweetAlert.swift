@@ -20,7 +20,7 @@ public class SweetAlert: UIViewController {
     let kHeightMargin: CGFloat = 10.0
     let KTopMargin: CGFloat = 20.0
     let kWidthMargin: CGFloat = 10.0
-    let kAnimatedViewHeight: CGFloat = 120.0
+    let kAnimatedViewHeight: CGFloat = 70.0
     let kMaxHeight: CGFloat = 300.0
     var kContentWidth: CGFloat = 300.0
     let kButtonHeight: CGFloat = 35.0
@@ -45,9 +45,6 @@ public class SweetAlert: UIViewController {
         
         //Retaining itself strongly so can exist without strong refrence
         strongSelf = self
-		
-		
-		titleLabel.adjustsFontSizeToFitWidth = true
     }
 
     required public init(coder aDecoder: NSCoder) {

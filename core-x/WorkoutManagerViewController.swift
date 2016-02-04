@@ -17,18 +17,28 @@ class WorkoutManagerViewController: UIViewController {
 	var restDuration = Int()
 	
 	var timer = NSTimer()
+	var timerRunning = true;
 	var count = 0
 	var exercise = 0
 	
 	var alert = SweetAlert()
 	
 	var exercises = NSDictionary()
-
+	let alertView = SCLAlertView()
+	var workoutName = String()
+	
+	@IBOutlet weak var pauseButton: UIBarButtonItem!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		alertView.showCloseButton = false
+		alertView.addButton(NSLocalizedString("Unpause", comment: ""), target:self, selector:Selector("pause:"))
+		
+		
 		if let path = NSBundle.mainBundle().pathForResource("workout" + String(workoutID), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
 			exercises = dict["exercises"] as! NSDictionary
+			workoutName = dict["workoutName"] as! String
 		}
 		else {
 			print("Could Not Load .plist")
@@ -79,40 +89,79 @@ class WorkoutManagerViewController: UIViewController {
 		if count <= exerciseDuration {
 			NSNotificationCenter.defaultCenter().postNotificationName("updateTime", object: nil)
 		}
-		else if count == exerciseDuration + 1 && exercise < exercises.count-1 {
+		else if count == exerciseDuration + 1 && exercise < exercises.count {
 			self.navigationItem.title = NSLocalizedString("REST", comment: "")
 			exercise = exercise + 1
-			NSNotificationCenter.defaultCenter().postNotificationName("rest", object: nil)
-			AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+			if exercise != exercises.count {
+				NSNotificationCenter.defaultCenter().postNotificationName("rest", object: nil)
+			}
+			else {
+				endWorkout()
+			}
+			playSound()
 		}
-		else if count < exerciseDuration + restDuration && exercise < exercises.count-1 {
+		else if count < exerciseDuration + restDuration {
 			self.navigationItem.title = NSLocalizedString("REST", comment: "")
 		}
-		else if (exercise < exercises.count-1) {
+		else if (exercise < exercises.count) {
 			count = 0
-			self.navigationItem.title = "Exercise " + String(exercise+1) + "/" + String(exercises.count)
+			self.navigationItem.title = NSLocalizedString("Exercise", comment: "") + " " + String(exercise+1) + "/" + String(exercises.count)
 			NSNotificationCenter.defaultCenter().postNotificationName("updateInfo", object: nil)
 			NSNotificationCenter.defaultCenter().postNotificationName("updateTime", object: nil)
-			AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+			playSound()
 		}
 		else {
-			let today: NSDate = NSDate()
-			let format = NSDateFormatter()
-			format.dateFormat = "MM-dd-yyyy"
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: format.stringFromDate(today))
-			timer.invalidate()
-			
+			endWorkout()
+		}
+	}
+	
+	func playSound() {
+		AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+		let systemSoundID: SystemSoundID = 1052
+		AudioServicesPlaySystemSound (systemSoundID)
+	}
+	
+	func endWorkout() {
+		let today: NSDate = NSDate()
+		let format = NSDateFormatter()
+		format.dateFormat = "MM-dd-yyyy"
+		NSUserDefaults.standardUserDefaults().setBool(true, forKey: format.stringFromDate(today))
+		timer.invalidate()
+		
+		let alertView = SCLAlertView()
+		alertView.showCloseButton = false
+		alertView.addButton(NSLocalizedString("Share with Friends", comment: "")) {
+			NSUserDefaults.standardUserDefaults().setObject(self.workoutName, forKey: "workoutName")
+			NSUserDefaults.standardUserDefaults().synchronize()
 			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:{
-				SweetAlert().showAlert("Workout Completed", subTitle: "Great job!", style: AlertStyle.Success)
-				if !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
-					Appodeal.showAd(AppodealShowStyle.NonSkippableVideo, rootViewController: self)
-				}
-				else {
-					print("Ready for ad:" + String(Appodeal.isReadyForShowWithStyle(AppodealShowStyle.Interstitial)))
-					print("Ads IAP:" + String(NSUserDefaults.standardUserDefaults().boolForKey("removedAds")))
-				}
+				NSNotificationCenter.defaultCenter().postNotificationName("showMenu", object: nil)
 			})
 		}
+		alertView.addButton(NSLocalizedString("Done", comment: "")) {
+			if !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
+				Appodeal.showAd(AppodealShowStyle.NonSkippableVideo, rootViewController: self)
+			}
+			else {
+				print("Ready for ad:" + String(Appodeal.isReadyForShowWithStyle(AppodealShowStyle.Interstitial)))
+				print("Ads IAP:" + String(NSUserDefaults.standardUserDefaults().boolForKey("removedAds")))
+			}
+			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:nil)
+		}
+		alertView.showSuccess(NSLocalizedString("Workout Completed!", comment: ""), subTitle: NSLocalizedString("Great job!", comment: ""))
+		
+	}
+	
+	@IBAction func pause(sender: AnyObject) {
+		if timerRunning {
+			alertView.showInfo(NSLocalizedString("Workout Paused", comment: ""), subTitle: "")
+			timer.invalidate()
+			pauseButton.title = NSLocalizedString("Unpause", comment: "")
+		}
+		else {
+			timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "update", userInfo: nil, repeats: true)
+			pauseButton.title = NSLocalizedString("Pause", comment: "")
+		}
+		timerRunning = !timerRunning
 	}
 	
 	@IBAction func cancel(sender: AnyObject) {
