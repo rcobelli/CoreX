@@ -151,7 +151,7 @@ class WorkoutManagerViewController: UIViewController {
 			let alertView = SCLAlertView()
 			alertView.showCloseButton = false
 			alertView.addButton(NSLocalizedString("Unpause", comment: ""), target:self, selector:Selector("pause:"))
-			alertView.showInfo(NSLocalizedString("Workout Paused", comment: ""), subTitle: "")
+			alertView.showWait(NSLocalizedString("Workout Paused", comment: ""), subTitle: "")
 			
 			timer.invalidate()
 			pauseButton.title = NSLocalizedString("Unpause", comment: "")
