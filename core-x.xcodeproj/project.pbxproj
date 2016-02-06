@@ -245,6 +245,9 @@
 		940AE7671C66987000DC472D /* leg-day.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leg-day.tv.png"; sourceTree = "<group>"; };
 		940AE7691C66990400DC472D /* myrtl.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myrtl.tv.png; sourceTree = "<group>"; };
 		940AE76B1C66998C00DC472D /* core-x.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "core-x.tv.png"; sourceTree = "<group>"; };
+		940AE7731C66A29A00DC472D /* core-x-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "core-x-Bridging-Header.h"; sourceTree = "<group>"; };
+		940AE7771C66A2B800DC472D /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		940AE7781C66A2B800DC472D /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
 		941585041C1D103D00AFDBD0 /* core-x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "core-x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941585071C1D103D00AFDBD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		941585091C1D103D00AFDBD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -462,6 +465,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946CD4ED1C1E328E0012C263 /* Security.framework in Frameworks */,
 				946CD4FC1C1E32B30012C263 /* JavaScriptCore.framework in Frameworks */,
 				946CD4FD1C1E32B30012C263 /* JavaScriptCore.framework in Frameworks */,
 				946CD4F81C1E32AD0012C263 /* WebKit.framework in Frameworks */,
@@ -470,7 +474,6 @@
 				946CD4F31C1E32A10012C263 /* Twitter.framework in Frameworks */,
 				946CD4F11C1E329C0012C263 /* SystemConfiguration.framework in Frameworks */,
 				946CD4EF1C1E32920012C263 /* Social.framework in Frameworks */,
-				946CD4ED1C1E328E0012C263 /* Security.framework in Frameworks */,
 				946CD4EB1C1E32870012C263 /* QuartzCore.framework in Frameworks */,
 				946CD4E91C1E32800012C263 /* MobileCoreServices.framework in Frameworks */,
 				946CD4E71C1E327A0012C263 /* MessageUI.framework in Frameworks */,
@@ -515,6 +518,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940AE7761C66A2B800DC472D /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				940AE7771C66A2B800DC472D /* Flurry.h */,
+				940AE7781C66A2B800DC472D /* FlurryWatch.h */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
 		941584FB1C1D103D00AFDBD0 = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +535,7 @@
 				941585061C1D103D00AFDBD0 /* core-x */,
 				9415851B1C1D103E00AFDBD0 /* core-xUITests */,
 				941585051C1D103D00AFDBD0 /* Products */,
+				940AE7731C66A29A00DC472D /* core-x-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -620,6 +633,7 @@
 		946CD3DC1C1DF3790012C263 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				940AE7761C66A2B800DC472D /* Flurry */,
 				940AE7651C66974000DC472D /* AudioToolbox.framework */,
 				944C5BB71C62F05500A171B6 /* SCLAlertView.swift */,
 				947E6C231C42C54E00678A1F /* SweetAlert.swift */,
@@ -1374,6 +1388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1385,10 +1400,16 @@
 				INFOPLIST_FILE = "core-x/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "core-x-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1396,6 +1417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1407,10 +1429,15 @@
 				INFOPLIST_FILE = "core-x/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "core-x-Bridging-Header.h";
 			};
 			name = Release;
 		};

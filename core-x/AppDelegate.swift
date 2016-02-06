@@ -16,9 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		// Override point for customization after application launch.
-//		Appodeal.initializeWithApiKey("4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.Interstitial, .Banner, .NonSkippableVideo])
+		// Init Appodeal
+		Appodeal.initializeWithApiKey("4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.Interstitial, .Banner, .NonSkippableVideo])
 
+		// Initialize Flurry
+		Flurry.startSession("D6S9C3Z2NQ2WQKFSBZZK")
+		
 		NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout0")
 		
 		return true

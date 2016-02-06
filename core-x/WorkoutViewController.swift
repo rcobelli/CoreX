@@ -67,6 +67,10 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
 			SweetAlert().showAlert(NSLocalizedString("All Fields Required", comment: ""), subTitle: NSLocalizedString("You must provide a rest duration greater than or equal to 0", comment: ""), style: AlertStyle.Error)
 			return
 		}
+		
+		let articleParams = ["Type": workoutID];
+		Flurry.logEvent("Workout_Started", withParameters: articleParams, timed: false);
+		
 		if !NSUserDefaults.standardUserDefaults().boolForKey("firstWorkout") && !NSProcessInfo.processInfo().arguments.contains("testing") {
 			SweetAlert().showAlert(NSLocalizedString("See Exercise Demonstration", comment: ""), subTitle: NSLocalizedString("Tap and hold the screen to see an image demonstrating the exercise", comment: ""), style: AlertStyle.None, buttonTitle: NSLocalizedString("Begin Workout", comment: ""), action: {(isOtherButton) -> Void in
 				self.performSegueWithIdentifier("startWorkout", sender: self)
