@@ -41,7 +41,7 @@ class WorkoutManagerViewController: UIViewController {
 			workoutName = dict["workoutName"] as! String
 		}
 		else {
-			print("Could Not Load .plist")
+			assertionFailure("Could Not Load .plist")
 		}
 		NSUserDefaults.standardUserDefaults().setObject(exercises, forKey: "exercises")
 		

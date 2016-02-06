@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 	
+	var request = SKProductsRequest()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.tableFooterView = UIView()
@@ -38,9 +40,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		print(productIdentifiers)
 		
 		if SKPaymentQueue.canMakePayments() {
-			let request = SKProductsRequest(productIdentifiers: productIdentifiers as Set<String>)
+			request = SKProductsRequest(productIdentifiers: productIdentifiers as Set<String>)
 			request.delegate = self
 			request.start()
+			print("Requesting data")
 		}
 		else {
 			let alert = UIAlertController(title: NSLocalizedString("In-App Purchases Not Enabled", comment: ""), message: NSLocalizedString("Please enable In App Purchase in Settings", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
@@ -225,12 +228,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		return 3+1
 	}
 	
-//	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//		if segue.identifier == "showWorkout" {
-//			let destination = segue.destinationViewController as! WorkoutViewController
-//			destination.workoutID = (tableView.indexPathForSelectedRow?.row)!
-//		}
-//	}
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "showWorkout" {
+			let navVC = segue.destinationViewController as! UINavigationController
+			let destination = navVC.topViewController as! WorkoutSettingsViewController
+			destination.workoutID = (tableView.indexPathForSelectedRow?.row)!
+		}
+	}
 
 
 }

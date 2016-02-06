@@ -15,6 +15,8 @@ class SettingsViewController: UITableViewController, SKProductsRequestDelegate, 
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 	
+	var request = SKProductsRequest()
+	
 	@IBOutlet weak var doneButton: UIBarButtonItem!
 	
 	override func viewDidLoad() {
@@ -31,7 +33,7 @@ class SettingsViewController: UITableViewController, SKProductsRequestDelegate, 
 	
 	func requestProductData() {
 		if SKPaymentQueue.canMakePayments() {
-			let request = SKProductsRequest(productIdentifiers: productIdentifiers as Set<String>)
+			request = SKProductsRequest(productIdentifiers: productIdentifiers as Set<String>)
 			request.delegate = self
 			request.start()
 		}
@@ -152,8 +154,7 @@ class SettingsViewController: UITableViewController, SKProductsRequestDelegate, 
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		print(2)
-		return 2
+		return 3
 	}
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -172,6 +173,10 @@ class SettingsViewController: UITableViewController, SKProductsRequestDelegate, 
 		switch indexPath.row {
 		case 0:
 			cell.textLabel?.text = "Restore Purchases"
+			break
+		case 1:
+			cell.textLabel?.text = "Email us at rybelllc@gmail.com"
+			break
 		default:
 			cell.textLabel?.text = NSLocalizedString("Version ", comment:"") + String(stringInterpolationSegment: NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]!)
 			cell.selectionStyle = .None

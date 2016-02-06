@@ -31,7 +31,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
 			restDuration.text = String(dict["defaultRestDuration"]!)
 		}
 		else {
-			print("Could Not Load .plist")
+			assertionFailure("Could Not Load .plist")
 		}
     }
 

@@ -7,6 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940AE7431C666F0F00DC472D /* workout2-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438D1C39EFA900E9BC18 /* workout2-0.png */; };
+		940AE7441C666F0F00DC472D /* workout2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438E1C39EFA900E9BC18 /* workout2-1.png */; };
+		940AE7451C666F0F00DC472D /* workout2-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438F1C39EFA900E9BC18 /* workout2-2.png */; };
+		940AE7461C666F0F00DC472D /* workout2-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43901C39EFA900E9BC18 /* workout2-3.png */; };
+		940AE7471C666F0F00DC472D /* workout2-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43911C39EFA900E9BC18 /* workout2-4.png */; };
+		940AE7481C666F0F00DC472D /* workout2-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43921C39EFA900E9BC18 /* workout2-5.png */; };
+		940AE7491C666F0F00DC472D /* workout2-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43931C39EFA900E9BC18 /* workout2-6.png */; };
+		940AE74A1C666F0F00DC472D /* workout2-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43941C39EFA900E9BC18 /* workout2-7.png */; };
+		940AE74B1C666F0F00DC472D /* workout2-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43951C39EFA900E9BC18 /* workout2-8.png */; };
+		940AE74C1C666F0F00DC472D /* workout2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 942C438A1C39DB3800E9BC18 /* workout2.plist */; };
+		940AE74D1C666F1F00DC472D /* workout1-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E96E1C23A71E008102D4 /* workout1-0.png */; };
+		940AE74E1C666F1F00DC472D /* workout1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E96F1C23A71E008102D4 /* workout1-1.png */; };
+		940AE74F1C666F1F00DC472D /* workout1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9781C23A71E008102D4 /* workout1-2.png */; };
+		940AE7501C666F1F00DC472D /* workout1-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9791C23A71E008102D4 /* workout1-3.png */; };
+		940AE7511C666F1F00DC472D /* workout1-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9701C23A71E008102D4 /* workout1-4.png */; };
+		940AE7521C666F1F00DC472D /* workout1-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9711C23A71E008102D4 /* workout1-5.png */; };
+		940AE7531C666F1F00DC472D /* workout1-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9861C23A7D2008102D4 /* workout1-6.png */; };
+		940AE7541C666F1F00DC472D /* workout1-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9871C23A7D2008102D4 /* workout1-7.png */; };
+		940AE7551C666F1F00DC472D /* workout1-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9741C23A71E008102D4 /* workout1-8.png */; };
+		940AE7561C666F1F00DC472D /* workou1-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9751C23A71E008102D4 /* workou1-9.png */; };
+		940AE7571C666F1F00DC472D /* workout1-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9761C23A71E008102D4 /* workout1-10.png */; };
+		940AE7581C666F1F00DC472D /* workout1-11.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9771C23A71E008102D4 /* workout1-11.png */; };
+		940AE7591C666F2200DC472D /* workout1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784911C24EB0300C40DFC /* workout1.plist */; };
+		940AE75A1C666F2600DC472D /* workout0-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B51C1D3CD20012C263 /* workout0-0.png */; };
+		940AE75B1C666F2600DC472D /* workout0-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B21C1D3CD20012C263 /* workout0-1.png */; };
+		940AE75C1C666F2600DC472D /* workout0-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B11C1D3CD20012C263 /* workout0-2.png */; };
+		940AE75D1C666F2600DC472D /* workout0-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B71C1D3CD20012C263 /* workout0-3.png */; };
+		940AE75E1C666F2600DC472D /* workout0-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B91C1D3CD20012C263 /* workout0-4.png */; };
+		940AE75F1C666F2600DC472D /* workout0-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3C31C1DD0EA0012C263 /* workout0-5.png */; };
+		940AE7601C666F2600DC472D /* workout0-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B81C1D3CD20012C263 /* workout0-6.png */; };
+		940AE7611C666F2600DC472D /* workout0-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B31C1D3CD20012C263 /* workout0-7.png */; };
+		940AE7621C666F2600DC472D /* workout0-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B61C1D3CD20012C263 /* workout0-8.png */; };
+		940AE7631C666F2600DC472D /* workout0-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD3B41C1D3CD20012C263 /* workout0-9.png */; };
+		940AE7641C666F2900DC472D /* workout0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784991C24EB0E00C40DFC /* workout0.plist */; };
+		940AE7661C66974000DC472D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940AE7651C66974000DC472D /* AudioToolbox.framework */; };
+		940AE7681C66987000DC472D /* leg-day.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 940AE7671C66987000DC472D /* leg-day.tv.png */; };
+		940AE76A1C66990400DC472D /* myrtl.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 940AE7691C66990400DC472D /* myrtl.tv.png */; };
+		940AE76C1C66998C00DC472D /* core-x.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 940AE76B1C66998C00DC472D /* core-x.tv.png */; };
 		941585081C1D103D00AFDBD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941585071C1D103D00AFDBD0 /* AppDelegate.swift */; };
 		9415850A1C1D103D00AFDBD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941585091C1D103D00AFDBD0 /* ViewController.swift */; };
 		9415850D1C1D103E00AFDBD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9415850B1C1D103E00AFDBD0 /* Main.storyboard */; };
@@ -160,12 +198,9 @@
 		946CD4FC1C1E32B30012C263 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946CD4FA1C1E32B30012C263 /* JavaScriptCore.framework */; };
 		946CD4FD1C1E32B30012C263 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946CD4FB1C1E32B30012C263 /* JavaScriptCore.framework */; };
 		9470CCE91C4BE7A1000C4A70 /* settings.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 9470CCE81C4BE7A1000C4A70 /* settings.tv.png */; };
-		9470CCEB1C4BE7B0000C4A70 /* myrtl.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 9470CCEA1C4BE7B0000C4A70 /* myrtl.tv.png */; };
-		9470CCED1C4BE7C1000C4A70 /* leg-day.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 9470CCEC1C4BE7C1000C4A70 /* leg-day.tv.png */; };
-		9470CCEF1C4BE7CA000C4A70 /* core-x.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 9470CCEE1C4BE7CA000C4A70 /* core-x.tv.png */; };
 		9470CCF41C4C1045000C4A70 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470CCF31C4C1045000C4A70 /* SettingsViewController.swift */; };
 		9470CCF61C4C14F7000C4A70 /* WorkoutSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470CCF51C4C14F7000C4A70 /* WorkoutSettingsViewController.swift */; };
-		9470CCF81C4C14FE000C4A70 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470CCF71C4C14FE000C4A70 /* WorkoutViewController.swift */; };
+		9470CCF81C4C14FE000C4A70 /* TVWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470CCF71C4C14FE000C4A70 /* TVWorkoutViewController.swift */; };
 		947E6C241C42C54E00678A1F /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E6C231C42C54E00678A1F /* SweetAlert.swift */; };
 		947E6C2A1C42CD6000678A1F /* core-x.shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 947E6C291C42CD6000678A1F /* core-x.shortcut.png */; };
 		947E6C2D1C42CE7400678A1F /* leg-day.shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 947E6C2B1C42CE7400678A1F /* leg-day.shortcut.png */; };
@@ -206,6 +241,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		940AE7651C66974000DC472D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		940AE7671C66987000DC472D /* leg-day.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leg-day.tv.png"; sourceTree = "<group>"; };
+		940AE7691C66990400DC472D /* myrtl.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myrtl.tv.png; sourceTree = "<group>"; };
+		940AE76B1C66998C00DC472D /* core-x.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "core-x.tv.png"; sourceTree = "<group>"; };
 		941585041C1D103D00AFDBD0 /* core-x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "core-x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941585071C1D103D00AFDBD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		941585091C1D103D00AFDBD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -384,12 +423,9 @@
 		946CD4FA1C1E32B30012C263 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		946CD4FB1C1E32B30012C263 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/PrivateFrameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		9470CCE81C4BE7A1000C4A70 /* settings.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.tv.png; sourceTree = "<group>"; };
-		9470CCEA1C4BE7B0000C4A70 /* myrtl.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myrtl.tv.png; sourceTree = "<group>"; };
-		9470CCEC1C4BE7C1000C4A70 /* leg-day.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leg-day.tv.png"; sourceTree = "<group>"; };
-		9470CCEE1C4BE7CA000C4A70 /* core-x.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "core-x.tv.png"; sourceTree = "<group>"; };
 		9470CCF31C4C1045000C4A70 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9470CCF51C4C14F7000C4A70 /* WorkoutSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSettingsViewController.swift; sourceTree = "<group>"; };
-		9470CCF71C4C14FE000C4A70 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		9470CCF71C4C14FE000C4A70 /* TVWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVWorkoutViewController.swift; sourceTree = "<group>"; };
 		947E6C231C42C54E00678A1F /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SweetAlert.swift; path = TextFieldEffects/SweetAlert.swift; sourceTree = "<group>"; };
 		947E6C291C42CD6000678A1F /* core-x.shortcut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "core-x.shortcut.png"; sourceTree = "<group>"; };
 		947E6C2B1C42CE7400678A1F /* leg-day.shortcut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leg-day.shortcut.png"; sourceTree = "<group>"; };
@@ -472,6 +508,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				940AE7661C66974000DC472D /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +620,7 @@
 		946CD3DC1C1DF3790012C263 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				940AE7651C66974000DC472D /* AudioToolbox.framework */,
 				944C5BB71C62F05500A171B6 /* SCLAlertView.swift */,
 				947E6C231C42C54E00678A1F /* SweetAlert.swift */,
 				946CD4FA1C1E32B30012C263 /* JavaScriptCore.framework */,
@@ -748,10 +786,10 @@
 				944C5BBD1C62FC0D00A171B6 /* Localizable.strings */,
 				947E6C9D1C4305D000678A1F /* Assets.xcassets */,
 				947E6C9F1C4305D000678A1F /* Info.plist */,
-				9470CCEE1C4BE7CA000C4A70 /* core-x.tv.png */,
+				940AE76B1C66998C00DC472D /* core-x.tv.png */,
 				9470CCE81C4BE7A1000C4A70 /* settings.tv.png */,
-				9470CCEC1C4BE7C1000C4A70 /* leg-day.tv.png */,
-				9470CCEA1C4BE7B0000C4A70 /* myrtl.tv.png */,
+				940AE7671C66987000DC472D /* leg-day.tv.png */,
+				940AE7691C66990400DC472D /* myrtl.tv.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -773,7 +811,7 @@
 				947E6C981C4305D000678A1F /* ViewController.swift */,
 				947E6C9A1C4305D000678A1F /* Main.storyboard */,
 				9470CCF51C4C14F7000C4A70 /* WorkoutSettingsViewController.swift */,
-				9470CCF71C4C14FE000C4A70 /* WorkoutViewController.swift */,
+				9470CCF71C4C14FE000C4A70 /* TVWorkoutViewController.swift */,
 				9470CCF31C4C1045000C4A70 /* SettingsViewController.swift */,
 				9470CCF21C4C0D83000C4A70 /* Supporting Files */,
 			);
@@ -1009,12 +1047,46 @@
 			buildActionMask = 2147483647;
 			files = (
 				9470CCE91C4BE7A1000C4A70 /* settings.tv.png in Resources */,
+				940AE7621C666F2600DC472D /* workout0-8.png in Resources */,
+				940AE7611C666F2600DC472D /* workout0-7.png in Resources */,
+				940AE75E1C666F2600DC472D /* workout0-4.png in Resources */,
+				940AE7531C666F1F00DC472D /* workout1-6.png in Resources */,
+				940AE7561C666F1F00DC472D /* workou1-9.png in Resources */,
+				940AE7471C666F0F00DC472D /* workout2-4.png in Resources */,
+				940AE74A1C666F0F00DC472D /* workout2-7.png in Resources */,
 				944C5BC01C62FC0D00A171B6 /* InfoPlist.strings in Resources */,
-				9470CCED1C4BE7C1000C4A70 /* leg-day.tv.png in Resources */,
+				940AE7461C666F0F00DC472D /* workout2-3.png in Resources */,
+				940AE7431C666F0F00DC472D /* workout2-0.png in Resources */,
+				940AE76C1C66998C00DC472D /* core-x.tv.png in Resources */,
+				940AE74B1C666F0F00DC472D /* workout2-8.png in Resources */,
+				940AE76A1C66990400DC472D /* myrtl.tv.png in Resources */,
+				940AE75A1C666F2600DC472D /* workout0-0.png in Resources */,
 				947E6C9E1C4305D000678A1F /* Assets.xcassets in Resources */,
+				940AE7501C666F1F00DC472D /* workout1-3.png in Resources */,
+				940AE7681C66987000DC472D /* leg-day.tv.png in Resources */,
+				940AE74D1C666F1F00DC472D /* workout1-0.png in Resources */,
+				940AE7571C666F1F00DC472D /* workout1-10.png in Resources */,
+				940AE74C1C666F0F00DC472D /* workout2.plist in Resources */,
+				940AE75F1C666F2600DC472D /* workout0-5.png in Resources */,
+				940AE74E1C666F1F00DC472D /* workout1-1.png in Resources */,
+				940AE7451C666F0F00DC472D /* workout2-2.png in Resources */,
+				940AE7481C666F0F00DC472D /* workout2-5.png in Resources */,
+				940AE7521C666F1F00DC472D /* workout1-5.png in Resources */,
+				940AE7581C666F1F00DC472D /* workout1-11.png in Resources */,
+				940AE7541C666F1F00DC472D /* workout1-7.png in Resources */,
+				940AE7631C666F2600DC472D /* workout0-9.png in Resources */,
+				940AE7641C666F2900DC472D /* workout0.plist in Resources */,
+				940AE7551C666F1F00DC472D /* workout1-8.png in Resources */,
 				944C5BBB1C62FC0D00A171B6 /* Localizable.strings in Resources */,
-				9470CCEB1C4BE7B0000C4A70 /* myrtl.tv.png in Resources */,
-				9470CCEF1C4BE7CA000C4A70 /* core-x.tv.png in Resources */,
+				940AE7441C666F0F00DC472D /* workout2-1.png in Resources */,
+				940AE75C1C666F2600DC472D /* workout0-2.png in Resources */,
+				940AE75D1C666F2600DC472D /* workout0-3.png in Resources */,
+				940AE75B1C666F2600DC472D /* workout0-1.png in Resources */,
+				940AE7591C666F2200DC472D /* workout1.plist in Resources */,
+				940AE7491C666F0F00DC472D /* workout2-6.png in Resources */,
+				940AE7601C666F2600DC472D /* workout0-6.png in Resources */,
+				940AE74F1C666F1F00DC472D /* workout1-2.png in Resources */,
+				940AE7511C666F1F00DC472D /* workout1-4.png in Resources */,
 				947E6C9C1C4305D000678A1F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1075,7 +1147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9470CCF81C4C14FE000C4A70 /* WorkoutViewController.swift in Sources */,
+				9470CCF81C4C14FE000C4A70 /* TVWorkoutViewController.swift in Sources */,
 				9470CCF61C4C14F7000C4A70 /* WorkoutSettingsViewController.swift in Sources */,
 				947E6C991C4305D000678A1F /* ViewController.swift in Sources */,
 				947E6CA31C43065800678A1F /* RadialChart.swift in Sources */,
@@ -1374,11 +1446,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.tv";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1390,11 +1462,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.tv";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
