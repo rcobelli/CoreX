@@ -24,17 +24,12 @@ class WorkoutManagerViewController: UIViewController {
 	var alert = SweetAlert()
 	
 	var exercises = NSDictionary()
-	let alertView = SCLAlertView()
 	var workoutName = String()
 	
 	@IBOutlet weak var pauseButton: UIBarButtonItem!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		alertView.showCloseButton = false
-		alertView.addButton(NSLocalizedString("Unpause", comment: ""), target:self, selector:Selector("pause:"))
-		
 		
 		if let path = NSBundle.mainBundle().pathForResource("workout" + String(workoutID), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
 			exercises = dict["exercises"] as! NSDictionary
@@ -153,7 +148,11 @@ class WorkoutManagerViewController: UIViewController {
 	
 	@IBAction func pause(sender: AnyObject) {
 		if timerRunning {
+			let alertView = SCLAlertView()
+			alertView.showCloseButton = false
+			alertView.addButton(NSLocalizedString("Unpause", comment: ""), target:self, selector:Selector("pause:"))
 			alertView.showInfo(NSLocalizedString("Workout Paused", comment: ""), subTitle: "")
+			
 			timer.invalidate()
 			pauseButton.title = NSLocalizedString("Unpause", comment: "")
 		}
