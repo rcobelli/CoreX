@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	var justShowedAd = Bool()
 	
-	let productIdentifiers = Set(["com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day"])
+	let productIdentifiers = Set(["com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day", "com.rybel_llc.core_x.pushups"])
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 	
@@ -125,6 +125,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		else if identifier == "com.rybel_llc.core_x.leg_day" {
 			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout2")
 		}
+		else if identifier == "com.rybel_llc.core_x.pushups" {
+			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout3")
+		}
+
 		
 		NSUserDefaults.standardUserDefaults().synchronize()
 		viewWillAppear(true)
@@ -173,13 +177,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			cell.title.text = NSLocalizedString("Leg-Day", comment: "")
 			cell.backgroundImage.image = UIImage(named: "leg-day.tv.png")
 			break
+		case 3:
+			cell.title.text = NSLocalizedString("101 Pushups", comment: "")
+			cell.backgroundImage.image = UIImage(named: "pushups.tv.png")
+			break
 		default:
 			cell.title.text = NSLocalizedString("Settings", comment: "")
 			cell.backgroundImage.image = UIImage(named: "settings.tv.png")
 			break
 		}
 		
-		if indexPath.row != 3 {
+		if indexPath.row != 4 {
 			if !NSUserDefaults.standardUserDefaults().boolForKey("workout" + String(indexPath.row)) {
 				cell.title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 				cell.backgroundImage.alpha = 0.25
@@ -210,6 +218,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 				case 2:
 					buyProduct(0)
 					break
+				case 3:
+					buyProduct(2)
+					break
 				default:
 					break
 				}
@@ -225,7 +236,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 3+1
+		return 5
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -160,7 +160,6 @@
 		946CD4BA1C1E32100012C263 /* RFMAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4931C1E32100012C263 /* RFMAdSDK.bundle */; };
 		946CD4BB1C1E32100012C263 /* StartApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4941C1E32100012C263 /* StartApp.bundle */; };
 		946CD4BC1C1E32100012C263 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4951C1E32100012C263 /* SVProgressHUD.bundle */; };
-		946CD4BD1C1E32100012C263 /* TOWebViewControllerLocalizable.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4961C1E32100012C263 /* TOWebViewControllerLocalizable.bundle */; };
 		946CD4BE1C1E32100012C263 /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4971C1E32100012C263 /* UnityAds.bundle */; };
 		946CD4BF1C1E32100012C263 /* vg_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4981C1E32100012C263 /* vg_close.png */; };
 		946CD4C01C1E32100012C263 /* vg_cta.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4991C1E32100012C263 /* vg_cta.png */; };
@@ -208,6 +207,18 @@
 		947E6CA31C43065800678A1F /* RadialChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD3D81C1DDB630012C263 /* RadialChart.swift */; };
 		947E6CA41C43065800678A1F /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD39F1C1D1EA10012C263 /* WorkoutCell.swift */; };
 		947E6CA51C43065800678A1F /* PreviousDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD39D1C1D163F0012C263 /* PreviousDay.swift */; };
+		94866E231C8CBE1C00255907 /* workout3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94866E221C8CBE1C00255907 /* workout3.plist */; };
+		94866E251C8CC2BF00255907 /* pushups.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E241C8CC2BF00255907 /* pushups.tv.png */; };
+		94866E301C8CD1F000255907 /* workout3-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E261C8CD1F000255907 /* workout3-0.png */; };
+		94866E311C8CD1F000255907 /* workout3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E271C8CD1F000255907 /* workout3-1.png */; };
+		94866E321C8CD1F000255907 /* workout3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E281C8CD1F000255907 /* workout3-2.png */; };
+		94866E331C8CD1F000255907 /* workout3-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E291C8CD1F000255907 /* workout3-3.png */; };
+		94866E341C8CD1F000255907 /* workout3-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2A1C8CD1F000255907 /* workout3-4.png */; };
+		94866E351C8CD1F000255907 /* workout3-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2B1C8CD1F000255907 /* workout3-5.png */; };
+		94866E361C8CD1F000255907 /* workout3-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2C1C8CD1F000255907 /* workout3-6.png */; };
+		94866E371C8CD1F000255907 /* workout3-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2D1C8CD1F000255907 /* workout3-7.png */; };
+		94866E381C8CD1F000255907 /* workout3-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2E1C8CD1F000255907 /* workout3-8.png */; };
+		94866E391C8CD1F000255907 /* workout3-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2F1C8CD1F000255907 /* workout3-9.png */; };
 		94F784341C24762500C40DFC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F784331C24762500C40DFC /* SnapshotHelper.swift */; };
 		94F7848F1C24EB0300C40DFC /* workout1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784911C24EB0300C40DFC /* workout1.plist */; };
 		94F784971C24EB0E00C40DFC /* workout0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784991C24EB0E00C40DFC /* workout0.plist */; };
@@ -384,7 +395,6 @@
 		946CD4931C1E32100012C263 /* RFMAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RFMAdSDK.bundle; sourceTree = "<group>"; };
 		946CD4941C1E32100012C263 /* StartApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StartApp.bundle; sourceTree = "<group>"; };
 		946CD4951C1E32100012C263 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		946CD4961C1E32100012C263 /* TOWebViewControllerLocalizable.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TOWebViewControllerLocalizable.bundle; sourceTree = "<group>"; };
 		946CD4971C1E32100012C263 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UnityAds.bundle; sourceTree = "<group>"; };
 		946CD4981C1E32100012C263 /* vg_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_close.png; sourceTree = "<group>"; };
 		946CD4991C1E32100012C263 /* vg_cta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_cta.png; sourceTree = "<group>"; };
@@ -431,6 +441,18 @@
 		947E6C9B1C4305D000678A1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		947E6C9D1C4305D000678A1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		947E6C9F1C4305D000678A1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94866E221C8CBE1C00255907 /* workout3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = workout3.plist; sourceTree = "<group>"; };
+		94866E241C8CC2BF00255907 /* pushups.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pushups.tv.png; sourceTree = "<group>"; };
+		94866E261C8CD1F000255907 /* workout3-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-0.png"; sourceTree = "<group>"; };
+		94866E271C8CD1F000255907 /* workout3-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-1.png"; sourceTree = "<group>"; };
+		94866E281C8CD1F000255907 /* workout3-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-2.png"; sourceTree = "<group>"; };
+		94866E291C8CD1F000255907 /* workout3-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-3.png"; sourceTree = "<group>"; };
+		94866E2A1C8CD1F000255907 /* workout3-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-4.png"; sourceTree = "<group>"; };
+		94866E2B1C8CD1F000255907 /* workout3-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-5.png"; sourceTree = "<group>"; };
+		94866E2C1C8CD1F000255907 /* workout3-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-6.png"; sourceTree = "<group>"; };
+		94866E2D1C8CD1F000255907 /* workout3-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-7.png"; sourceTree = "<group>"; };
+		94866E2E1C8CD1F000255907 /* workout3-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-8.png"; sourceTree = "<group>"; };
+		94866E2F1C8CD1F000255907 /* workout3-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-9.png"; sourceTree = "<group>"; };
 		94F784331C24762500C40DFC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		94F784871C24E9BA00C40DFC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		94F784881C24E9BA00C40DFC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -522,8 +544,8 @@
 		941584FB1C1D103D00AFDBD0 = {
 			isa = PBXGroup;
 			children = (
-				947E6C951C4305D000678A1F /* tv */,
 				946CD3DC1C1DF3790012C263 /* Frameworks */,
+				947E6C951C4305D000678A1F /* tv */,
 				941585061C1D103D00AFDBD0 /* core-x */,
 				9415851B1C1D103E00AFDBD0 /* core-xUITests */,
 				941585051C1D103D00AFDBD0 /* Products */,
@@ -752,7 +774,6 @@
 				946CD4931C1E32100012C263 /* RFMAdSDK.bundle */,
 				946CD4941C1E32100012C263 /* StartApp.bundle */,
 				946CD4951C1E32100012C263 /* SVProgressHUD.bundle */,
-				946CD4961C1E32100012C263 /* TOWebViewControllerLocalizable.bundle */,
 				946CD4971C1E32100012C263 /* UnityAds.bundle */,
 				946CD4981C1E32100012C263 /* vg_close.png */,
 				946CD4991C1E32100012C263 /* vg_cta.png */,
@@ -791,6 +812,7 @@
 				947E6C9D1C4305D000678A1F /* Assets.xcassets */,
 				947E6C9F1C4305D000678A1F /* Info.plist */,
 				940AE76B1C66998C00DC472D /* core-x.tv.png */,
+				94866E241C8CC2BF00255907 /* pushups.tv.png */,
 				9470CCE81C4BE7A1000C4A70 /* settings.tv.png */,
 				940AE7671C66987000DC472D /* leg-day.tv.png */,
 				940AE7691C66990400DC472D /* myrtl.tv.png */,
@@ -812,9 +834,28 @@
 			path = tv;
 			sourceTree = "<group>";
 		};
+		94866E211C8CBC9000255907 /* Workout 3 */ = {
+			isa = PBXGroup;
+			children = (
+				94866E261C8CD1F000255907 /* workout3-0.png */,
+				94866E271C8CD1F000255907 /* workout3-1.png */,
+				94866E281C8CD1F000255907 /* workout3-2.png */,
+				94866E291C8CD1F000255907 /* workout3-3.png */,
+				94866E2A1C8CD1F000255907 /* workout3-4.png */,
+				94866E2B1C8CD1F000255907 /* workout3-5.png */,
+				94866E2C1C8CD1F000255907 /* workout3-6.png */,
+				94866E2D1C8CD1F000255907 /* workout3-7.png */,
+				94866E2E1C8CD1F000255907 /* workout3-8.png */,
+				94866E2F1C8CD1F000255907 /* workout3-9.png */,
+				94866E221C8CBE1C00255907 /* workout3.plist */,
+			);
+			name = "Workout 3";
+			sourceTree = "<group>";
+		};
 		94F784351C24AC2200C40DFC /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
+				94866E211C8CBC9000255907 /* Workout 3 */,
 				942C438C1C39DB3C00E9BC18 /* Workout 2 */,
 				946CD5001C1E34B90012C263 /* Workout 1 */,
 				946CD3B01C1D30330012C263 /* Workout 0 */,
@@ -977,37 +1018,48 @@
 				9452E97D1C23A71E008102D4 /* workout1-5.png in Resources */,
 				946CD3BC1C1D3CD20012C263 /* workout0-7.png in Resources */,
 				9452E9801C23A71E008102D4 /* workout1-8.png in Resources */,
+				94866E381C8CD1F000255907 /* workout3-8.png in Resources */,
 				946CD4AB1C1E32100012C263 /* MPCloseButtonX@2x.png in Resources */,
 				9452E9821C23A71E008102D4 /* workout1-10.png in Resources */,
+				94866E371C8CD1F000255907 /* workout3-7.png in Resources */,
 				946CD4AA1C1E32100012C263 /* MPCloseButtonX.png in Resources */,
 				946CD3C41C1DD0EA0012C263 /* workout0-5.png in Resources */,
+				94866E311C8CD1F000255907 /* workout3-1.png in Resources */,
 				94F7848F1C24EB0300C40DFC /* workout1.plist in Resources */,
 				946CD49F1C1E32100012C263 /* AdManagerAssets.bundle in Resources */,
 				946CD3BB1C1D3CD20012C263 /* workout0-1.png in Resources */,
 				946CD4A01C1E32100012C263 /* appodeal_adbadge.png in Resources */,
 				9452E9881C23A7D2008102D4 /* workout1-6.png in Resources */,
+				94866E391C8CD1F000255907 /* workout3-9.png in Resources */,
 				946CD4691C1E21990012C263 /* Fire.png in Resources */,
 				9415850F1C1D103E00AFDBD0 /* Assets.xcassets in Resources */,
 				946CD46C1C1E21990012C263 /* Sparkle.png in Resources */,
 				942C439C1C39EFA900E9BC18 /* workout2-6.png in Resources */,
 				946CD4B81C1E32100012C263 /* MPUnmutedBtn@3x.png in Resources */,
+				94866E341C8CD1F000255907 /* workout3-4.png in Resources */,
 				946CD45C1C1E21990012C263 /* Info.plist in Resources */,
 				9452E9811C23A71E008102D4 /* workout1-9.png in Resources */,
 				942C438B1C39DB3800E9BC18 /* workout2.plist in Resources */,
 				943BF9101C1FB60C00083C24 /* logotext.png in Resources */,
+				94866E321C8CD1F000255907 /* workout3-2.png in Resources */,
 				946CD4A81C1E32100012C263 /* MPCloseBtn@2x.png in Resources */,
 				946CD4B01C1E32100012C263 /* MPMutedBtn@1x.png in Resources */,
 				946CD49E1C1E32100012C263 /* __vungle.db in Resources */,
+				94866E301C8CD1F000255907 /* workout3-0.png in Resources */,
 				946CD4B61C1E32100012C263 /* MPUnmutedBtn@1x.png in Resources */,
 				946CD4B11C1E32100012C263 /* MPMutedBtn@2x.png in Resources */,
 				9415850D1C1D103E00AFDBD0 /* Main.storyboard in Resources */,
 				942C43981C39EFA900E9BC18 /* workout2-2.png in Resources */,
 				946CD4BC1C1E32100012C263 /* SVProgressHUD.bundle in Resources */,
 				9452E9831C23A71E008102D4 /* workout1-11.png in Resources */,
+				94866E331C8CD1F000255907 /* workout3-3.png in Resources */,
 				9452E9841C23A71E008102D4 /* workout1-2.png in Resources */,
 				9452E9891C23A7D2008102D4 /* workout1-7.png in Resources */,
 				946CD4A91C1E32100012C263 /* MPCloseBtn@3x.png in Resources */,
 				942C439E1C39EFA900E9BC18 /* workout2-8.png in Resources */,
+				94866E361C8CD1F000255907 /* workout3-6.png in Resources */,
+				94866E351C8CD1F000255907 /* workout3-5.png in Resources */,
+				94866E231C8CBE1C00255907 /* workout3.plist in Resources */,
 				942C439D1C39EFA900E9BC18 /* workout2-7.png in Resources */,
 				946CD4C01C1E32100012C263 /* vg_cta.png in Resources */,
 				946CD3BA1C1D3CD20012C263 /* workout0-2.png in Resources */,
@@ -1018,7 +1070,6 @@
 				946CD4A41C1E32100012C263 /* appodeal_pattern.png in Resources */,
 				946CD3BF1C1D3CD20012C263 /* workout0-8.png in Resources */,
 				9452E9851C23A71E008102D4 /* workout1-3.png in Resources */,
-				946CD4BD1C1E32100012C263 /* TOWebViewControllerLocalizable.bundle in Resources */,
 				946CD3C01C1D3CD20012C263 /* workout0-3.png in Resources */,
 				946CD46B1C1E21990012C263 /* Smoke.png in Resources */,
 			);
@@ -1070,6 +1121,7 @@
 				944C5BBB1C62FC0D00A171B6 /* Localizable.strings in Resources */,
 				940AE7441C666F0F00DC472D /* workout2-1.png in Resources */,
 				940AE75C1C666F2600DC472D /* workout0-2.png in Resources */,
+				94866E251C8CC2BF00255907 /* pushups.tv.png in Resources */,
 				940AE75D1C666F2600DC472D /* workout0-3.png in Resources */,
 				940AE75B1C666F2600DC472D /* workout0-1.png in Resources */,
 				940AE7591C666F2200DC472D /* workout1.plist in Resources */,
