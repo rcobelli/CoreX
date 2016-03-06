@@ -1,3 +1,3 @@
-Miglioramenti dell'interfaccia utente minori
+I principali miglioramenti dell'interfaccia utente
 Aggiunta la possibilità di mettere in pausa un allenamento
 routine di allenamento Aggiunto Leg-Day

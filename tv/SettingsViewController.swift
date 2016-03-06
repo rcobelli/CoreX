@@ -136,7 +136,7 @@ class SettingsViewController: UITableViewController, SKProductsRequestDelegate, 
 			deliverProduct(transaction.payment.productIdentifier)
 		}
 		
-		let alert = UIAlertController(title: NSLocalizedString("In-App Purchases Restored", comment: ""), message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+		let alert = UIAlertController(title: NSLocalizedString("Any purchases were restored", comment: ""), message: nil, preferredStyle: UIAlertControllerStyle.Alert)
 		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { alertAction in
 			alert.dismissViewControllerAnimated(true, completion: nil)
 		}))

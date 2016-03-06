@@ -134,7 +134,7 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 			deliverProduct(transaction.payment.productIdentifier)
 		}
 		
-		SweetAlert().showAlert(NSLocalizedString("Thank You", comment: ""), subTitle: NSLocalizedString("Your purchase(s) were restored.", comment: ""), style: AlertStyle.Success)
+		SweetAlert().showAlert(NSLocalizedString("Thank You", comment: ""), subTitle: NSLocalizedString("Any purchases were restored.", comment: ""), style: AlertStyle.Success)
 	}
 	
 	@IBAction func done(sender: AnyObject) {

@@ -142,7 +142,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		for transaction:SKPaymentTransaction in queue.transactions {
 			deliverProduct(transaction.payment.productIdentifier)
 		}
-		let alert = UIAlertController(title: "Thank You", message: "Purchases restored", preferredStyle: UIAlertControllerStyle.Alert)
+		let alert = UIAlertController(title: "Thank You", message: "Any purchases were restored", preferredStyle: UIAlertControllerStyle.Alert)
 		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
 		self.presentViewController(alert, animated: true, completion: nil)
 	}

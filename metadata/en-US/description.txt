@@ -17,3 +17,5 @@ and many more to come!
 The app will guide you through the workout with vibrations and a visual countdown until when you switch to the next exercise. It is also customizable for the amount of time you do each exercise and the rest time in-between each exercise.
 
 Don’t let your abs become flabs and download Core-X today!
+
+Special thanks to Icons8
