@@ -1,8 +1,23 @@
 /* No comment provided by engineer. */
-"In-App Purchases Not Enabled" = "Achats In App pas activé";
+"101 Pushups" = "101 Des pompes";
 
 /* No comment provided by engineer. */
-"In-App Purchases Restored" = "Dans App Achats restaurée";
+"All Fields Required" = "Tous les champs sont obligatoires";
+
+/* No comment provided by engineer. */
+"Any purchases were restored" = "Les achats ont été restaurés";
+
+/* No comment provided by engineer. */
+"Exercise" = "Exercice";
+
+/* No comment provided by engineer. */
+"Exercise " = "Exercice";
+
+/* No comment provided by engineer. */
+"Great job!" = "Bon travail!";
+
+/* No comment provided by engineer. */
+"In-App Purchases Not Enabled" = "Achats In App pas activé";
 
 /* No comment provided by engineer. */
 "Leg-Day" = "Jour Jambe";
@@ -11,8 +26,26 @@
 "Please enable In App Purchase in Settings" = "S'il vous plaît permettre achats in-app dans les milieux";
 
 /* No comment provided by engineer. */
+"REST" = "LE REPOS";
+
+/* No comment provided by engineer. */
 "Settings" = "Paramètres";
 
 /* No comment provided by engineer. */
+"Unpause" = "Réactiver";
+
+/* No comment provided by engineer. */
 "Version " = "Version";
+
+/* No comment provided by engineer. */
+"Workout Completed!" = "Workout terminé!";
+
+/* No comment provided by engineer. */
+"Workout Paused" = "Workout pause";
+
+/* No comment provided by engineer. */
+"You must provide a rest duration greater than or equal to 0" = "Vous devez fournir une durée de repos supérieure ou égale à 0";
+
+/* No comment provided by engineer. */
+"You must provide an exercise duration bigger than 0" = "Vous devez fournir une durée d'exercice plus grand que 0";
 

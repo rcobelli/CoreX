@@ -1,3 +1,2 @@
-Wichtige UI Verbesserungen
-Added Fähigkeit, ein Training zu unterbrechen 
-Added Leg-Tages-Trainingsprogramm
+Hinzugefügt 101 Liegestütze
+Minor Bug Fixes

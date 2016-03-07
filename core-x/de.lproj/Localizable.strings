@@ -1,5 +1,17 @@
 /* No comment provided by engineer. */
+" workout using Core-X (http://appstore.com/corex)!" = " training mit Core-X (http://appstore.com/corex)!";
+
+/* No comment provided by engineer. */
+"101 Pushups" = "100 Liegestütze";
+
+/* No comment provided by engineer. */
 "All Fields Required" = "Alle Felder benötigt";
+
+/* No comment provided by engineer. */
+"Any purchases were restored" = "Alle Käufe wurden restauriert";
+
+/* No comment provided by engineer. */
+"Any purchases were restored." = "Alle Käufe wurden restauriert";
 
 /* No comment provided by engineer. */
 "Begin Workout" = "Training beginnen";
@@ -36,6 +48,9 @@
 
 /* No comment provided by engineer. */
 "Leg-Day" = "Bein Tag";
+
+/* No comment provided by engineer. */
+"Let us know of a new workout you would like to see in the app!" = "Lassen Sie uns von einem neuen Training wissen Sie in der App sehen möchten!";
 
 /* No comment provided by engineer. */
 "Mail isn't working. Email us at rybelllc@gmail.com" = "Mail funktioniert nicht. Mailen Sie uns an rybelllc@gmail.com";
@@ -87,7 +102,4 @@
 
 /* No comment provided by engineer. */
 "You must provide an exercise duration bigger than 0" = "Sie müssen eine Trainingsdauer größer oder gleich 0 liefern";
-
-/* No comment provided by engineer. */
-"Your purchase(s) were restored." = "Ihr Kauf (s) wurde wiederhergestellt.";
 

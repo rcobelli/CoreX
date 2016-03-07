@@ -2,7 +2,7 @@
 "0Rj-oD-Zgn.text" = "Nom de l'exercice";
 
 /* Class = "UITextField"; placeholder = "Rest Duration (sec)"; ObjectID = "0cf-RI-aXF"; */
-"0cf-RI-aXF.placeholder" = "reste Durée (deu)";
+"0cf-RI-aXF.placeholder" = "Reste Durée (deu)";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "Ej6-TC-eWk"; */
 "Ej6-TC-eWk.normalTitle" = "Annuler";

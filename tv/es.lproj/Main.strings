@@ -1,6 +1,30 @@
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "CLj-42-fL7"; */
+"CLj-42-fL7.normalTitle" = "Empezar";
+
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "GF3-0y-HRx"; */
 "GF3-0y-HRx.title" = "Ajustes";
 
+/* Class = "UILabel"; text = "Exercise description"; ObjectID = "N6L-w4-f5E"; */
+"N6L-w4-f5E.text" = "Descripción del ejercicio";
+
+/* Class = "UITextField"; placeholder = "Exercise Duration"; ObjectID = "bCq-ez-NSq"; */
+"bCq-ez-NSq.placeholder" = "Ejercicio Duración";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "h2f-KL-4W9"; */
+"h2f-KL-4W9.title" = "Cancelar";
+
+/* Class = "UILabel"; text = "Rest Duration (sec)"; ObjectID = "lKV-Do-k9o"; */
+"lKV-Do-k9o.text" = "Duración ocio (seg)";
+
 /* Class = "UILabel"; text = "Title"; ObjectID = "msl-OU-A7e"; */
 "msl-OU-A7e.text" = "Título";
+
+/* Class = "UILabel"; text = "Exercise Duration (sec)"; ObjectID = "opX-jM-fZA"; */
+"opX-jM-fZA.text" = "Ejercicio Duración  (seg)";
+
+/* Class = "UITextField"; placeholder = "Rest Duration"; ObjectID = "uFu-qb-iDG"; */
+"uFu-qb-iDG.placeholder" = "Duración ocio";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "w9j-3s-RJj"; */
+"w9j-3s-RJj.text" = "Título";
 

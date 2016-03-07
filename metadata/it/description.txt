@@ -11,6 +11,7 @@ Questa applicazione non solo ha Nucleo X, ma stiamo aggiungendo nuovi allenament
 -Core X
 -Myrtl
 -Leg-Day
+-101 Sollevamento
 
 e molti altri a venire!
 

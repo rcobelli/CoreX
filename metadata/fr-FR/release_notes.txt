@@ -1,3 +1,2 @@
-Des améliorations majeures de l'interface utilisateur
-Ajout de la possibilité de faire une pause d'une séance d'entraînement
-Ajouté Leg-Day routine d'entraînement
+Ajouté 101 Des pompes
+Corrections de bugs mineurs

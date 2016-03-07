@@ -1,8 +1,23 @@
 /* No comment provided by engineer. */
-"In-App Purchases Not Enabled" = "In App Käufe nicht aktiviert";
+"101 Pushups" = "100 Liegestütze";
 
 /* No comment provided by engineer. */
-"In-App Purchases Restored" = "In App Käufe wiederherstellen";
+"All Fields Required" = "Alle Felder benötigt";
+
+/* No comment provided by engineer. */
+"Any purchases were restored" = "Alle Käufe wurden restauriert";
+
+/* No comment provided by engineer. */
+"Exercise" = "Übung";
+
+/* No comment provided by engineer. */
+"Exercise " = "Übung";
+
+/* No comment provided by engineer. */
+"Great job!" = "Gut gemacht!";
+
+/* No comment provided by engineer. */
+"In-App Purchases Not Enabled" = "In App Käufe nicht aktiviert";
 
 /* No comment provided by engineer. */
 "Leg-Day" = "Bein Tag";
@@ -11,8 +26,26 @@
 "Please enable In App Purchase in Settings" = "Bitte aktivieren Sie in App-Käufe";
 
 /* No comment provided by engineer. */
+"REST" = "RUHE";
+
+/* No comment provided by engineer. */
 "Settings" = "Einstellungen";
 
 /* No comment provided by engineer. */
+"Unpause" = "Erneut aktivieren";
+
+/* No comment provided by engineer. */
 "Version " = "Version";
+
+/* No comment provided by engineer. */
+"Workout Completed!" = "Training abgeschlossen!";
+
+/* No comment provided by engineer. */
+"Workout Paused" = "Training pausiert";
+
+/* No comment provided by engineer. */
+"You must provide a rest duration greater than or equal to 0" = "Sie müssen eine Ruhedauer größer oder gleich 0 liefern";
+
+/* No comment provided by engineer. */
+"You must provide an exercise duration bigger than 0" = "Sie müssen eine Trainingsdauer größer oder gleich 0 liefern";
 

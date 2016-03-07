@@ -1,3 +1,2 @@
-Major UI Improvements
-Added ability to pause a workout
-Added Leg-Day workout routine
+Added 101 Pushups 
+Minor Bug Fixes

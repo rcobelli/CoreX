@@ -1,3 +1,2 @@
-Las principales mejoras de interfaz de usuario
-Añadida la capacidad para hacer una pausa en un entrenamiento
-Agregado rutina de ejercicios de piernas en el día
+Añadido 101 Lagartijas
+Correcciones de errores menores

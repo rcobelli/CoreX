@@ -1,3 +1,2 @@
-I principali miglioramenti dell'interfaccia utente
-Aggiunta la possibilità di mettere in pausa un allenamento
-routine di allenamento Aggiunto Leg-Day
+Aggiunti 101 Sollevamento
+Correzioni di bug minori

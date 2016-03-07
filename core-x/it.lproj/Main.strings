@@ -2,13 +2,13 @@
 "0Rj-oD-Zgn.text" = "Nome esercizio";
 
 /* Class = "UITextField"; placeholder = "Rest Duration (sec)"; ObjectID = "0cf-RI-aXF"; */
-"0cf-RI-aXF.placeholder" = "pausa Durata (sec)";
+"0cf-RI-aXF.placeholder" = "Pausa Durata (sec)";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "Ej6-TC-eWk"; */
 "Ej6-TC-eWk.normalTitle" = "Cancellare";
 
 /* Class = "UILabel"; text = "Exercise description"; ObjectID = "KGs-4K-aec"; */
-"KGs-4K-aec.text" = "descrizione esercizio";
+"KGs-4K-aec.text" = "Descrizione esercizio";
 
 /* Class = "UILabel"; text = "1"; ObjectID = "OTy-Iu-VjK"; */
 "OTy-Iu-VjK.text" = "1";
@@ -35,7 +35,7 @@
 "qtI-Fx-GiE.title" = "Esercizio 1/10";
 
 /* Class = "UITextField"; placeholder = "Exercise Duration (sec)"; ObjectID = "vay-6i-3WT"; */
-"vay-6i-3WT.placeholder" = "esercizio Durata (sec)";
+"vay-6i-3WT.placeholder" = "Esercizio Durata (sec)";
 
 /* Class = "UIBarButtonItem"; title = "Pause"; ObjectID = "xqS-6e-TMQ"; */
 "xqS-6e-TMQ.title" = "Pausa";

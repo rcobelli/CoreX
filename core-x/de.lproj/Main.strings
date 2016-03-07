@@ -37,3 +37,6 @@
 /* Class = "UITextField"; placeholder = "Exercise Duration (sec)"; ObjectID = "vay-6i-3WT"; */
 "vay-6i-3WT.placeholder" = "Trainingsdauer (sek)";
 
+/* Class = "UIBarButtonItem"; title = "Pause"; ObjectID = "xqS-6e-TMQ"; */
+"xqS-6e-TMQ.title" = "Pause";
+

@@ -16,7 +16,6 @@
 		940AE7491C666F0F00DC472D /* workout2-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43931C39EFA900E9BC18 /* workout2-6.png */; };
 		940AE74A1C666F0F00DC472D /* workout2-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43941C39EFA900E9BC18 /* workout2-7.png */; };
 		940AE74B1C666F0F00DC472D /* workout2-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C43951C39EFA900E9BC18 /* workout2-8.png */; };
-		940AE74C1C666F0F00DC472D /* workout2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 942C438A1C39DB3800E9BC18 /* workout2.plist */; };
 		940AE74D1C666F1F00DC472D /* workout1-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E96E1C23A71E008102D4 /* workout1-0.png */; };
 		940AE74E1C666F1F00DC472D /* workout1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E96F1C23A71E008102D4 /* workout1-1.png */; };
 		940AE74F1C666F1F00DC472D /* workout1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9452E9781C23A71E008102D4 /* workout1-2.png */; };
@@ -51,7 +50,6 @@
 		9415850F1C1D103E00AFDBD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9415850E1C1D103E00AFDBD0 /* Assets.xcassets */; };
 		941585121C1D103E00AFDBD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 941585101C1D103E00AFDBD0 /* LaunchScreen.storyboard */; };
 		9415851D1C1D103E00AFDBD0 /* core_xUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9415851C1C1D103E00AFDBD0 /* core_xUITests.swift */; };
-		942C438B1C39DB3800E9BC18 /* workout2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 942C438A1C39DB3800E9BC18 /* workout2.plist */; };
 		942C43961C39EFA900E9BC18 /* workout2-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438D1C39EFA900E9BC18 /* workout2-0.png */; };
 		942C43971C39EFA900E9BC18 /* workout2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438E1C39EFA900E9BC18 /* workout2-1.png */; };
 		942C43981C39EFA900E9BC18 /* workout2-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438F1C39EFA900E9BC18 /* workout2-2.png */; };
@@ -82,6 +80,21 @@
 		9463A5291C2844D700B8381A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9463A52B1C2844D700B8381A /* Localizable.strings */; };
 		9463A52E1C2844D800B8381A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9463A5301C2844D800B8381A /* InfoPlist.strings */; };
 		9463A5331C2844D800B8381A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9463A5351C2844D800B8381A /* InfoPlist.strings */; };
+		946A448D1C8CDA46009E5EE2 /* workout2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946A44901C8CDA46009E5EE2 /* workout2.plist */; };
+		946A448E1C8CDA46009E5EE2 /* workout2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946A44901C8CDA46009E5EE2 /* workout2.plist */; };
+		946A44951C8CDA4F009E5EE2 /* workout3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946A44971C8CDA4F009E5EE2 /* workout3.plist */; };
+		946A449C1C8CDA5B009E5EE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9463A52B1C2844D700B8381A /* Localizable.strings */; };
+		946A449D1C8CDA63009E5EE2 /* workout3-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E261C8CD1F000255907 /* workout3-0.png */; };
+		946A449E1C8CDA63009E5EE2 /* workout3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E271C8CD1F000255907 /* workout3-1.png */; };
+		946A449F1C8CDA63009E5EE2 /* workout3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E281C8CD1F000255907 /* workout3-2.png */; };
+		946A44A01C8CDA63009E5EE2 /* workout3-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E291C8CD1F000255907 /* workout3-3.png */; };
+		946A44A11C8CDA63009E5EE2 /* workout3-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2A1C8CD1F000255907 /* workout3-4.png */; };
+		946A44A21C8CDA64009E5EE2 /* workout3-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2B1C8CD1F000255907 /* workout3-5.png */; };
+		946A44A31C8CDA64009E5EE2 /* workout3-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2C1C8CD1F000255907 /* workout3-6.png */; };
+		946A44A41C8CDA64009E5EE2 /* workout3-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2D1C8CD1F000255907 /* workout3-7.png */; };
+		946A44A51C8CDA64009E5EE2 /* workout3-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2E1C8CD1F000255907 /* workout3-8.png */; };
+		946A44A61C8CDA64009E5EE2 /* workout3-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2F1C8CD1F000255907 /* workout3-9.png */; };
+		946A44A71C8CDA66009E5EE2 /* workout3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946A44971C8CDA4F009E5EE2 /* workout3.plist */; };
 		946CD39E1C1D163F0012C263 /* PreviousDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD39D1C1D163F0012C263 /* PreviousDay.swift */; };
 		946CD3A01C1D1EA10012C263 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD39F1C1D1EA10012C263 /* WorkoutCell.swift */; };
 		946CD3A71C1D21CD0012C263 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD3A61C1D21CD0012C263 /* WorkoutViewController.swift */; };
@@ -207,7 +220,6 @@
 		947E6CA31C43065800678A1F /* RadialChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD3D81C1DDB630012C263 /* RadialChart.swift */; };
 		947E6CA41C43065800678A1F /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD39F1C1D1EA10012C263 /* WorkoutCell.swift */; };
 		947E6CA51C43065800678A1F /* PreviousDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946CD39D1C1D163F0012C263 /* PreviousDay.swift */; };
-		94866E231C8CBE1C00255907 /* workout3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94866E221C8CBE1C00255907 /* workout3.plist */; };
 		94866E251C8CC2BF00255907 /* pushups.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E241C8CC2BF00255907 /* pushups.tv.png */; };
 		94866E301C8CD1F000255907 /* workout3-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E261C8CD1F000255907 /* workout3-0.png */; };
 		94866E311C8CD1F000255907 /* workout3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E271C8CD1F000255907 /* workout3-1.png */; };
@@ -265,7 +277,6 @@
 		941585181C1D103E00AFDBD0 /* core-xUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "core-xUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9415851C1C1D103E00AFDBD0 /* core_xUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = core_xUITests.swift; sourceTree = "<group>"; };
 		9415851E1C1D103E00AFDBD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		942C438A1C39DB3800E9BC18 /* workout2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = workout2.plist; sourceTree = "<group>"; };
 		942C438D1C39EFA900E9BC18 /* workout2-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout2-0.png"; sourceTree = "<group>"; };
 		942C438E1C39EFA900E9BC18 /* workout2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout2-1.png"; sourceTree = "<group>"; };
 		942C438F1C39EFA900E9BC18 /* workout2-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout2-2.png"; sourceTree = "<group>"; };
@@ -315,6 +326,16 @@
 		9463A53C1C2844F100B8381A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9463A53D1C2844F100B8381A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9463A53E1C2844F100B8381A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		946A448F1C8CDA46009E5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout2.plist; sourceTree = "<group>"; };
+		946A44911C8CDA48009E5EE2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/workout2.plist; sourceTree = "<group>"; };
+		946A44921C8CDA48009E5EE2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/workout2.plist; sourceTree = "<group>"; };
+		946A44931C8CDA49009E5EE2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/workout2.plist; sourceTree = "<group>"; };
+		946A44941C8CDA49009E5EE2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/workout2.plist; sourceTree = "<group>"; };
+		946A44961C8CDA4F009E5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout3.plist; sourceTree = "<group>"; };
+		946A44981C8CDA51009E5EE2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/workout3.plist; sourceTree = "<group>"; };
+		946A44991C8CDA51009E5EE2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/workout3.plist; sourceTree = "<group>"; };
+		946A449A1C8CDA52009E5EE2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/workout3.plist; sourceTree = "<group>"; };
+		946A449B1C8CDA53009E5EE2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/workout3.plist; sourceTree = "<group>"; };
 		946CD39D1C1D163F0012C263 /* PreviousDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousDay.swift; sourceTree = "<group>"; };
 		946CD39F1C1D1EA10012C263 /* WorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		946CD3A61C1D21CD0012C263 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -441,7 +462,6 @@
 		947E6C9B1C4305D000678A1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		947E6C9D1C4305D000678A1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		947E6C9F1C4305D000678A1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94866E221C8CBE1C00255907 /* workout3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = workout3.plist; sourceTree = "<group>"; };
 		94866E241C8CC2BF00255907 /* pushups.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pushups.tv.png; sourceTree = "<group>"; };
 		94866E261C8CD1F000255907 /* workout3-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-0.png"; sourceTree = "<group>"; };
 		94866E271C8CD1F000255907 /* workout3-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-1.png"; sourceTree = "<group>"; };
@@ -601,7 +621,7 @@
 				942C43931C39EFA900E9BC18 /* workout2-6.png */,
 				942C43941C39EFA900E9BC18 /* workout2-7.png */,
 				942C43951C39EFA900E9BC18 /* workout2-8.png */,
-				942C438A1C39DB3800E9BC18 /* workout2.plist */,
+				946A44901C8CDA46009E5EE2 /* workout2.plist */,
 			);
 			name = "Workout 2";
 			sourceTree = "<group>";
@@ -847,7 +867,7 @@
 				94866E2D1C8CD1F000255907 /* workout3-7.png */,
 				94866E2E1C8CD1F000255907 /* workout3-8.png */,
 				94866E2F1C8CD1F000255907 /* workout3-9.png */,
-				94866E221C8CBE1C00255907 /* workout3.plist */,
+				946A44971C8CDA4F009E5EE2 /* workout3.plist */,
 			);
 			name = "Workout 3";
 			sourceTree = "<group>";
@@ -1039,7 +1059,7 @@
 				94866E341C8CD1F000255907 /* workout3-4.png in Resources */,
 				946CD45C1C1E21990012C263 /* Info.plist in Resources */,
 				9452E9811C23A71E008102D4 /* workout1-9.png in Resources */,
-				942C438B1C39DB3800E9BC18 /* workout2.plist in Resources */,
+				946A448D1C8CDA46009E5EE2 /* workout2.plist in Resources */,
 				943BF9101C1FB60C00083C24 /* logotext.png in Resources */,
 				94866E321C8CD1F000255907 /* workout3-2.png in Resources */,
 				946CD4A81C1E32100012C263 /* MPCloseBtn@2x.png in Resources */,
@@ -1059,7 +1079,7 @@
 				942C439E1C39EFA900E9BC18 /* workout2-8.png in Resources */,
 				94866E361C8CD1F000255907 /* workout3-6.png in Resources */,
 				94866E351C8CD1F000255907 /* workout3-5.png in Resources */,
-				94866E231C8CBE1C00255907 /* workout3.plist in Resources */,
+				946A44951C8CDA4F009E5EE2 /* workout3.plist in Resources */,
 				942C439D1C39EFA900E9BC18 /* workout2-7.png in Resources */,
 				946CD4C01C1E32100012C263 /* vg_cta.png in Resources */,
 				946CD3BA1C1D3CD20012C263 /* workout0-2.png in Resources */,
@@ -1087,6 +1107,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946A44A51C8CDA64009E5EE2 /* workout3-8.png in Resources */,
 				9470CCE91C4BE7A1000C4A70 /* settings.tv.png in Resources */,
 				940AE7621C666F2600DC472D /* workout0-8.png in Resources */,
 				940AE7611C666F2600DC472D /* workout0-7.png in Resources */,
@@ -1097,20 +1118,28 @@
 				940AE74A1C666F0F00DC472D /* workout2-7.png in Resources */,
 				944C5BC01C62FC0D00A171B6 /* InfoPlist.strings in Resources */,
 				940AE7461C666F0F00DC472D /* workout2-3.png in Resources */,
+				946A44A71C8CDA66009E5EE2 /* workout3.plist in Resources */,
+				946A44A61C8CDA64009E5EE2 /* workout3-9.png in Resources */,
 				940AE7431C666F0F00DC472D /* workout2-0.png in Resources */,
+				946A449F1C8CDA63009E5EE2 /* workout3-2.png in Resources */,
+				946A449D1C8CDA63009E5EE2 /* workout3-0.png in Resources */,
 				940AE76C1C66998C00DC472D /* core-x.tv.png in Resources */,
 				940AE74B1C666F0F00DC472D /* workout2-8.png in Resources */,
+				946A449C1C8CDA5B009E5EE2 /* Localizable.strings in Resources */,
+				946A449E1C8CDA63009E5EE2 /* workout3-1.png in Resources */,
 				940AE76A1C66990400DC472D /* myrtl.tv.png in Resources */,
 				940AE75A1C666F2600DC472D /* workout0-0.png in Resources */,
 				947E6C9E1C4305D000678A1F /* Assets.xcassets in Resources */,
 				940AE7501C666F1F00DC472D /* workout1-3.png in Resources */,
 				940AE7681C66987000DC472D /* leg-day.tv.png in Resources */,
 				940AE74D1C666F1F00DC472D /* workout1-0.png in Resources */,
+				946A44A41C8CDA64009E5EE2 /* workout3-7.png in Resources */,
 				940AE7571C666F1F00DC472D /* workout1-10.png in Resources */,
-				940AE74C1C666F0F00DC472D /* workout2.plist in Resources */,
+				946A448E1C8CDA46009E5EE2 /* workout2.plist in Resources */,
 				940AE75F1C666F2600DC472D /* workout0-5.png in Resources */,
 				940AE74E1C666F1F00DC472D /* workout1-1.png in Resources */,
 				940AE7451C666F0F00DC472D /* workout2-2.png in Resources */,
+				946A44A11C8CDA63009E5EE2 /* workout3-4.png in Resources */,
 				940AE7481C666F0F00DC472D /* workout2-5.png in Resources */,
 				940AE7521C666F1F00DC472D /* workout1-5.png in Resources */,
 				940AE7581C666F1F00DC472D /* workout1-11.png in Resources */,
@@ -1123,6 +1152,8 @@
 				940AE75C1C666F2600DC472D /* workout0-2.png in Resources */,
 				94866E251C8CC2BF00255907 /* pushups.tv.png in Resources */,
 				940AE75D1C666F2600DC472D /* workout0-3.png in Resources */,
+				946A44A31C8CDA64009E5EE2 /* workout3-6.png in Resources */,
+				946A44A21C8CDA64009E5EE2 /* workout3-5.png in Resources */,
 				940AE75B1C666F2600DC472D /* workout0-1.png in Resources */,
 				940AE7591C666F2200DC472D /* workout1.plist in Resources */,
 				940AE7491C666F0F00DC472D /* workout2-6.png in Resources */,
@@ -1130,6 +1161,7 @@
 				940AE74F1C666F1F00DC472D /* workout1-2.png in Resources */,
 				940AE7511C666F1F00DC472D /* workout1-4.png in Resources */,
 				947E6C9C1C4305D000678A1F /* Main.storyboard in Resources */,
+				946A44A01C8CDA63009E5EE2 /* workout3-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,6 +1320,30 @@
 				9463A53E1C2844F100B8381A /* it */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		946A44901C8CDA46009E5EE2 /* workout2.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				946A448F1C8CDA46009E5EE2 /* Base */,
+				946A44911C8CDA48009E5EE2 /* it */,
+				946A44921C8CDA48009E5EE2 /* es */,
+				946A44931C8CDA49009E5EE2 /* de */,
+				946A44941C8CDA49009E5EE2 /* fr */,
+			);
+			name = workout2.plist;
+			sourceTree = "<group>";
+		};
+		946A44971C8CDA4F009E5EE2 /* workout3.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				946A44961C8CDA4F009E5EE2 /* Base */,
+				946A44981C8CDA51009E5EE2 /* it */,
+				946A44991C8CDA51009E5EE2 /* es */,
+				946A449A1C8CDA52009E5EE2 /* fr */,
+				946A449B1C8CDA53009E5EE2 /* de */,
+			);
+			name = workout3.plist;
 			sourceTree = "<group>";
 		};
 		947E6C9A1C4305D000678A1F /* Main.storyboard */ = {

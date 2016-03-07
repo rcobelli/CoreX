@@ -11,6 +11,7 @@ Esta aplicación no sólo tiene Core X, pero estamos añadiendo nuevos entrenami
 -Core X
 -Myrtl
 -Leg-Day
+-101 Lagartijas
 
 y muchos más por venir!
 
