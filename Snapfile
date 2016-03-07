@@ -22,7 +22,7 @@ languages([
 #launch_arguments("-username Felix")
 
 # The name of the scheme which contains the UI Tests
-scheme "core-x"
+scheme "tv"
 
 # Where should the resulting screenshots be stored?
 # output_directory "./screenshots"

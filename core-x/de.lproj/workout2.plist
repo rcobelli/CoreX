@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
+<dict>
+	<key>workoutName</key>
+	<string>Bein Tag</string>
+	<key>workoutDescription</key>
+	<string>Bein Tag ist ein Workout-Routine, die nur auf die Beine konzentriert</string>
+	<key>defaultRestDuration</key>
+	<integer>5</integer>
+	<key>defaultExerciseDuration</key>
+	<integer>30</integer>
+	<key>exercises</key>
 	<dict>
-		<key>workoutName</key>
-		<string>Leg-Day</string>
-		<key>workoutDescription</key>
-		<string>Leg Day is a workout routine that focuses only on your legs</string>
-		<key>defaultRestDuration</key>
-		<integer>5</integer>
-		<key>defaultExerciseDuration</key>
-		<integer>30</integer>
-		<key>exercises</key>
+		<key>Item 0</key>
 		<dict>
-			<key>Item 0</key>
-			<dict>
-				<key>itemName</key>
-				<string>Lunges (left)</string>
-				<key>itemDescription</key>
-				<string>Do lunges</string>
-				<key>itemImage</key>
-				<string>workout2-0.png</string>
-			</dict>
-			<key>Item 1</key>
-			<dict>
-				<key>itemName</key>
-				<string>Lunges (right)</string>
-				<key>itemDescription</key>
-				<string>Do lunges</string>
-				<key>itemImage</key>
-				<string>workout2-1.png</string>
-			</dict>
-			<key>Item 2</key>
-			<dict>
-				<key>itemName</key>
-				<string>Squats (left)</string>
-				<key>itemDescription</key>
-				<string>Do squats</string>
-				<key>itemImage</key>
-				<string>workout2-2.png</string>
-			</dict>
-			<key>Item 3</key>
-			<dict>
-				<key>itemName</key>
-				<string>Butt Kicker Jump Squats</string>
-				<key>itemDescription</key>
-				<string>Jump in the air and bring both your legs up in a "butt kick" motion</string>
-				<key>itemImage</key>
-				<string>workout2-3.png</string>
-			</dict>
-			<key>Item 4</key>
-			<dict>
-				<key>itemName</key>
-				<string>Jump Lunges</string>
-				<key>itemDescription</key>
-				<string>Start in a lunge position; then jump and switch legs all in one motion</string>
-				<key>itemImage</key>
-				<string>workout2-4.png</string>
-			</dict>
-			<key>Item 5</key>
-			<dict>
-				<key>itemName</key>
-				<string>Pistol Squats (left)</string>
-				<key>itemDescription</key>
-				<string>Do squats with one leg straight out in front</string>
-				<key>itemImage</key>
-				<string>workout2-5.png</string>
-			</dict>
-			<key>Item 6</key>
-			<dict>
-				<key>itemName</key>
-				<string>Pistol Squats (right)</string>
-				<key>itemDescription</key>
-				<string>Do squats with one leg straight out in front</string>
-				<key>itemImage</key>
-				<string>workout2-6.png</string>
-			</dict>
-			<key>Item 7</key>
-			<dict>
-				<key>itemName</key>
-				<string>Wall Sit</string>
-				<key>itemDescription</key>
-				<string>Do a wall sit (like you are sitting in an invisible chair with your back against the wall)</string>
-				<key>itemImage</key>
-				<string>workout2-7.png</string>
-			</dict>
-			<key>Item 8</key>
-			<dict>
-				<key>itemName</key>
-				<string>Jump Squats</string>
-				<key>itemDescription</key>
-				<string>Start with a squat then jump as high as you can; then come back down into another squat</string>
-				<key>itemImage</key>
-				<string>workout2-8.png</string>
-			</dict>
+			<key>itemName</key>
+			<string>Lunges (links)</string>
+			<key>itemDescription</key>
+			<string>Haben lunges</string>
+			<key>itemImage</key>
+			<string>workout2-0.png</string>
+		</dict>
+		<key>Item 1</key>
+		<dict>
+			<key>itemName</key>
+			<string>Lunges (rechts)</string>
+			<key>itemDescription</key>
+			<string>Haben lunges</string>
+			<key>itemImage</key>
+			<string>workout2-1.png</string>
+		</dict>
+		<key>Item 2</key>
+		<dict>
+			<key>itemName</key>
+			<string>Hocken</string>
+			<key>itemDescription</key>
+			<string>Do hockt</string>
+			<key>itemImage</key>
+			<string>workout2-2.png</string>
+		</dict>
+		<key>Item 3</key>
+		<dict>
+			<key>itemName</key>
+			<string>Kolben-Kicks / Springen / Hocken</string>
+			<key>itemDescription</key>
+			<string>Wechseln in der Luft und bringen Sie beide Beine nach oben in einem &quot;butt kick&quot; Bewegung</string>
+			<key>itemImage</key>
+			<string>workout2-3.png</string>
+		</dict>
+		<key>Item 4</key>
+		<dict>
+			<key>itemName</key>
+			<string>Sprung Lunges</string>
+			<key>itemDescription</key>
+			<string>Starten Sie in einer Longe Position; dann die Beine in einer Bewegung zu springen und schalten alle</string>
+			<key>itemImage</key>
+			<string>workout2-4.png</string>
+		</dict>
+		<key>Item 5</key>
+		<dict>
+			<key>itemName</key>
+			<string>Pistol Hocken (links)</string>
+			<key>itemDescription</key>
+			<string>Do hockt mit einem Bein gerade vor</string>
+			<key>itemImage</key>
+			<string>workout2-5.png</string>
+		</dict>
+		<key>Item 6</key>
+		<dict>
+			<key>itemName</key>
+			<string>Pistol Hocken (rechts)</string>
+			<key>itemDescription</key>
+			<string>Do hockt mit einem Bein gerade vor</string>
+			<key>itemImage</key>
+			<string>workout2-6.png</string>
+		</dict>
+		<key>Item 7</key>
+		<dict>
+			<key>itemName</key>
+			<string>Wandsitz</string>
+			<key>itemDescription</key>
+			<string>Führen Sie eine Wand sitzen (wie Sie in einem unsichtbaren Stuhl mit dem Rücken gegen die Wand sitzen)</string>
+			<key>itemImage</key>
+			<string>workout2-7.png</string>
+		</dict>
+		<key>Item 8</key>
+		<dict>
+			<key>itemName</key>
+			<string>Springen Hocken</string>
+			<key>itemDescription</key>
+			<string>Beginnen Sie mit ein gedrungener dann so hoch springen, wie Sie können; dann kommen Sie wieder nach unten in eine andere Hocke</string>
+			<key>itemImage</key>
+			<string>workout2-8.png</string>
 		</dict>
 	</dict>
+</dict>
 </plist>
