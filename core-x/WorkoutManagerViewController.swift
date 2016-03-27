@@ -72,7 +72,7 @@ class WorkoutManagerViewController: UIViewController {
 	override func viewDidAppear(animated: Bool) {
 		UIApplication.sharedApplication().idleTimerDisabled = true
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "update", userInfo: nil, repeats: true)
+		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(WorkoutManagerViewController.update), userInfo: nil, repeats: true)
 		
 		self.navigationItem.title = NSLocalizedString("Exercise ", comment: "") + String(exercise+1) + "/" + String(exercises.count)
 		NSUserDefaults.standardUserDefaults().setInteger(exercise, forKey: "workoutID")
@@ -150,14 +150,14 @@ class WorkoutManagerViewController: UIViewController {
 		if timerRunning {
 			let alertView = SCLAlertView()
 			alertView.showCloseButton = false
-			alertView.addButton(NSLocalizedString("Unpause", comment: ""), target:self, selector:Selector("pause:"))
+			alertView.addButton(NSLocalizedString("Unpause", comment: ""), target:self, selector:#selector(WorkoutManagerViewController.pause(_:)))
 			alertView.showWait(NSLocalizedString("Workout Paused", comment: ""), subTitle: "")
 			
 			timer.invalidate()
 			pauseButton.title = NSLocalizedString("Unpause", comment: "")
 		}
 		else {
-			timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "update", userInfo: nil, repeats: true)
+			timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(WorkoutManagerViewController.update), userInfo: nil, repeats: true)
 			pauseButton.title = NSLocalizedString("Pause", comment: "")
 		}
 		timerRunning = !timerRunning

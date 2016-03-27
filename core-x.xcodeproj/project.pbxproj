@@ -143,7 +143,6 @@
 		946CD4741C1E2F240012C263 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946CD4731C1E2F240012C263 /* StoreKit.framework */; };
 		946CD49D1C1E32100012C263 /* Appodeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946CD4751C1E32100012C263 /* Appodeal.framework */; };
 		946CD49E1C1E32100012C263 /* __vungle.db in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4771C1E32100012C263 /* __vungle.db */; };
-		946CD49F1C1E32100012C263 /* AdManagerAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4781C1E32100012C263 /* AdManagerAssets.bundle */; };
 		946CD4A01C1E32100012C263 /* appodeal_adbadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4791C1E32100012C263 /* appodeal_adbadge.png */; };
 		946CD4A11C1E32100012C263 /* appodeal_adbadge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD47A1C1E32100012C263 /* appodeal_adbadge@2x.png */; };
 		946CD4A21C1E32100012C263 /* appodeal_adbadge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD47B1C1E32100012C263 /* appodeal_adbadge@3x.png */; };
@@ -170,7 +169,6 @@
 		946CD4B71C1E32100012C263 /* MPUnmutedBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4901C1E32100012C263 /* MPUnmutedBtn@2x.png */; };
 		946CD4B81C1E32100012C263 /* MPUnmutedBtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4911C1E32100012C263 /* MPUnmutedBtn@3x.png */; };
 		946CD4B91C1E32100012C263 /* MRAID.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4921C1E32100012C263 /* MRAID.bundle */; };
-		946CD4BA1C1E32100012C263 /* RFMAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4931C1E32100012C263 /* RFMAdSDK.bundle */; };
 		946CD4BB1C1E32100012C263 /* StartApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4941C1E32100012C263 /* StartApp.bundle */; };
 		946CD4BC1C1E32100012C263 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4951C1E32100012C263 /* SVProgressHUD.bundle */; };
 		946CD4BE1C1E32100012C263 /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 946CD4971C1E32100012C263 /* UnityAds.bundle */; };
@@ -231,6 +229,31 @@
 		94866E371C8CD1F000255907 /* workout3-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2D1C8CD1F000255907 /* workout3-7.png */; };
 		94866E381C8CD1F000255907 /* workout3-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2E1C8CD1F000255907 /* workout3-8.png */; };
 		94866E391C8CD1F000255907 /* workout3-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2F1C8CD1F000255907 /* workout3-9.png */; };
+		94D6C10C1CA7591700CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
+		94D6C1141CA75AB000CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
+		94D6C1161CA760B000CFC621 /* yoga.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1151CA760B000CFC621 /* yoga.tv.png */; };
+		94D6C1221CA7641C00CFC621 /* workout4-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1171CA7641C00CFC621 /* workout4-0.png */; };
+		94D6C1231CA7641C00CFC621 /* workout4-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1171CA7641C00CFC621 /* workout4-0.png */; };
+		94D6C1241CA7641C00CFC621 /* workout4-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1181CA7641C00CFC621 /* workout4-1.png */; };
+		94D6C1251CA7641C00CFC621 /* workout4-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1181CA7641C00CFC621 /* workout4-1.png */; };
+		94D6C1261CA7641C00CFC621 /* workout4-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1191CA7641C00CFC621 /* workout4-2.png */; };
+		94D6C1271CA7641C00CFC621 /* workout4-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1191CA7641C00CFC621 /* workout4-2.png */; };
+		94D6C1281CA7641C00CFC621 /* workout4-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11A1CA7641C00CFC621 /* workout4-3.png */; };
+		94D6C1291CA7641C00CFC621 /* workout4-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11A1CA7641C00CFC621 /* workout4-3.png */; };
+		94D6C12A1CA7641C00CFC621 /* workout4-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11B1CA7641C00CFC621 /* workout4-4.png */; };
+		94D6C12B1CA7641C00CFC621 /* workout4-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11B1CA7641C00CFC621 /* workout4-4.png */; };
+		94D6C12C1CA7641C00CFC621 /* workout4-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11C1CA7641C00CFC621 /* workout4-5.png */; };
+		94D6C12D1CA7641C00CFC621 /* workout4-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11C1CA7641C00CFC621 /* workout4-5.png */; };
+		94D6C12E1CA7641C00CFC621 /* workout4-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11D1CA7641C00CFC621 /* workout4-6.png */; };
+		94D6C12F1CA7641C00CFC621 /* workout4-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11D1CA7641C00CFC621 /* workout4-6.png */; };
+		94D6C1301CA7641C00CFC621 /* workout4-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11E1CA7641C00CFC621 /* workout4-7.png */; };
+		94D6C1311CA7641C00CFC621 /* workout4-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11E1CA7641C00CFC621 /* workout4-7.png */; };
+		94D6C1321CA7641C00CFC621 /* workout4-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11F1CA7641C00CFC621 /* workout4-8.png */; };
+		94D6C1331CA7641C00CFC621 /* workout4-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C11F1CA7641C00CFC621 /* workout4-8.png */; };
+		94D6C1341CA7641C00CFC621 /* workout4-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1201CA7641C00CFC621 /* workout4-9.png */; };
+		94D6C1351CA7641C00CFC621 /* workout4-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1201CA7641C00CFC621 /* workout4-9.png */; };
+		94D6C1361CA7641C00CFC621 /* workout4-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1211CA7641C00CFC621 /* workout4-10.png */; };
+		94D6C1371CA7641C00CFC621 /* workout4-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1211CA7641C00CFC621 /* workout4-10.png */; };
 		94F784341C24762500C40DFC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F784331C24762500C40DFC /* SnapshotHelper.swift */; };
 		94F7848F1C24EB0300C40DFC /* workout1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784911C24EB0300C40DFC /* workout1.plist */; };
 		94F784971C24EB0E00C40DFC /* workout0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784991C24EB0E00C40DFC /* workout0.plist */; };
@@ -386,7 +409,6 @@
 		946CD4731C1E2F240012C263 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		946CD4751C1E32100012C263 /* Appodeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appodeal.framework; sourceTree = "<group>"; };
 		946CD4771C1E32100012C263 /* __vungle.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = __vungle.db; sourceTree = "<group>"; };
-		946CD4781C1E32100012C263 /* AdManagerAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AdManagerAssets.bundle; sourceTree = "<group>"; };
 		946CD4791C1E32100012C263 /* appodeal_adbadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appodeal_adbadge.png; sourceTree = "<group>"; };
 		946CD47A1C1E32100012C263 /* appodeal_adbadge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appodeal_adbadge@2x.png"; sourceTree = "<group>"; };
 		946CD47B1C1E32100012C263 /* appodeal_adbadge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appodeal_adbadge@3x.png"; sourceTree = "<group>"; };
@@ -413,7 +435,6 @@
 		946CD4901C1E32100012C263 /* MPUnmutedBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPUnmutedBtn@2x.png"; sourceTree = "<group>"; };
 		946CD4911C1E32100012C263 /* MPUnmutedBtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPUnmutedBtn@3x.png"; sourceTree = "<group>"; };
 		946CD4921C1E32100012C263 /* MRAID.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MRAID.bundle; sourceTree = "<group>"; };
-		946CD4931C1E32100012C263 /* RFMAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RFMAdSDK.bundle; sourceTree = "<group>"; };
 		946CD4941C1E32100012C263 /* StartApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StartApp.bundle; sourceTree = "<group>"; };
 		946CD4951C1E32100012C263 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		946CD4971C1E32100012C263 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UnityAds.bundle; sourceTree = "<group>"; };
@@ -473,6 +494,23 @@
 		94866E2D1C8CD1F000255907 /* workout3-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-7.png"; sourceTree = "<group>"; };
 		94866E2E1C8CD1F000255907 /* workout3-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-8.png"; sourceTree = "<group>"; };
 		94866E2F1C8CD1F000255907 /* workout3-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-9.png"; sourceTree = "<group>"; };
+		94D6C10D1CA7591700CFC621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout4.plist; sourceTree = "<group>"; };
+		94D6C1151CA760B000CFC621 /* yoga.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yoga.tv.png; sourceTree = "<group>"; };
+		94D6C1171CA7641C00CFC621 /* workout4-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-0.png"; sourceTree = "<group>"; };
+		94D6C1181CA7641C00CFC621 /* workout4-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-1.png"; sourceTree = "<group>"; };
+		94D6C1191CA7641C00CFC621 /* workout4-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-2.png"; sourceTree = "<group>"; };
+		94D6C11A1CA7641C00CFC621 /* workout4-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-3.png"; sourceTree = "<group>"; };
+		94D6C11B1CA7641C00CFC621 /* workout4-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-4.png"; sourceTree = "<group>"; };
+		94D6C11C1CA7641C00CFC621 /* workout4-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-5.png"; sourceTree = "<group>"; };
+		94D6C11D1CA7641C00CFC621 /* workout4-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-6.png"; sourceTree = "<group>"; };
+		94D6C11E1CA7641C00CFC621 /* workout4-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-7.png"; sourceTree = "<group>"; };
+		94D6C11F1CA7641C00CFC621 /* workout4-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-8.png"; sourceTree = "<group>"; };
+		94D6C1201CA7641C00CFC621 /* workout4-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-9.png"; sourceTree = "<group>"; };
+		94D6C1211CA7641C00CFC621 /* workout4-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-10.png"; sourceTree = "<group>"; };
+		94D6C1381CA7674700CFC621 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/workout4.plist; sourceTree = "<group>"; };
+		94D6C1391CA7674700CFC621 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/workout4.plist; sourceTree = "<group>"; };
+		94D6C13A1CA7674800CFC621 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/workout4.plist; sourceTree = "<group>"; };
+		94D6C13B1CA7674900CFC621 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/workout4.plist; sourceTree = "<group>"; };
 		94F784331C24762500C40DFC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		94F784871C24E9BA00C40DFC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		94F784881C24E9BA00C40DFC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -593,6 +631,7 @@
 				946CD3A61C1D21CD0012C263 /* WorkoutViewController.swift */,
 				946CD3AC1C1D28100012C263 /* WorkoutManagerViewController.swift */,
 				946CD3AA1C1D280A0012C263 /* WorkoutContentViewController.swift */,
+				94F784351C24AC2200C40DFC /* Workouts */,
 				946CD3A51C1D1F2F0012C263 /* Supporting Files */,
 			);
 			path = "core-x";
@@ -636,7 +675,6 @@
 				946CD3D81C1DDB630012C263 /* RadialChart.swift */,
 				946CD39F1C1D1EA10012C263 /* WorkoutCell.swift */,
 				946CD39D1C1D163F0012C263 /* PreviousDay.swift */,
-				94F784351C24AC2200C40DFC /* Workouts */,
 				9415850E1C1D103E00AFDBD0 /* Assets.xcassets */,
 				941585101C1D103E00AFDBD0 /* LaunchScreen.storyboard */,
 				941585131C1D103E00AFDBD0 /* Info.plist */,
@@ -764,7 +802,6 @@
 			isa = PBXGroup;
 			children = (
 				946CD4771C1E32100012C263 /* __vungle.db */,
-				946CD4781C1E32100012C263 /* AdManagerAssets.bundle */,
 				946CD4791C1E32100012C263 /* appodeal_adbadge.png */,
 				946CD47A1C1E32100012C263 /* appodeal_adbadge@2x.png */,
 				946CD47B1C1E32100012C263 /* appodeal_adbadge@3x.png */,
@@ -791,7 +828,6 @@
 				946CD4901C1E32100012C263 /* MPUnmutedBtn@2x.png */,
 				946CD4911C1E32100012C263 /* MPUnmutedBtn@3x.png */,
 				946CD4921C1E32100012C263 /* MRAID.bundle */,
-				946CD4931C1E32100012C263 /* RFMAdSDK.bundle */,
 				946CD4941C1E32100012C263 /* StartApp.bundle */,
 				946CD4951C1E32100012C263 /* SVProgressHUD.bundle */,
 				946CD4971C1E32100012C263 /* UnityAds.bundle */,
@@ -836,6 +872,7 @@
 				9470CCE81C4BE7A1000C4A70 /* settings.tv.png */,
 				940AE7671C66987000DC472D /* leg-day.tv.png */,
 				940AE7691C66990400DC472D /* myrtl.tv.png */,
+				94D6C1151CA760B000CFC621 /* yoga.tv.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -872,9 +909,29 @@
 			name = "Workout 3";
 			sourceTree = "<group>";
 		};
+		94D6C1091CA758ED00CFC621 /* Workout 4 */ = {
+			isa = PBXGroup;
+			children = (
+				94D6C1171CA7641C00CFC621 /* workout4-0.png */,
+				94D6C1181CA7641C00CFC621 /* workout4-1.png */,
+				94D6C1191CA7641C00CFC621 /* workout4-2.png */,
+				94D6C11A1CA7641C00CFC621 /* workout4-3.png */,
+				94D6C11B1CA7641C00CFC621 /* workout4-4.png */,
+				94D6C11C1CA7641C00CFC621 /* workout4-5.png */,
+				94D6C11D1CA7641C00CFC621 /* workout4-6.png */,
+				94D6C11E1CA7641C00CFC621 /* workout4-7.png */,
+				94D6C11F1CA7641C00CFC621 /* workout4-8.png */,
+				94D6C1201CA7641C00CFC621 /* workout4-9.png */,
+				94D6C1211CA7641C00CFC621 /* workout4-10.png */,
+				94D6C10E1CA7591700CFC621 /* workout4.plist */,
+			);
+			name = "Workout 4";
+			sourceTree = "<group>";
+		};
 		94F784351C24AC2200C40DFC /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
+				94D6C1091CA758ED00CFC621 /* Workout 4 */,
 				94866E211C8CBC9000255907 /* Workout 3 */,
 				942C438C1C39DB3C00E9BC18 /* Workout 2 */,
 				946CD5001C1E34B90012C263 /* Workout 1 */,
@@ -1006,7 +1063,6 @@
 				946CD4A11C1E32100012C263 /* appodeal_adbadge@2x.png in Resources */,
 				946CD4C21C1E32100012C263 /* vg_mute_on.png in Resources */,
 				946CD4A31C1E32100012C263 /* appodeal_close.png in Resources */,
-				946CD4BA1C1E32100012C263 /* RFMAdSDK.bundle in Resources */,
 				946CD4AC1C1E32100012C263 /* MPCloseButtonX@3x.png in Resources */,
 				9463A5291C2844D700B8381A /* Localizable.strings in Resources */,
 				941585121C1D103E00AFDBD0 /* LaunchScreen.storyboard in Resources */,
@@ -1016,6 +1072,7 @@
 				9452E97B1C23A71E008102D4 /* workout1-1.png in Resources */,
 				946CD4A51C1E32100012C263 /* appodeal_pattern@2x.png in Resources */,
 				946CD4AF1C1E32100012C263 /* MPDAAIcon@3x.png in Resources */,
+				94D6C12E1CA7641C00CFC621 /* workout4-6.png in Resources */,
 				943BF9121C1FB61700083C24 /* background.png in Resources */,
 				946CD4B21C1E32100012C263 /* MPMutedBtn@3x.png in Resources */,
 				9452E97C1C23A71E008102D4 /* workout1-4.png in Resources */,
@@ -1027,10 +1084,13 @@
 				942C43991C39EFA900E9BC18 /* workout2-3.png in Resources */,
 				942C439A1C39EFA900E9BC18 /* workout2-4.png in Resources */,
 				946CD4B41C1E32100012C263 /* MPPlayBtn@2x.png in Resources */,
+				94D6C1341CA7641C00CFC621 /* workout4-9.png in Resources */,
 				946CD4C11C1E32100012C263 /* vg_mute_off.png in Resources */,
 				946CD4C31C1E32100012C263 /* vg_privacy.png in Resources */,
 				9463A52E1C2844D800B8381A /* InfoPlist.strings in Resources */,
+				94D6C1361CA7641C00CFC621 /* workout4-10.png in Resources */,
 				946CD4AD1C1E32100012C263 /* MPDAAIcon.png in Resources */,
+				94D6C1301CA7641C00CFC621 /* workout4-7.png in Resources */,
 				942C43971C39EFA900E9BC18 /* workout2-1.png in Resources */,
 				946CD4AE1C1E32100012C263 /* MPDAAIcon@2x.png in Resources */,
 				946CD4B71C1E32100012C263 /* MPUnmutedBtn@2x.png in Resources */,
@@ -1044,9 +1104,10 @@
 				94866E371C8CD1F000255907 /* workout3-7.png in Resources */,
 				946CD4AA1C1E32100012C263 /* MPCloseButtonX.png in Resources */,
 				946CD3C41C1DD0EA0012C263 /* workout0-5.png in Resources */,
+				94D6C1241CA7641C00CFC621 /* workout4-1.png in Resources */,
 				94866E311C8CD1F000255907 /* workout3-1.png in Resources */,
+				94D6C1281CA7641C00CFC621 /* workout4-3.png in Resources */,
 				94F7848F1C24EB0300C40DFC /* workout1.plist in Resources */,
-				946CD49F1C1E32100012C263 /* AdManagerAssets.bundle in Resources */,
 				946CD3BB1C1D3CD20012C263 /* workout0-1.png in Resources */,
 				946CD4A01C1E32100012C263 /* appodeal_adbadge.png in Resources */,
 				9452E9881C23A7D2008102D4 /* workout1-6.png in Resources */,
@@ -1055,16 +1116,20 @@
 				9415850F1C1D103E00AFDBD0 /* Assets.xcassets in Resources */,
 				946CD46C1C1E21990012C263 /* Sparkle.png in Resources */,
 				942C439C1C39EFA900E9BC18 /* workout2-6.png in Resources */,
+				94D6C1321CA7641C00CFC621 /* workout4-8.png in Resources */,
 				946CD4B81C1E32100012C263 /* MPUnmutedBtn@3x.png in Resources */,
 				94866E341C8CD1F000255907 /* workout3-4.png in Resources */,
 				946CD45C1C1E21990012C263 /* Info.plist in Resources */,
 				9452E9811C23A71E008102D4 /* workout1-9.png in Resources */,
+				94D6C1261CA7641C00CFC621 /* workout4-2.png in Resources */,
 				946A448D1C8CDA46009E5EE2 /* workout2.plist in Resources */,
 				943BF9101C1FB60C00083C24 /* logotext.png in Resources */,
 				94866E321C8CD1F000255907 /* workout3-2.png in Resources */,
+				94D6C12C1CA7641C00CFC621 /* workout4-5.png in Resources */,
 				946CD4A81C1E32100012C263 /* MPCloseBtn@2x.png in Resources */,
 				946CD4B01C1E32100012C263 /* MPMutedBtn@1x.png in Resources */,
 				946CD49E1C1E32100012C263 /* __vungle.db in Resources */,
+				94D6C1221CA7641C00CFC621 /* workout4-0.png in Resources */,
 				94866E301C8CD1F000255907 /* workout3-0.png in Resources */,
 				946CD4B61C1E32100012C263 /* MPUnmutedBtn@1x.png in Resources */,
 				946CD4B11C1E32100012C263 /* MPMutedBtn@2x.png in Resources */,
@@ -1084,7 +1149,9 @@
 				946CD4C01C1E32100012C263 /* vg_cta.png in Resources */,
 				946CD3BA1C1D3CD20012C263 /* workout0-2.png in Resources */,
 				946CD4A71C1E32100012C263 /* MPCloseBtn.png in Resources */,
+				94D6C10C1CA7591700CFC621 /* workout4.plist in Resources */,
 				946CD4BF1C1E32100012C263 /* vg_close.png in Resources */,
+				94D6C12A1CA7641C00CFC621 /* workout4-4.png in Resources */,
 				946CD3BE1C1D3CD20012C263 /* workout0-0.png in Resources */,
 				942C43961C39EFA900E9BC18 /* workout2-0.png in Resources */,
 				946CD4A41C1E32100012C263 /* appodeal_pattern.png in Resources */,
@@ -1114,10 +1181,13 @@
 				940AE75E1C666F2600DC472D /* workout0-4.png in Resources */,
 				940AE7531C666F1F00DC472D /* workout1-6.png in Resources */,
 				940AE7561C666F1F00DC472D /* workout1-9.png in Resources */,
+				94D6C1141CA75AB000CFC621 /* workout4.plist in Resources */,
 				940AE7471C666F0F00DC472D /* workout2-4.png in Resources */,
+				94D6C1331CA7641C00CFC621 /* workout4-8.png in Resources */,
 				940AE74A1C666F0F00DC472D /* workout2-7.png in Resources */,
 				944C5BC01C62FC0D00A171B6 /* InfoPlist.strings in Resources */,
 				940AE7461C666F0F00DC472D /* workout2-3.png in Resources */,
+				94D6C12D1CA7641C00CFC621 /* workout4-5.png in Resources */,
 				946A44A71C8CDA66009E5EE2 /* workout3.plist in Resources */,
 				946A44A61C8CDA64009E5EE2 /* workout3-9.png in Resources */,
 				940AE7431C666F0F00DC472D /* workout2-0.png in Resources */,
@@ -1128,9 +1198,12 @@
 				946A449C1C8CDA5B009E5EE2 /* Localizable.strings in Resources */,
 				946A449E1C8CDA63009E5EE2 /* workout3-1.png in Resources */,
 				940AE76A1C66990400DC472D /* myrtl.tv.png in Resources */,
+				94D6C1161CA760B000CFC621 /* yoga.tv.png in Resources */,
 				940AE75A1C666F2600DC472D /* workout0-0.png in Resources */,
 				947E6C9E1C4305D000678A1F /* Assets.xcassets in Resources */,
+				94D6C1311CA7641C00CFC621 /* workout4-7.png in Resources */,
 				940AE7501C666F1F00DC472D /* workout1-3.png in Resources */,
+				94D6C1251CA7641C00CFC621 /* workout4-1.png in Resources */,
 				940AE7681C66987000DC472D /* leg-day.tv.png in Resources */,
 				940AE74D1C666F1F00DC472D /* workout1-0.png in Resources */,
 				946A44A41C8CDA64009E5EE2 /* workout3-7.png in Resources */,
@@ -1138,22 +1211,29 @@
 				946A448E1C8CDA46009E5EE2 /* workout2.plist in Resources */,
 				940AE75F1C666F2600DC472D /* workout0-5.png in Resources */,
 				940AE74E1C666F1F00DC472D /* workout1-1.png in Resources */,
+				94D6C1231CA7641C00CFC621 /* workout4-0.png in Resources */,
+				94D6C1291CA7641C00CFC621 /* workout4-3.png in Resources */,
 				940AE7451C666F0F00DC472D /* workout2-2.png in Resources */,
 				946A44A11C8CDA63009E5EE2 /* workout3-4.png in Resources */,
 				940AE7481C666F0F00DC472D /* workout2-5.png in Resources */,
+				94D6C12B1CA7641C00CFC621 /* workout4-4.png in Resources */,
 				940AE7521C666F1F00DC472D /* workout1-5.png in Resources */,
 				940AE7581C666F1F00DC472D /* workout1-11.png in Resources */,
 				940AE7541C666F1F00DC472D /* workout1-7.png in Resources */,
 				940AE7631C666F2600DC472D /* workout0-9.png in Resources */,
+				94D6C1371CA7641C00CFC621 /* workout4-10.png in Resources */,
+				94D6C1351CA7641C00CFC621 /* workout4-9.png in Resources */,
 				940AE7641C666F2900DC472D /* workout0.plist in Resources */,
 				940AE7551C666F1F00DC472D /* workout1-8.png in Resources */,
 				944C5BBB1C62FC0D00A171B6 /* Localizable.strings in Resources */,
 				940AE7441C666F0F00DC472D /* workout2-1.png in Resources */,
 				940AE75C1C666F2600DC472D /* workout0-2.png in Resources */,
 				94866E251C8CC2BF00255907 /* pushups.tv.png in Resources */,
+				94D6C12F1CA7641C00CFC621 /* workout4-6.png in Resources */,
 				940AE75D1C666F2600DC472D /* workout0-3.png in Resources */,
 				946A44A31C8CDA64009E5EE2 /* workout3-6.png in Resources */,
 				946A44A21C8CDA64009E5EE2 /* workout3-5.png in Resources */,
+				94D6C1271CA7641C00CFC621 /* workout4-2.png in Resources */,
 				940AE75B1C666F2600DC472D /* workout0-1.png in Resources */,
 				940AE7591C666F2200DC472D /* workout1.plist in Resources */,
 				940AE7491C666F0F00DC472D /* workout2-6.png in Resources */,
@@ -1356,6 +1436,18 @@
 				944C5BCC1C62FC2A00A171B6 /* it */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		94D6C10E1CA7591700CFC621 /* workout4.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94D6C10D1CA7591700CFC621 /* Base */,
+				94D6C1381CA7674700CFC621 /* fr */,
+				94D6C1391CA7674700CFC621 /* de */,
+				94D6C13A1CA7674800CFC621 /* es */,
+				94D6C13B1CA7674900CFC621 /* it */,
+			);
+			name = workout4.plist;
 			sourceTree = "<group>";
 		};
 		94F784911C24EB0300C40DFC /* workout1.plist */ = {

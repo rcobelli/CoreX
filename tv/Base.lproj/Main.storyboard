@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -26,10 +26,10 @@
                                         <rect key="frame" x="0.0" y="54" width="1880" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OqS-gJ-Z2m" id="qB2-us-84K">
-                                            <rect key="frame" x="0.0" y="0.0" width="1880" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1864" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leg-day.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xl2-Py-ktd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leg-day.tv.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xl2-Py-ktd">
                                                     <rect key="frame" x="8" y="8" width="1920" height="184"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhW-2P-cz9">
@@ -199,7 +199,7 @@
                         <inset key="scrollIndicatorInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="30" reuseIdentifier="reuseIdentifier" textLabel="msl-OU-A7e" style="IBUITableViewCellStyleDefault" id="Q2g-NC-p80">
-                                <rect key="frame" x="0.0" y="54" width="1920" height="66"/>
+                                <rect key="frame" x="0.0" y="54" width="1880" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q2g-NC-p80" id="SEZ-JV-8f2">
                                     <rect key="frame" x="0.0" y="0.0" width="1904" height="66"/>
@@ -376,6 +376,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="leg-day.png" width="300" height="334"/>
+        <image name="leg-day.tv.png" width="450" height="450"/>
     </resources>
 </document>

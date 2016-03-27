@@ -58,7 +58,7 @@ class TVWorkoutViewController: UIViewController {
 		circleChart.backgroundColor = UIColor.clearColor()
 		exerciseID = exerciseID + 1
 		
-		let tapRecognizer = UITapGestureRecognizer(target: self, action: "pauseWorkout")
+		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(TVWorkoutViewController.pauseWorkout))
 		tapRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)];
 		self.view.addGestureRecognizer(tapRecognizer)
 		
@@ -81,7 +81,7 @@ class TVWorkoutViewController: UIViewController {
 	override func viewDidAppear(animated: Bool) {
 		UIApplication.sharedApplication().idleTimerDisabled = true
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "update", userInfo: nil, repeats: true)
+		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TVWorkoutViewController.update), userInfo: nil, repeats: true)
 		
 		self.navigationItem.title = NSLocalizedString("Exercise ", comment: "") + String(exercise+1) + "/" + String(exercises.count)
 		NSUserDefaults.standardUserDefaults().setInteger(exercise, forKey: "workoutID")
@@ -99,7 +99,7 @@ class TVWorkoutViewController: UIViewController {
 			timer.invalidate()
 		}
 		else {
-			timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "update", userInfo: nil, repeats: true)
+			timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TVWorkoutViewController.update), userInfo: nil, repeats: true)
 		}
 		timerRunning = !timerRunning
 	}

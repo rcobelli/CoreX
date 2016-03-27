@@ -12,6 +12,7 @@ Esta aplicación no sólo tiene Core X, pero estamos añadiendo nuevos entrenami
 -Myrtl
 -Leg-Day
 -101 Lagartijas
+-Yoga
 
 y muchos más por venir!
 

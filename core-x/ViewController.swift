@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	var justShowedAd = Bool()
 	
-	let productIdentifiers = Set(["com.rybel_llc.core_x.remove_ads", "com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day", "com.rybel_llc.core_x.pushups"])
+	let productIdentifiers = Set(["com.rybel_llc.core_x.remove_ads", "com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day", "com.rybel_llc.core_x.pushups", "com.rybel_llc.core_x.yoga"])
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 	
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
 		requestProductData()
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "showMenu", name: "showMenu", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.showMenu), name: "showMenu", object: nil)
 	}
 	
 	
@@ -72,8 +72,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			}))
 			self.presentViewController(alert, animated: true, completion: nil)
 		}
-		
-		print(productIdentifiers)
 	}
 	
 	func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
@@ -81,8 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		var products = response.products
 		
 		if (products.count != 0) {
-			for var i = 0; i < products.count; i++
-			{
+			for i in 0 ..< products.count {
 				product = products[i] as SKProduct
 				productsArray.append(product!)
 			}
@@ -137,6 +134,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		else if identifier == "com.rybel_llc.core_x.pushups" {
 			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout3")
 		}
+		else if identifier == "com.rybel_llc.core_x.yoga" {
+			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout4")
+		}
 		
 		NSUserDefaults.standardUserDefaults().synchronize()
 		viewWillAppear(true)
@@ -156,12 +156,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 		
 		SweetAlert().showAlert(NSLocalizedString("Thank You", comment: ""), subTitle: NSLocalizedString("Any purchases were restored", comment: ""), style: AlertStyle.Success)
-	}
-	
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -200,6 +194,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			cell.title.text = NSLocalizedString("101 Pushups", comment: "")
 			cell.backgroundImage.image = UIImage(named: "pushup")
 			break
+		case 4:
+			cell.title.text = NSLocalizedString("Yogata Be Kidding Me", comment: "")
+			cell.backgroundImage.image = UIImage(named: "yoga")
+			break
 		default:
 			break
 		}
@@ -207,12 +205,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		cell.backgroundColor = UIColor(red: 0.776, green: 0.745, blue: 0.655, alpha: 1.00)
 		
 		if !NSUserDefaults.standardUserDefaults().boolForKey("workout" + String(indexPath.row)) {
-			cell.title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+			cell.title.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
 			cell.backgroundImage.alpha = 0.25
 			print("Cell \(indexPath.row) not purchased")
 		}
 		else {
-			cell.title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+			cell.title.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
 			cell.backgroundImage.alpha = 1
 			print("Cell \(indexPath.row) purchased")
 		}
@@ -235,6 +233,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			case 3:
 				buyProduct(2)
 				break
+			case 4:
+				buyProduct(4)
+				break
 			default:
 				break
 			}
@@ -248,7 +249,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 4
+		return 5
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

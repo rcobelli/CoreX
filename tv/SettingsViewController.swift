@@ -63,7 +63,7 @@ class SettingsViewController: UITableViewController, SKProductsRequestDelegate, 
 		var products = response.products
 		
 		if (products.count != 0) {
-			for var i = 0; i < products.count; i++
+			for i in 0 ..< products.count
 			{
 				product = products[i] as SKProduct
 				productsArray.append(product!)

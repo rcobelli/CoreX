@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>workoutName</key>
+		<string>Yogata Be Kidding me</string>
+		<key>workoutDescription</key>
+		<string>A great yoga routine to compliment all your workout routines</string>
+		<key>defaultRestDuration</key>
+		<integer>7</integer>
+		<key>defaultExerciseDuration</key>
+		<integer>25</integer>
+		<key>exercises</key>
+		<dict>
+			<key>Item 0</key>
+			<dict>
+				<key>itemName</key>
+				<string>Child's Pose</string>
+				<key>itemDescription</key>
+				<string>Curl up in the fetal position but stretch your arms straight out in front</string>
+				<key>itemImage</key>
+				<string>workout4-0.png</string>
+			</dict>
+			<key>Item 1</key>
+			<dict>
+				<key>itemName</key>
+				<string>Butterfly</string>
+				<key>itemDescription</key>
+				<string>Place the soles of your feet together in front of you and pull them towards your hips</string>
+				<key>itemImage</key>
+				<string>workout4-1.png</string>
+			</dict>
+			<key>Item 2</key>
+			<dict>
+				<key>itemName</key>
+				<string>Kneeling Hip Flexor Stretch (left)</string>
+				<key>itemDescription</key>
+				<string>Take a knee on one leg and lean forward</string>
+				<key>itemImage</key>
+				<string>workout4-2.png</string>
+			</dict>
+			<key>Item 3</key>
+			<dict>
+				<key>itemName</key>
+				<string>Kneeling Hip Flexor Stretch (right)</string>
+				<key>itemDescription</key>
+				<string>Take a knee on one leg and lean forward</string>
+				<key>itemImage</key>
+				<string>workout4-3.png</string>
+			</dict>
+			<key>Item 4</key>
+			<dict>
+				<key>itemName</key>
+				<string>Overhead Tricep Stretch (left)</string>
+				<key>itemDescription</key>
+				<string>Act as if you are trying to scratch your back by reaching over your shoulder, then pull on your elbow with the other arm</string>
+				<key>itemImage</key>
+				<string>workout4-4.png</string>
+			</dict>
+			<key>Item 5</key>
+			<dict>
+				<key>itemName</key>
+				<string>Overhead Tricep Stretch (right)</string>
+				<key>itemDescription</key>
+				<string>Act as if you are trying to scratch your back by reaching over your shoulder, then pull on your elbow with the other arm</string>
+				<key>itemImage</key>
+				<string>workout4-5.png</string>
+			</dict>
+			<key>Item 6</key>
+			<dict>
+				<key>itemName</key>
+				<string>Downward Dog</string>
+				<key>itemDescription</key>
+				<string>Start in push up position and walk your hands back towards your feet</string>
+				<key>itemImage</key>
+				<string>workout4-6.png</string>
+			</dict>
+			<key>Item 7</key>
+			<dict>
+				<key>itemName</key>
+				<string>Lunge With Quad Stretch (left)</string>
+				<key>itemDescription</key>
+				<string>Take a knee on one leg and then pull your other foot towards your butt</string>
+				<key>itemImage</key>
+				<string>workout4-7.png</string>
+			</dict>
+			<key>Item 8</key>
+			<dict>
+				<key>itemName</key>
+				<string>Lunge With Quad Stretch (right)</string>
+				<key>itemDescription</key>
+				<string>Take a knee on one leg and then pull your other foot towards your butt</string>
+				<key>itemImage</key>
+				<string>workout4-8.png</string>
+			</dict>
+			<key>Item 9</key>
+			<dict>
+				<key>itemName</key>
+				<string>Pigeon (left)</string>
+				<key>itemDescription</key>
+				<string>Place one leg straight out behind you and keep the other leg bent in front of you</string>
+				<key>itemImage</key>
+				<string>workout4-9.png</string>
+			</dict>
+			<key>Item 10</key>
+			<dict>
+				<key>itemName</key>
+				<string>Pigeon (right)</string>
+				<key>itemDescription</key>
+				<string>Place one leg straight out behind you and keep the other leg bent in front of you</string>
+				<key>itemImage</key>
+				<string>workout4-10.png</string>
+			</dict>
+		</dict>
+	</dict>
+</plist>

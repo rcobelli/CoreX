@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	var justShowedAd = Bool()
 	
-	let productIdentifiers = Set(["com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day", "com.rybel_llc.core_x.pushups"])
+	let productIdentifiers = Set(["com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day", "com.rybel_llc.core_x.pushups", "com.rybel_llc.core_x.yoga"])
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 	
@@ -66,12 +66,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	
 	func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
-		print("products found")
+		print("Product Status:")
 		var products = response.products
 		
 		if (products.count != 0) {
-			for var i = 0; i < products.count; i++
-			{
+			for i in 0 ..< products.count {
 				product = products[i] as SKProduct
 				productsArray.append(product!)
 			}
@@ -80,8 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			print("No products found")
 		}
 		
-		for product in response.invalidProductIdentifiers
-		{
+		for product in response.invalidProductIdentifiers {
 			print("Product not found: \(product)")
 		}
 	}
@@ -127,6 +125,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 		else if identifier == "com.rybel_llc.core_x.pushups" {
 			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout3")
+		}
+		else if identifier == "com.rybel_llc.core_x.yoga" {
+			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout4")
 		}
 
 		
@@ -181,13 +182,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			cell.title.text = NSLocalizedString("101 Pushups", comment: "")
 			cell.backgroundImage.image = UIImage(named: "pushups.tv.png")
 			break
+		case 4:
+			cell.title.text = NSLocalizedString("Yogata Be Kidding Me", comment: "")
+			cell.backgroundImage.image = UIImage(named: "yoga.tv.png")
+			break
 		default:
 			cell.title.text = NSLocalizedString("Settings", comment: "")
 			cell.backgroundImage.image = UIImage(named: "settings.tv.png")
 			break
 		}
 		
-		if indexPath.row != 4 {
+		if indexPath.row != 5 {
 			if !NSUserDefaults.standardUserDefaults().boolForKey("workout" + String(indexPath.row)) {
 				cell.title.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 				cell.backgroundImage.alpha = 0.25
@@ -221,6 +226,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 				case 3:
 					buyProduct(2)
 					break
+				case 4:
+					buyProduct(3)
+					break
 				default:
 					break
 				}
@@ -236,7 +244,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 5
+		return 6
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

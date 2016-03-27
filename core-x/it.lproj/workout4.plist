@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>workoutName</key>
+		<string>Yoga</string>
+		<key>workoutDescription</key>
+		<string>Un grande routine di yoga per complimentarmi con tutti i programmi di allenamento</string>
+		<key>defaultRestDuration</key>
+		<integer>7</integer>
+		<key>defaultExerciseDuration</key>
+		<integer>25</integer>
+		<key>exercises</key>
+		<dict>
+			<key>Item 0</key>
+			<dict>
+				<key>itemName</key>
+				<string>Posa del bambino</string>
+				<key>itemDescription</key>
+				<string>Rannicchiarsi in posizione fetale, ma allungare le braccia verso l'esterno davanti</string>
+				<key>itemImage</key>
+				<string>workout4-0.png</string>
+			</dict>
+			<key>Item 1</key>
+			<dict>
+				<key>itemName</key>
+				<string>Farfalla</string>
+				<key>itemDescription</key>
+				<string>Mettere le piante dei piedi uniti di fronte a voi e tirare verso i fianchi</string>
+				<key>itemImage</key>
+				<string>workout4-1.png</string>
+			</dict>
+			<key>Item 2</key>
+			<dict>
+				<key>itemName</key>
+				<string>In ginocchio flessore Stretch (a sinistra)</string>
+				<key>itemDescription</key>
+				<string>Prendete un ginocchio su una gamba e inclinazione in avanti</string>
+				<key>itemImage</key>
+				<string>workout4-2.png</string>
+			</dict>
+			<key>Item 3</key>
+			<dict>
+				<key>itemName</key>
+				<string>In ginocchio flessore Stretch (a destra)</string>
+				<key>itemDescription</key>
+				<string>Prendete un ginocchio su una gamba e inclinazione in avanti</string>
+				<key>itemImage</key>
+				<string>workout4-3.png</string>
+			</dict>
+			<key>Item 4</key>
+			<dict>
+				<key>itemName</key>
+				<string>Overhead tricipiti Stretch (a sinistra)</string>
+				<key>itemDescription</key>
+				<string>Agire come se si sta cercando di grattarsi la schiena raggiungendo sopra la spalla, poi tirare il gomito con l'altro braccio</string>
+				<key>itemImage</key>
+				<string>workout4-4.png</string>
+			</dict>
+			<key>Item 5</key>
+			<dict>
+				<key>itemName</key>
+				<string>Overhead tricipiti Stretch (a destra)</string>
+				<key>itemDescription</key>
+				<string>Agire come se si sta cercando di grattarsi la schiena raggiungendo sopra la spalla, poi tirare il gomito con l'altro braccio</string>
+				<key>itemImage</key>
+				<string>workout4-5.png</string>
+			</dict>
+			<key>Item 6</key>
+			<dict>
+				<key>itemName</key>
+				<string>cane verso il basso</string>
+				<key>itemDescription</key>
+				<string>Inizia a spingere verso l'alto la posizione e camminare di nuovo le mani verso i piedi</string>
+				<key>itemImage</key>
+				<string>workout4-6.png</string>
+			</dict>
+			<key>Item 7</key>
+			<dict>
+				<key>itemName</key>
+				<string>Lunge Con Quad Stretch (a sinistra)</string>
+				<key>itemDescription</key>
+				<string>Prendete un ginocchio su una gamba e poi tirare l'altro piede verso il culo</string>
+				<key>itemImage</key>
+				<string>workout4-7.png</string>
+			</dict>
+			<key>Item 8</key>
+			<dict>
+				<key>itemName</key>
+				<string>Lunge Con Quad Stretch (a destra)</string>
+				<key>itemDescription</key>
+				<string>Prendete un ginocchio su una gamba e poi tirare l'altro piede verso il culo</string>
+				<key>itemImage</key>
+				<string>workout4-8.png</string>
+			</dict>
+			<key>Item 9</key>
+			<dict>
+				<key>itemName</key>
+				<string>Pigeon (a sinistra)</string>
+				<key>itemDescription</key>
+				<string>Mettere una gamba dritta fuori dietro di voi e tenere l'altra gamba piegata di fronte a voi</string>
+				<key>itemImage</key>
+				<string>workout4-9.png</string>
+			</dict>
+			<key>Item 10</key>
+			<dict>
+				<key>itemName</key>
+				<string>Pigeon (a destra)</string>
+				<key>itemDescription</key>
+				<string>Mettere una gamba dritta fuori dietro di voi e tenere l'altra gamba piegata di fronte a voi</string>
+				<key>itemImage</key>
+				<string>workout4-10.png</string>
+			</dict>
+		</dict>
+	</dict>
+</plist>

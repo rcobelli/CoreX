@@ -159,7 +159,7 @@ typealias LTMorphingSkipFramesClosure =
     private lazy var displayLink: CADisplayLink = {
         let displayLink = CADisplayLink(
             target: self,
-            selector: Selector("displayFrameTick"))
+            selector: #selector(LTMorphingLabel.displayFrameTick))
         displayLink.addToRunLoop(
             NSRunLoop.currentRunLoop(),
             forMode: NSRunLoopCommonModes)
@@ -185,13 +185,13 @@ extension LTMorphingLabel {
             totalDelayFrames = Int(ceil(totalDelay / frameRate))
         }
         
-        if previousText != text && currentFrame++ < totalFrames + totalDelayFrames + 5 {
+        if previousText != text && currentFrame + 1 < totalFrames + totalDelayFrames + 5 {
             morphingProgress += 1.0 / Float(totalFrames)
             
             if let closure = skipFramesClosures[
                 "\(morphingEffect.description)\(phaseSkipFrames)"
                 ] {
-                    if ++skipFramesCount > closure() {
+                    if skipFramesCount + 1 > closure() {
                         skipFramesCount = 0
                         setNeedsDisplay()
                     }

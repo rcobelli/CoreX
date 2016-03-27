@@ -31,8 +31,8 @@ class WorkoutContentViewController: UIViewController, LTMorphingLabelDelegate {
 		
 		exerciseTitle.morphingEffect = .Anvil
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTime", name: "updateTime", object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "rest", name: "rest", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WorkoutContentViewController.updateTime), name: "updateTime", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WorkoutContentViewController.rest), name: "rest", object: nil)
     }
 
 	override func viewWillAppear(animated: Bool) {
