@@ -17,6 +17,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	let workouts = ["Core X", "Myrtl", "Leg-Day", "101 Pushups", "Yoga"]
 
     override func awakeWithContext(context: AnyObject?) {
+		
         super.awakeWithContext(context)
 		
 		NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout0")
@@ -39,7 +40,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	
 	override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
 		if NSUserDefaults.standardUserDefaults().boolForKey("workout" + String(rowIndex)) {
-			presentControllerWithName("Workout", context: rowIndex)
+//			pushControllerWithName("Workout", context: rowIndex)
+			WKInterfaceController.reloadRootControllersWithNames(["Workout"], contexts: [rowIndex])
 		}
 		else {
 			let action = WKAlertAction(title: "Ok", style: .Cancel) {}

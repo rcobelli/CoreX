@@ -30,6 +30,7 @@ class WorkoutController: WKInterfaceController {
 	var exerciseID = -1
 	
 	override func awakeWithContext(context: AnyObject?) {
+		
 		workoutID = Int((context?.intValue)!)
 		
 		if let path = NSBundle.mainBundle().pathForResource("workout" + String(workoutID), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
