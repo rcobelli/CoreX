@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940AD4601CC5AAA100FCF75C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940AD45E1CC5AAA100FCF75C /* Interface.storyboard */; };
+		940AD4621CC5AAA100FCF75C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940AD4611CC5AAA100FCF75C /* Assets.xcassets */; };
+		940AD4691CC5AAA100FCF75C /* Core X Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 940AD4681CC5AAA100FCF75C /* Core X Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		940AD46E1CC5AAA200FCF75C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940AD46D1CC5AAA200FCF75C /* InterfaceController.swift */; };
+		940AD4701CC5AAA200FCF75C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940AD46F1CC5AAA200FCF75C /* ExtensionDelegate.swift */; };
+		940AD4721CC5AAA200FCF75C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940AD4711CC5AAA200FCF75C /* ComplicationController.swift */; };
+		940AD4741CC5AAA200FCF75C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940AD4731CC5AAA200FCF75C /* Assets.xcassets */; };
+		940AD4781CC5AAA200FCF75C /* Core X.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 940AD45C1CC5AAA100FCF75C /* Core X.app */; };
 		940AE7431C666F0F00DC472D /* workout2-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438D1C39EFA900E9BC18 /* workout2-0.png */; };
 		940AE7441C666F0F00DC472D /* workout2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438E1C39EFA900E9BC18 /* workout2-1.png */; };
 		940AE7451C666F0F00DC472D /* workout2-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438F1C39EFA900E9BC18 /* workout2-2.png */; };
@@ -229,6 +237,44 @@
 		94866E371C8CD1F000255907 /* workout3-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2D1C8CD1F000255907 /* workout3-7.png */; };
 		94866E381C8CD1F000255907 /* workout3-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2E1C8CD1F000255907 /* workout3-8.png */; };
 		94866E391C8CD1F000255907 /* workout3-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2F1C8CD1F000255907 /* workout3-9.png */; };
+		94ADAEA41CC5AD1F008B41D8 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADAEA31CC5AD1F008B41D8 /* TableRowController.swift */; };
+		94ADAEAA1CC5BCBD008B41D8 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADAEA91CC5BCBD008B41D8 /* WorkoutController.swift */; };
+		94ADAEAB1CC5BE63008B41D8 /* workout0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784991C24EB0E00C40DFC /* workout0.plist */; };
+		94ADAEAC1CC5BE68008B41D8 /* workout1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784911C24EB0300C40DFC /* workout1.plist */; };
+		94ADAEAD1CC5BE6D008B41D8 /* workout2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946A44901C8CDA46009E5EE2 /* workout2.plist */; };
+		94ADAEAE1CC5BE72008B41D8 /* workout3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946A44971C8CDA4F009E5EE2 /* workout3.plist */; };
+		94ADAEAF1CC5BE76008B41D8 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
+		94ADAEEF1CC5E193008B41D8 /* single0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB01CC5DE61008B41D8 /* single0.png */; };
+		94ADAEF01CC5E193008B41D8 /* single1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB11CC5DE61008B41D8 /* single1.png */; };
+		94ADAEF11CC5E193008B41D8 /* single2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB21CC5DE61008B41D8 /* single2.png */; };
+		94ADAEF21CC5E193008B41D8 /* single3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB31CC5DE61008B41D8 /* single3.png */; };
+		94ADAEF31CC5E193008B41D8 /* single4.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB41CC5DE61008B41D8 /* single4.png */; };
+		94ADAEF41CC5E193008B41D8 /* single5.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB51CC5DE61008B41D8 /* single5.png */; };
+		94ADAEF51CC5E193008B41D8 /* single6.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB61CC5DE61008B41D8 /* single6.png */; };
+		94ADAEF61CC5E193008B41D8 /* single7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB71CC5DE61008B41D8 /* single7.png */; };
+		94ADAEF71CC5E193008B41D8 /* single8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB81CC5DE61008B41D8 /* single8.png */; };
+		94ADAEF81CC5E193008B41D8 /* single9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEB91CC5DE61008B41D8 /* single9.png */; };
+		94ADAEF91CC5E193008B41D8 /* single10.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEBA1CC5DE61008B41D8 /* single10.png */; };
+		94ADAEFA1CC5E193008B41D8 /* single11.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEBB1CC5DE61008B41D8 /* single11.png */; };
+		94ADAEFB1CC5E193008B41D8 /* single12.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEBC1CC5DE61008B41D8 /* single12.png */; };
+		94ADAEFC1CC5E193008B41D8 /* single13.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEBD1CC5DE61008B41D8 /* single13.png */; };
+		94ADAEFD1CC5E193008B41D8 /* single14.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEBE1CC5DE61008B41D8 /* single14.png */; };
+		94ADAEFE1CC5E193008B41D8 /* single15.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEBF1CC5DE61008B41D8 /* single15.png */; };
+		94ADAEFF1CC5E193008B41D8 /* single16.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC01CC5DE61008B41D8 /* single16.png */; };
+		94ADAF001CC5E193008B41D8 /* single17.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC11CC5DE61008B41D8 /* single17.png */; };
+		94ADAF011CC5E193008B41D8 /* single18.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC21CC5DE61008B41D8 /* single18.png */; };
+		94ADAF021CC5E193008B41D8 /* single19.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC31CC5DE61008B41D8 /* single19.png */; };
+		94ADAF031CC5E193008B41D8 /* single20.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC41CC5DE61008B41D8 /* single20.png */; };
+		94ADAF041CC5E193008B41D8 /* single21.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC51CC5DE61008B41D8 /* single21.png */; };
+		94ADAF051CC5E193008B41D8 /* single22.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC61CC5DE61008B41D8 /* single22.png */; };
+		94ADAF061CC5E193008B41D8 /* single23.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC71CC5DE61008B41D8 /* single23.png */; };
+		94ADAF071CC5E193008B41D8 /* single24.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC81CC5DE61008B41D8 /* single24.png */; };
+		94ADAF081CC5E193008B41D8 /* single25.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAEC91CC5DE61008B41D8 /* single25.png */; };
+		94ADAF091CC5E193008B41D8 /* single26.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAECA1CC5DE61008B41D8 /* single26.png */; };
+		94ADAF0A1CC5E193008B41D8 /* single27.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAECB1CC5DE61008B41D8 /* single27.png */; };
+		94ADAF0B1CC5E193008B41D8 /* single28.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAECC1CC5DE61008B41D8 /* single28.png */; };
+		94ADAF0C1CC5E193008B41D8 /* single29.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAECD1CC5DE61008B41D8 /* single29.png */; };
+		94ADAF0D1CC5E193008B41D8 /* single30.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ADAECE1CC5DE61008B41D8 /* single30.png */; };
 		94D6C10C1CA7591700CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
 		94D6C1141CA75AB000CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
 		94D6C1161CA760B000CFC621 /* yoga.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1151CA760B000CFC621 /* yoga.tv.png */; };
@@ -260,6 +306,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		940AD46A1CC5AAA100FCF75C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 941584FC1C1D103D00AFDBD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 940AD4671CC5AAA100FCF75C;
+			remoteInfo = "Core X Extension";
+		};
+		940AD4761CC5AAA200FCF75C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 941584FC1C1D103D00AFDBD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 940AD45B1CC5AAA100FCF75C;
+			remoteInfo = "Core X";
+		};
 		941585191C1D103E00AFDBD0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 941584FC1C1D103D00AFDBD0 /* Project object */;
@@ -270,12 +330,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		940AD47E1CC5AAA200FCF75C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				940AD4691CC5AAA100FCF75C /* Core X Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		947E6C581C42DDA900678A1F /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				940AD4781CC5AAA200FCF75C /* Core X.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +355,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		940AD45C1CC5AAA100FCF75C /* Core X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		940AD45F1CC5AAA100FCF75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		940AD4611CC5AAA100FCF75C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		940AD4631CC5AAA100FCF75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		940AD4681CC5AAA100FCF75C /* Core X Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Core X Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		940AD46D1CC5AAA200FCF75C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		940AD46F1CC5AAA200FCF75C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		940AD4711CC5AAA200FCF75C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		940AD4731CC5AAA200FCF75C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		940AD4751CC5AAA200FCF75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		940AE7651C66974000DC472D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		940AE7671C66987000DC472D /* leg-day.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leg-day.tv.png"; sourceTree = "<group>"; };
 		940AE7691C66990400DC472D /* myrtl.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myrtl.tv.png; sourceTree = "<group>"; };
@@ -494,6 +576,41 @@
 		94866E2D1C8CD1F000255907 /* workout3-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-7.png"; sourceTree = "<group>"; };
 		94866E2E1C8CD1F000255907 /* workout3-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-8.png"; sourceTree = "<group>"; };
 		94866E2F1C8CD1F000255907 /* workout3-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-9.png"; sourceTree = "<group>"; };
+		94ADAEA31CC5AD1F008B41D8 /* TableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
+		94ADAEA71CC5B111008B41D8 /* Core X Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Core X Extension.entitlements"; sourceTree = "<group>"; };
+		94ADAEA81CC5B117008B41D8 /* core-x.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "core-x.entitlements"; sourceTree = "<group>"; };
+		94ADAEA91CC5BCBD008B41D8 /* WorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
+		94ADAEB01CC5DE61008B41D8 /* single0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single0.png; sourceTree = "<group>"; };
+		94ADAEB11CC5DE61008B41D8 /* single1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single1.png; sourceTree = "<group>"; };
+		94ADAEB21CC5DE61008B41D8 /* single2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single2.png; sourceTree = "<group>"; };
+		94ADAEB31CC5DE61008B41D8 /* single3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single3.png; sourceTree = "<group>"; };
+		94ADAEB41CC5DE61008B41D8 /* single4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single4.png; sourceTree = "<group>"; };
+		94ADAEB51CC5DE61008B41D8 /* single5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single5.png; sourceTree = "<group>"; };
+		94ADAEB61CC5DE61008B41D8 /* single6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single6.png; sourceTree = "<group>"; };
+		94ADAEB71CC5DE61008B41D8 /* single7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single7.png; sourceTree = "<group>"; };
+		94ADAEB81CC5DE61008B41D8 /* single8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single8.png; sourceTree = "<group>"; };
+		94ADAEB91CC5DE61008B41D8 /* single9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single9.png; sourceTree = "<group>"; };
+		94ADAEBA1CC5DE61008B41D8 /* single10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single10.png; sourceTree = "<group>"; };
+		94ADAEBB1CC5DE61008B41D8 /* single11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single11.png; sourceTree = "<group>"; };
+		94ADAEBC1CC5DE61008B41D8 /* single12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single12.png; sourceTree = "<group>"; };
+		94ADAEBD1CC5DE61008B41D8 /* single13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single13.png; sourceTree = "<group>"; };
+		94ADAEBE1CC5DE61008B41D8 /* single14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single14.png; sourceTree = "<group>"; };
+		94ADAEBF1CC5DE61008B41D8 /* single15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single15.png; sourceTree = "<group>"; };
+		94ADAEC01CC5DE61008B41D8 /* single16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single16.png; sourceTree = "<group>"; };
+		94ADAEC11CC5DE61008B41D8 /* single17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single17.png; sourceTree = "<group>"; };
+		94ADAEC21CC5DE61008B41D8 /* single18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single18.png; sourceTree = "<group>"; };
+		94ADAEC31CC5DE61008B41D8 /* single19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single19.png; sourceTree = "<group>"; };
+		94ADAEC41CC5DE61008B41D8 /* single20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single20.png; sourceTree = "<group>"; };
+		94ADAEC51CC5DE61008B41D8 /* single21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single21.png; sourceTree = "<group>"; };
+		94ADAEC61CC5DE61008B41D8 /* single22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single22.png; sourceTree = "<group>"; };
+		94ADAEC71CC5DE61008B41D8 /* single23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single23.png; sourceTree = "<group>"; };
+		94ADAEC81CC5DE61008B41D8 /* single24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single24.png; sourceTree = "<group>"; };
+		94ADAEC91CC5DE61008B41D8 /* single25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single25.png; sourceTree = "<group>"; };
+		94ADAECA1CC5DE61008B41D8 /* single26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single26.png; sourceTree = "<group>"; };
+		94ADAECB1CC5DE61008B41D8 /* single27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single27.png; sourceTree = "<group>"; };
+		94ADAECC1CC5DE61008B41D8 /* single28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single28.png; sourceTree = "<group>"; };
+		94ADAECD1CC5DE61008B41D8 /* single29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single29.png; sourceTree = "<group>"; };
+		94ADAECE1CC5DE61008B41D8 /* single30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single30.png; sourceTree = "<group>"; };
 		94D6C10D1CA7591700CFC621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout4.plist; sourceTree = "<group>"; };
 		94D6C1151CA760B000CFC621 /* yoga.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yoga.tv.png; sourceTree = "<group>"; };
 		94D6C1171CA7641C00CFC621 /* workout4-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-0.png"; sourceTree = "<group>"; };
@@ -533,6 +650,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		940AD4651CC5AAA100FCF75C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		941585011C1D103D00AFDBD0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -590,6 +714,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940AD45D1CC5AAA100FCF75C /* Core X */ = {
+			isa = PBXGroup;
+			children = (
+				940AD45E1CC5AAA100FCF75C /* Interface.storyboard */,
+				940AD4611CC5AAA100FCF75C /* Assets.xcassets */,
+				940AD4631CC5AAA100FCF75C /* Info.plist */,
+				94ADAEEE1CC5DE67008B41D8 /* Ring */,
+			);
+			path = "Core X";
+			sourceTree = "<group>";
+		};
+		940AD46C1CC5AAA100FCF75C /* Core X Extension */ = {
+			isa = PBXGroup;
+			children = (
+				94ADAEA71CC5B111008B41D8 /* Core X Extension.entitlements */,
+				940AD46D1CC5AAA200FCF75C /* InterfaceController.swift */,
+				940AD46F1CC5AAA200FCF75C /* ExtensionDelegate.swift */,
+				940AD4711CC5AAA200FCF75C /* ComplicationController.swift */,
+				940AD4731CC5AAA200FCF75C /* Assets.xcassets */,
+				940AD4751CC5AAA200FCF75C /* Info.plist */,
+				94ADAEA31CC5AD1F008B41D8 /* TableRowController.swift */,
+				94ADAEA91CC5BCBD008B41D8 /* WorkoutController.swift */,
+			);
+			path = "Core X Extension";
+			sourceTree = "<group>";
+		};
 		940AE7761C66A2B800DC472D /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +752,8 @@
 		941584FB1C1D103D00AFDBD0 = {
 			isa = PBXGroup;
 			children = (
+				940AD45D1CC5AAA100FCF75C /* Core X */,
+				940AD46C1CC5AAA100FCF75C /* Core X Extension */,
 				946CD3DC1C1DF3790012C263 /* Frameworks */,
 				947E6C951C4305D000678A1F /* tv */,
 				941585061C1D103D00AFDBD0 /* core-x */,
@@ -617,6 +769,8 @@
 				941585041C1D103D00AFDBD0 /* core-x.app */,
 				941585181C1D103E00AFDBD0 /* core-xUITests.xctest */,
 				947E6C941C4305CF00678A1F /* tv.app */,
+				940AD45C1CC5AAA100FCF75C /* Core X.app */,
+				940AD4681CC5AAA100FCF75C /* Core X Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -624,6 +778,7 @@
 		941585061C1D103D00AFDBD0 /* core-x */ = {
 			isa = PBXGroup;
 			children = (
+				94ADAEA81CC5B117008B41D8 /* core-x.entitlements */,
 				941585071C1D103D00AFDBD0 /* AppDelegate.swift */,
 				941585091C1D103D00AFDBD0 /* ViewController.swift */,
 				9415850B1C1D103E00AFDBD0 /* Main.storyboard */,
@@ -909,6 +1064,45 @@
 			name = "Workout 3";
 			sourceTree = "<group>";
 		};
+		94ADAEEE1CC5DE67008B41D8 /* Ring */ = {
+			isa = PBXGroup;
+			children = (
+				94ADAEB01CC5DE61008B41D8 /* single0.png */,
+				94ADAEB11CC5DE61008B41D8 /* single1.png */,
+				94ADAEB21CC5DE61008B41D8 /* single2.png */,
+				94ADAEB31CC5DE61008B41D8 /* single3.png */,
+				94ADAEB41CC5DE61008B41D8 /* single4.png */,
+				94ADAEB51CC5DE61008B41D8 /* single5.png */,
+				94ADAEB61CC5DE61008B41D8 /* single6.png */,
+				94ADAEB71CC5DE61008B41D8 /* single7.png */,
+				94ADAEB81CC5DE61008B41D8 /* single8.png */,
+				94ADAEB91CC5DE61008B41D8 /* single9.png */,
+				94ADAEBA1CC5DE61008B41D8 /* single10.png */,
+				94ADAEBB1CC5DE61008B41D8 /* single11.png */,
+				94ADAEBC1CC5DE61008B41D8 /* single12.png */,
+				94ADAEBD1CC5DE61008B41D8 /* single13.png */,
+				94ADAEBE1CC5DE61008B41D8 /* single14.png */,
+				94ADAEBF1CC5DE61008B41D8 /* single15.png */,
+				94ADAEC01CC5DE61008B41D8 /* single16.png */,
+				94ADAEC11CC5DE61008B41D8 /* single17.png */,
+				94ADAEC21CC5DE61008B41D8 /* single18.png */,
+				94ADAEC31CC5DE61008B41D8 /* single19.png */,
+				94ADAEC41CC5DE61008B41D8 /* single20.png */,
+				94ADAEC51CC5DE61008B41D8 /* single21.png */,
+				94ADAEC61CC5DE61008B41D8 /* single22.png */,
+				94ADAEC71CC5DE61008B41D8 /* single23.png */,
+				94ADAEC81CC5DE61008B41D8 /* single24.png */,
+				94ADAEC91CC5DE61008B41D8 /* single25.png */,
+				94ADAECA1CC5DE61008B41D8 /* single26.png */,
+				94ADAECB1CC5DE61008B41D8 /* single27.png */,
+				94ADAECC1CC5DE61008B41D8 /* single28.png */,
+				94ADAECD1CC5DE61008B41D8 /* single29.png */,
+				94ADAECE1CC5DE61008B41D8 /* single30.png */,
+			);
+			name = Ring;
+			path = "Core X Extension";
+			sourceTree = SOURCE_ROOT;
+		};
 		94D6C1091CA758ED00CFC621 /* Workout 4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,6 +1137,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		940AD45B1CC5AAA100FCF75C /* Core X */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 940AD47F1CC5AAA200FCF75C /* Build configuration list for PBXNativeTarget "Core X" */;
+			buildPhases = (
+				940AD45A1CC5AAA100FCF75C /* Resources */,
+				940AD47E1CC5AAA200FCF75C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				940AD46B1CC5AAA100FCF75C /* PBXTargetDependency */,
+			);
+			name = "Core X";
+			productName = "Core X";
+			productReference = 940AD45C1CC5AAA100FCF75C /* Core X.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		940AD4671CC5AAA100FCF75C /* Core X Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 940AD47D1CC5AAA200FCF75C /* Build configuration list for PBXNativeTarget "Core X Extension" */;
+			buildPhases = (
+				940AD4641CC5AAA100FCF75C /* Sources */,
+				940AD4651CC5AAA100FCF75C /* Frameworks */,
+				940AD4661CC5AAA100FCF75C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Core X Extension";
+			productName = "Core X Extension";
+			productReference = 940AD4681CC5AAA100FCF75C /* Core X Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		941585031C1D103D00AFDBD0 /* core-x */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 941585211C1D103E00AFDBD0 /* Build configuration list for PBXNativeTarget "core-x" */;
@@ -955,6 +1183,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				940AD4771CC5AAA200FCF75C /* PBXTargetDependency */,
 			);
 			name = "core-x";
 			productName = "core-x";
@@ -1002,14 +1231,30 @@
 		941584FC1C1D103D00AFDBD0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Rybel LLC";
 				TargetAttributes = {
+					940AD45B1CC5AAA100FCF75C = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = AL6H9GEC6N;
+					};
+					940AD4671CC5AAA100FCF75C = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = AL6H9GEC6N;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
 					941585031C1D103D00AFDBD0 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = AL6H9GEC6N;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
@@ -1045,11 +1290,66 @@
 				941585031C1D103D00AFDBD0 /* core-x */,
 				941585171C1D103E00AFDBD0 /* core-xUITests */,
 				947E6C931C4305CF00678A1F /* tv */,
+				940AD45B1CC5AAA100FCF75C /* Core X */,
+				940AD4671CC5AAA100FCF75C /* Core X Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		940AD45A1CC5AAA100FCF75C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94ADAF081CC5E193008B41D8 /* single25.png in Resources */,
+				94ADAEF71CC5E193008B41D8 /* single8.png in Resources */,
+				94ADAF011CC5E193008B41D8 /* single18.png in Resources */,
+				94ADAEFA1CC5E193008B41D8 /* single11.png in Resources */,
+				94ADAF0A1CC5E193008B41D8 /* single27.png in Resources */,
+				94ADAEF31CC5E193008B41D8 /* single4.png in Resources */,
+				94ADAF041CC5E193008B41D8 /* single21.png in Resources */,
+				94ADAF0D1CC5E193008B41D8 /* single30.png in Resources */,
+				94ADAF091CC5E193008B41D8 /* single26.png in Resources */,
+				94ADAEEF1CC5E193008B41D8 /* single0.png in Resources */,
+				94ADAEFB1CC5E193008B41D8 /* single12.png in Resources */,
+				94ADAEFC1CC5E193008B41D8 /* single13.png in Resources */,
+				94ADAEF01CC5E193008B41D8 /* single1.png in Resources */,
+				94ADAF0C1CC5E193008B41D8 /* single29.png in Resources */,
+				94ADAEFE1CC5E193008B41D8 /* single15.png in Resources */,
+				94ADAF061CC5E193008B41D8 /* single23.png in Resources */,
+				94ADAEF51CC5E193008B41D8 /* single6.png in Resources */,
+				94ADAF001CC5E193008B41D8 /* single17.png in Resources */,
+				94ADAF0B1CC5E193008B41D8 /* single28.png in Resources */,
+				94ADAEFF1CC5E193008B41D8 /* single16.png in Resources */,
+				940AD4621CC5AAA100FCF75C /* Assets.xcassets in Resources */,
+				94ADAF021CC5E193008B41D8 /* single19.png in Resources */,
+				94ADAF071CC5E193008B41D8 /* single24.png in Resources */,
+				94ADAEF21CC5E193008B41D8 /* single3.png in Resources */,
+				94ADAF031CC5E193008B41D8 /* single20.png in Resources */,
+				94ADAEF41CC5E193008B41D8 /* single5.png in Resources */,
+				940AD4601CC5AAA100FCF75C /* Interface.storyboard in Resources */,
+				94ADAF051CC5E193008B41D8 /* single22.png in Resources */,
+				94ADAEF81CC5E193008B41D8 /* single9.png in Resources */,
+				94ADAEFD1CC5E193008B41D8 /* single14.png in Resources */,
+				94ADAEF91CC5E193008B41D8 /* single10.png in Resources */,
+				94ADAEF11CC5E193008B41D8 /* single2.png in Resources */,
+				94ADAEF61CC5E193008B41D8 /* single7.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		940AD4661CC5AAA100FCF75C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94ADAEAC1CC5BE68008B41D8 /* workout1.plist in Resources */,
+				94ADAEAE1CC5BE72008B41D8 /* workout3.plist in Resources */,
+				94ADAEAD1CC5BE6D008B41D8 /* workout2.plist in Resources */,
+				94ADAEAF1CC5BE76008B41D8 /* workout4.plist in Resources */,
+				940AD4741CC5AAA200FCF75C /* Assets.xcassets in Resources */,
+				94ADAEAB1CC5BE63008B41D8 /* workout0.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		941585021C1D103D00AFDBD0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1248,6 +1548,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		940AD4641CC5AAA100FCF75C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				940AD4701CC5AAA200FCF75C /* ExtensionDelegate.swift in Sources */,
+				94ADAEAA1CC5BCBD008B41D8 /* WorkoutController.swift in Sources */,
+				940AD46E1CC5AAA200FCF75C /* InterfaceController.swift in Sources */,
+				940AD4721CC5AAA200FCF75C /* ComplicationController.swift in Sources */,
+				94ADAEA41CC5AD1F008B41D8 /* TableRowController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		941585001C1D103D00AFDBD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1315,6 +1627,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		940AD46B1CC5AAA100FCF75C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 940AD4671CC5AAA100FCF75C /* Core X Extension */;
+			targetProxy = 940AD46A1CC5AAA100FCF75C /* PBXContainerItemProxy */;
+		};
+		940AD4771CC5AAA200FCF75C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 940AD45B1CC5AAA100FCF75C /* Core X */;
+			targetProxy = 940AD4761CC5AAA200FCF75C /* PBXContainerItemProxy */;
+		};
 		9415851A1C1D103E00AFDBD0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 941585031C1D103D00AFDBD0 /* core-x */;
@@ -1323,6 +1645,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		940AD45E1CC5AAA100FCF75C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				940AD45F1CC5AAA100FCF75C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		9415850B1C1D103E00AFDBD0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1477,6 +1807,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		940AD4791CC5AAA200FCF75C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Core_X_Extension;
+				INFOPLIST_FILE = "Core X/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		940AD47A1CC5AAA200FCF75C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Core_X_Extension;
+				INFOPLIST_FILE = "Core X/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		940AD47B1CC5AAA200FCF75C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = "Core X Extension/Core X Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Core X Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		940AD47C1CC5AAA200FCF75C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = "Core X Extension/Core X Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Core X Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 		9415851F1C1D103E00AFDBD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1565,6 +1969,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "core-x/core-x.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1594,6 +1999,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "core-x/core-x.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1676,6 +2082,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		940AD47D1CC5AAA200FCF75C /* Build configuration list for PBXNativeTarget "Core X Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				940AD47B1CC5AAA200FCF75C /* Debug */,
+				940AD47C1CC5AAA200FCF75C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		940AD47F1CC5AAA200FCF75C /* Build configuration list for PBXNativeTarget "Core X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				940AD4791CC5AAA200FCF75C /* Debug */,
+				940AD47A1CC5AAA200FCF75C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		941584FF1C1D103D00AFDBD0 /* Build configuration list for PBXProject "core-x" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

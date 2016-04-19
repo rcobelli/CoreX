@@ -11,8 +11,9 @@ import Appodeal
 import StoreKit
 import MessageUI
 import AVFoundation
+import WatchConnectivity
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate  {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate, WCSessionDelegate  {
 
 	@IBOutlet weak var tableView: UITableView!
 	var workoutIDToSend = Int()
@@ -171,6 +172,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			print("Ads IAP:" + String(NSUserDefaults.standardUserDefaults().boolForKey("removedAds")))
 		}
 		justShowedAd = !justShowedAd
+		
+		
+		
+		if #available(iOS 9.0, *) {
+			
+			let data = ["workout1": NSUserDefaults.standardUserDefaults().boolForKey("workout1"),
+			            "workout2": NSUserDefaults.standardUserDefaults().boolForKey("workout2"),
+			            "workout3": NSUserDefaults.standardUserDefaults().boolForKey("workout3"),
+			            "workout4": NSUserDefaults.standardUserDefaults().boolForKey("workout4")]
+			
+			
+			if WCSession.isSupported() { //makes sure it's not an iPad or iPod
+				let watchSession = WCSession.defaultSession()
+				watchSession.delegate = self
+				watchSession.activateSession()
+				if watchSession.paired && watchSession.watchAppInstalled {
+					do {
+						try watchSession.updateApplicationContext(data)
+					} catch let error as NSError {
+						print(error.description)
+					}
+				}
+			}
+		}
 		
 	}
 
