@@ -23,8 +23,8 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		if let path = NSBundle.mainBundle().pathForResource("workout" + String(workoutID), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+		//"workout" + String(workoutID)
+		if let path = NSBundle.mainBundle().pathForResource("workout0", ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
 			workoutName.text = String(dict["workoutName"]!)
 			workoutDescription.text = String(dict["workoutDescription"]!)
 			exerciseDuration.text = String(dict["defaultExerciseDuration"]!)

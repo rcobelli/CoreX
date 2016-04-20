@@ -237,6 +237,8 @@
 		94866E371C8CD1F000255907 /* workout3-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2D1C8CD1F000255907 /* workout3-7.png */; };
 		94866E381C8CD1F000255907 /* workout3-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2E1C8CD1F000255907 /* workout3-8.png */; };
 		94866E391C8CD1F000255907 /* workout3-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2F1C8CD1F000255907 /* workout3-9.png */; };
+		948BBC821CC7014F002CBA8F /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BBC811CC7014F002CBA8F /* HealthManager.swift */; };
+		948BBC841CC7037A002CBA8F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948BBC831CC7037A002CBA8F /* HealthKit.framework */; };
 		94ADAEA41CC5AD1F008B41D8 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADAEA31CC5AD1F008B41D8 /* TableRowController.swift */; };
 		94ADAEAA1CC5BCBD008B41D8 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADAEA91CC5BCBD008B41D8 /* WorkoutController.swift */; };
 		94ADAEAB1CC5BE63008B41D8 /* workout0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784991C24EB0E00C40DFC /* workout0.plist */; };
@@ -576,6 +578,9 @@
 		94866E2D1C8CD1F000255907 /* workout3-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-7.png"; sourceTree = "<group>"; };
 		94866E2E1C8CD1F000255907 /* workout3-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-8.png"; sourceTree = "<group>"; };
 		94866E2F1C8CD1F000255907 /* workout3-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-9.png"; sourceTree = "<group>"; };
+		948BBC811CC7014F002CBA8F /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		948BBC831CC7037A002CBA8F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		948BBC851CC7037A002CBA8F /* core-x.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "core-x.entitlements"; sourceTree = "<group>"; };
 		94ADAEA31CC5AD1F008B41D8 /* TableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
 		94ADAEA91CC5BCBD008B41D8 /* WorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
 		94ADAEB01CC5DE61008B41D8 /* single0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single0.png; sourceTree = "<group>"; };
@@ -683,6 +688,7 @@
 				946CD4D31C1E324A0012C263 /* CoreImage.framework in Frameworks */,
 				946CD4D41C1E324A0012C263 /* CoreLocation.framework in Frameworks */,
 				946CD4D51C1E324A0012C263 /* CoreMedia.framework in Frameworks */,
+				948BBC841CC7037A002CBA8F /* HealthKit.framework in Frameworks */,
 				946CD4D61C1E324A0012C263 /* CoreMotion.framework in Frameworks */,
 				946CD4D71C1E324A0012C263 /* CoreTelephony.framework in Frameworks */,
 				946CD4C91C1E32370012C263 /* CFNetwork.framework in Frameworks */,
@@ -775,6 +781,8 @@
 		941585061C1D103D00AFDBD0 /* core-x */ = {
 			isa = PBXGroup;
 			children = (
+				948BBC851CC7037A002CBA8F /* core-x.entitlements */,
+				948BBC811CC7014F002CBA8F /* HealthManager.swift */,
 				941585071C1D103D00AFDBD0 /* AppDelegate.swift */,
 				941585091C1D103D00AFDBD0 /* ViewController.swift */,
 				9415850B1C1D103E00AFDBD0 /* Main.storyboard */,
@@ -854,6 +862,7 @@
 		946CD3DC1C1DF3790012C263 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				948BBC831CC7037A002CBA8F /* HealthKit.framework */,
 				940AE7761C66A2B800DC472D /* Flurry */,
 				940AE7651C66974000DC472D /* AudioToolbox.framework */,
 				944C5BB71C62F05500A171B6 /* SCLAlertView.swift */,
@@ -1251,6 +1260,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
 							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
@@ -1591,6 +1603,7 @@
 				946CD4471C1E1FEC0012C263 /* YoshikoTextField.swift in Sources */,
 				946CD43D1C1E1FEC0012C263 /* AkiraTextField.swift in Sources */,
 				946CD4451C1E1FEC0012C263 /* TextFieldsEffects.swift in Sources */,
+				948BBC821CC7014F002CBA8F /* HealthManager.swift in Sources */,
 				944C5BB81C62F05500A171B6 /* SCLAlertView.swift in Sources */,
 				946CD4411C1E1FEC0012C263 /* JiroTextField.swift in Sources */,
 			);
@@ -1965,7 +1978,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = "core-x/core-x.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1995,7 +2008,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = "core-x/core-x.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

@@ -12,6 +12,7 @@ import StoreKit
 import MessageUI
 import AVFoundation
 import WatchConnectivity
+import HealthKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate, WCSessionDelegate  {
 
@@ -20,9 +21,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	var justShowedAd = Bool()
 	
+	var healthManager = HealthManager()
+	
+	
 	let productIdentifiers = Set(["com.rybel_llc.core_x.remove_ads", "com.rybel_llc.core_x.myrtl", "com.rybel_llc.core_x.leg_day", "com.rybel_llc.core_x.pushups", "com.rybel_llc.core_x.yoga"])
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
+	
+	var indexPath = NSIndexPath()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -34,6 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		requestProductData()
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.showMenu), name: "showMenu", object: nil)
+		
 	}
 	
 	
@@ -164,6 +171,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	override func viewDidAppear(animated: Bool) {
+		if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
+			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
+			justShowedAd = !justShowedAd
+			
+			SweetAlert().showAlert("Welcome to Core-X!", subTitle: "Quick question, would you like for us to save your workouts to the Health app?", style: AlertStyle.None, buttonTitle: "Yes", buttonColor: UIColor.greenColor(), otherButtonTitle: "No", otherButtonColor:  UIColor.redColor(), action: { button in
+				self.healthManager.authorizeHealthKit { (authorized,  error) -> Void in
+					if authorized {
+						print("HealthKit authorization approved!")
+					}
+					else
+					{
+						
+						if error != nil {
+							print("\(error)")
+						}
+					}
+				}
+			})
+		}
+		
 		if !justShowedAd && Appodeal.isReadyForShowWithStyle(AppodealShowStyle.Interstitial) && !NSUserDefaults.standardUserDefaults().boolForKey("removedAds") && !NSProcessInfo.processInfo().arguments.contains("testing") {
 			Appodeal.showAd(AppodealShowStyle.Interstitial, rootViewController: self)
 		}

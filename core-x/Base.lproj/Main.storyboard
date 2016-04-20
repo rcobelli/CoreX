@@ -157,7 +157,7 @@
         <!--Workout View Controller-->
         <scene sceneID="yNe-3K-Wbh">
             <objects>
-                <viewController id="rcR-Wt-iPJ" customClass="WorkoutViewController" customModule="core_x" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setup" id="rcR-Wt-iPJ" customClass="WorkoutViewController" customModule="core_x" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q0k-fQ-sxJ"/>
                         <viewControllerLayoutGuide type="bottom" id="VWE-FC-CPo"/>

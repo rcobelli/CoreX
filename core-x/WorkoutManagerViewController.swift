@@ -9,6 +9,7 @@
 import UIKit
 import AudioToolbox
 import Appodeal
+import HealthKit
 
 class WorkoutManagerViewController: UIViewController {
 	
@@ -25,6 +26,8 @@ class WorkoutManagerViewController: UIViewController {
 	
 	var exercises = NSDictionary()
 	var workoutName = String()
+	
+	var healthManager = HealthManager()
 	
 	@IBOutlet weak var pauseButton: UIBarButtonItem!
 	
@@ -144,6 +147,28 @@ class WorkoutManagerViewController: UIViewController {
 		}
 		alertView.showSuccess(NSLocalizedString("Workout Completed!", comment: ""), subTitle: NSLocalizedString("Great job!", comment: ""))
 		
+		
+		healthManager.authorizeHealthKit { (authorized,  error) -> Void in
+			if authorized {
+				print("HealthKit authorization received.")
+				self.healthManager.saveWorkout(60.0, workoutNumber: 0, completion: { (success, error ) -> Void in
+					if( success )
+					{
+						print("Workout saved!")
+					}
+					else if( error != nil ) {
+						print("\(error)")
+					}
+				})
+			}
+			else
+			{
+				print("HealthKit authorization denied!")
+				if error != nil {
+					print("\(error)")
+				}
+			}
+		}
 	}
 	
 	@IBAction func pause(sender: AnyObject) {
