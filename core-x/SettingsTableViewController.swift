@@ -9,10 +9,10 @@
 import UIKit
 import StoreKit
 import MessageUI
+import MediaPlayer
 
 class SettingsTableViewController: UITableViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver, MFMailComposeViewControllerDelegate {
 	
-	let productIdentifiers = Set(["com.rybel_llc.core_x.remove_ads"])
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 
@@ -20,69 +20,40 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
-        requestProductData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+		
+		tableView.tableFooterView = UIView()
     }
 	
-	func requestProductData() {
-		if SKPaymentQueue.canMakePayments() {
-			let request = SKProductsRequest(productIdentifiers: productIdentifiers as Set<String>)
-			request.delegate = self
-			request.start()
-		}
-		else {
-			let alert = UIAlertController(title: NSLocalizedString("In-App Purchases Not Enabled", comment: ""), message: NSLocalizedString("Please enable In App Purchase in Settings", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-			alert.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.Default, handler: { alertAction in
-				alert.dismissViewControllerAnimated(true, completion: nil)
-				
-				let url: NSURL? = NSURL(string: UIApplicationOpenSettingsURLString)
-				if url != nil
-				{
-					UIApplication.sharedApplication().openURL(url!)
-				}
-				
-			}))
-			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { alertAction in
-				alert.dismissViewControllerAnimated(true, completion: nil)
-			}))
-			self.presentViewController(alert, animated: true, completion: nil)
-		}
-		
-		print(productIdentifiers)
+	@IBAction func done(sender: AnyObject) {
+		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
+	
+	func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+		dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	// MARK:- Store Kit Methods
+	
 	func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
-		
 		var products = response.products
 		
 		if (products.count != 0) {
-			for i in 0 ..< products.count
-			{
+			for i in 0 ..< products.count {
 				product = products[i] as SKProduct
 				productsArray.append(product!)
 			}
-			productsArray = productsArray.sort({ $0.productIdentifier < $1.productIdentifier })
 		}
 		else {
 			print("No products found")
 		}
 		
-		for product in response.invalidProductIdentifiers
-		{
+		for product in response.invalidProductIdentifiers {
 			print("Product not found: \(product)")
 		}
 	}
-	
-	func buyProduct(productID: Int) {
-		let payment = SKPayment(product: productsArray[productID])
-		SKPaymentQueue.defaultQueue().addPayment(payment)
-	}
-	
 	
 	func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
 		print("Processing Transaction")
@@ -105,22 +76,6 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 		}
 	}
 	
-	func deliverProduct(identifier: String) {
-		print("Identifier: " + identifier)
-		if identifier == "com.rybel_llc.core_x.myrtl" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout1")
-		}
-		else if identifier == "com.rybel_llc.core_x.remove_ads" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "removedAds")
-		}
-		else if identifier == "com.rybel_llc.core_x.leg_day" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout2")
-		}
-		
-		NSUserDefaults.standardUserDefaults().synchronize()
-		viewWillAppear(true)
-	}
-	
 	func restorePurchases() {
 		print("Restore Purchases")
 		SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
@@ -136,17 +91,8 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 		
 		SweetAlert().showAlert(NSLocalizedString("Thank You", comment: ""), subTitle: NSLocalizedString("Any purchases were restored.", comment: ""), style: AlertStyle.Success)
 	}
-	
-	@IBAction func done(sender: AnyObject) {
-		self.dismissViewControllerAnimated(true, completion: nil)
-	}
-	
-	
-	func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-		dismissViewControllerAnimated(true, completion: nil)
-	}
 
-    // MARK: - Table view data source
+    // MARK: - UITableView Methods
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -159,10 +105,8 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		switch indexPath.row {
 		case 0:
-			buyProduct(0)
-		case 1:
 			restorePurchases()
-		case 2:
+		case 1:
 			if MFMailComposeViewController.canSendMail() {
 				let picker = MFMailComposeViewController()
 				picker.mailComposeDelegate = self
@@ -174,28 +118,72 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 			else {
 				SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("Mail isn't working. Email us at rybelllc@gmail.com", comment: ""), style: AlertStyle.Error)
 			}
-		case 3:
-			SweetAlert().showAlert(NSLocalizedString("Feedback:", comment: ""), subTitle: NSLocalizedString("What do you think of Core-X?", comment: ""), style: AlertStyle.None, buttonTitle:NSLocalizedString("It Stinks", comment: ""), buttonColor:UIColor.redColor() , otherButtonTitle:  NSLocalizedString("I like it", comment: ""), otherButtonColor: UIColor.greenColor()) { (isOtherButton) -> Void in
-				// It Sucks
-				if isOtherButton == false {
-					// Open app store to give a rating
-					UIApplication.sharedApplication().openURL(NSURL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!)
+		case 2:
+			// See if the user already left a review
+			if !trialAvailable() {
+				// Open email dialogue
+				if MFMailComposeViewController.canSendMail() {
+					let picker = MFMailComposeViewController()
+					picker.mailComposeDelegate = self
+					picker.setSubject("Core-X Feedback")
+					picker.setMessageBody(NSLocalizedString("Tell us what you really think about Core-X", comment: ""), isHTML: false)
+					self.presentViewController(picker, animated: true, completion: nil)
 				}
-				// I like it
 				else {
-					// Open email dialogue
-					if MFMailComposeViewController.canSendMail() {
-						let picker = MFMailComposeViewController()
-						picker.mailComposeDelegate = self
-						picker.setSubject("Core-X Feedback")
-						picker.setMessageBody(NSLocalizedString("Tell us what you really think about Core-X", comment: ""), isHTML: false)
-						self.presentViewController(picker, animated: true, completion: nil)
+					SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("Mail isn't working. Email us at rybelllc@gmail.com", comment: ""), style: AlertStyle.Error)
+				}
+			}
+			else {
+				SweetAlert().showAlert(NSLocalizedString("Feedback:", comment: ""), subTitle: NSLocalizedString("What do you think of Core-X?", comment: ""), style: AlertStyle.None, buttonTitle:NSLocalizedString("It Stinks", comment: ""), buttonColor:UIColor(red: 0.933, green: 0.294, blue: 0.169, alpha: 1.00) , otherButtonTitle:  NSLocalizedString("I like it", comment: ""), otherButtonColor: UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00)) { (isOtherButton) -> Void in
+					// It Sucks
+					if isOtherButton == false {
+						SweetAlert().showAlert(NSLocalizedString("App Store Review", comment: ""), subTitle: NSLocalizedString("Can you please leave us a review on the App Store? (We'll even throw in a free workout routine", comment: ""), style: AlertStyle.None, buttonTitle: NSLocalizedString("Sure!", comment: ""), buttonColor: UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00), otherButtonTitle: NSLocalizedString("No", comment: ""), otherButtonColor: UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00)) { other in
+							if other {
+								NSUserDefaults.standardUserDefaults().setBool(true, forKey: String(NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]))
+								// Open app store to give a rating
+								UIApplication.sharedApplication().openURL(NSURL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!)
+							}
+						}
 					}
+						// I like it
 					else {
-						SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("Mail isn't working. Email us at rybelllc@gmail.com", comment: ""), style: AlertStyle.Error)
+						// Open email dialogue
+						if MFMailComposeViewController.canSendMail() {
+							let picker = MFMailComposeViewController()
+							picker.mailComposeDelegate = self
+							picker.setSubject("Core-X Feedback")
+							picker.setMessageBody(NSLocalizedString("Tell us what you really think about Core-X", comment: ""), isHTML: false)
+							self.presentViewController(picker, animated: true, completion: nil)
+						}
+						else {
+							SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("Mail isn't working. Email us at rybelllc@gmail.com", comment: ""), style: AlertStyle.Error)
+						}
 					}
 				}
 			}
+		case 3:
+			let optionMenu = UIAlertController(title: nil, message: NSLocalizedString("Choose a playlist for your workouts", comment: ""), preferredStyle: .ActionSheet)
+			
+			let myMediaQuery = MPMediaQuery.playlistsQuery()
+			let array = myMediaQuery.collections!
+			for item in array {
+				let value = item.valueForProperty(MPMediaPlaylistPropertyName) as! String
+				optionMenu.addAction(UIAlertAction(title: value, style: .Default, handler: {
+					(alert: UIAlertAction!) -> Void in
+					NSUserDefaults.standardUserDefaults().setObject(value, forKey: "playlistName")
+					self.tableView.reloadData()
+				}))
+			}
+			
+			let cancelAction = UIAlertAction(title: NSLocalizedString("No Music", comment: ""), style: .Cancel, handler: {
+				(alert: UIAlertAction!) -> Void in
+				NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "playlistName")
+				self.tableView.reloadData()
+			})
+			
+			 optionMenu.addAction(cancelAction)
+			
+			self.presentViewController(optionMenu, animated: true, completion: nil)
 		default:
 			break
 		}
@@ -207,21 +195,17 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 
 		switch indexPath.row {
 		case 0:
-			cell.textLabel?.text = "Remove Ads"
-			if NSUserDefaults.standardUserDefaults().boolForKey("removedAds") {
-				cell.userInteractionEnabled = false
-				cell.textLabel?.alpha = 0.5
-			}
-			else {
-				cell.userInteractionEnabled = true
-				cell.textLabel?.alpha = 1.0
-			}
+			cell.textLabel?.text = NSLocalizedString("Restore Purchases", comment: "")
 		case 1:
-			cell.textLabel?.text = "Restore Purchases"
+			cell.textLabel?.text = NSLocalizedString("Submit New Workout Idea", comment: "")
 		case 2:
-			cell.textLabel?.text = "Submit New Workout Idea"
+			cell.textLabel?.text = NSLocalizedString("Leave Feedback", comment: "")
 		case 3:
-			cell.textLabel?.text = "Leave Feedback"
+			var name = NSUserDefaults.standardUserDefaults().stringForKey("playlistName")
+			if name == nil {
+				name = NSLocalizedString("Unset", comment: "")
+			}
+			cell.textLabel?.text = NSLocalizedString("Music Playlist", comment: "") + ": " + name!
 		default:
 			cell.textLabel?.text = NSLocalizedString("Version ", comment:"") + String(stringInterpolationSegment: NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]!)
 			cell.selectionStyle = .None
@@ -229,7 +213,9 @@ class SettingsTableViewController: UITableViewController, SKProductsRequestDeleg
 		}
 		
 		cell.textLabel?.font = UIFont.systemFontOfSize(18)
-		cell.backgroundColor = UIColor(red: 0.776, green: 0.745, blue: 0.655, alpha: 1.00)
+		cell.textLabel?.textColor = UIColor.whiteColor()
+		cell.separatorInset = UIEdgeInsetsZero
+		cell.backgroundColor = UIColor(red: 0.173, green: 0.251, blue: 0.325, alpha: 1.00)
 
         return cell
     }

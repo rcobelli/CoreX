@@ -1,17 +1,23 @@
 /* No comment provided by engineer. */
-"101 Pushups" = "101 Lagartijas";
+"Any purchases were restored." = "Fueron restaurados cualquier compra";
 
 /* No comment provided by engineer. */
-"All Fields Required" = "Todos los campos requeridos";
+"Barbell Completed" = "Completado barra de pesas";
 
 /* No comment provided by engineer. */
-"Any purchases were restored" = "Todas las compras se restauraron";
+"Cancel" = "Cancelar";
 
 /* No comment provided by engineer. */
-"Exercise" = "Ejercicio";
+"Complete The Barbell" = "Completar la barra de pesas";
 
 /* No comment provided by engineer. */
-"Exercise " = "Ejercicio";
+"Error" = "Error";
+
+/* No comment provided by engineer. */
+"Every consecuative day that you finish a workout, a plate is added to your barbell. Get all 6 plates to unlock an exclusive workout routine" = "Cada día consecutivo que termine una sesión de ejercicios, se añade una placa a su barra de pesas. Obtener los 6 placas para desbloquear una rutina de entrenamiento exclusiva";
+
+/* No comment provided by engineer. */
+"Exercise Duration (sec.)" = "Ejercicio Duración (seg.)";
 
 /* No comment provided by engineer. */
 "Great job!" = "¡Gran trabajo!";
@@ -20,22 +26,31 @@
 "In-App Purchases Not Enabled" = "In-App compras no está activado";
 
 /* No comment provided by engineer. */
-"Leg-Day" = "Pierna Día";
-
-/* No comment provided by engineer. */
 "Please enable In App Purchase in Settings" = "Por favor, activa en las compras de aplicaciones en entornos";
 
 /* No comment provided by engineer. */
-"REST" = "DESCANSO";
+"Please set how long you would like the workout to last" = "Por favor, ajustar el tiempo que le gustaría que el entrenamiento para durar";
+
+/* No comment provided by engineer. */
+"Rest Duration (sec.)" = "Pausa Duración (seg.)";
+
+/* No comment provided by engineer. */
+"Resume Workout" = "entrenamiento hoja de vida";
 
 /* No comment provided by engineer. */
 "Settings" = "Ajustes";
 
 /* No comment provided by engineer. */
-"Unpause" = "Reanudar";
+"Start Workout" = "Comience entrenamiento";
 
 /* No comment provided by engineer. */
-"Version " = "Versión";
+"Stop Workout" = "Parada del entrenamiento";
+
+/* No comment provided by engineer. */
+"Thank You" = "Gracias";
+
+/* No comment provided by engineer. */
+"We could not find the in app purchase you were looking for" = "No pudimos encontrar el de la compra de aplicación que estabas buscando";
 
 /* No comment provided by engineer. */
 "Workout Completed!" = "Entrenamiento completado!";
@@ -44,11 +59,5 @@
 "Workout Paused" = "Entrenamiento interrumpido";
 
 /* No comment provided by engineer. */
-"Yogata Be Kidding Me" = "Yoga";
-
-/* No comment provided by engineer. */
-"You must provide a rest duration greater than or equal to 0" = "Usted debe proporcionar una duración resto mayor o igual a 0";
-
-/* No comment provided by engineer. */
-"You must provide an exercise duration bigger than 0" = "Usted debe proporcionar una duración de ejercicio mayor que 0";
+"You completed the barbell, tap the barbell anytime from now on to use an exclusive workout routine" = "Has completado la barra, toque en la barra en cualquier momento a partir de ahora utilizar una rutina de entrenamiento exclusiva";
 

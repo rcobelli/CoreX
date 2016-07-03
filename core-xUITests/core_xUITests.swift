@@ -18,6 +18,10 @@ class core_xUITests: XCTestCase {
 		app.launchArguments += [ "testing" ]
 		continueAfterFailure = false
 		app.launch()
+		
+		//		for item in app.buttons.allElementsBoundByIndex {
+		//			print(item.debugDescription)
+		//		}
 	}
     
     override func tearDown() {
@@ -30,7 +34,7 @@ class core_xUITests: XCTestCase {
 		snapshot("1-homeScreen")
 		app.tables.cells.elementBoundByIndex(0).tap()
 		snapshot("2-workoutSetup")
-		app.buttons.elementBoundByIndex(0).tap()
+		app.buttons.elementBoundByIndex(2).tap()
 		sleep(12/5)
 		snapshot("0-midWorkout")
     }

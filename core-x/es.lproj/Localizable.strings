@@ -1,35 +1,44 @@
 /* No comment provided by engineer. */
-" workout using Core-X (http://appstore.com/corex)!" = "entrenamiento utilizando Core-X (http://appstore.com/corex)!";
-
-/* No comment provided by engineer. */
-"101 Pushups" = "101 Lagartijas";
-
-/* No comment provided by engineer. */
-"All Fields Required" = "Todos los campos requeridos";
-
-/* No comment provided by engineer. */
-"Any purchases were restored" = "Todas las compras se restauraron";
+" workout using Core-X (https://rybel-llc.com/core-x)!" = "entrenamiento utilizando Core X (https://rybel-llc.com/core-x)!";
 
 /* No comment provided by engineer. */
 "Any purchases were restored." = "Todas las compras se restauraron";
 
 /* No comment provided by engineer. */
-"Begin Workout" = "Comience entrenamiento";
+"App Store Review" = "App Store revisión";
+
+/* No comment provided by engineer. */
+"Barbell Completed" = "Completado barra de pesas";
+
+/* No comment provided by engineer. */
+"Buy It" = "Cómpralo";
+
+/* No comment provided by engineer. */
+"Can you please leave us a review on the App Store? (We'll even throw in a free workout routine" = "¿Puede por favor dejar un comentario en la App Store? (Incluso vamos a lanzar en una rutina de entrenamiento libre)";
 
 /* No comment provided by engineer. */
 "Can't Send Mail" = "No se puede enviar correo";
 
 /* No comment provided by engineer. */
+"Choose a playlist for your workouts" = "Elija una lista de reproducción para sus entrenamientos";
+
+/* No comment provided by engineer. */
+"Complete The Barbell" = "Completar la barra de pesas";
+
+/* No comment provided by engineer. */
 "Done" = "Hecho";
 
 /* No comment provided by engineer. */
-"Exercise" = "Ejercicio";
+"Error" = "Error";
 
 /* No comment provided by engineer. */
-"Exercise " = "Ejercicio";
+"Every consecuative day that you finish a workout, a plate is added to your barbell. Get all 6 plates to unlock an exclusive workout routine" = "Cada día consecutivo que termine una sesión de ejercicios, se añade una placa a su barra de pesas. Obtener los 6 placas para desbloquear una rutina de entrenamiento exclusiva";
 
 /* No comment provided by engineer. */
 "Feedback:" = "Retroalimentación:";
+
+/* No comment provided by engineer. */
+"Free Trial Available" = "Disponible versión de prueba gratis";
 
 /* No comment provided by engineer. */
 "Great job!" = "¡Buen trabajo!";
@@ -47,7 +56,10 @@
 "It Stinks" = "Apesta";
 
 /* No comment provided by engineer. */
-"Leg-Day" = "Pierna Día";
+"Leave A Review" = "Dejar un comentario";
+
+/* No comment provided by engineer. */
+"Leave Feedback" = "Deja un comentario";
 
 /* No comment provided by engineer. */
 "Let us know of a new workout you would like to see in the app!" = "Sepamos de una nueva sesión de ejercicios que le gustaría ver en la aplicación!";
@@ -56,25 +68,40 @@
 "Mail isn't working. Email us at rybelllc@gmail.com" = "El correo no está funcionando. Envíanos un email a rybelllc@gmail.com";
 
 /* No comment provided by engineer. */
-"Pause" = "Pausa";
+"Music Playlist" = "Lista de reproducción de música";
+
+/* No comment provided by engineer. */
+"No" = "No";
+
+/* No comment provided by engineer. */
+"No Music" = "Sin musica";
+
+/* No comment provided by engineer. */
+"Pause Workout" = "Entrenamiento de pausa";
 
 /* No comment provided by engineer. */
 "Please enable In App Purchase in Settings" = "Por favor, activa Compras In-App en Configuración";
 
 /* No comment provided by engineer. */
-"REST" = "DESCANSO";
+"Quick question, want to save your workouts to the Health app?" = "Una pregunta rápida, que desee guardar sus entrenamientos para la aplicación de la Salud?";
 
 /* No comment provided by engineer. */
-"See Exercise Demonstration" = "Ver Demostración Ejercicio";
+"Restore Purchases" = "restaurar las compras";
 
 /* No comment provided by engineer. */
 "Settings" = "Ajustes";
 
 /* No comment provided by engineer. */
-"Share with Friends" = "Compartir con amigos";
+"Share On Social Media" = "Compartir en las redes sociales";
 
 /* No comment provided by engineer. */
-"Tap and hold the screen to see an image demonstrating the exercise" = "Toque y mantenga pulsada la pantalla para ver una imagen que demuestre el ejercicio";
+"Stop Workout" = "Detener entrenamiento";
+
+/* No comment provided by engineer. */
+"Submit New Workout Idea" = "Presentar la nueva idea de entrenamiento";
+
+/* No comment provided by engineer. */
+"Sure!" = "¡Por supuesto!";
 
 /* No comment provided by engineer. */
 "Tell us what you really think about Core-X" = "Díganos lo que piensa de Core-X";
@@ -83,10 +110,16 @@
 "Thank You" = "Gracias";
 
 /* No comment provided by engineer. */
-"Unpause" = "Reanudar";
+"Unset" = "No definido";
 
 /* No comment provided by engineer. */
 "Version " = "Versión";
+
+/* No comment provided by engineer. */
+"We could not find the in app purchase you were looking for" = "We could not find the in app purchase you were looking for";
+
+/* No comment provided by engineer. */
+"Welcome to Core-X!" = "No pudimos encontrar el de la compra de aplicación que estabas buscando";
 
 /* No comment provided by engineer. */
 "What do you think of Core-X?" = "¿Qué piensas de Core-X?";
@@ -95,14 +128,8 @@
 "Workout Completed!" = "Entrenamiento completado!";
 
 /* No comment provided by engineer. */
-"Workout Paused" = "Entrenamiento interrumpido";
+"You can get a free trial of any workout routine by leaving a rating on the App Store." = "Se puede obtener una prueba gratuita de cualquier rutina de ejercicios al dejar una calificación en la App Store.";
 
 /* No comment provided by engineer. */
-"Yogata Be Kidding Me" = "Yoga";
-
-/* No comment provided by engineer. */
-"You must provide a rest duration greater than or equal to 0" = "Usted debe proporcionar una duración resto mayor o igual a 0";
-
-/* No comment provided by engineer. */
-"You must provide an exercise duration bigger than 0" = "Usted debe proporcionar una duración de ejercicio mayor que 0";
+"You completed the barbell, tap the barbell anytime from now on to use an exclusive workout routine" = "Has completado la barra, toque en la barra en cualquier momento a partir de ahora utilizar una rutina de entrenamiento exclusiva";
 

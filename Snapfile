@@ -4,7 +4,7 @@
 devices([
   "iPhone 6",
   "iPhone 6 Plus",
-  "iPhone 5s",
+  "iPhone 5",
   "iPhone 4s",
   "iPad Retina",
   "iPad Pro"
@@ -12,9 +12,7 @@ devices([
 
 languages([
   "en-US",
-  "de-DE",
   "es-ES",
-  "fr-FR",
   "it"
 ])
 

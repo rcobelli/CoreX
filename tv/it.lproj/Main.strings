@@ -1,29 +1,23 @@
-/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "CLj-42-fL7"; */
-"CLj-42-fL7.normalTitle" = "Cominciare";
+/* Class = "UILabel"; text = "Up Next:"; ObjectID = "0zs-RK-Q3c"; */
+"0zs-RK-Q3c.text" = "Avanti il prossimo:";
 
-/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "GF3-0y-HRx"; */
-"GF3-0y-HRx.title" = "Impostazioni";
+/* Class = "UILabel"; text = "Items"; ObjectID = "FEQ-RH-T7f"; */
+"FEQ-RH-T7f.text" = "Elementi";
 
-/* Class = "UILabel"; text = "Exercise description"; ObjectID = "N6L-w4-f5E"; */
-"N6L-w4-f5E.text" = "Descrizione esercizio";
+/* Class = "UILabel"; text = "10"; ObjectID = "fx3-LR-8q2"; */
+"fx3-LR-8q2.text" = "10";
 
-/* Class = "UITextField"; placeholder = "Exercise Duration"; ObjectID = "bCq-ez-NSq"; */
-"bCq-ez-NSq.placeholder" = "Esercizio Durata";
+/* Class = "UILabel"; text = "0:00"; ObjectID = "hJh-rg-m0w"; */
+"hJh-rg-m0w.text" = "0:00";
 
-/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "h2f-KL-4W9"; */
-"h2f-KL-4W9.title" = "Cancellare";
+/* Class = "UIBarButtonItem"; title = "Restore Purchases"; ObjectID = "iPS-2n-prs"; */
+"iPS-2n-prs.title" = "Ripristinare gli acquisti";
 
-/* Class = "UILabel"; text = "Rest Duration (sec)"; ObjectID = "lKV-Do-k9o"; */
-"lKV-Do-k9o.text" = "Pausa Durata (sec)";
+/* Class = "UINavigationItem"; title = "Choose Workout"; ObjectID = "umj-5x-Miy"; */
+"umj-5x-Miy.title" = "Scegli allenamento";
 
-/* Class = "UILabel"; text = "Title"; ObjectID = "msl-OU-A7e"; */
-"msl-OU-A7e.text" = "Titolo";
-
-/* Class = "UILabel"; text = "Exercise Duration (sec)"; ObjectID = "opX-jM-fZA"; */
-"opX-jM-fZA.text" = "Esercizio Durata (sec)";
-
-/* Class = "UITextField"; placeholder = "Rest Duration"; ObjectID = "uFu-qb-iDG"; */
-"uFu-qb-iDG.placeholder" = "Pausa Durata";
+/* Class = "UIButton"; normalTitle = "Start Workout"; ObjectID = "vFm-Ku-sgL"; */
+"vFm-Ku-sgL.normalTitle" = "Inizia allenamento";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "w9j-3s-RJj"; */
 "w9j-3s-RJj.text" = "Titolo";

@@ -18,18 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Init Appodeal
 		Appodeal.initializeWithApiKey("4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.Interstitial, .Banner, .NonSkippableVideo])
-
-		// Initialize Flurry
-		Flurry.startSession("D6S9C3Z2NQ2WQKFSBZZK")
+		
+		if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
+			NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "workoutCount")
+			NSUserDefaults.standardUserDefaults().setObject(NSDate(timeIntervalSince1970: 0), forKey: "lastWorkout")
+		}
 		
 		NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout0")
 		
 		return true
-	}
-	
-	@available(iOS 9, *)
-	func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-		print(shortcutItem.type)
 	}
 
 	func applicationWillResignActive(application: UIApplication) {}
@@ -43,4 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(application: UIApplication) {}
 
 
+}
+
+struct GlobalVariables {
+	static var restDuration = 0
+	static var exerciseDuration = 0
+	static var exerciseID = 0
 }

@@ -79,27 +79,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.carousel"
-         RemotePath = "/core-x">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "940AD45B1CC5AAA100FCF75C"
-            BuildableName = "Core X.app"
-            BlueprintName = "Core X"
+            BlueprintIdentifier = "941585031C1D103D00AFDBD0"
+            BuildableName = "core-x.app"
+            BlueprintName = "core-x"
             ReferencedContainer = "container:core-x.xcodeproj">
          </BuildableReference>
-      </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "940AD45B1CC5AAA100FCF75C"
-            BuildableName = "Core X.app"
-            BlueprintName = "Core X"
-            ReferencedContainer = "container:core-x.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -67,10 +67,14 @@ class HealthManager {
 			workoutName = "101 Pushups"
 			calories = 20.0 * (duration * 20.0)
 			totalDuration = duration * 20.0
-		default:
+		case 4:
 			workoutName = "Yogata Be Kidding Me"
 			calories = 11.0 * (duration * 2.0)
 			totalDuration = duration * 11.0
+		default:
+			workoutName = "Coach Liz Stretch Routine"
+			calories = 6.0 * (duration * 2.0)
+			totalDuration = duration * 8.0
 		}
 	
       let caloriesQuantity = HKQuantity(unit: HKUnit.kilocalorieUnit(), doubleValue: calories)

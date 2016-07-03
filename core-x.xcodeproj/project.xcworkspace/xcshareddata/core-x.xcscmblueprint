@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "909020133082CFD20FC8238461162D35E732A34B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "909020133082CFD20FC8238461162D35E732A34B" : 0,
+    "6787479FDC1F25036930DA11C1FF65DD4C273ADA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "67AF5CDC-157B-45A7-963B-180A21E721CB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "909020133082CFD20FC8238461162D35E732A34B" : "core-x\/",
+    "6787479FDC1F25036930DA11C1FF65DD4C273ADA" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "core-x",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "core-x.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/rybel-llc\/lp_backend.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6787479FDC1F25036930DA11C1FF65DD4C273ADA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/rybel-llc\/core-x.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "909020133082CFD20FC8238461162D35E732A34B"
+    }
+  ]
+}

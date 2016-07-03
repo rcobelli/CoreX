@@ -1,1 +1,5 @@
-Routine di yoga aggiunto
+-Complete Riprogettazione visiva
+-Aelezione locale migliorato
+-Aggiunta "Completa il bilanciere"
+-Grafica migliorato esercizio
+-Supporto Guarda Apple è stata abbandonata. Non ti preoccupare, sarà di nuovo con iOS 10;-)

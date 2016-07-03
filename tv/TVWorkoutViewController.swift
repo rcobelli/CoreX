@@ -10,194 +10,173 @@ import UIKit
 import AudioToolbox
 
 class TVWorkoutViewController: UIViewController {
-
-	var workoutID = Int()
-	var exerciseDuration = Int()
-	var restDuration = Int()
-	@IBOutlet weak var exerciseDescription: UILabel!
-	@IBOutlet weak var exerciseTitle: UILabel!
-	@IBOutlet weak var circleChart: RadialChart!
-	@IBOutlet weak var timeLeft: UILabel!
-	@IBOutlet weak var imageView: UIImageView!
 	
-	var timer = NSTimer()
-	var timerRunning = true;
-	var count = 0
-	var exercise = 0
-	
-	var exerciseID = -1
-	var time = 0
-	
+	var workoutID = 0
+	var restDuration = GlobalVariables.restDuration
+	var workoutName = ""
+	var exerciseDuration = GlobalVariables.exerciseDuration
 	var exercises = NSDictionary()
-	var workoutName = String()
 	
-	var pauseAlert = UIAlertController()
+	var seconds = 0
+	var exerciseNumber = 0
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	var timer : NSTimer?
+	
+	var workoutPaused = false
+	
+	@IBOutlet weak var circleChart: RadialChart!
+	@IBOutlet weak var exerciseNameLabel: UILabel!
+	@IBOutlet weak var nextExerciseImage: UIImageView!
+	@IBOutlet weak var currentExerciseImage: UIImageView!
+	@IBOutlet weak var timerLabel: UILabel!
+	@IBOutlet weak var exerciseDescriptionTextView: UITextView!
+	
+	
+	@IBOutlet weak var nextExerciseImageHeightConstraint: NSLayoutConstraint!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
 		if let path = NSBundle.mainBundle().pathForResource("workout" + String(workoutID), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
-			exercises = dict["exercises"] as! NSDictionary
 			workoutName = dict["workoutName"] as! String
+			exercises = dict["exercises"] as! NSDictionary
 		}
 		else {
 			assertionFailure("Could Not Load .plist")
 		}
-		NSUserDefaults.standardUserDefaults().setObject(exercises, forKey: "exercises")
 		
 		if restDuration < 5 {
 			restDuration = 5
 		}
-		
-		if exerciseDuration < 3 {
-			exerciseDuration = 3
+		else if restDuration > 60 {
+			restDuration = 60
 		}
 		
-		timeLeft.text = String(exerciseDuration)
-		circleChart.endArc = 1
-		circleChart.arcWidth = 40.0
-		circleChart.backgroundColor = UIColor.clearColor()
-		exerciseID = exerciseID + 1
+		if exerciseDuration < 5 {
+			exerciseDuration = 5
+		}
+		else if exerciseDuration > 60 {
+			exerciseDuration = 60
+		}
 		
-		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(TVWorkoutViewController.pauseWorkout))
-		tapRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)];
-		self.view.addGestureRecognizer(tapRecognizer)
+		updateExercise()
+		timerLabel.text = "0:" + String(format: "%02d", exerciseDuration)
+		timerLabel.alpha = 1
 		
-    }
-
-	override func viewWillAppear(animated: Bool) {
-		let exercises = NSUserDefaults.standardUserDefaults().dictionaryForKey("exercises")!
-		let currentExercise = exercises["Item " + String(exerciseID)]!
 		
-		exerciseTitle.text = String(currentExercise["itemName"]!!)
-		exerciseDescription.text = String(currentExercise["itemDescription"]!!)
-		imageView.image = UIImage(named: String(currentExercise["itemImage"]!!))
-	}
-	
-	override func viewWillDisappear(animated: Bool) {
-		UIApplication.sharedApplication().idleTimerDisabled = false
-		timer.invalidate()
+		let playPauseRecognizer = UITapGestureRecognizer(target: self, action: #selector(TVWorkoutViewController.pause))
+		playPauseRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)];
+		self.view.addGestureRecognizer(playPauseRecognizer)
+		
+		let menuRecognizer = UITapGestureRecognizer(target: self, action: nil)
+		menuRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.Menu.rawValue)];
+		menuRecognizer.numberOfTapsRequired = 1
+		self.view.addGestureRecognizer(menuRecognizer)
+		
+		UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
 	}
 	
 	override func viewDidAppear(animated: Bool) {
-		UIApplication.sharedApplication().idleTimerDisabled = true
-		
-		timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TVWorkoutViewController.update), userInfo: nil, repeats: true)
-		
-		self.navigationItem.title = NSLocalizedString("Exercise ", comment: "") + String(exercise+1) + "/" + String(exercises.count)
-		NSUserDefaults.standardUserDefaults().setInteger(exercise, forKey: "workoutID")
-		NSNotificationCenter.defaultCenter().postNotificationName("updateInfo", object: nil)
+		timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
 	}
 	
-	func pauseWorkout() {
-		pauseAlert.dismissViewControllerAnimated(true, completion: nil)
-		if timerRunning {
-			pauseAlert = UIAlertController(title: NSLocalizedString("Workout Paused", comment: ""), message: "", preferredStyle: UIAlertControllerStyle.Alert)
-			pauseAlert.addAction(UIAlertAction(title: NSLocalizedString("Unpause", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in
-				self.pauseWorkout()
-			}))
-			self.presentViewController(pauseAlert, animated: true, completion: nil)
-			timer.invalidate()
+	func second() {
+		
+		seconds += 1
+		
+		if seconds < exerciseDuration {
+			// Still during exercise
+			timerLabel.alpha = 1
+			timerLabel.text = "0:" + String(format: "%02d", exerciseDuration-seconds)
+			
+			circleChart.endArc = CGFloat(Float(seconds) / Float(exerciseDuration))
 		}
-		else {
-			timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TVWorkoutViewController.update), userInfo: nil, repeats: true)
-		}
-		timerRunning = !timerRunning
-	}
-	
-	func update() {
-		count = count + 1
-		if count <= exerciseDuration {
-			updateTime()
-		}
-		else if count == exerciseDuration + 1 && exercise < exercises.count {
-			self.navigationItem.title = NSLocalizedString("REST", comment: "")
-			exercise = exercise + 1
-			if exercise != exercises.count {
-				rest()
-				updateImage()
+		else if seconds == exerciseDuration {
+			// Start rest
+			circleChart.endArc = 0
+			
+			timerLabel.alpha = 0.33
+			timerLabel.text = "0:" + String(format: "%02d", exerciseDuration)
+			exerciseNumber += 1
+			
+			playSound()
+			
+			if exerciseNumber < exercises.count {
+				updateExercise()
 			}
 			else {
 				endWorkout()
 			}
+		}
+		else if seconds == exerciseDuration + restDuration {
+			// Start workout
+			seconds = 0
+			circleChart.endArc = 1
 			playSound()
 		}
-		else if count < exerciseDuration + restDuration {
-			// Not really doing much
-			self.navigationItem.title = NSLocalizedString("REST", comment: "")
-		}
-		else if (exercise < exercises.count) {
-			count = 0
-			self.navigationItem.title = NSLocalizedString("Exercise", comment: "") + " " + String(exercise+1) + "/" + String(exercises.count)
-			NSNotificationCenter.defaultCenter().postNotificationName("updateInfo", object: nil)
-			updateTime()
-			playSound()
-		}
-		else {
-			endWorkout()
-		}
-	}
-	
-	func updateImage() {
-		let exercises = NSUserDefaults.standardUserDefaults().dictionaryForKey("exercises")!
-		let currentExercise = exercises["Item " + String(exercise)]!
-		imageView.image = UIImage(named: String(currentExercise["itemImage"]!!))
 	}
 	
 	func playSound() {
 		AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 		let systemSoundID: SystemSoundID = 1052
 		AudioServicesPlaySystemSound (systemSoundID)
-//		print("Ding")
 	}
 	
+	
 	func endWorkout() {
-		let today: NSDate = NSDate()
-		let format = NSDateFormatter()
-		format.dateFormat = "MM-dd-yyyy"
-		NSUserDefaults.standardUserDefaults().setBool(true, forKey: format.stringFromDate(today))
-		timer.invalidate()
+		timer!.invalidate()
+		
+		if NSCalendar.currentCalendar().isDateInToday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) {
+			// Already saved
+			print("Already Saved Today")
+		}
+		else if NSCalendar.currentCalendar().isDateInYesterday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) {
+			// Update count
+			NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastWorkout")
+			NSUserDefaults.standardUserDefaults().setInteger(NSUserDefaults.standardUserDefaults().integerForKey("workoutCount")+1, forKey: "workoutCount")
+			print("Update Count")
+		}
+		else {
+			NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastWorkout")
+			NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "workoutCount")
+			print("No Streak")
+		}
 		
 		let alert = UIAlertController(title: NSLocalizedString("Workout Completed!", comment: ""), message: NSLocalizedString("Great job!", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-		alert.addAction(UIAlertAction(title: "👍", style: UIAlertActionStyle.Default, handler: { _ in
-			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+		alert.addAction(UIAlertAction(title: "😊", style: UIAlertActionStyle.Default, handler: { _ in
+			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:nil)
 		}))
 		self.presentViewController(alert, animated: true, completion: nil)
 	}
-
-	@IBAction func cancel(sender: AnyObject) {
-		self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
-	}
 	
-	func rest() {
-		time = -1
-		circleChart.endArc = 1
-		timeLeft.text = String(exerciseDuration)
+	func updateExercise() {
+		let data = exercises["Item " + String(exerciseNumber)] as! NSDictionary
+		exerciseNameLabel.text = data["itemName"] as? String
+		currentExerciseImage.image = UIImage(named: (data["itemImage"] as? String)!)
+		exerciseDescriptionTextView.text = data["itemDescription"] as? String
 		
-		exerciseID = exerciseID + 1
-		
-		let exercises = NSUserDefaults.standardUserDefaults().dictionaryForKey("exercises")!
-		let currentExercise = exercises["Item " + String(exerciseID)]!
-		
-		exerciseTitle.text = String(currentExercise["itemName"]!!)
-		exerciseDescription.text = String(currentExercise["itemDescription"]!!)
-	}
-	
-	func updateTime() {
-		time = time + 1
-		if exerciseDuration - time < 0 {
-			circleChart.endArc = 0
-			timeLeft.text = "0"
+		if let nextData = (exercises["Item " + String(exerciseNumber+1)] as? NSDictionary) {
+			nextExerciseImage.image = UIImage(named: (nextData["itemImage"] as? String)!)
 		}
 		else {
-			if NSProcessInfo.processInfo().arguments.contains("testing") {
-				circleChart.endArc = 0.75
-				timeLeft.text = "28"
-			}
-			else {
-				circleChart.endArc = CGFloat(Float(exerciseDuration - time) / Float(exerciseDuration))
-				timeLeft.text = String(exerciseDuration - time)
+			nextExerciseImageHeightConstraint.constant = 0
+			UIView.animateWithDuration(0.25) {
+				self.view.layoutIfNeeded()
 			}
 		}
+		
 	}
-
+	
+	func pause() {
+		timer?.invalidate()
+		let alert = UIAlertController(title: NSLocalizedString("Workout Paused", comment: ""), message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+		alert.addAction(UIAlertAction(title: NSLocalizedString("Resume Workout", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in
+			self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
+		}))
+		alert.addAction(UIAlertAction(title: NSLocalizedString("Stop Workout", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in
+			self.dismissViewControllerAnimated(true, completion: nil)
+		}))
+		self.presentViewController(alert, animated: true, completion: nil)
+	}
+	
 }

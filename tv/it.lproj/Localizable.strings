@@ -1,17 +1,23 @@
 /* No comment provided by engineer. */
-"101 Pushups" = "101 Sollevamento";
+"Any purchases were restored." = "Eventuali acquisti sono stati restaurati.";
 
 /* No comment provided by engineer. */
-"All Fields Required" = "Tutti i campi richiesti";
+"Barbell Completed" = "Bilanciere Completato";
 
 /* No comment provided by engineer. */
-"Any purchases were restored" = "Eventuali acquisti sono stati restaurati";
+"Cancel" = "Annulla";
 
 /* No comment provided by engineer. */
-"Exercise" = "Esercizio";
+"Complete The Barbell" = "Completa il bilanciere";
 
 /* No comment provided by engineer. */
-"Exercise " = "Esercizio";
+"Error" = "Errore";
+
+/* No comment provided by engineer. */
+"Every consecuative day that you finish a workout, a plate is added to your barbell. Get all 6 plates to unlock an exclusive workout routine" = "Ogni giorno consecutivo che hai finito un allenamento, un piatto viene aggiunto al bilanciere. Ottenere tutti i 6 piatti per sbloccare una routine di allenamento esclusivo";
+
+/* No comment provided by engineer. */
+"Exercise Duration (sec.)" = "Esercizio Durata (sec.)";
 
 /* No comment provided by engineer. */
 "Great job!" = "Ottimo lavoro!";
@@ -20,22 +26,31 @@
 "In-App Purchases Not Enabled" = "Acquisti in-app non abilitati";
 
 /* No comment provided by engineer. */
-"Leg-Day" = "Giorno Gamba";
-
-/* No comment provided by engineer. */
 "Please enable In App Purchase in Settings" = "Si prega di abilitare in app acquisti in contesti";
 
 /* No comment provided by engineer. */
-"REST" = "RIPOSO";
+"Please set how long you would like the workout to last" = "Si prega di impostare per quanto tempo si desidera l'allenamento per durare";
+
+/* No comment provided by engineer. */
+"Rest Duration (sec.)" = "Riposo Durata (sec.)";
+
+/* No comment provided by engineer. */
+"Resume Workout" = "Riprendi allenamento";
 
 /* No comment provided by engineer. */
 "Settings" = "Impostazioni";
 
 /* No comment provided by engineer. */
-"Unpause" = "Riattiva";
+"Start Workout" = "Inizia allenamento";
 
 /* No comment provided by engineer. */
-"Version " = "Versione";
+"Stop Workout" = "Arresto di allenamento";
+
+/* No comment provided by engineer. */
+"Thank You" = "Grazie";
+
+/* No comment provided by engineer. */
+"We could not find the in app purchase you were looking for" = "Non siamo riusciti a trovare l'acquisto in app che stavi cercando";
 
 /* No comment provided by engineer. */
 "Workout Completed!" = "Allenamento completato!";
@@ -44,11 +59,5 @@
 "Workout Paused" = "Allenamento in pausa";
 
 /* No comment provided by engineer. */
-"Yogata Be Kidding Me" = "Yoga";
-
-/* No comment provided by engineer. */
-"You must provide a rest duration greater than or equal to 0" = "È necessario fornire una durata di riposo maggiore o uguale a 0";
-
-/* No comment provided by engineer. */
-"You must provide an exercise duration bigger than 0" = "È necessario fornire una durata di esercizio maggiore di 0";
+"You completed the barbell, tap the barbell anytime from now on to use an exclusive workout routine" = "Hai completato il bilanciere, tocca il bilanciere in qualsiasi momento da ora in poi l'utilizzo di un allenamento di routine esclusivo";
 

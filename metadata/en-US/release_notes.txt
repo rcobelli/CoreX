@@ -1,1 +1,5 @@
-Added Yogata Be Kidding Me
+-Complete visual redesign
+-Improved local selection
+-Added "Complete The Barbell"
+-Improved exercise graphics
+-Apple Watch support was dropped. Don't worry, it'll be back with iOS 10 ;-)
