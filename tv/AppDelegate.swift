@@ -14,30 +14,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		
-		if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
-			NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "workoutCount")
-			NSUserDefaults.standardUserDefaults().setObject(NSDate(timeIntervalSince1970: 0), forKey: "lastWorkout")
+		if !UserDefaults.standard.bool(forKey: "firstLaunch") {
+			UserDefaults.standard.set(0, forKey: "workoutCount")
+			UserDefaults.standard.set(Date(timeIntervalSince1970: 0), forKey: "lastWorkout")
 			
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
+			UserDefaults.standard.set(true, forKey: "firstLaunch")
 		}
 		
-		NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout0")
+		UserDefaults.standard.set(true, forKey: "workout0")
 
 		return true
 	}
 
-	func applicationWillResignActive(application: UIApplication) {}
+	func applicationWillResignActive(_ application: UIApplication) {}
 
-	func applicationDidEnterBackground(application: UIApplication) {}
+	func applicationDidEnterBackground(_ application: UIApplication) {}
 
-	func applicationWillEnterForeground(application: UIApplication) {}
+	func applicationWillEnterForeground(_ application: UIApplication) {}
 
-	func applicationDidBecomeActive(application: UIApplication) {}
+	func applicationDidBecomeActive(_ application: UIApplication) {}
 
-	func applicationWillTerminate(application: UIApplication) {}
+	func applicationWillTerminate(_ application: UIApplication) {}
 
 
 }

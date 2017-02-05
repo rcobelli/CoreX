@@ -32,9 +32,9 @@ class core_xUITests: XCTestCase {
     func testExample() {
 		let app = XCUIApplication()
 		snapshot("1-homeScreen")
-		app.tables.cells.elementBoundByIndex(0).tap()
+		app.tables.cells.element(boundBy: 0).tap()
 		snapshot("2-workoutSetup")
-		app.buttons.elementBoundByIndex(2).tap()
+		app.buttons.element(boundBy: 2).tap()
 		sleep(12/5)
 		snapshot("0-midWorkout")
     }

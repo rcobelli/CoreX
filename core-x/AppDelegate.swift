@@ -15,29 +15,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Init Appodeal
-		Appodeal.initializeWithApiKey("4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.Interstitial, .Banner, .NonSkippableVideo])
+		Appodeal.initialize(withApiKey: "4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.interstitial, .banner, .nonSkippableVideo])
 		
-		if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
-			NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "workoutCount")
-			NSUserDefaults.standardUserDefaults().setObject(NSDate(timeIntervalSince1970: 0), forKey: "lastWorkout")
+		// Make sure Core X is always available
+		UserDefaults.standard.set(true, forKey: "workout0")
+		
+		// Complete any outstanding transactions
+		SwiftyStoreKit.completeTransactions(atomically: true) { products in
+			
+			for product in products {
+				
+				if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
+					
+					if product.needsFinishTransaction {
+						// Deliver content from server, then:
+						SwiftyStoreKit.finishTransaction(product.transaction)
+					}
+					print("purchased: \(product)")
+					UIViewController().deliverProduct(product.productId)
+				}
+			}
 		}
-		
-		NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout0")
 		
 		return true
 	}
 
-	func applicationWillResignActive(application: UIApplication) {}
+	func applicationWillResignActive(_ application: UIApplication) {}
 
-	func applicationDidEnterBackground(application: UIApplication) {}
+	func applicationDidEnterBackground(_ application: UIApplication) {}
 
-	func applicationWillEnterForeground(application: UIApplication) {}
+	func applicationWillEnterForeground(_ application: UIApplication) {}
 
-	func applicationDidBecomeActive(application: UIApplication) {}
+	func applicationDidBecomeActive(_ application: UIApplication) {}
 
-	func applicationWillTerminate(application: UIApplication) {}
+	func applicationWillTerminate(_ application: UIApplication) {}
 
 
 }
@@ -46,4 +59,5 @@ struct GlobalVariables {
 	static var restDuration = 0
 	static var exerciseDuration = 0
 	static var exerciseID = 0
+	static var workoutName = ""
 }

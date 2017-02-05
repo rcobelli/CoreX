@@ -14,7 +14,7 @@ class RadialChart: UIView {
 	var endArc:CGFloat = 0.0{   // in range of 0.0 to 1.0
 		didSet{
 			setNeedsDisplay()
-			UIView.transitionWithView(self, duration: 0.1, options: .TransitionCrossDissolve, animations: {
+			UIView.transition(with: self, duration: 0.1, options: .transitionCrossDissolve, animations: {
 				self.layer.displayIfNeeded()
 				}, completion: nil)
 		}
@@ -23,32 +23,33 @@ class RadialChart: UIView {
 	@IBInspectable var arcWidth : CGFloat = 5.0
 	
 	var arcColor = UIColor(red: 0.914, green: 0.443, blue: 0.129, alpha: 1.00)
-	var arcBackgroundColor = UIColor.clearColor()
+	var arcBackgroundColor = UIColor.clear
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
 		let fullCircle = 2.0 * CGFloat(M_PI)
 		let start:CGFloat = -0.25 * fullCircle
 		let end:CGFloat = endArc * fullCircle + start
-		let centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
+		let centerPoint = CGPoint(x: rect.midX, y: rect.midY)
 		var radius:CGFloat = 0.0
-		if CGRectGetWidth(rect) > CGRectGetHeight(rect){
-			radius = (CGRectGetWidth(rect) - arcWidth) / 2.0
+		if rect.width > rect.height{
+			radius = (rect.width - arcWidth) / 2.0
 		}else{
-			radius = (CGRectGetHeight(rect) - arcWidth) / 2.0
+			radius = (rect.height - arcWidth) / 2.0
 		}
 		
 		let context = UIGraphicsGetCurrentContext()
 		_ = CGColorSpaceCreateDeviceRGB()
 		
-		CGContextMoveToPoint(context, centerPoint.x, centerPoint.y)
-		CGContextSetFillColorWithColor(context, arcColor.colorWithAlphaComponent(1.0/3.0).CGColor)
-		CGContextAddArc(context, centerPoint.x, centerPoint.y, radius, end, start, 0)
-		CGContextFillPath(context)
+		context?.move(to: CGPoint(x: centerPoint.x, y: centerPoint.y))
+		context?.setFillColor(arcColor.withAlphaComponent(1.0/3.0).cgColor)
+		context?.addArc(center: centerPoint, radius: radius, startAngle: end, endAngle: start, clockwise: false)
+		context?.addArc(tangent1End: centerPoint, tangent2End: centerPoint, radius: radius)
+		context?.fillPath()
 		
-		CGContextSetLineWidth(context, arcWidth)
-		CGContextSetStrokeColorWithColor(context, arcColor.colorWithAlphaComponent(2.0/3.0).CGColor)
-		CGContextAddArc(context, centerPoint.x, centerPoint.y, radius, end, start, 0)
-		CGContextStrokePath(context)
+		context?.setLineWidth(arcWidth)
+		context?.setStrokeColor(arcColor.withAlphaComponent(2.0/3.0).cgColor)
+		context?.addArc(center: centerPoint, radius: radius, startAngle: end, endAngle: start, clockwise: false)
+		context?.strokePath()
 
     }
 

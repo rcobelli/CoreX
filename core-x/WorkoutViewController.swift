@@ -23,7 +23,7 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	var seconds = 0
 	var exerciseNumber = 0
 	
-	var timer : NSTimer?
+	var timer : Timer?
 	
 	var workoutPaused = false
 	
@@ -33,7 +33,9 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	@IBOutlet weak var currentExerciseImage: UIImageView!
 	@IBOutlet weak var timerLabel: UILabel!
 	@IBOutlet weak var forwardButton: UIButton!
+	@IBOutlet weak var playPauseButton: UIButton!
 	@IBOutlet weak var backwardButton: UIButton!
+	@IBOutlet weak var seperator: UIView!
 	@IBOutlet weak var exerciseDescriptionTextView: UITextView!
 	@IBOutlet weak var moreInfoView: UIView! {
 		didSet {
@@ -43,34 +45,51 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	@IBOutlet weak var pauseStopButton: UIButton! {
 		didSet {
 			pauseStopButton.layer.cornerRadius = 10
+			pauseStopButton.titleLabel?.numberOfLines = 2
+			pauseStopButton.titleLabel?.textAlignment = .center
 		}
 	}
 	@IBOutlet weak var resumeButton: UIButton! {
 		didSet {
 			resumeButton.layer.cornerRadius = 10
+			resumeButton.titleLabel?.numberOfLines = 2
+			resumeButton.titleLabel?.textAlignment = .center
 		}
 	}
 	
-	
-	@IBOutlet weak var resumeHeightConstraint: NSLayoutConstraint!
-	@IBOutlet weak var forwardBottomSpaceConstraint: NSLayoutConstraint!
-	@IBOutlet weak var backwardBottomSpaceConstraint: NSLayoutConstraint!
+	@IBOutlet weak var popupHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var stopButtonWidthConstraint: NSLayoutConstraint!
 	@IBOutlet weak var nextExerciseImageHeightConstraint: NSLayoutConstraint!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let myMediaQuery = MPMediaQuery.songsQuery()
-		let playlistName = NSUserDefaults.standardUserDefaults().stringForKey("playlistName")
+		let myMediaQuery = MPMediaQuery.songs()
+		let playlistName = UserDefaults.standard.string(forKey: "playlistName")
 		if (playlistName != nil) {
 			let predicateFilter = MPMediaPropertyPredicate(value: playlistName, forProperty: MPMediaPlaylistPropertyName)
 			myMediaQuery.filterPredicates = NSSet(object: predicateFilter) as? Set<MPMediaPredicate>
 			myMusicPlayer = MPMusicPlayerController()
-			myMusicPlayer!.setQueueWithQuery(myMediaQuery)
+			myMusicPlayer!.setQueue(with: myMediaQuery)
 			myMusicPlayer?.play()
+			playPauseButton.isHidden = false
+			forwardButton.isHidden = false
+			backwardButton.isHidden = false
+			seperator.isHidden = false
+		}
+		else {
+			playPauseButton.isHidden = true
+			forwardButton.isHidden = true
+			backwardButton.isHidden = true
+			seperator.isHidden = true
+			popupHeightConstraint.constant = 163
 		}
 		
-		if let path = NSBundle.mainBundle().pathForResource("workout" + String(workoutID), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+		if myMusicPlayer?.playbackState == .playing {
+			playPauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
+		}
+		
+		if let path = Bundle.main.path(forResource: "workout" + String(workoutID), ofType: "plist"), let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
 			workoutName = dict["workoutName"] as! String
 			exercises = dict["exercises"] as! NSDictionary
 		}
@@ -92,11 +111,11 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 			exerciseDuration = 60
 		}
 		
-		moreInfoView.hidden = true
+		moreInfoView.isHidden = true
 		moreInfoView.alpha = 0
 		
 		
-		resumeHeightConstraint.constant = 0
+		stopButtonWidthConstraint.constant = 210
 		resumeButton.alpha = 0
 		
 		updateExercise()
@@ -104,24 +123,33 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 		timerLabel.alpha = 1
 	}
 	
-	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		if self.moreInfoView.hidden {
-			UIView.animateWithDuration(0.25) {
-				self.moreInfoView.hidden = false
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		if self.moreInfoView.isHidden {
+			UIView.animate(withDuration: 0.25, animations: {
+				self.moreInfoView.isHidden = false
 				self.moreInfoView.alpha = 1
-			}
+			}) 
 		}
 		else {
-			UIView.animateWithDuration(0.25, animations: {
+			UIView.animate(withDuration: 0.25, animations: {
 				self.moreInfoView.alpha = 0
 				}, completion: { _ in
-					self.moreInfoView.hidden = true
+					self.moreInfoView.isHidden = true
 			})
 		}
 	}
 
-	override func viewDidAppear(animated: Bool) {
-		timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(WorkoutViewController.second), userInfo: nil, repeats: true)
+	override func viewDidAppear(_ animated: Bool) {
+		timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutViewController.second), userInfo: nil, repeats: true)
+		
+		// Alert the user about the issue with low power mode
+		if ProcessInfo.processInfo.isLowPowerModeEnabled {
+			_ = SweetAlert().showAlert("Low Power Mode", subTitle: "You have low power mode turned on, this means that we can't keep the screen on for your whole workout. We recommend you turn off Low Power mode before continuing your workout.", style: AlertStyle.warning)
+		}
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		timer?.invalidate()
 	}
 	
 	func second() {
@@ -169,60 +197,30 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	
 	func endWorkout() {
 		timer!.invalidate()
-		
-		if NSCalendar.currentCalendar().isDateInToday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) {
-			// Already saved
-			print("Already Saved Today")
-		}
-		else if NSCalendar.currentCalendar().isDateInYesterday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) {
-			// Update count
-			NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastWorkout")
-			NSUserDefaults.standardUserDefaults().setInteger(NSUserDefaults.standardUserDefaults().integerForKey("workoutCount")+1, forKey: "workoutCount")
-			print("Update Count")
-		}
-		else {
-			NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastWorkout")
-			NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "workoutCount")
-			print("No Streak")
-		}
-		
 
 		let alertView = SCLAlertView()
-		alertView.showCloseButton = false
 		alertView.addButton(NSLocalizedString("Share On Social Media", comment: "")) {
-			NSUserDefaults.standardUserDefaults().setObject(self.workoutName, forKey: "workoutName")
-			NSUserDefaults.standardUserDefaults().synchronize()
-			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:{
-				NSNotificationCenter.defaultCenter().postNotificationName("showMenu", object: nil)
+			GlobalVariables.workoutName = self.workoutName
+			self.view.window?.rootViewController?.dismiss(animated: true, completion:{
+				NotificationCenter.default.post(name: Notification.Name(rawValue: "workoutFinishedShare"), object: nil)
 			})
 		}
 		alertView.addButton(NSLocalizedString("Done", comment: "")) {
-			if self.shouldDisplayAd() && Appodeal.isReadyForShowWithStyle(AppodealShowStyle.NonSkippableVideo) {
-				Appodeal.showAd(AppodealShowStyle.NonSkippableVideo, rootViewController: self)
-			}
-			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:nil)
+			self.view.window?.rootViewController?.dismiss(animated: true, completion:{
+				NotificationCenter.default.post(name: Notification.Name(rawValue: "workoutFinished"), object: nil)
+			})
 		}
 		alertView.showSuccess(NSLocalizedString("Workout Completed!", comment: ""), subTitle: NSLocalizedString("Great job!", comment: ""))
 
 
-		HealthManager().authorizeHealthKit { (authorized,  error) -> Void in
-			if authorized {
-				HealthManager().saveWorkout(Double(self.exerciseDuration), workoutNumber: self.workoutID, completion: { (success, error ) -> Void in
-					if( success ) {
-						print("Workout saved!")
-					}
-					else if( error != nil ) {
-						print("\(error)")
-					}
-				})
+		HealthManager().saveWorkout(Double(self.exerciseDuration), workoutNumber: self.workoutID, completion: { (success, error ) -> Void in
+			if( success ) {
+				print("Workout saved!")
 			}
-			else {
-				print("HealthKit authorization denied!")
-				if error != nil {
-					print("\(error)")
-				}
+			else if( error != nil ) {
+				print("\(error)")
 			}
-		}
+		})
 	}
 	
 	func updateExercise() {
@@ -236,55 +234,64 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 		}
 		else {
 			nextExerciseImageHeightConstraint.constant = 0
-			UIView.animateWithDuration(0.25) {
+			UIView.animate(withDuration: 0.25, animations: {
 				self.view.layoutIfNeeded()
-			}
+			}) 
 		}
 		
 	}
 	
-	@IBAction func resumeAction(sender: AnyObject) {
+	@IBAction func resumeAction(_ sender: AnyObject) {
 		workoutPaused = false
-		timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(WorkoutViewController.second), userInfo: nil, repeats: true)
-		resumeHeightConstraint.constant = 0
-		self.forwardBottomSpaceConstraint.constant = 8
-		self.backwardBottomSpaceConstraint.constant = 8
-		self.pauseStopButton.setTitle(NSLocalizedString("Pause Workout", comment: ""), forState: UIControlState.Normal)
+		timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutViewController.second), userInfo: nil, repeats: true)
+		stopButtonWidthConstraint.constant = 210
+		self.pauseStopButton.setTitle(NSLocalizedString("Pause Workout", comment: ""), for: UIControlState())
 
-		UIView.animateWithDuration(0.25, animations: {
+		UIView.animate(withDuration: 0.25, animations: {
 			self.view.layoutIfNeeded()
 			self.moreInfoView.alpha = 0
 			self.resumeButton.alpha = 0
 			}, completion: { _ in
-				self.moreInfoView.hidden = true
+				self.moreInfoView.isHidden = true
 		})
 		
 	}
 	
-	@IBAction func pauseStopAction(sender: AnyObject) {
+	@IBAction func pauseStopAction(_ sender: AnyObject) {
 		workoutPaused = !workoutPaused
 		if workoutPaused {
 			timer?.invalidate()
-			self.resumeHeightConstraint.constant = 50
-			self.forwardBottomSpaceConstraint.constant = 38
-			self.backwardBottomSpaceConstraint.constant = 38
-			UIView.animateWithDuration(0.25) {
-				self.pauseStopButton.setTitle(NSLocalizedString("Stop Workout", comment: ""), forState: UIControlState.Normal)
+			self.stopButtonWidthConstraint.constant = 100
+			UIView.animate(withDuration: 0.25, animations: {
+				self.pauseStopButton.setTitle(NSLocalizedString("Stop Workout", comment: ""), for: UIControlState())
 				self.resumeButton.alpha = 1
 				self.view.layoutIfNeeded()
-			}
+			}) 
 		}
 		else {
 			timer?.invalidate()
-			dismissViewControllerAnimated(true, completion: nil)
+			dismiss(animated: true, completion: nil)
 		}
 	}
 	
-	@IBAction func forwardAction(sender: AnyObject) {
+	// MARK: - Music Controls
+	
+	@IBAction func playPauseAction(_ sender: AnyObject) {
+		if myMusicPlayer?.playbackState == .playing {
+			playPauseButton.setImage(UIImage(named: "play.png"), for: .normal)
+			myMusicPlayer?.pause()
+		}
+		else {
+			playPauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
+			myMusicPlayer?.play()
+		}
+	}
+	
+	@IBAction func forwardAction(_ sender: AnyObject) {
 		myMusicPlayer?.skipToNextItem()
 	}
 	
-	@IBAction func backwardAction(sender: AnyObject) {
+	@IBAction func backwardAction(_ sender: AnyObject) {
 		myMusicPlayer?.skipToPreviousItem()
 	}
 	

@@ -20,7 +20,7 @@ class TVWorkoutViewController: UIViewController {
 	var seconds = 0
 	var exerciseNumber = 0
 	
-	var timer : NSTimer?
+	var timer : Timer?
 	
 	var workoutPaused = false
 	
@@ -37,7 +37,7 @@ class TVWorkoutViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		if let path = NSBundle.mainBundle().pathForResource("workout" + String(workoutID), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+		if let path = Bundle.main.path(forResource: "workout" + String(workoutID), ofType: "plist"), let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
 			workoutName = dict["workoutName"] as! String
 			exercises = dict["exercises"] as! NSDictionary
 		}
@@ -65,19 +65,20 @@ class TVWorkoutViewController: UIViewController {
 		
 		
 		let playPauseRecognizer = UITapGestureRecognizer(target: self, action: #selector(TVWorkoutViewController.pause))
-		playPauseRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)];
+		playPauseRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue as Int)];
 		self.view.addGestureRecognizer(playPauseRecognizer)
 		
-		let menuRecognizer = UITapGestureRecognizer(target: self, action: nil)
-		menuRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.Menu.rawValue)];
-		menuRecognizer.numberOfTapsRequired = 1
+		let menuRecognizer = UITapGestureRecognizer(target: self, action: #selector(TVWorkoutViewController.menuButton))
+		menuRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue as Int)];
 		self.view.addGestureRecognizer(menuRecognizer)
 		
-		UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+		UIApplication.shared.beginReceivingRemoteControlEvents()
+		
+		UIApplication.shared.isIdleTimerDisabled = true
 	}
 	
-	override func viewDidAppear(animated: Bool) {
-		timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
+	override func viewDidAppear(_ animated: Bool) {
+		timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
 	}
 	
 	func second() {
@@ -125,28 +126,29 @@ class TVWorkoutViewController: UIViewController {
 	
 	func endWorkout() {
 		timer!.invalidate()
+		UIApplication.shared.isIdleTimerDisabled = false
 		
-		if NSCalendar.currentCalendar().isDateInToday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) {
+		if Calendar.current.isDateInToday((UserDefaults.standard.object(forKey: "lastWorkout") as! Date)) {
 			// Already saved
 			print("Already Saved Today")
 		}
-		else if NSCalendar.currentCalendar().isDateInYesterday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) {
+		else if Calendar.current.isDateInYesterday((UserDefaults.standard.object(forKey: "lastWorkout") as! Date)) {
 			// Update count
-			NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastWorkout")
-			NSUserDefaults.standardUserDefaults().setInteger(NSUserDefaults.standardUserDefaults().integerForKey("workoutCount")+1, forKey: "workoutCount")
+			UserDefaults.standard.set(Date(), forKey: "lastWorkout")
+			UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "workoutCount")+1, forKey: "workoutCount")
 			print("Update Count")
 		}
 		else {
-			NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastWorkout")
-			NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "workoutCount")
+			UserDefaults.standard.set(Date(), forKey: "lastWorkout")
+			UserDefaults.standard.set(0, forKey: "workoutCount")
 			print("No Streak")
 		}
 		
-		let alert = UIAlertController(title: NSLocalizedString("Workout Completed!", comment: ""), message: NSLocalizedString("Great job!", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-		alert.addAction(UIAlertAction(title: "😊", style: UIAlertActionStyle.Default, handler: { _ in
-			self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion:nil)
+		let alert = UIAlertController(title: NSLocalizedString("Workout Completed!", comment: ""), message: NSLocalizedString("Great job!", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+		alert.addAction(UIAlertAction(title: "😊", style: UIAlertActionStyle.default, handler: { _ in
+			self.view.window?.rootViewController?.dismiss(animated: true, completion:nil)
 		}))
-		self.presentViewController(alert, animated: true, completion: nil)
+		self.present(alert, animated: true, completion: nil)
 	}
 	
 	func updateExercise() {
@@ -160,23 +162,30 @@ class TVWorkoutViewController: UIViewController {
 		}
 		else {
 			nextExerciseImageHeightConstraint.constant = 0
-			UIView.animateWithDuration(0.25) {
+			UIView.animate(withDuration: 0.25, animations: {
 				self.view.layoutIfNeeded()
-			}
+			}) 
 		}
 		
 	}
 	
+	func menuButton() {
+		timer?.invalidate()
+		UIApplication.shared.isIdleTimerDisabled = false
+		self.dismiss(animated: true, completion: nil)
+	}
+	
 	func pause() {
 		timer?.invalidate()
-		let alert = UIAlertController(title: NSLocalizedString("Workout Paused", comment: ""), message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Resume Workout", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in
-			self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
+		let alert = UIAlertController(title: NSLocalizedString("Workout Paused", comment: ""), message: nil, preferredStyle: UIAlertControllerStyle.alert)
+		alert.addAction(UIAlertAction(title: NSLocalizedString("Resume Workout", comment: ""), style: UIAlertActionStyle.default, handler: { _ in
+			self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
 		}))
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Stop Workout", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in
-			self.dismissViewControllerAnimated(true, completion: nil)
+		alert.addAction(UIAlertAction(title: NSLocalizedString("Stop Workout", comment: ""), style: UIAlertActionStyle.default, handler: { _ in
+			UIApplication.shared.isIdleTimerDisabled = false
+			self.dismiss(animated: true, completion: nil)
 		}))
-		self.presentViewController(alert, animated: true, completion: nil)
+		self.present(alert, animated: true, completion: nil)
 	}
 	
 }

@@ -28,6 +28,7 @@ class WorkoutCell: UITableViewCell {
 	@IBOutlet weak var button: UIButton! {
 		didSet {
 			button.layer.cornerRadius = 8
+			button.titleLabel?.adjustsFontSizeToFitWidth = true
 		}
 	}
 	
@@ -39,8 +40,8 @@ class WorkoutCell: UITableViewCell {
 		self.clipsToBounds = true;
 		
 		#if os(iOS)
-			exerciseWidth.constant = 50
-			restWidth.constant = 50
+			exerciseWidth.constant = 70
+			restWidth.constant = 70
 			exerciseLabelWidth.constant = 0
 			restLabelWidth.constant = 0
 			secWidth1.constant = 0
@@ -48,11 +49,11 @@ class WorkoutCell: UITableViewCell {
 		#endif
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
-	@IBAction func start(sender: AnyObject) {
+	@IBAction func start(_ sender: AnyObject) {
 		#if os(iOS)
 			GlobalVariables.restDuration = Int(restDuration.text!)!
 			GlobalVariables.exerciseDuration = Int(exerciseDuration.text!)!
@@ -62,28 +63,28 @@ class WorkoutCell: UITableViewCell {
 	}
 	
 	
-	@IBAction func editingBegan(sender: AnyObject) {
+	@IBAction func editingBegan(_ sender: AnyObject) {
 		exerciseWidth.constant = 100
 		restWidth.constant = 100
 		exerciseLabelWidth.constant = 80
 		restLabelWidth.constant = 80
 		secWidth1.constant = 38
 		secWidth2.constant = 38
-		UIView.animateWithDuration(0.2) {
+		UIView.animate(withDuration: 0.2, animations: {
 			self.layoutIfNeeded()
-		}
+		}) 
 	}
 	
-	@IBAction func editingEnded(sender: AnyObject) {
-		exerciseWidth.constant = 50
-		restWidth.constant = 50
+	@IBAction func editingEnded(_ sender: AnyObject) {
+		exerciseWidth.constant = 70
+		restWidth.constant = 70
 		exerciseLabelWidth.constant = 0
 		restLabelWidth.constant = 0
 		secWidth1.constant = 0
 		secWidth2.constant = 0
-		UIView.animateWithDuration(0.2) {
+		UIView.animate(withDuration: 0.2, animations: {
 			self.layoutIfNeeded()
-		}
+		}) 
 	}
 	
 }

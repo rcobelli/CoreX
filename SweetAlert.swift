@@ -69,6 +69,7 @@ open class SweetAlert: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: kFont, size:25)
         titleLabel.textColor = UIColor.colorFromRGB(0x575757)
+		titleLabel.adjustsFontSizeToFitWidth = true
     }
     
     fileprivate func setupSubtitleTextView() {

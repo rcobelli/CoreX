@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	var product: SKProduct?
 	var productsArray = Array<SKProduct>()
 	
-	var indexPath = NSIndexPath()
+	var indexPath = IndexPath()
 	
 	var extendedCell : Int? = nil
 	
@@ -35,32 +35,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		tableView.dataSource = self
 		
 		// Init store kit
-		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+		SKPaymentQueue.default().add(self)
 		requestProductData()
 	}
 	
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		tableView.reloadData()
 	}
 	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showWorkout" {
 			
-			let destination = segue.destinationViewController as! TVWorkoutViewController
+			let destination = segue.destination as! TVWorkoutViewController
 			destination.workoutID = (tableView.indexPathForSelectedRow?.row)!
 		}
 	}
 	
 	// Check if a workout has been unlocked or a trial is available
-	func workoutUnlocked(identifier: Int) -> Bool {
-		if NSUserDefaults.standardUserDefaults().boolForKey(String(NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"])) {
+	func workoutUnlocked(_ identifier: Int) -> Bool {
+		if UserDefaults.standard.bool(forKey: String(describing: Bundle.main.infoDictionary!["CFBundleShortVersionString"])) {
 			return true
 		}
-		return NSUserDefaults.standardUserDefaults().boolForKey("workout" + String(identifier))
+		return UserDefaults.standard.bool(forKey: "workout" + String(identifier))
 	}
 	
-	func cellBackgroundColor(indexPath: NSIndexPath) -> UIColor {
+	func cellBackgroundColor(_ indexPath: IndexPath) -> UIColor {
 		switch indexPath.row {
 		case 0:
 			return UIColor(red: 0.863, green: 0.820, blue: 0.282, alpha: 1.00)
@@ -75,53 +75,53 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		case 5:
 			return UIColor(red: 0.580, green: 0.290, blue: 0.675, alpha: 1.00)
 		default:
-			return UIColor.clearColor()
+			return UIColor.clear
 		}
 	}
 	
 	// MARK: - UITableView Methods
 	
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		// Check if the barbell needs to be delt with
-		if indexPath.row == numOfRows - 1 && !NSUserDefaults.standardUserDefaults().boolForKey("workout5") {
-			let cell = tableView.dequeueReusableCellWithIdentifier("SixPack", forIndexPath: indexPath) as! SixPackCell
+		if indexPath.row == numOfRows - 1 && !UserDefaults.standard.bool(forKey: "workout5") {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SixPack", for: indexPath) as! SixPackCell
 			
 			// Check if streak is alive
-			if NSCalendar.currentCalendar().isDateInToday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) || NSCalendar.currentCalendar().isDateInYesterday((NSUserDefaults.standardUserDefaults().objectForKey("lastWorkout") as! NSDate)) {
-				cell.barbell.image = UIImage(named: String(NSUserDefaults.standardUserDefaults().integerForKey("workoutCount")))
+			if Calendar.current.isDateInToday((UserDefaults.standard.object(forKey: "lastWorkout") as! Date)) || Calendar.current.isDateInYesterday((UserDefaults.standard.object(forKey: "lastWorkout") as! Date)) {
+				cell.barbell.image = UIImage(named: String(UserDefaults.standard.integer(forKey: "workoutCount")))
 			}
 			else {
 				cell.barbell.image = UIImage(named: "0")
 			}
 			
-			if NSUserDefaults.standardUserDefaults().integerForKey("workoutCount") >= 5 {
-				let alert = UIAlertController(title: NSLocalizedString("Barbell Completed", comment: ""), message: NSLocalizedString("You completed the barbell, tap the barbell anytime from now on to use an exclusive workout routine", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-				alert.addAction(UIAlertAction(title: "Sweet", style: UIAlertActionStyle.Default, handler: nil))
-				self.presentViewController(alert, animated: true, completion: nil)
+			if UserDefaults.standard.integer(forKey: "workoutCount") >= 5 {
+				let alert = UIAlertController(title: NSLocalizedString("Barbell Completed", comment: ""), message: NSLocalizedString("You completed the barbell, tap the barbell anytime from now on to use an exclusive workout routine", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+				alert.addAction(UIAlertAction(title: "Sweet", style: UIAlertActionStyle.default, handler: nil))
+				self.present(alert, animated: true, completion: nil)
 				
-				NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout5")
+				UserDefaults.standard.set(true, forKey: "workout5")
 			}
 			
-			cell.backgroundColor = UIColor.clearColor()
-			cell.focusStyle = .Custom
+			cell.backgroundColor = UIColor.clear
+			cell.focusStyle = .custom
 			
 			
 			return cell;
 		}
 		
 		
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! WorkoutCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutCell
 		
 		var exerciseDurationVar : String?
 		var restDurationVar : String?
 		
 		// Set cell information based on the workout
-		if let path = NSBundle.mainBundle().pathForResource("workout" + String(indexPath.row), ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
-			cell.title.text = String(dict["workoutName"]!)
+		if let path = Bundle.main.path(forResource: "workout" + String(indexPath.row), ofType: "plist"), let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+			cell.title.text = String(describing: dict["workoutName"]!)
 			
-			exerciseDurationVar = String(dict["defaultExerciseDuration"]!)
-			restDurationVar = String(dict["defaultRestDuration"]!)
+			exerciseDurationVar = String(describing: dict["defaultExerciseDuration"]!)
+			restDurationVar = String(describing: dict["defaultRestDuration"]!)
 			
 			cell.itemCount.text = String((dict["exercises"] as! NSDictionary).count)
 			
@@ -160,9 +160,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 		
 		cell.backgroundColor = cellBackgroundColor(indexPath)
-		cell.icon.image = (cell.icon.image?.imageWithRenderingMode(.AlwaysTemplate))!
-		cell.icon.tintColor = UIColor.whiteColor()
-		cell.title.textColor = UIColor.whiteColor()
+		cell.icon.image = (cell.icon.image?.withRenderingMode(.alwaysTemplate))!
+		cell.icon.tintColor = UIColor.white
+		cell.title.textColor = UIColor.white
 		
 		// Style the cell if its unlocked or not
 		if workoutUnlocked(indexPath.row) {
@@ -183,59 +183,59 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			print("Completion")
 			
 			
-			let alert = UIAlertController(title: cell.title.text, message: NSLocalizedString("Please set how long you would like the workout to last", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-			alert.addAction(UIAlertAction(title: NSLocalizedString("Start Workout", comment: ""), style: UIAlertActionStyle.Default, handler: { _ in
+			let alert = UIAlertController(title: cell.title.text, message: NSLocalizedString("Please set how long you would like the workout to last", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+			alert.addAction(UIAlertAction(title: NSLocalizedString("Start Workout", comment: ""), style: UIAlertActionStyle.default, handler: { _ in
 				let exerciseDurationTextField = alert.textFields![0] as UITextField
 				let restDurationTextField = alert.textFields![1] as UITextField
 				
 				GlobalVariables.exerciseDuration = Int(exerciseDurationTextField.text!)!
 				GlobalVariables.restDuration = Int(restDurationTextField.text!)!
-				self.performSegueWithIdentifier("startWorkout", sender: self)
+				self.performSegue(withIdentifier: "startWorkout", sender: self)
 			}))
-			alert.addTextFieldWithConfigurationHandler { (textField) in
+			alert.addTextField { (textField) in
 				textField.placeholder = NSLocalizedString("Exercise Duration (sec.)", comment: "")
-				textField.keyboardType = .NumberPad
+				textField.keyboardType = .numberPad
 				textField.text = exerciseDurationVar
 			}
-			alert.addTextFieldWithConfigurationHandler { (textField) in
+			alert.addTextField { (textField) in
 				textField.placeholder = NSLocalizedString("Rest Duration (sec.)", comment: "")
-				textField.keyboardType = .NumberPad
+				textField.keyboardType = .numberPad
 				textField.text = restDurationVar
 			}
-			alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel) { (_) in })
-			self.presentViewController(alert, animated: true, completion: nil)
+			alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (_) in })
+			self.present(alert, animated: true, completion: nil)
 		}
 		
-		cell.focusStyle = .Custom
+		cell.focusStyle = .custom
 		
 		return cell
 	}
 	
-	func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+	func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 		
 		if let prevFocus = context.previouslyFocusedIndexPath {
-			if let cell = tableView.cellForRowAtIndexPath(prevFocus) as? WorkoutCell {
+			if let cell = tableView.cellForRow(at: prevFocus) as? WorkoutCell {
 				cell.backgroundColor = cellBackgroundColor(prevFocus)
-				cell.title.textColor = UIColor.whiteColor()
-				cell.workoutList.textColor = UIColor.whiteColor()
-				cell.itemCount.textColor = UIColor.whiteColor()
-				cell.itemLabel.textColor = UIColor.whiteColor()
-				cell.icon.tintColor = UIColor.whiteColor()
+				cell.title.textColor = UIColor.white
+				cell.workoutList.textColor = UIColor.white
+				cell.itemCount.textColor = UIColor.white
+				cell.itemLabel.textColor = UIColor.white
+				cell.icon.tintColor = UIColor.white
 			}
-			else if let cell = tableView.cellForRowAtIndexPath(prevFocus) as? SixPackCell {
-				cell.backgroundColor = UIColor.clearColor()
+			else if let cell = tableView.cellForRow(at: prevFocus) as? SixPackCell {
+				cell.backgroundColor = UIColor.clear
 			}
 		}
 		if let nextFoc = context.nextFocusedIndexPath {
-			if let cell = tableView.cellForRowAtIndexPath(nextFoc) as? WorkoutCell {
+			if let cell = tableView.cellForRow(at: nextFoc) as? WorkoutCell {
 				cell.backgroundColor = UIColor(red: 0.922, green: 0.239, blue: 0.212, alpha: 1.00)
-				cell.title.textColor = UIColor.blackColor()
-				cell.workoutList.textColor = UIColor.blackColor()
-				cell.itemCount.textColor = UIColor.blackColor()
-				cell.itemLabel.textColor = UIColor.blackColor()
-				cell.icon.tintColor = UIColor.blackColor()
+				cell.title.textColor = UIColor.black
+				cell.workoutList.textColor = UIColor.black
+				cell.itemCount.textColor = UIColor.black
+				cell.itemLabel.textColor = UIColor.black
+				cell.icon.tintColor = UIColor.black
 			}
-			else if let cell = tableView.cellForRowAtIndexPath(nextFoc) as? SixPackCell {
+			else if let cell = tableView.cellForRow(at: nextFoc) as? SixPackCell {
 				cell.backgroundColor = UIColor(red: 0.922, green: 0.239, blue: 0.212, alpha: 1.00)
 			}
 		}
@@ -254,24 +254,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		
 	}
 	
-	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 		
 		// Barbell handler
-		if indexPath.row == numOfRows - 1 && !NSUserDefaults.standardUserDefaults().boolForKey("workout5") {
-			let alert = UIAlertController(title: NSLocalizedString("Complete The Barbell", comment: ""), message: NSLocalizedString("Every consecuative day that you finish a workout, a plate is added to your barbell. Get all 6 plates to unlock an exclusive workout routine", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-			self.presentViewController(alert, animated: true, completion: nil)
+		if indexPath.row == numOfRows - 1 && !UserDefaults.standard.bool(forKey: "workout5") {
+			let alert = UIAlertController(title: NSLocalizedString("Complete The Barbell", comment: ""), message: NSLocalizedString("Every consecuative day that you finish a workout, a plate is added to your barbell. Get all 6 plates to unlock an exclusive workout routine", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+			self.present(alert, animated: true, completion: nil)
 		}
 		else if workoutUnlocked(indexPath.row) {
-			(tableView.cellForRowAtIndexPath(indexPath) as! WorkoutCell).completion()
+			(tableView.cellForRow(at: indexPath) as! WorkoutCell).completion()
 		}
 		else {
 			buyWorkout(indexPath.row)
 		}
 	}
 	
-	func buyWorkout(row: Int) {
+	func buyWorkout(_ row: Int) {
 		switch row {
 		case 1:
 			buyProduct(1)
@@ -290,7 +290,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 	}
 	
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == numOfRows - 1 {
 			return 105
 		}
@@ -300,7 +300,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		return 105
 	}
 	
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return numOfRows
 	}
 	
@@ -315,25 +315,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 		else {
 			let alert = UIAlertController(title: NSLocalizedString("In-App Purchases Not Enabled", comment: ""),
-			                              message: NSLocalizedString("Please enable In App Purchase in Settings", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-			alert.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.Default, handler: { alertAction in
-				alert.dismissViewControllerAnimated(true, completion: nil)
+			                              message: NSLocalizedString("Please enable In App Purchase in Settings", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+			alert.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.default, handler: { alertAction in
+				alert.dismiss(animated: true, completion: nil)
 				
-				let url: NSURL? = NSURL(string: UIApplicationOpenSettingsURLString)
+				let url: URL? = URL(string: UIApplicationOpenSettingsURLString)
 				if url != nil
 				{
-					UIApplication.sharedApplication().openURL(url!)
+					UIApplication.shared.openURL(url!)
 				}
 				
 			}))
-			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { alertAction in
-				alert.dismissViewControllerAnimated(true, completion: nil)
+			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { alertAction in
+				alert.dismiss(animated: true, completion: nil)
 			}))
-			self.presentViewController(alert, animated: true, completion: nil)
+			self.present(alert, animated: true, completion: nil)
 		}
 	}
 	
-	func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+	func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
 		var products = response.products
 		
 		if (products.count != 0) {
@@ -351,34 +351,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 	}
 	
-	func buyProduct(productID: Int) {
+	func buyProduct(_ productID: Int) {
 		if productsArray.count-1 >= productID {
 			let payment = SKPayment(product: productsArray[productID])
-			SKPaymentQueue.defaultQueue().addPayment(payment)
+			SKPaymentQueue.default().add(payment)
 		}
 		else {
-			let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("We could not find the in app purchase you were looking for", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-			self.presentViewController(alert, animated: true, completion: nil)
+			let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("We could not find the in app purchase you were looking for", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+			self.present(alert, animated: true, completion: nil)
 		}
 	}
 	
 	
-	func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+	func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
 		print("Processing Transaction")
 		for transaction in transactions {
 			
 			switch transaction.transactionState {
 				
-			case SKPaymentTransactionState.Purchased:
+			case SKPaymentTransactionState.purchased:
 				print("Transaction Approved")
 				print("Product Identifier: \(transaction.payment.productIdentifier)")
 				deliverProduct(transaction.payment.productIdentifier)
-				SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+				SKPaymentQueue.default().finishTransaction(transaction)
 				
-			case SKPaymentTransactionState.Failed:
+			case SKPaymentTransactionState.failed:
 				print("Transaction Failed")
-				SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+				SKPaymentQueue.default().finishTransaction(transaction)
 			default:
 				break
 			}
@@ -387,45 +387,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	@IBAction func restorePurchases() {
 		print("Restore Purchases")
-		SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+		SKPaymentQueue.default().restoreCompletedTransactions()
 		tableView.reloadData()
 	}
 	
-	func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue) {
+	func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
 		print("Transactions Restored")
 		
 		for transaction:SKPaymentTransaction in queue.transactions {
 			deliverProduct(transaction.payment.productIdentifier)
 		}
 		
-		let alert = UIAlertController(title: NSLocalizedString("Thank You", comment: ""), message: NSLocalizedString("Any purchases were restored.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-		self.presentViewController(alert, animated: true, completion: nil)
+		let alert = UIAlertController(title: NSLocalizedString("Thank You", comment: ""), message: NSLocalizedString("Any purchases were restored.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+		alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+		self.present(alert, animated: true, completion: nil)
 	}
 	
 }
 
 
 extension UIViewController {
-	func deliverProduct(identifier: String) {
+	func deliverProduct(_ identifier: String) {
 		print("Identifier: " + identifier)
 		if identifier == "com.rybel_llc.core_x.myrtl" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout1")
+			UserDefaults.standard.set(true, forKey: "workout1")
 		}
 		else if identifier == "com.rybel_llc.core_x.remove_ads" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "removedAds")
+			UserDefaults.standard.set(true, forKey: "removedAds")
 		}
 		else if identifier == "com.rybel_llc.core_x.leg_day" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout2")
+			UserDefaults.standard.set(true, forKey: "workout2")
 		}
 		else if identifier == "com.rybel_llc.core_x.pushups" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout3")
+			UserDefaults.standard.set(true, forKey: "workout3")
 		}
 		else if identifier == "com.rybel_llc.core_x.yoga" {
-			NSUserDefaults.standardUserDefaults().setBool(true, forKey: "workout4")
+			UserDefaults.standard.set(true, forKey: "workout4")
 		}
 		
-		NSUserDefaults.standardUserDefaults().synchronize()
+		UserDefaults.standard.synchronize()
 		viewWillAppear(true)
 	}
 }
