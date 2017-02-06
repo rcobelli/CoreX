@@ -77,6 +77,15 @@ class TVWorkoutViewController: UIViewController {
 		UIApplication.shared.isIdleTimerDisabled = true
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		if isDarkMode() {
+			view.backgroundColor = UIColor(red: 0.200, green: 0.224, blue: 0.243, alpha: 1.00)
+		}
+		else {
+			view.backgroundColor = UIColor(red: 0.451, green: 0.624, blue: 0.710, alpha: 1.00)
+		}
+	}
+	
 	override func viewDidAppear(_ animated: Bool) {
 		timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
 	}
@@ -127,22 +136,6 @@ class TVWorkoutViewController: UIViewController {
 	func endWorkout() {
 		timer!.invalidate()
 		UIApplication.shared.isIdleTimerDisabled = false
-		
-		if Calendar.current.isDateInToday((UserDefaults.standard.object(forKey: "lastWorkout") as! Date)) {
-			// Already saved
-			print("Already Saved Today")
-		}
-		else if Calendar.current.isDateInYesterday((UserDefaults.standard.object(forKey: "lastWorkout") as! Date)) {
-			// Update count
-			UserDefaults.standard.set(Date(), forKey: "lastWorkout")
-			UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "workoutCount")+1, forKey: "workoutCount")
-			print("Update Count")
-		}
-		else {
-			UserDefaults.standard.set(Date(), forKey: "lastWorkout")
-			UserDefaults.standard.set(0, forKey: "workoutCount")
-			print("No Streak")
-		}
 		
 		let alert = UIAlertController(title: NSLocalizedString("Workout Completed!", comment: ""), message: NSLocalizedString("Great job!", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
 		alert.addAction(UIAlertAction(title: "😊", style: UIAlertActionStyle.default, handler: { _ in

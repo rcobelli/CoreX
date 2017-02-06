@@ -15,13 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
 		
-		if !UserDefaults.standard.bool(forKey: "firstLaunch") {
-			UserDefaults.standard.set(0, forKey: "workoutCount")
-			UserDefaults.standard.set(Date(timeIntervalSince1970: 0), forKey: "lastWorkout")
+		// Complete any outstanding transactions
+		SwiftyStoreKit.completeTransactions(atomically: true) { products in
 			
-			UserDefaults.standard.set(true, forKey: "firstLaunch")
+			for product in products {
+				
+				if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
+					
+					if product.needsFinishTransaction {
+						// Deliver content from server, then:
+						SwiftyStoreKit.finishTransaction(product.transaction)
+					}
+					print("purchased: \(product)")
+					UIViewController().deliverProduct(product.productId)
+				}
+			}
 		}
 		
 		UserDefaults.standard.set(true, forKey: "workout0")
@@ -42,9 +51,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIViewController {
+	func isDarkMode() -> Bool {
+		if #available(tvOS 10.0, *) {
+			guard(traitCollection.responds(to: #selector(getter: UITraitCollection.userInterfaceStyle)))
+				else { return true }
+		}
+		
+		if #available(tvOS 10.0, *) {
+			let style = traitCollection.userInterfaceStyle
+			switch style {
+			case .light:
+				return false
+			case .dark:
+				return true
+			case .unspecified:
+				return false
+			}
+		}
+		
+		return true
+	}
+}
+
 struct GlobalVariables {
 	static var restDuration = 0
 	static var exerciseDuration = 0
+	static var exerciseID = 0
+	static var workoutName = ""
 }
-
 

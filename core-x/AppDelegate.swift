@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Init Appodeal
 		Appodeal.initialize(withApiKey: "4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.interstitial, .banner, .nonSkippableVideo])
 		
+		
 		// Make sure Core X is always available
 		UserDefaults.standard.set(true, forKey: "workout0")
 		
