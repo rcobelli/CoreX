@@ -11,54 +11,32 @@
     </dependencies>
     <scenes>
         <!--Settings-->
-        <scene sceneID="lD2-DX-qsY">
+        <scene sceneID="TAl-I7-a3m">
             <objects>
-                <tableViewController id="JRn-Jq-96o" customClass="SettingsTableViewController" customModule="core_x" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="GNM-kg-Nhm">
+                <viewController id="W9W-ph-jO9" customClass="SettingsViewController" customModule="core_x" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OKs-fK-MDS"/>
+                        <viewControllerLayoutGuide type="bottom" id="hO0-5j-MwC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iIo-CT-JrE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="hH2-vs-hMe" style="IBUITableViewCellStyleDefault" id="ccs-BX-Fx9">
-                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ccs-BX-Fx9" id="OyC-de-IG2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Remove Ads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hH2-vs-hMe">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="49.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.17254901960784313" green="0.25098039215686274" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="JRn-Jq-96o" id="1QI-1b-VpI"/>
-                            <outlet property="delegate" destination="JRn-Jq-96o" id="Llp-MK-1vL"/>
-                        </connections>
-                    </tableView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <navigationItem key="navigationItem" title="Settings" id="U0d-8c-FnW">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="kau-54-XPs">
                             <connections>
-                                <action selector="done:" destination="JRn-Jq-96o" id="mSb-qx-xYl"/>
+                                <action selector="done:" destination="W9W-ph-jO9" id="SPw-nR-Kye"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="doneButton" destination="kau-54-XPs" id="BD3-bR-4un"/>
+                        <outlet property="doneButton" destination="kau-54-XPs" id="1aK-nz-ZVS"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnk-tu-pQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IhH-jg-YZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071" y="-314"/>
+            <point key="canvasLocation" x="1076" y="-314"/>
         </scene>
         <!--Choose Workout-->
         <scene sceneID="tne-QT-ifu">
@@ -550,7 +528,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JRn-Jq-96o" kind="relationship" relationship="rootViewController" id="I4B-cj-kQ2"/>
+                        <segue destination="W9W-ph-jO9" kind="relationship" relationship="rootViewController" id="sDL-Kx-RIH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="973-2l-yaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
