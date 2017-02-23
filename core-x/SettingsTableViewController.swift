@@ -59,6 +59,8 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 						_ = SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("The mail app is not configured. You can email us at rybelllc@gmail.com instead", comment: ""), style: AlertStyle.error)
 					}
 			}
+			
+			+++ Section(header: "Music", footer: "")
 			<<< PickerInlineRow<String>("PickerInlineRow") { (row : PickerInlineRow<String>) -> Void in
 				row.title = "Select Music Playlist"
 				row.options = ["No Music"]
@@ -81,6 +83,17 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 						UserDefaults.standard.set(row.value!, forKey: "playlistName")
 					}
 				})
+			<<< SwitchRow("set_none") {
+				$0.title = "Shuffle"
+				$0.value = UserDefaults.standard.bool(forKey: "shuffleMusic")
+				}.onChange { cell in
+					if cell.value ?? false {
+						UserDefaults.standard.set(true, forKey: "shuffleMusic")
+					}
+					else {
+						UserDefaults.standard.set(false, forKey: "shuffleMusic")
+					}
+			}
 			
 			
 			+++ Section(header: "Send Feedback", footer: "Version " + String(stringInterpolationSegment: Bundle.main.infoDictionary!["CFBundleShortVersionString"]!))
