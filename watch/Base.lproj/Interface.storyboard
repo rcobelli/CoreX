@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Core-X-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="main" title="Core-X" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watch" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="QFg-Re-GRI">
+                            <items>
+                                <tableRow identifier="TableRowController" id="QbJ-Qj-f2f" customClass="TableRowController" customModule="watch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="PaX-Sq-cdq">
+                                        <items>
+                                            <label width="1" height="1" alignment="left" verticalAlignment="center" text="Label" id="eMH-wI-tyO"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="eMH-wI-tyO" id="cvf-bt-GWC"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="QFg-Re-GRI" id="O88-ZF-0FK"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+        <!--Workout-->
+        <scene sceneID="SoZ-Td-oL8">
+            <objects>
+                <controller identifier="Workout" title="Workout" id="2Qi-dr-APK" customClass="WorkoutController" customModule="watch_Extension">
+                    <items>
+                        <label width="1" height="25" alignment="left" text="Title" textAlignment="center" minimumScaleFactor="0.40000000000000002" id="bY5-3P-Mbp">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
+                        </label>
+                        <label width="1" height="1" heightAdjustment="-25" alignment="center" text="30" textAlignment="center" id="6bB-r2-4Vr">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="115"/>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" type="system" weight="thin" pointSize="140"/>
+                            </variation>
+                        </label>
+                    </items>
+                    <menu key="menu" id="2sI-DS-gWP">
+                        <items>
+                            <menuItem title="End Workout" icon="decline" id="pfD-gN-KDF">
+                                <connections>
+                                    <action selector="end" destination="2Qi-dr-APK" id="P5C-OX-eWr"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="timerLabel" destination="6bB-r2-4Vr" id="gTq-X7-Hgt"/>
+                        <outlet property="workoutTitle" destination="bY5-3P-Mbp" id="HiH-2z-Qsa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="289" y="37"/>
+        </scene>
+    </scenes>
+</document>

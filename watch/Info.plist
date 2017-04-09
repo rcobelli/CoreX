@@ -18,19 +18,16 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>2.1.0</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>170408</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>UIRequiredDeviceCapabilities</key>
+	<string>170409</string>
+	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>arm64</string>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-	<key>UIUserInterfaceStyle</key>
-	<string>Automatic</string>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>com.rybel-llc.core-x</string>
+	<key>WKWatchKitApp</key>
+	<true/>
 </dict>
 </plist>

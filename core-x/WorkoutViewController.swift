@@ -71,6 +71,12 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 			myMediaQuery.filterPredicates = NSSet(object: predicateFilter) as? Set<MPMediaPredicate>
 			myMusicPlayer = MPMusicPlayerController()
 			myMusicPlayer!.setQueue(with: myMediaQuery)
+			if UserDefaults.standard.bool(forKey: "shuffleMusic") {
+				myMusicPlayer!.shuffleMode = .songs
+			}
+			else {
+				myMusicPlayer!.shuffleMode = .off
+			}
 			myMusicPlayer?.play()
 			playPauseButton.isHidden = false
 			forwardButton.isHidden = false
@@ -218,7 +224,7 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 				print("Workout saved!")
 			}
 			else if( error != nil ) {
-				print("\(error)")
+				print("\(String(describing: error))")
 			}
 		})
 	}

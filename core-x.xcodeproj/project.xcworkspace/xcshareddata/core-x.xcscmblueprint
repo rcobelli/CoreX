@@ -1,17 +1,17 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "909020133082CFD20FC8238461162D35E732A34B",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D9815E007988694AEECDCDB5070BA7C69C9F9239",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "909020133082CFD20FC8238461162D35E732A34B" : 0,
     "6787479FDC1F25036930DA11C1FF65DD4C273ADA" : 0,
+    "D9815E007988694AEECDCDB5070BA7C69C9F9239" : 0,
     "83BADBC5501CE21C43EFAD0B4239602133296C18" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "67AF5CDC-157B-45A7-963B-180A21E721CB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "909020133082CFD20FC8238461162D35E732A34B" : "core-x\/",
     "6787479FDC1F25036930DA11C1FF65DD4C273ADA" : "",
+    "D9815E007988694AEECDCDB5070BA7C69C9F9239" : "core-x\/",
     "83BADBC5501CE21C43EFAD0B4239602133296C18" : "core-x\/Eureka\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "core-x",
@@ -31,7 +31,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/rybel-llc\/core-x.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "909020133082CFD20FC8238461162D35E732A34B"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D9815E007988694AEECDCDB5070BA7C69C9F9239"
     }
   ]
 }

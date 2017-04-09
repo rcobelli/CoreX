@@ -1,5 +1,0 @@
--Rediseño visual completa
--Mejora de la selección local,
--Se Ha añadido "Complete la barra"
--Mejora De ejercicios gráficos
--El apoyo del reloj apple se dejó caer. No se preocupe, que va a estar de vuelta con IOS 10;-)

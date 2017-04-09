@@ -14,7 +14,7 @@ import WatchConnectivity
 import HealthKit
 import Intents
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate, AppodealNonSkippableVideoDelegate, UITextFieldDelegate  {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate, AppodealNonSkippableVideoDelegate, UITextFieldDelegate, WCSessionDelegate  {
 
 	@IBOutlet weak var tableView: UITableView!
 	var workoutIDToSend = Int()
@@ -51,18 +51,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			self.performSegue(withIdentifier: "startWorkout", sender: self)
 		}
 		else if !UserDefaults.standard.bool(forKey: "firstLaunch") && !ProcessInfo.processInfo.arguments.contains("testing") {
-			// Check if they want to use health kit
-			SweetAlert().showAlert(NSLocalizedString("Welcome to Core-X!", comment: ""),
-			                       subTitle: NSLocalizedString("Quick question, want to save your workouts to the Health app?", comment: ""), style: AlertStyle.none,
-			                       buttonTitle: "Yes", buttonColor: UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00),
-			                       otherButtonTitle: "No", otherButtonColor:  UIColor(red: 0.933, green: 0.294, blue: 0.169, alpha: 1.00),
-			                       action: { response in
-				
-									UserDefaults.standard.set(true, forKey: "firstLaunch")
-									if response { // User taps yes
-										self.healthManager.authorizeHealthKit()
-									}
-			})
+			if HKHealthStore.isHealthDataAvailable() {
+				// Check if they want to use health kit
+				SweetAlert().showAlert(NSLocalizedString("Welcome to Core-X!", comment: ""),
+				                       subTitle: NSLocalizedString("Quick question, want to save your workouts to the Health app?", comment: ""), style: AlertStyle.none,
+				                       buttonTitle: "Yes", buttonColor: UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00),
+				                       otherButtonTitle: "No", otherButtonColor:  UIColor(red: 0.933, green: 0.294, blue: 0.169, alpha: 1.00),
+				                       action: { response in
+										
+										UserDefaults.standard.set(true, forKey: "firstLaunch")
+										if response { // User taps yes
+											self.healthManager.authorizeHealthKit()
+										}
+				})
+			}
 		}
 		else {
 			// Ads
@@ -73,24 +75,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 
 		
-//		let data = ["workout1": NSUserDefaults.standardUserDefaults().boolForKey("workout1"),
-//		            "workout2": NSUserDefaults.standardUserDefaults().boolForKey("workout2"),
-//		            "workout3": NSUserDefaults.standardUserDefaults().boolForKey("workout3"),
-//		            "workout4": NSUserDefaults.standardUserDefaults().boolForKey("workout4")]
-//		
-//		
-//		if WCSession.isSupported() { //makes sure Watch is supported
-//			let watchSession = WCSession.defaultSession()
-//			watchSession.delegate = self
-//			watchSession.activateSession()
-//			if watchSession.paired && watchSession.watchAppInstalled {
-//				do {
-//					try watchSession.updateApplicationContext(data)
-//				} catch let error as NSError {
-//					print(error.description)
-//				}
-//			}
-//		}
+		// MARK: - WatchConnectivity
+		
+		let data = ["workout1": UserDefaults.standard.bool(forKey: "workout1"),
+		            "workout2": UserDefaults.standard.bool(forKey: "workout2"),
+		            "workout3": UserDefaults.standard.bool(forKey: "workout3"),
+		            "workout4": UserDefaults.standard.bool(forKey: "workout4"),
+		            "workout5": UserDefaults.standard.bool(forKey: "workout5")]
+		
+		
+		if WCSession.isSupported() { //makes sure Watch is supported
+			let watchSession = WCSession.default()
+			watchSession.delegate = self
+			watchSession.activate()
+			if watchSession.isPaired && watchSession.isWatchAppInstalled {
+				do {
+					try watchSession.updateApplicationContext(data)
+				} catch let error as NSError {
+					print(error.description)
+				}
+			}
+		}
+	}
+	
+	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+		print("Activate session")
+	}
+	
+	func sessionDidBecomeInactive(_ session: WCSession) {
+		print("Inactivate session")
+	}
+	
+	func sessionDidDeactivate(_ session: WCSession) {
+		print("Deactivate session")
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -69,10 +69,16 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 					row.value = UserDefaults.standard.string(forKey: "playlistName")
 				}
 				
-				let myMediaQuery = MPMediaQuery.playlists()
-				for item in myMediaQuery.collections! {
-					let value = item.value(forProperty: MPMediaPlaylistPropertyName) as! String
-					row.options.append(value)
+				if MPMediaLibrary.authorizationStatus() == .authorized {
+					let myMediaQuery = MPMediaQuery.playlists()
+					for item in myMediaQuery.collections! {
+						let value = item.value(forProperty: MPMediaPlaylistPropertyName) as! String
+						row.options.append(value)
+					}
+				}
+				else {
+					MPMediaLibrary.requestAuthorization { _ in
+					}
 				}
 				
 				}.onChange({ row in

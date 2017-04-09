@@ -5,15 +5,12 @@ devices([
   "iPhone 6",
   "iPhone 6 Plus",
   "iPhone 5",
-  "iPhone 4s",
-  "iPad Retina",
-  "iPad Pro"
+  "iPad Air",
+  "iPad Pro (12.9 inch)"
 ])
 
 languages([
-  "en-US",
-  "es-ES",
-  "it"
+  "en-US"
 ])
 
 # Arguments to pass to the app on launch. See https://github.com/fastlane/snapshot#launch_arguments

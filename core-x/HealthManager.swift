@@ -77,14 +77,16 @@ class HealthManager {
 	
 		calories = calories / 1000.0
         let caloriesQuantity = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: calories)
-      
-		// 2. Save Running Workout
-		let workout = HKWorkout(activityType: HKWorkoutActivityType.crossTraining, start: Date().addingTimeInterval(-totalDuration), end: Date(), duration: totalDuration, totalEnergyBurned: caloriesQuantity, totalDistance: HKQuantity(unit: HKUnit.mile(), doubleValue: 0.0), metadata: ["Workout Name": workoutName])
-		healthKitStore.save(workout, withCompletion: { (success, error) -> Void in
-			if !success {
-				print(error!)
-			}
-		})
+		
+		if HKHealthStore.isHealthDataAvailable() {
+			// 2. Save Running Workout
+			let workout = HKWorkout(activityType: HKWorkoutActivityType.crossTraining, start: Date().addingTimeInterval(-totalDuration), end: Date(), duration: totalDuration, totalEnergyBurned: caloriesQuantity, totalDistance: HKQuantity(unit: HKUnit.mile(), doubleValue: 0.0), metadata: ["Workout Name": workoutName])
+			healthKitStore.save(workout, withCompletion: { (success, error) -> Void in
+				if !success {
+					print(error!)
+				}
+			})
+		}
 	}
   
 }

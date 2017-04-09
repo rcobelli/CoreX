@@ -1,5 +1,6 @@
--Complete visual redesign
--Improved local selection
--Added "Complete The Barbell"
--Improved exercise graphics
--Apple Watch support was dropped. Don't worry, it'll be back with iOS 10 ;-)
+Added Apple Watch app
+Improved settings screen
+Added "Coach Liz Stretch Routine" 
+Removed buggy "Complete the barbell" feature
+Improved workout menu screen
+Purchasing & trying workouts is even easier

@@ -26,7 +26,7 @@ class RadialChart: UIView {
 	var arcBackgroundColor = UIColor.clear
 
     override func draw(_ rect: CGRect) {
-		let fullCircle = 2.0 * CGFloat(M_PI)
+		let fullCircle = 2.0 * CGFloat(Double.pi)
 		let start:CGFloat = -0.25 * fullCircle
 		let end:CGFloat = endArc * fullCircle + start
 		let centerPoint = CGPoint(x: rect.midX, y: rect.midY)
