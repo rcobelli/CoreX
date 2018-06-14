@@ -61,39 +61,44 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	@IBOutlet weak var stopButtonWidthConstraint: NSLayoutConstraint!
 	@IBOutlet weak var nextExerciseImageHeightConstraint: NSLayoutConstraint!
 	
+	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let myMediaQuery = MPMediaQuery.songs()
-		let playlistName = UserDefaults.standard.string(forKey: "playlistName")
-		if (playlistName != nil) {
-			let predicateFilter = MPMediaPropertyPredicate(value: playlistName, forProperty: MPMediaPlaylistPropertyName)
-			myMediaQuery.filterPredicates = NSSet(object: predicateFilter) as? Set<MPMediaPredicate>
-			myMusicPlayer = MPMusicPlayerController()
-			myMusicPlayer!.setQueue(with: myMediaQuery)
-			if UserDefaults.standard.bool(forKey: "shuffleMusic") {
-				myMusicPlayer!.shuffleMode = .songs
+		if !ProcessInfo.processInfo.arguments.contains("testing") {
+			let myMediaQuery = MPMediaQuery.songs()
+			let playlistName = UserDefaults.standard.string(forKey: "playlistName")
+			if (playlistName != nil) {
+				let predicateFilter = MPMediaPropertyPredicate(value: playlistName, forProperty: MPMediaPlaylistPropertyName)
+				myMediaQuery.filterPredicates = NSSet(object: predicateFilter) as? Set<MPMediaPredicate>
+				myMusicPlayer = MPMusicPlayerController.systemMusicPlayer
+				myMusicPlayer!.setQueue(with: myMediaQuery)
+				if UserDefaults.standard.bool(forKey: "shuffleMusic") {
+					myMusicPlayer!.shuffleMode = .songs
+				}
+				else {
+					myMusicPlayer!.shuffleMode = .off
+				}
+				myMusicPlayer?.play()
+				playPauseButton.isHidden = false
+				forwardButton.isHidden = false
+				backwardButton.isHidden = false
+				seperator.isHidden = false
 			}
 			else {
-				myMusicPlayer!.shuffleMode = .off
+				playPauseButton.isHidden = true
+				forwardButton.isHidden = true
+				backwardButton.isHidden = true
+				seperator.isHidden = true
+				popupHeightConstraint.constant = 163
 			}
-			myMusicPlayer?.play()
-			playPauseButton.isHidden = false
-			forwardButton.isHidden = false
-			backwardButton.isHidden = false
-			seperator.isHidden = false
-		}
-		else {
-			playPauseButton.isHidden = true
-			forwardButton.isHidden = true
-			backwardButton.isHidden = true
-			seperator.isHidden = true
-			popupHeightConstraint.constant = 163
+			
+			if myMusicPlayer?.playbackState == .playing {
+				playPauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
+			}
 		}
 		
-		if myMusicPlayer?.playbackState == .playing {
-			playPauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
-		}
 		
 		if let path = Bundle.main.path(forResource: "workout" + String(workoutID), ofType: "plist"), let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
 			workoutName = dict["workoutName"] as! String
@@ -127,6 +132,8 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 		updateExercise()
 		timerLabel.text = "0:" + String(format: "%02d", exerciseDuration)
 		timerLabel.alpha = 1
+		
+		UIApplication.shared.isIdleTimerDisabled = true
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -156,9 +163,11 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		timer?.invalidate()
+		
+		UIApplication.shared.isIdleTimerDisabled = false
 	}
 	
-	func second() {
+	@objc func second() {
 		
 		seconds += 1
 		
@@ -244,6 +253,16 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 				self.view.layoutIfNeeded()
 			}) 
 		}
+		
+		if shouldDisplayAd() {
+			Appodeal.showAd(AppodealShowStyle.bannerBottom, rootViewController: self)
+			bottomConstraint.constant = 60
+		} else {
+			bottomConstraint.constant = 0
+		}
+		UIView.animate(withDuration: 0.25, animations: {
+			self.view.layoutIfNeeded()
+		})
 		
 	}
 	

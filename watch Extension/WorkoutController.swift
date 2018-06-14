@@ -71,7 +71,7 @@ class WorkoutController: WKInterfaceController, HKWorkoutSessionDelegate {
 		updateActivity()
 	}
 	
-	func update() {
+	@objc func update() {
 		count = count + 1
 		if count <= exerciseDuration {
 			workoutTitle.setTextColor(UIColor.white)

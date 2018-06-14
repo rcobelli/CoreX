@@ -17,7 +17,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
 		UserDefaults.standard.set(true, forKey: "workout0")
 		
-		let watchSession = WCSession.default()
+		let watchSession = WCSession.default
 		watchSession.delegate = self
 		watchSession.activate()
 		
@@ -59,7 +59,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	
 	func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
 		for item in applicationContext {
-			UserDefaults.standard.set(Bool(item.1 as! NSNumber), forKey: item.0)
+			UserDefaults.standard.set(Bool(truncating: item.1 as! NSNumber), forKey: item.0)
 		}
 		
 		print("\(applicationContext)")

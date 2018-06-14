@@ -113,11 +113,11 @@ internal class InAppReceipt {
         
         // Return the expires dates sorted desc
         let expiryDateValues = receiptsInfo
-            .flatMap { (receipt) -> String? in
+			.compactMap { (receipt) -> String? in
                 let key: String = duration != nil ? "original_purchase_date_ms" : "expires_date_ms"
                 return receipt[key] as? String
             }
-            .flatMap { (dateString) -> Date? in
+			.compactMap { (dateString) -> Date? in
                 guard let doubleValue = Double(dateString) else { return nil }
                 // If duration is set, create an "expires date" value calculated from the original purchase date
                 let addedDuration = duration ?? 0

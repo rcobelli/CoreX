@@ -50,13 +50,14 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 					if MFMailComposeViewController.canSendMail() {
 						let picker = MFMailComposeViewController()
 						picker.mailComposeDelegate = self
+						picker.setToRecipients(["info@rybel-llc.com"])
 						picker.setSubject("New Workout Suggestion")
 						picker.setMessageBody(NSLocalizedString("Let us know of a new workout you would like to see in the app!", comment: ""), isHTML: false)
 						
 						self.present(picker, animated: true, completion: nil)
 					}
 					else {
-						_ = SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("The mail app is not configured. You can email us at rybelllc@gmail.com instead", comment: ""), style: AlertStyle.error)
+						_ = SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("The mail app is not configured. You can email us at info@rybel-llc.com instead", comment: ""), style: AlertStyle.error)
 					}
 			}
 			
@@ -112,20 +113,21 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 				.onCellSelection { (cell, row) in
 					if MFMailComposeViewController.canSendMail() {
 						let picker = MFMailComposeViewController()
+						picker.setToRecipients(["info@rybel-llc.com"])
 						picker.mailComposeDelegate = self
 						picker.setSubject("Core-X Feedback")
 						picker.setMessageBody(NSLocalizedString("Tell us what you really think about Core-X", comment: ""), isHTML: false)
 						self.present(picker, animated: true, completion: nil)
 					}
 					else {
-						_ = SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("The mail app is not configured. You can email us at rybelllc@gmail.com instead", comment: ""), style: AlertStyle.error)
+						_ = SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("The mail app is not configured. You can email us at info@rybel-llc.com instead", comment: ""), style: AlertStyle.error)
 					}
 			}
 			<<< ButtonRow() { (row: ButtonRow) -> Void in
 				row.title = "App Store Review"
 				}
 				.onCellSelection { (cell, row) in
-					UIApplication.shared.openURL(URL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!)
+					UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!, options: [:], completionHandler: nil)
 			}
     }
 	

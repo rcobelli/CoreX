@@ -2,11 +2,10 @@
 
 # A list of devices you want to take the screenshots from
 devices([
-  "iPhone 6",
-  "iPhone 6 Plus",
-  "iPhone 5",
-  "iPad Air",
-  "iPad Pro (12.9 inch)"
+  "iPhone 8",
+  "iPhone 8 Plus",
+  "iPhone X",
+  "iPad Pro (12.9-inch)"
 ])
 
 languages([
@@ -18,6 +17,8 @@ languages([
 
 # The name of the scheme which contains the UI Tests
 scheme "core-x"
+
+OTHER_SWIFT_FLAGS='$(inherited) -D SNAPSHOT'
 
 # Where should the resulting screenshots be stored?
 # output_directory "./screenshots"

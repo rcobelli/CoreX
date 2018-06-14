@@ -75,7 +75,7 @@ class HealthManager {
 			totalDuration = duration * 8.0
 		}
 	
-		calories = calories / 1000.0
+		//calories = calories / 1000.0
         let caloriesQuantity = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: calories)
 		
 		if HKHealthStore.isHealthDataAvailable() {

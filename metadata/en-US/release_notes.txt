@@ -1,6 +1,3 @@
-Added Apple Watch app
-Improved settings screen
-Added "Coach Liz Stretch Routine" 
-Removed buggy "Complete the barbell" feature
-Improved workout menu screen
-Purchasing & trying workouts is even easier
+Fix issue where the incorrect email address was displayed
+Fix issue where app would crash when starting a workout
+Other minor improvements

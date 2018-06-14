@@ -40,7 +40,7 @@ class ProductsInfoController: NSObject {
     
     private func allProductsMatching(_ productIds: Set<String>) -> Set<SKProduct> {
         
-        return Set(productIds.flatMap { self.products[$0] })
+		return Set(productIds.compactMap { self.products[$0] })
     }
     
     private func requestProducts(_ productIds: Set<String>, completion: @escaping (RetrieveResults) -> ()) {

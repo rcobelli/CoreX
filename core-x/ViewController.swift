@@ -85,7 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		
 		
 		if WCSession.isSupported() { //makes sure Watch is supported
-			let watchSession = WCSession.default()
+			let watchSession = WCSession.default
 			watchSession.delegate = self
 			watchSession.activate()
 			if watchSession.isPaired && watchSession.isWatchAppInstalled {
@@ -118,7 +118,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		self.view.endEditing(true)
 	}
 	
-	func keyboardWillShow(notification: Notification) {
+	@objc func keyboardWillShow(notification: Notification) {
 		let userInfo:NSDictionary = notification.userInfo! as NSDictionary
 		let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
 		let keyboardRectangle = keyboardFrame.cgRectValue
@@ -160,7 +160,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	// MARK: - Post workout methods
 	
 	// Share on social media
-	func postWorkoutShare() {
+	@objc func postWorkoutShare() {
 		let textToShare = NSLocalizedString("I just completed the ", comment: "") +
 			GlobalVariables.workoutName + NSLocalizedString(" workout using Core-X (https://rybel-llc.com/core-x)!", comment: "")
 		
@@ -177,7 +177,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	// Don't share on social media
-	func postWorkout() {
+	@objc func postWorkout() {
 		if Appodeal.isReadyForShow(with: AppodealShowStyle.nonSkippableVideo) && shouldDisplayAd() {
 			Appodeal.showAd(AppodealShowStyle.nonSkippableVideo, rootViewController: self)
 		}
