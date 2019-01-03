@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2.1</string>
+	<string>2.2.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>180611</string>
+	<string>180613</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -37,6 +37,10 @@
 	<string>Record your workouts to the Health App</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Save workout data to the Health app</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.rybel-llc.core-x.startMostRecentWorkout</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

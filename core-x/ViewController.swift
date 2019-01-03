@@ -98,6 +98,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 	}
 	
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		self.view.endEditing(true)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		self.view.endEditing(true)
+	}
+	
+	// MARK: - WCSession
+	
 	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
 		print("Activate session")
 	}
@@ -110,13 +120,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		print("Deactivate session")
 	}
 	
-	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-		self.view.endEditing(true)
-	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		self.view.endEditing(true)
-	}
+	// MARK: - UITextFieldDelegate
 	
 	@objc func keyboardWillShow(notification: Notification) {
 		let userInfo:NSDictionary = notification.userInfo! as NSDictionary
@@ -147,6 +151,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		})
 	}
 	
+	// MARK: - Workout specific methods
+	
 	// Check if a workout has been unlocked or a trial is available
 	func workoutUnlocked(_ identifier: Int) -> Bool {
 		return UserDefaults.standard.bool(forKey: "workout" + String(identifier))
@@ -156,8 +162,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	func trialAvailable(identifier: Int) -> Bool {
 		return !UserDefaults.standard.bool(forKey: "workout" + String(identifier) + "Trial")
 	}
-	
-	// MARK: - Post workout methods
 	
 	// Share on social media
 	@objc func postWorkoutShare() {
@@ -182,6 +186,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			Appodeal.showAd(AppodealShowStyle.nonSkippableVideo, rootViewController: self)
 		}
 		justShowedAd = true
+	}
+	
+	func startMostRecentWorkout() {
+		let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! WorkoutCell
+		cell.start(cell.button)
 	}
 	
 	// MARK: - UITableView Methods
@@ -272,6 +281,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		cell.completion = {
 			
 			if self.workoutUnlocked(indexPath.row) {
+				
+				// Add to siri shortcuts
+				if #available(iOS 12.0, *) {
+					let activity = NSUserActivity(activityType: "com.rybel-llc.core-x.startMostRecentWorkout")
+					activity.title = "Start Workout"
+					activity.isEligibleForSearch = true
+					activity.isEligibleForPrediction = true
+					activity.persistentIdentifier = NSUserActivityPersistentIdentifier("com.rybel-llc.core-x.startMostRecentWorkout")
+					self.view.userActivity = activity
+					activity.becomeCurrent()
+				}
+				
 				GlobalVariables.exerciseID = indexPath.row
 				self.performSegue(withIdentifier: "startWorkout", sender: self)
 			}

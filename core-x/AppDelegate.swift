@@ -10,7 +10,7 @@ import UIKit
 import Appodeal
 import SwiftyStoreKit
 
-#if SNAPSHOT
+#if DEBUG
 import SimulatorStatusMagiciOS
 #endif
 
@@ -23,10 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Init Appodeal
 		Appodeal.initialize(withApiKey: "4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.interstitial, .banner, .nonSkippableVideo])
+		Appodeal.setLogLevel(.warning)
 		
-		
-		
-		#if SNAPSHOT
+		#if DEBUG
 		SDStatusBarManager.sharedInstance().enableOverrides()
 		#endif
 		
@@ -35,9 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		// Complete any outstanding transactions
 		SwiftyStoreKit.completeTransactions(atomically: true) { products in
-			
 			for product in products {
-				
 				if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
 					
 					if product.needsFinishTransaction {
@@ -53,6 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
 
+	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+		// Handle the siri shortcut
+		let viewController = window?.rootViewController as! ViewController
+		viewController.startMostRecentWorkout()
+		
+		return true
+	}
+	
 	func applicationWillResignActive(_ application: UIApplication) {}
 
 	func applicationDidEnterBackground(_ application: UIApplication) {}

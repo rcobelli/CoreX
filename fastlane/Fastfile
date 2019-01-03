@@ -16,8 +16,30 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+  lane :release do
+
+    # Increment the build number (not the version number)
+    increment_build_number(xcodeproj: "core-x.xcodeproj")
+
+    # Duh
+    build_app
+
+    # Upload to app store and wait for processing
+    upload_to_app_store(
+      force: true, # Set to true to skip PDF verification
+      automatic_release: true,
+    )
+  end
+  lane :beta do
+    # Increment the build number (not the version number)
+    increment_build_number(xcodeproj: "core-x.xcodeproj")
+
+    # Duh
+    build_app
+
+    # Upload to testflight and wait for processing
+    upload_to_testflight(
+      force: true, # Set to true to skip PDF verification
+    )
   end
 end

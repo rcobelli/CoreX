@@ -17,7 +17,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 
 	@IBOutlet weak var doneButton: UIBarButtonItem!
 	
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
 		
 		form +++ ButtonRow() { (row: ButtonRow) -> Void in

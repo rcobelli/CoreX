@@ -171,6 +171,9 @@
 		94866E381C8CD1F000255907 /* workout3-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2E1C8CD1F000255907 /* workout3-8.png */; };
 		94866E391C8CD1F000255907 /* workout3-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 94866E2F1C8CD1F000255907 /* workout3-9.png */; };
 		948BBC821CC7014F002CBA8F /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BBC811CC7014F002CBA8F /* HealthManager.swift */; };
+		948DB7EF21DE9EF200846B08 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948DB7EE21DE9EF200846B08 /* HealthKit.framework */; };
+		948DB7F121DE9EF500846B08 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948DB7F021DE9EF500846B08 /* StoreKit.framework */; };
+		948DB7F321DE9F4000846B08 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948DB7F221DE9F4000846B08 /* Intents.framework */; };
 		94C8D26D1E3EBC3700D291B2 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8D26C1E3EBC3700D291B2 /* SweetAlert.swift */; };
 		94D6C10C1CA7591700CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
 		94D6C1141CA75AB000CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
@@ -378,6 +381,9 @@
 		94866E2F1C8CD1F000255907 /* workout3-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout3-9.png"; sourceTree = "<group>"; };
 		948BBC811CC7014F002CBA8F /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		948BBC851CC7037A002CBA8F /* core-x.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "core-x.entitlements"; sourceTree = "<group>"; };
+		948DB7EE21DE9EF200846B08 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		948DB7F021DE9EF500846B08 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		948DB7F221DE9F4000846B08 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		94C8D26C1E3EBC3700D291B2 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		94D6C10D1CA7591700CFC621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout4.plist; sourceTree = "<group>"; };
 		94D6C1151CA760B000CFC621 /* yoga.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yoga.tv.png; sourceTree = "<group>"; };
@@ -407,7 +413,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948DB7F321DE9F4000846B08 /* Intents.framework in Frameworks */,
+				948DB7F121DE9EF500846B08 /* StoreKit.framework in Frameworks */,
 				6A951B0270AD779771F4F4EE /* Pods_core_x.framework in Frameworks */,
+				948DB7EF21DE9EF200846B08 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +598,9 @@
 		946CD3DC1C1DF3790012C263 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				948DB7F221DE9F4000846B08 /* Intents.framework */,
+				948DB7F021DE9EF500846B08 /* StoreKit.framework */,
+				948DB7EE21DE9EF200846B08 /* HealthKit.framework */,
 				94C8D26C1E3EBC3700D291B2 /* SweetAlert.swift */,
 				C315B1B733A0F2AFCEDFD9E6 /* Pods_core_x.framework */,
 			);
@@ -848,7 +860,7 @@
 								enabled = 1;
 							};
 							com.apple.Siri = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1509,6 +1521,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 180613;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1533,6 +1546,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1566,6 +1580,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 180613;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1584,6 +1599,7 @@
 				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1609,6 +1625,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "arm64 armv7 armv7s";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1634,6 +1651,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "arm64 armv7 armv7s";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1648,6 +1666,7 @@
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "core-x";
 				USES_XCTRUNNER = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1662,6 +1681,7 @@
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "core-x";
 				USES_XCTRUNNER = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1684,6 +1704,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
@@ -1706,6 +1727,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
@@ -1730,6 +1752,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "arm64_32 armv7k";
+				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
@@ -1753,6 +1776,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "arm64_32 armv7k";
+				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
@@ -1774,6 +1798,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1794,6 +1819,7 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
