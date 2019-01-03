@@ -62,16 +62,12 @@ class WorkoutController: WKInterfaceController, HKWorkoutSessionDelegate {
 			fatalError("*** Unable to create the workout session: \(error.localizedDescription) ***")
 		}
 		
-		timer = Timer.scheduledTimer(timeInterval: 1.0,
-		                                               target: self,
-		                                               selector: #selector(WorkoutController.update),
-		                                               userInfo: nil,
-		                                               repeats: true)
+		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutController.everySecond), userInfo: nil, repeats: true)
 		
 		updateActivity()
 	}
 	
-	@objc func update() {
+	@objc func everySecond() {
 		count = count + 1
 		if count <= exerciseDuration {
 			workoutTitle.setTextColor(UIColor.white)

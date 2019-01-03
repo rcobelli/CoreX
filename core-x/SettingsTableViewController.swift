@@ -11,6 +11,7 @@ import StoreKit
 import MessageUI
 import MediaPlayer
 import Eureka
+import SwiftyStoreKit
 
 class SettingsViewController: FormViewController, MFMailComposeViewControllerDelegate {
 
@@ -24,13 +25,13 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 				}
 				.onCellSelection { (cell, row) in
 					SwiftyStoreKit.restorePurchases(atomically: true) { results in
-						if results.restoreFailedProducts.count > 0 {
-							print("Restore Failed: \(results.restoreFailedProducts)")
+						if results.restoreFailedPurchases.count > 0 {
+							print("Restore Failed: \(results.restoreFailedPurchases)")
 							_ = SweetAlert().showAlert("Restore Purchases", subTitle: "We were unable to restore your purchases. Please try again.", style: AlertStyle.error)
 						}
-						else if results.restoredProducts.count > 0 {
-							print("Restore Success: \(results.restoredProducts)")
-							for item in results.restoredProducts {
+						else if results.restoredPurchases.count > 0 {
+							print("Restore Success: \(results.restoredPurchases)")
+							for item in results.restoredPurchases {
 								self.deliverProduct(item.productId)
 							}
 							_ = SweetAlert().showAlert("Restore Purchases", subTitle: "Your purchases have been restored", style: AlertStyle.success)
@@ -127,7 +128,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 				row.title = "App Store Review"
 				}
 				.onCellSelection { (cell, row) in
-					UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!, options: [:], completionHandler: nil)
+					UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 			}
     }
 	
@@ -140,4 +141,9 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 		dismiss(animated: true, completion: nil)
 	}
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

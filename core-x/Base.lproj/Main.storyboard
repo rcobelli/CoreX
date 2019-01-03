@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cSx-JM-sbT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cSx-JM-sbT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -80,9 +78,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLz-JT-pM2">
-                                                    <rect key="frame" x="15" y="48" width="54" height="21"/>
+                                                    <rect key="frame" x="26.5" y="48" width="31.5" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="54" id="fEO-tN-jgz"/>
                                                         <constraint firstAttribute="height" constant="21" id="rEY-hb-bE0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -360,7 +357,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L48-jF-9yq">
-                                        <rect key="frame" x="66" y="171" width="50" height="50"/>
+                                        <rect key="frame" x="66.5" y="171" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="9ur-Gp-X9b"/>
                                             <constraint firstAttribute="height" constant="50" id="CXL-It-dq6"/>
@@ -382,7 +379,7 @@
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbQ-hg-AkQ">
-                                        <rect key="frame" x="226" y="171" width="50" height="50"/>
+                                        <rect key="frame" x="226.5" y="171" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="BkD-wn-3YA"/>
                                             <constraint firstAttribute="height" constant="50" id="EyP-Qe-Afh"/>
@@ -393,7 +390,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ev-F9-FZE">
-                                        <rect key="frame" x="146" y="171" width="50" height="50"/>
+                                        <rect key="frame" x="146.5" y="171" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="7Zu-aH-dWW"/>
                                             <constraint firstAttribute="width" constant="50" id="t80-Ji-rrZ"/>
@@ -404,7 +401,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RBf-z5-WeA">
-                                        <rect key="frame" x="8" y="163" width="327" height="1.5"/>
+                                        <rect key="frame" x="8" y="163" width="327" height="2"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="D03-E9-uBh"/>
@@ -562,10 +559,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="core-x" width="150" height="150"/>
+        <image name="core-x" width="300" height="300"/>
         <image name="pause.png" width="100" height="100"/>
         <image name="rewind.png" width="100" height="100"/>
-        <image name="settings" width="22" height="22"/>
+        <image name="settings" width="44" height="44"/>
         <image name="skip.png" width="100" height="100"/>
         <image name="workout0-0.png" width="1000" height="733"/>
     </resources>

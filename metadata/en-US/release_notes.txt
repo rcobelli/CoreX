@@ -1,3 +1,0 @@
-Fix issue where the incorrect email address was displayed
-Fix issue where app would crash when starting a workout
-Other minor improvements

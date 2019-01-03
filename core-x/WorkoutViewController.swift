@@ -9,6 +9,7 @@
 import UIKit
 import Appodeal
 import MediaPlayer
+import SCLAlertView
 
 class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	
@@ -270,7 +271,7 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 		workoutPaused = false
 		timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutViewController.second), userInfo: nil, repeats: true)
 		stopButtonWidthConstraint.constant = 210
-		self.pauseStopButton.setTitle(NSLocalizedString("Pause Workout", comment: ""), for: UIControlState())
+		self.pauseStopButton.setTitle(NSLocalizedString("Pause Workout", comment: ""), for: UIControl.State())
 
 		UIView.animate(withDuration: 0.25, animations: {
 			self.view.layoutIfNeeded()
@@ -288,7 +289,7 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 			timer?.invalidate()
 			self.stopButtonWidthConstraint.constant = 100
 			UIView.animate(withDuration: 0.25, animations: {
-				self.pauseStopButton.setTitle(NSLocalizedString("Stop Workout", comment: ""), for: UIControlState())
+				self.pauseStopButton.setTitle(NSLocalizedString("Stop Workout", comment: ""), for: UIControl.State())
 				self.resumeButton.alpha = 1
 				self.view.layoutIfNeeded()
 			}) 

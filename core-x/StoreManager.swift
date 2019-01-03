@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import SwiftyStoreKit
 
 extension UIViewController {
 	

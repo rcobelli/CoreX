@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		tableView.dataSource = self
 		
 		// Register for keyboard notification (get keyboard height)
-		NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
 		
 		// Show share menu on completion of workout
 		NotificationCenter.default.addObserver(self, selector: #selector(ViewController.postWorkout), name: NSNotification.Name(rawValue: "workoutFinished"), object: nil)
@@ -120,13 +120,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	@objc func keyboardWillShow(notification: Notification) {
 		let userInfo:NSDictionary = notification.userInfo! as NSDictionary
-		let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+		let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
 		let keyboardRectangle = keyboardFrame.cgRectValue
 		keyboardHeight = keyboardRectangle.height
 	}
 	
 	func textFieldDidBeginEditing(_ textField: UITextField) {
-		let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(64.0, 0.0, keyboardHeight, 0.0)
+		let contentInsets : UIEdgeInsets = UIEdgeInsets.init(top: 64.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
 		
 		tableView.contentInset = contentInsets
 		tableView.scrollIndicatorInsets = contentInsets
@@ -139,7 +139,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
-		let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0, 0.0)
+		let contentInsets : UIEdgeInsets = UIEdgeInsets.init(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
 		
 		UIView.animate(withDuration: 0.2, animations: {
 			self.tableView.contentInset = contentInsets
