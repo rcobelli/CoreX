@@ -9,7 +9,6 @@ target 'core-x' do
   pod 'Appodeal'
   pod 'Eureka'
   pod 'SimulatorStatusMagic', :configurations => ['Debug']
-  pod 'SCLAlertView'
   pod 'SwiftyStoreKit'
 
   target 'core-xUITests' do
@@ -26,7 +25,7 @@ target 'tv' do
   use_frameworks!
 
   # Pods for tv
-
+  pod 'SwiftyStoreKit'
 end
 
 target 'watch' do

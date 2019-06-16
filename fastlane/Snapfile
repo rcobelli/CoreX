@@ -4,8 +4,9 @@
 devices([
   "iPhone 8",
   "iPhone 8 Plus",
-  "iPhone X",
+  "iPhone Xs Max",
   "iPad Pro (12.9-inch)",
+  "iPad Pro (12.9-inch) (3rd generation)",
   "iPad Pro (9.7-inch)"
 ])
 
@@ -13,17 +14,13 @@ languages([
   "en-US"
 ])
 
-# Arguments to pass to the app on launch. See https://github.com/fastlane/snapshot#launch_arguments
-#launch_arguments("-username Felix")
+app_identifier "com.rybel-llc.core-x"
 
-# The name of the scheme which contains the UI Tests
 scheme "core-x"
-
-OTHER_SWIFT_FLAGS='$(inherited) -D SNAPSHOT'
 
 reinstall_app true
 
-clear_previous_screenshots # remove the '#' to clear all previously generated screenshots before creating new ones
+clear_previous_screenshots true
 
 stop_after_first_error true
 

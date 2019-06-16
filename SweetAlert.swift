@@ -119,7 +119,7 @@ open class SweetAlert: UIViewController {
         var buttonRect:[CGRect] = []
         for button in buttons {
             let string = button.title(for: UIControl.State())! as NSString
-            buttonRect.append(string.boundingRect(with: CGSize(width: width, height:0.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font:button.titleLabel!.font], context:nil))
+			buttonRect.append(string.boundingRect(with: CGSize(width: width, height:0.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font:button.titleLabel!.font as Any], context:nil))
         }
         
         var totalWidth: CGFloat = 0.0

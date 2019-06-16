@@ -130,7 +130,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func textFieldDidBeginEditing(_ textField: UITextField) {
-		let contentInsets : UIEdgeInsets = UIEdgeInsets.init(top: 64.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
+		let contentInsets : UIEdgeInsets = UIEdgeInsets.init(top: tableView.contentInset.top, left: 0.0, bottom: keyboardHeight, right: 0.0)
 		
 		tableView.contentInset = contentInsets
 		tableView.scrollIndicatorInsets = contentInsets
@@ -143,7 +143,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
-		let contentInsets : UIEdgeInsets = UIEdgeInsets.init(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
+		let contentInsets : UIEdgeInsets = UIEdgeInsets.init(top: tableView.contentInset.top, left: 0.0, bottom: 0.0, right: 0.0)
 		
 		UIView.animate(withDuration: 0.2, animations: {
 			self.tableView.contentInset = contentInsets
@@ -172,10 +172,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		let objectsToShare = [workoutImageNamed, textToShare] as [Any]
 		let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 		
-		if Appodeal.isReadyForShow(with: AppodealShowStyle.nonSkippableVideo) && shouldDisplayAd() {
-			Appodeal.showAd(AppodealShowStyle.nonSkippableVideo, rootViewController: self)
-		}
-		justShowedAd = true
 	
 		present(activityVC, animated: true, completion: nil)
 	}

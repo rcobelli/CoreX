@@ -65,11 +65,11 @@ class TVWorkoutViewController: UIViewController {
 		
 		
 		let playPauseRecognizer = UITapGestureRecognizer(target: self, action: #selector(TVWorkoutViewController.pause))
-		playPauseRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue as Int)];
+		playPauseRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue as Int)];
 		self.view.addGestureRecognizer(playPauseRecognizer)
 		
 		let menuRecognizer = UITapGestureRecognizer(target: self, action: #selector(TVWorkoutViewController.menuButton))
-		menuRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue as Int)];
+		menuRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue as Int)];
 		self.view.addGestureRecognizer(menuRecognizer)
 		
 		UIApplication.shared.beginReceivingRemoteControlEvents()
@@ -90,7 +90,7 @@ class TVWorkoutViewController: UIViewController {
 		timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
 	}
 	
-	func second() {
+	@objc func second() {
 		
 		seconds += 1
 		
@@ -137,8 +137,8 @@ class TVWorkoutViewController: UIViewController {
 		timer!.invalidate()
 		UIApplication.shared.isIdleTimerDisabled = false
 		
-		let alert = UIAlertController(title: NSLocalizedString("Workout Completed!", comment: ""), message: NSLocalizedString("Great job!", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-		alert.addAction(UIAlertAction(title: "😊", style: UIAlertActionStyle.default, handler: { _ in
+		let alert = UIAlertController(title: NSLocalizedString("Workout Completed!", comment: ""), message: NSLocalizedString("Great job!", comment: ""), preferredStyle: UIAlertController.Style.alert)
+		alert.addAction(UIAlertAction(title: "😊", style: UIAlertAction.Style.default, handler: { _ in
 			self.view.window?.rootViewController?.dismiss(animated: true, completion:nil)
 		}))
 		self.present(alert, animated: true, completion: nil)
@@ -162,19 +162,19 @@ class TVWorkoutViewController: UIViewController {
 		
 	}
 	
-	func menuButton() {
+	@objc func menuButton() {
 		timer?.invalidate()
 		UIApplication.shared.isIdleTimerDisabled = false
 		self.dismiss(animated: true, completion: nil)
 	}
 	
-	func pause() {
+	@objc func pause() {
 		timer?.invalidate()
-		let alert = UIAlertController(title: NSLocalizedString("Workout Paused", comment: ""), message: nil, preferredStyle: UIAlertControllerStyle.alert)
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Resume Workout", comment: ""), style: UIAlertActionStyle.default, handler: { _ in
+		let alert = UIAlertController(title: NSLocalizedString("Workout Paused", comment: ""), message: nil, preferredStyle: UIAlertController.Style.alert)
+		alert.addAction(UIAlertAction(title: NSLocalizedString("Resume Workout", comment: ""), style: UIAlertAction.Style.default, handler: { _ in
 			self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TVWorkoutViewController.second), userInfo: nil, repeats: true)
 		}))
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Stop Workout", comment: ""), style: UIAlertActionStyle.default, handler: { _ in
+		alert.addAction(UIAlertAction(title: NSLocalizedString("Stop Workout", comment: ""), style: UIAlertAction.Style.default, handler: { _ in
 			UIApplication.shared.isIdleTimerDisabled = false
 			self.dismiss(animated: true, completion: nil)
 		}))

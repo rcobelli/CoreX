@@ -104,7 +104,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 			}
 			
 			
-			+++ Section(header: "Send Feedback", footer: "Version " + String(stringInterpolationSegment: Bundle.main.infoDictionary!["CFBundleShortVersionString"]!))
+			+++ Section(header: "Send Feedback", footer: "Version " + String(describing: Bundle.main.infoDictionary!["CFBundleShortVersionString"]!))
 			<<< ButtonRow() { (row: ButtonRow) -> Void in
 				row.title = "Email"
 				if !MFMailComposeViewController.canSendMail() {
@@ -125,7 +125,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 					}
 			}
 			<<< ButtonRow() { (row: ButtonRow) -> Void in
-				row.title = "App Store Review"
+				row.title = "Leave App Store Review"
 				}
 				.onCellSelection { (cell, row) in
 					UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
@@ -133,7 +133,9 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
     }
 	
 	@IBAction func done(_ sender: AnyObject) {
-		self.dismiss(animated: true, completion: nil)
+		self.dismiss(animated: true, completion: {
+			NotificationCenter.default.post(name: Notification.Name(rawValue: "workoutFinishedShare"), object: nil)
+		})
 	}
 	
 	

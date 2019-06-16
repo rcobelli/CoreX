@@ -10,8 +10,8 @@ import UIKit
 import Appodeal
 import SwiftyStoreKit
 
-#if DEBUG
-import SimulatorStatusMagiciOS
+#if targetEnvironment(simulator)
+import SimulatorStatusMagic
 #endif
 
 @UIApplicationMain
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		Appodeal.initialize(withApiKey: "4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.interstitial, .banner, .nonSkippableVideo])
 		Appodeal.setLogLevel(.warning)
 		
-		#if DEBUG
+		#if targetEnvironment(simulator)
 		SDStatusBarManager.sharedInstance().enableOverrides()
 		#endif
 		

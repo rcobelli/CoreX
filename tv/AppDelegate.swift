@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		// Complete any outstanding transactions
 		SwiftyStoreKit.completeTransactions(atomically: true) { products in
@@ -53,24 +54,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension UIViewController {
 	func isDarkMode() -> Bool {
-		if #available(tvOS 10.0, *) {
-			guard(traitCollection.responds(to: #selector(getter: UITraitCollection.userInterfaceStyle)))
-				else { return true }
+		guard(traitCollection.responds(to: #selector(getter: UITraitCollection.userInterfaceStyle)))
+			else { return true }
+	
+		let style = traitCollection.userInterfaceStyle
+		switch style {
+		case .light:
+			return false
+		case .dark:
+			return true
+		default:
+			return false
 		}
-		
-		if #available(tvOS 10.0, *) {
-			let style = traitCollection.userInterfaceStyle
-			switch style {
-			case .light:
-				return false
-			case .dark:
-				return true
-			case .unspecified:
-				return false
-			}
-		}
-		
-		return true
 	}
 }
 

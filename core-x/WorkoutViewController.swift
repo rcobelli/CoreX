@@ -9,7 +9,6 @@
 import UIKit
 import Appodeal
 import MediaPlayer
-import SCLAlertView
 
 class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	
@@ -213,20 +212,22 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	
 	func endWorkout() {
 		timer!.invalidate()
-
-		let alertView = SCLAlertView()
-		alertView.addButton(NSLocalizedString("Share On Social Media", comment: "")) {
+		
+		let alertController = UIAlertController(title: NSLocalizedString("Workout Completed!", comment: ""), message: NSLocalizedString("Great job!", comment: ""), preferredStyle: .alert)
+		let action = UIAlertAction(title: "Share on Social Media", style: .default) { (_) in
 			GlobalVariables.workoutName = self.workoutName
 			self.view.window?.rootViewController?.dismiss(animated: true, completion:{
 				NotificationCenter.default.post(name: Notification.Name(rawValue: "workoutFinishedShare"), object: nil)
 			})
 		}
-		alertView.addButton(NSLocalizedString("Done", comment: "")) {
+		alertController.addAction(action)
+		let action2 = UIAlertAction(title: "Done", style: .default) { (_) in
 			self.view.window?.rootViewController?.dismiss(animated: true, completion:{
 				NotificationCenter.default.post(name: Notification.Name(rawValue: "workoutFinished"), object: nil)
 			})
 		}
-		alertView.showSuccess(NSLocalizedString("Workout Completed!", comment: ""), subTitle: NSLocalizedString("Great job!", comment: ""))
+		alertController.addAction(action2)
+		self.present(alertController, animated: true, completion: nil)
 
 
 		HealthManager().saveWorkout(Double(self.exerciseDuration), workoutNumber: self.workoutID, completion: { (success, error ) -> Void in

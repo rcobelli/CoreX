@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SwiftyStoreKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate, UITextFieldDelegate  {
 	
@@ -31,7 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			redColor = UIColor(red: 0.922, green: 0.239, blue: 0.212, alpha: 1.00)
 		}
 		else {
-			view.backgroundColor = UIColor(red: 0.451, green: 0.624, blue: 0.710, alpha: 1.00)
+			view.backgroundColor = UIColor(red: 0.804, green: 0.812, blue: 0.808, alpha: 1.00)
 			redColor = UIColor(red: 0.663, green: 0.176, blue: 0.173, alpha: 1.00)
 		}
 		
@@ -41,24 +42,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	@IBAction func restorePurchases(_ sender: Any) {
 		SwiftyStoreKit.restorePurchases(atomically: true) { results in
-			if results.restoreFailedProducts.count > 0 {
-				print("Restore Failed: \(results.restoreFailedProducts)")
-				let alert = UIAlertController(title: "Restore Purchases", message: "We were unable to restore your purchases. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
-				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+			if results.restoreFailedPurchases.count > 0 {
+				print("Restore Failed: \(results.restoreFailedPurchases)")
+				let alert = UIAlertController(title: "Restore Purchases", message: "We were unable to restore your purchases. Please try again.", preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
 			}
-			else if results.restoredProducts.count > 0 {
-				print("Restore Success: \(results.restoredProducts)")
-				for item in results.restoredProducts {
+			else if results.restoredPurchases.count > 0 {
+				print("Restore Success: \(results.restoredPurchases)")
+				for item in results.restoredPurchases {
 					self.deliverProduct(item.productId)
 				}
-				let alert = UIAlertController(title: "Restore Purchases", message: "Your purchases were successfully restored", preferredStyle: UIAlertControllerStyle.alert)
-				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+				let alert = UIAlertController(title: "Restore Purchases", message: "Your purchases were successfully restored", preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
 			}
 			else {
-				let alert = UIAlertController(title: "Restore Purchases", message: "There is nothing to restore", preferredStyle: UIAlertControllerStyle.alert)
-				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+				let alert = UIAlertController(title: "Restore Purchases", message: "There is nothing to restore", preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
 			}
 		}
@@ -156,8 +157,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			
 			if self.workoutUnlocked(indexPath.row) {
 				GlobalVariables.exerciseID = indexPath.row
-				let alert = UIAlertController(title: cell.title.text, message: NSLocalizedString("Please configure your workout (exercise and rest duration)", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-				alert.addAction(UIAlertAction(title: NSLocalizedString("Start Workout", comment: ""), style: UIAlertActionStyle.default, handler: { _ in
+				let alert = UIAlertController(title: cell.title.text, message: NSLocalizedString("Please configure your workout (exercise and rest duration)", comment: ""), preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(UIAlertAction(title: NSLocalizedString("Start Workout", comment: ""), style: UIAlertAction.Style.default, handler: { _ in
 					let exerciseDurationTextField = alert.textFields![0] as UITextField
 					let restDurationTextField = alert.textFields![1] as UITextField
 					
@@ -180,8 +181,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 				self.performSegue(withIdentifier: "startWorkout", sender: self)
 			}
 			else {
-				let alert = UIAlertController(title: "You Don't Own This Workout", message: "Do you want to purchase it?", preferredStyle: UIAlertControllerStyle.alert)
-				alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { _ in
+				let alert = UIAlertController(title: "You Don't Own This Workout", message: "Do you want to purchase it?", preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
 					self.buyWorkout(indexPath.row)
 				}))
 				alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
