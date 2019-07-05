@@ -4,6 +4,11 @@
       "idiom" : "tv",
       "filename" : "topShelf.png",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "topShelf.jpg",
+      "scale" : "2x"
     }
   ],
   "info" : {

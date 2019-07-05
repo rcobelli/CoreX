@@ -1,9 +1,28 @@
 {
   "images" : [
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 120,
+          "top" : 119,
+          "right" : 200,
+          "left" : 199
+        }
+      },
       "idiom" : "tv",
       "filename" : "smallFront.png",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "smallFront-1.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
