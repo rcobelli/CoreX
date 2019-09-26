@@ -21,8 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		if let fileUrl = Bundle.main.url(forResource: "Creds", withExtension: "plist"), let myDict = NSDictionary(contentsOf: fileUrl) as? [String:Any] {
+			   print(myDict)
+		}
+		
 		// Init Appodeal
-		Appodeal.initialize(withApiKey: "4c2593c394cb46d2059b6795109441e867ccbfe1b859b99a", types: [.interstitial, .banner, .nonSkippableVideo])
+		Appodeal.initialize(withApiKey: myDict["AppodealAPIKey"], types: [.interstitial, .banner, .nonSkippableVideo])
 		Appodeal.setLogLevel(.warning)
 		
 		#if targetEnvironment(simulator)

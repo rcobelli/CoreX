@@ -11,11 +11,6 @@ target 'core-x' do
   pod 'SimulatorStatusMagic', :configurations => ['Debug']
   pod 'SwiftyStoreKit'
 
-  target 'core-xUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
 
 target 'tv' do
