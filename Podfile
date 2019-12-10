@@ -8,7 +8,6 @@ target 'core-x' do
   # Pods for core-x
   pod 'Appodeal'
   pod 'Eureka'
-  pod 'SimulatorStatusMagic', :configurations => ['Debug']
   pod 'SwiftyStoreKit'
 
 end

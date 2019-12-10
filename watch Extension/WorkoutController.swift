@@ -81,7 +81,7 @@ class WorkoutController: WKInterfaceController, HKWorkoutSessionDelegate {
 			else {
 				endWorkout()
 			}
-			WKInterfaceDevice.current().play(.start)
+			WKInterfaceDevice.current().play(.notification)
 		}
 		else if count < exerciseDuration + restDuration {
 			// Just catching something BS from triggering below
@@ -89,7 +89,7 @@ class WorkoutController: WKInterfaceController, HKWorkoutSessionDelegate {
 		else if (exercise < exercises.count) {
 			count = 0
 			
-			WKInterfaceDevice.current().play(.start)
+			WKInterfaceDevice.current().play(.notification)
 		}
 		else {
 			endWorkout()

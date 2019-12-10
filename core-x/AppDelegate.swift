@@ -10,10 +10,6 @@ import UIKit
 import Appodeal
 import SwiftyStoreKit
 
-#if targetEnvironment(simulator)
-import SimulatorStatusMagic
-#endif
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -22,16 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		if let fileUrl = Bundle.main.url(forResource: "Creds", withExtension: "plist"), let myDict = NSDictionary(contentsOf: fileUrl) as? [String:Any] {
-			   print(myDict)
+			// Init Appodeal
+			Appodeal.initialize(withApiKey: myDict["AppodealAPIKey"] as! String, types: [.interstitial, .banner, .nonSkippableVideo])
+			Appodeal.setLogLevel(.warning)
 		}
-		
-		// Init Appodeal
-		Appodeal.initialize(withApiKey: myDict["AppodealAPIKey"], types: [.interstitial, .banner, .nonSkippableVideo])
-		Appodeal.setLogLevel(.warning)
-		
-		#if targetEnvironment(simulator)
-		SDStatusBarManager.sharedInstance().enableOverrides()
-		#endif
 		
 		// Make sure Core X is always available
 		UserDefaults.standard.set(true, forKey: "workout0")
