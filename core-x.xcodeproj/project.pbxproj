@@ -205,7 +205,6 @@
 		94DF995F22B6F0AD00735E7B /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DF995E22B6F0AD00735E7B /* UITests.swift */; };
 		94DF996722B6F12800735E7B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DF996622B6F12800735E7B /* SnapshotHelper.swift */; };
 		94E8CBD222B6D14400C9295A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CBD122B6D14400C9295A /* HealthKit.framework */; };
-		94F1D3E0233D0D1D00F2DF62 /* Creds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F1D3DF233D0D1D00F2DF62 /* Creds.plist */; };
 		94F7848F1C24EB0300C40DFC /* workout1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784911C24EB0300C40DFC /* workout1.plist */; };
 		94F784971C24EB0E00C40DFC /* workout0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784991C24EB0E00C40DFC /* workout0.plist */; };
 		94FC20351D25F0B30043329B /* workout5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94FC20341D25F0B30043329B /* workout5.plist */; };
@@ -408,7 +407,6 @@
 		94DF996022B6F0AD00735E7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94DF996622B6F12800735E7B /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		94E8CBD122B6D14400C9295A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		94F1D3DF233D0D1D00F2DF62 /* Creds.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Creds.plist; sourceTree = "<group>"; };
 		94F784961C24EB0700C40DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout1.plist; sourceTree = "<group>"; };
 		94F784981C24EB0E00C40DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout0.plist; sourceTree = "<group>"; };
 		94FC20341D25F0B30043329B /* workout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = workout5.plist; sourceTree = "<group>"; };
@@ -514,7 +512,6 @@
 			isa = PBXGroup;
 			children = (
 				941585071C1D103D00AFDBD0 /* AppDelegate.swift */,
-				94F1D3DF233D0D1D00F2DF62 /* Creds.plist */,
 				941585091C1D103D00AFDBD0 /* ViewController.swift */,
 				9415850B1C1D103E00AFDBD0 /* Main.storyboard */,
 				942C439F1C3A02C400E9BC18 /* SettingsTableViewController.swift */,
@@ -769,7 +766,6 @@
 				9455B7521E47F4070021309E /* Embed Frameworks */,
 				94E0CE9A20CF235A00E4E1F3 /* ShellScript */,
 				9215EFDB58CE2751AC6FF63F /* [CP] Embed Pods Frameworks */,
-				FDB34D6109D678A6C4F06658 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -990,7 +986,6 @@
 				9452E9811C23A71E008102D4 /* workout1-9.png in Resources */,
 				94D6C1261CA7641C00CFC621 /* workout4-2.png in Resources */,
 				946A448D1C8CDA46009E5EE2 /* workout2.plist in Resources */,
-				94F1D3E0233D0D1D00F2DF62 /* Creds.plist in Resources */,
 				943BF9101C1FB60C00083C24 /* logotext.png in Resources */,
 				94866E321C8CD1F000255907 /* workout3-2.png in Resources */,
 				94D6C12C1CA7641C00CFC621 /* workout4-5.png in Resources */,
@@ -1196,18 +1191,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-core-x/Pods-core-x-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit-iOS/SwiftyStoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1293,26 +1282,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FDB34D6109D678A6C4F06658 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-core-x/Pods-core-x-resources.sh",
-				"${PODS_ROOT}/Appodeal/APDAppLovinAdapter.embeddedframework/Resources/AppLovinSDKResources.bundle",
-				"${PODS_ROOT}/Appodeal/APDStartAppAdapter.embeddedframework/Resources/StartApp.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppLovinSDKResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StartApp.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-core-x/Pods-core-x-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1494,7 +1463,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 180616;
+				CURRENT_PROJECT_VERSION = 180617;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1553,7 +1522,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 180616;
+				CURRENT_PROJECT_VERSION = 180617;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

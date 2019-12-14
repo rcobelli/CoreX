@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Appodeal
 import MediaPlayer
 
 class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
@@ -65,6 +64,10 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		if #available(iOS 13.0, *) {
+			isModalInPresentation = true
+		}
 		
 		if !ProcessInfo.processInfo.arguments.contains("testing") {
 			let myMediaQuery = MPMediaQuery.songs()
@@ -256,12 +259,7 @@ class WorkoutViewController: UIViewController, MPMediaPickerControllerDelegate {
 			}) 
 		}
 		
-		if shouldDisplayAd() {
-			Appodeal.showAd(AppodealShowStyle.bannerBottom, rootViewController: self)
-			bottomConstraint.constant = 60
-		} else {
-			bottomConstraint.constant = 0
-		}
+		bottomConstraint.constant = 0
 		UIView.animate(withDuration: 0.25, animations: {
 			self.view.layoutIfNeeded()
 		})

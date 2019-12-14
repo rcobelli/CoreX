@@ -6,7 +6,6 @@ target 'core-x' do
   use_frameworks!
 
   # Pods for core-x
-  pod 'Appodeal'
   pod 'Eureka'
   pod 'SwiftyStoreKit'
 

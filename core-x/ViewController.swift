@@ -7,20 +7,18 @@
 //
 
 import UIKit
-import Appodeal
 import MessageUI
 import AVFoundation
 import WatchConnectivity
 import HealthKit
 import Intents
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate, AppodealNonSkippableVideoDelegate, UITextFieldDelegate, WCSessionDelegate  {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate, UIDocumentInteractionControllerDelegate, UITextFieldDelegate, WCSessionDelegate  {
 
 	@IBOutlet weak var tableView: UITableView!
 	var workoutIDToSend = Int()
 	var indexPath = IndexPath()
 	var extendedCell : Int? = nil
-	var justShowedAd = Bool()
 	var trialHappening = false
 	var keyboardHeight : CGFloat = 0.0
 	
@@ -31,6 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		tableView.tableFooterView = UIView()
 		tableView.delegate = self
 		tableView.dataSource = self
+		
 		
 		// Register for keyboard notification (get keyboard height)
 		NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -65,13 +64,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 										}
 				})
 			}
-		}
-		else {
-			// Ads
-			if !justShowedAd && Appodeal.isReadyForShow(with: AppodealShowStyle.interstitial) && shouldDisplayAd() {
-				Appodeal.showAd(AppodealShowStyle.interstitial, rootViewController: self)
-			}
-			justShowedAd = !justShowedAd
 		}
 
 		
@@ -172,16 +164,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		let objectsToShare = [workoutImageNamed, textToShare] as [Any]
 		let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 		
-	
 		present(activityVC, animated: true, completion: nil)
 	}
 	
 	// Don't share on social media
 	@objc func postWorkout() {
-		if Appodeal.isReadyForShow(with: AppodealShowStyle.nonSkippableVideo) && shouldDisplayAd() {
-			Appodeal.showAd(AppodealShowStyle.nonSkippableVideo, rootViewController: self)
-		}
-		justShowedAd = true
 	}
 	
 	func startMostRecentWorkout() {
@@ -265,7 +252,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			cell.workoutList.alpha = 0.25
 			cell.restDuration.isEnabled = false
 			cell.exerciseDuration.isEnabled = false
-			if trialAvailable(identifier: indexPath.row) && Appodeal.isReadyForShow(with: AppodealShowStyle.nonSkippableVideo) {
+			if trialAvailable(identifier: indexPath.row) {
 				cell.button.setTitle("Try", for: .normal)
 			}
 			else {
@@ -292,7 +279,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 				GlobalVariables.exerciseID = indexPath.row
 				self.performSegue(withIdentifier: "startWorkout", sender: self)
 			}
-			else if self.trialAvailable(identifier: indexPath.row) && Appodeal.isReadyForShow(with: AppodealShowStyle.nonSkippableVideo) {
+			else if self.trialAvailable(identifier: indexPath.row) {
 				SweetAlert().showAlert("You Don't Own This Workout", subTitle: "But there is a free trial available. Do you want to watch a video to use this workout?", style: AlertStyle.warning,
 				                       buttonTitle: "Yes", buttonColor: UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00),
 				                       otherButtonTitle: "No", otherButtonColor:  UIColor(red: 0.933, green: 0.294, blue: 0.169, alpha: 1.00),
@@ -300,8 +287,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 										if response { // User taps yes
 											GlobalVariables.exerciseID = indexPath.row
 											self.trialHappening = true
-											self.justShowedAd = true
-											Appodeal.showAd(AppodealShowStyle.nonSkippableVideo, rootViewController: self)
 										}
 				})
 			}
@@ -331,7 +316,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		if workoutUnlocked(indexPath.row) {
 			(tableView.cellForRow(at: indexPath) as! WorkoutCell).button.setTitle("Start", for: .normal)
 		}
-		else if trialAvailable(identifier: indexPath.row) && Appodeal.isReadyForShow(with: AppodealShowStyle.nonSkippableVideo) {
+		else if trialAvailable(identifier: indexPath.row) {
 			(tableView.cellForRow(at: indexPath) as! WorkoutCell).button.setTitle("Try", for: .normal)
 		}
 		else {

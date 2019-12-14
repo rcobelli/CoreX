@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Appodeal
 import SwiftyStoreKit
 
 @UIApplicationMain
@@ -17,12 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		if let fileUrl = Bundle.main.url(forResource: "Creds", withExtension: "plist"), let myDict = NSDictionary(contentsOf: fileUrl) as? [String:Any] {
-			// Init Appodeal
-			Appodeal.initialize(withApiKey: myDict["AppodealAPIKey"] as! String, types: [.interstitial, .banner, .nonSkippableVideo])
-			Appodeal.setLogLevel(.warning)
-		}
-		
 		// Make sure Core X is always available
 		UserDefaults.standard.set(true, forKey: "workout0")
 		
