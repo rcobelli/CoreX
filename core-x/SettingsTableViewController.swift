@@ -133,9 +133,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
     }
 	
 	@IBAction func done(_ sender: AnyObject) {
-		self.dismiss(animated: true, completion: {
-			NotificationCenter.default.post(name: Notification.Name(rawValue: "workoutFinishedShare"), object: nil)
-		})
+		self.dismiss(animated: true, completion: nil)
 	}
 	
 	

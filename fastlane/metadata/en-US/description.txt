@@ -1,14 +1,8 @@
 Don't let your abs be flabs with Core X!
 
-Core X guides you through our flagship workout, Core X. This intense workout was designed for runners but is great for anyone who is looking for a workout to make them stronger in all areas of their body but especially in their abs.
+The flagship workout routine Core X guides you through an intense workout was designed for runners but is great for anyone who is looking to strengthen their core.
 
-"Our whole team uses this app!"
--Runner4Lyfe
-
-'I use this app everyday for my workout"
--FitnessBuff2k16
-
-This app not only has Core X, but we are adding new workouts in every update and our list currently includes:
+This app not only has the Core X routine, but we are adding new workouts in every update and our list currently includes:
 
 -Core X
 -Myrtl
@@ -23,4 +17,6 @@ The app will guide you through the workout with vibrations, sound and a visual c
 
 Don’t let your abs become flabs and download Core-X today!
 
-Please note that this app can tie in with the Health App. If you grant us permission, we will not read any of your health data but we will add your workouts to the Health App.
+Please note that this app can tie in with the Health App. If you grant us permission, we will not read any of your health data but we will save your workout data to the Health App.
+
+The app also integrates with Siri. If you follow a pattern when you work out, it may provide proactive notifications on your lock screen for you to quickly start a workout.

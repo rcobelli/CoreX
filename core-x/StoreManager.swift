@@ -40,6 +40,7 @@ extension UIViewController {
 				print("Purchase Success: \(product.productId)")
 				self.deliverProduct(product.productId)
 			case .error(let error):
+				SweetAlert().showAlert("Purchasing Workout", subTitle: "Something went wrong. Please try again", style: AlertStyle.error)
 				print("Purchase Failed: \(error)")
 			}
 		}
@@ -62,6 +63,8 @@ extension UIViewController {
 		else if identifier == "com.rybel_llc.core_x.coach_liz" {
 			UserDefaults.standard.set(true, forKey: "workout5")
 		}
+		
+		SweetAlert().showAlert("Purchased Workout", subTitle: "Success!", style: AlertStyle.success)
 		
 		UserDefaults.standard.synchronize()
 		viewWillAppear(true)

@@ -19,7 +19,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	var workoutIDToSend = Int()
 	var indexPath = IndexPath()
 	var extendedCell : Int? = nil
-	var trialHappening = false
 	var keyboardHeight : CGFloat = 0.0
 	
 	var healthManager = HealthManager()
@@ -29,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		tableView.tableFooterView = UIView()
 		tableView.delegate = self
 		tableView.dataSource = self
-		
 		
 		// Register for keyboard notification (get keyboard height)
 		NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -44,12 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		if trialHappening {
-			trialHappening = false
-			UserDefaults.standard.set(true, forKey: "workout" + String(GlobalVariables.exerciseID) + "Trial")
-			self.performSegue(withIdentifier: "startWorkout", sender: self)
-		}
-		else if !UserDefaults.standard.bool(forKey: "firstLaunch") && !ProcessInfo.processInfo.arguments.contains("testing") {
+		if !UserDefaults.standard.bool(forKey: "firstLaunch") && !ProcessInfo.processInfo.arguments.contains("testing") {
 			if HKHealthStore.isHealthDataAvailable() {
 				// Check if they want to use health kit
 				SweetAlert().showAlert(NSLocalizedString("Welcome to Core-X!", comment: ""),
@@ -153,6 +146,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	// Check if a trial is available for a workout
 	func trialAvailable(identifier: Int) -> Bool {
 		return !UserDefaults.standard.bool(forKey: "workout" + String(identifier) + "Trial")
+	}
+	
+	func useTrial(identifier: Int) {
+		UserDefaults.standard.set(true, forKey: "workout" + String(identifier) + "Trial")
+		tableView.reloadData()
 	}
 	
 	// Share on social media
@@ -280,13 +278,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 				self.performSegue(withIdentifier: "startWorkout", sender: self)
 			}
 			else if self.trialAvailable(identifier: indexPath.row) {
-				SweetAlert().showAlert("You Don't Own This Workout", subTitle: "But there is a free trial available. Do you want to watch a video to use this workout?", style: AlertStyle.warning,
+				SweetAlert().showAlert("You Don't Own This Workout", subTitle: "But there is a free trial available. Do you want to try it?", style: AlertStyle.warning,
 				                       buttonTitle: "Yes", buttonColor: UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00),
 				                       otherButtonTitle: "No", otherButtonColor:  UIColor(red: 0.933, green: 0.294, blue: 0.169, alpha: 1.00),
 				                       action: { response in
 										if response { // User taps yes
 											GlobalVariables.exerciseID = indexPath.row
-											self.trialHappening = true
+											self.useTrial(identifier: indexPath.row)
+											self.performSegue(withIdentifier: "startWorkout", sender: self)
 										}
 				})
 			}
