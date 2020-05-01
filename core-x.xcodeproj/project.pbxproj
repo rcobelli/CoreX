@@ -804,6 +804,7 @@
 				9454D39F1E5FF36F00DB381E /* Sources */,
 				9454D3A01E5FF36F00DB381E /* Frameworks */,
 				9454D3A11E5FF36F00DB381E /* Resources */,
+				94F4AF6D245CE691009139E7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1217,6 +1218,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\n# This script embeds (and codesigns) a framework within an iOS app binary, but only when the configuration is Debug.\n# It must be called from, or copied into an Xcode Run Script build phase with following setup:\n# Input Files:\n#     - Path to framework within project folder (source path)\n#     - For example: $(SRCROOT)/ThirdPartyFrameworks/SimulatorStatusMagiciOS.framework\n# Output Files:\n#     - Desired path to framework within ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH} (destination path)\n#     - For example: ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagiciOS.framework\n#\n# For explanation of Input & Output Files, check out: https://indiestack.com/2014/12/speeding-up-custom-script-phases/\n# This script adapted from: https://stackoverflow.com/a/40484337/9051514 (thanks Ricardo Duarte!)\n\nif [[ -z ${SCRIPT_INPUT_FILE_0} || -z ${SCRIPT_OUTPUT_FILE_0} ]]; then\necho \"This Xcode Run Script build phase must be configured with Input & Output Files\"\nexit 1\nfi\n\necho \"Embed ${SCRIPT_INPUT_FILE_0}\"\nif [[ $CONFIGURATION == 'Debug' ]]; then\nFRAMEWORK_SOURCE=${SCRIPT_INPUT_FILE_0}\nFRAMEWORK_DESTINATION=${SCRIPT_OUTPUT_FILE_0}\nDESTINATION_FOLDER=`dirname ${FRAMEWORK_DESTINATION}`\n\nmkdir -p ${DESTINATION_FOLDER}\ncp -Rv ${FRAMEWORK_SOURCE} ${FRAMEWORK_DESTINATION}\n\nCODE_SIGN_IDENTITY_FOR_ITEMS=\"${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\nif [ \"${CODE_SIGN_IDENTITY_FOR_ITEMS}\" = \"\" ] ; then\nCODE_SIGN_IDENTITY_FOR_ITEMS=\"${CODE_SIGN_IDENTITY}\"\nfi\n\nBINARY_NAME=`basename ${FRAMEWORK_DESTINATION} .framework`\ncodesign --force --verbose --sign \"${CODE_SIGN_IDENTITY_FOR_ITEMS}\" ${FRAMEWORK_DESTINATION}/${BINARY_NAME}\necho \" ✅ Embedded successfully\"\nelse\necho \" ❌ Non Debug build detected - do not embed\"\nfi\n";
+		};
+		94F4AF6D245CE691009139E7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n\tswiftlint\nelse\n\techo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		EB699FD074620BC460CED314 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
