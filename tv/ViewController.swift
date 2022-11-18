@@ -10,77 +10,58 @@ import UIKit
 import AVFoundation
 import SwiftyStoreKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate, UITextFieldDelegate  {
+class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelegate {
 	
 	@IBOutlet weak var tableView: UITableView!
-	var workoutIDToSend = Int()
-	var indexPath = IndexPath()
-	var extendedCell : Int? = nil
-	var keyboardHeight : CGFloat = 0.0
-	var redColor = UIColor()
+	
+	var selectedCellIndex = 0
+	var keyboardHeight: CGFloat = 0.0
+	
+	var selectedExerciseDuration: String?
+	var selectedRestDuration: String?
+	
+	var redColor = UIColor(named: "CustomRed")
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		view.backgroundColor = UIColor(named: "CustomBG")
+		
 		tableView.tableFooterView = UIView()
 		tableView.delegate = self
 		tableView.dataSource = self
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		if isDarkMode() {
-			view.backgroundColor = UIColor(red: 0.200, green: 0.224, blue: 0.243, alpha: 1.00)
-			redColor = UIColor(red: 0.922, green: 0.239, blue: 0.212, alpha: 1.00)
-		}
-		else {
-			view.backgroundColor = UIColor(red: 0.804, green: 0.812, blue: 0.808, alpha: 1.00)
-			redColor = UIColor(red: 0.663, green: 0.176, blue: 0.173, alpha: 1.00)
-		}
-		
 		tableView.reloadData()
 	}
-
 	
 	@IBAction func restorePurchases(_ sender: Any) {
 		SwiftyStoreKit.restorePurchases(atomically: true) { results in
 			if results.restoreFailedPurchases.count > 0 {
 				print("Restore Failed: \(results.restoreFailedPurchases)")
-				let alert = UIAlertController(title: "Restore Purchases", message: "We were unable to restore your purchases. Please try again.", preferredStyle: UIAlertController.Style.alert)
+				let alert = UIAlertController(title: "Restore Purchases",
+											  message: "We were unable to restore your purchases. Please try again.",
+											  preferredStyle: UIAlertController.Style.alert)
 				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
-			}
-			else if results.restoredPurchases.count > 0 {
+			} else if results.restoredPurchases.count > 0 {
 				print("Restore Success: \(results.restoredPurchases)")
 				for item in results.restoredPurchases {
 					self.deliverProduct(item.productId)
 				}
-				let alert = UIAlertController(title: "Restore Purchases", message: "Your purchases were successfully restored", preferredStyle: UIAlertController.Style.alert)
+				let alert = UIAlertController(title: "Restore Purchases",
+											  message: "Your purchases were successfully restored",
+											  preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+				self.present(alert, animated: true, completion: nil)
+			} else {
+				let alert = UIAlertController(title: "Restore Purchases",
+											  message: "There is nothing to restore",
+											  preferredStyle: UIAlertController.Style.alert)
 				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
 			}
-			else {
-				let alert = UIAlertController(title: "Restore Purchases", message: "There is nothing to restore", preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-				self.present(alert, animated: true, completion: nil)
-			}
-		}
-	}
-	
-	func cellBackgroundColor(_ indexPath: IndexPath) -> UIColor {
-		switch indexPath.row {
-		case 0:
-			return UIColor(red: 0.863, green: 0.820, blue: 0.282, alpha: 1.00)
-		case 1:
-			return UIColor(red: 0.537, green: 0.612, blue: 0.612, alpha: 1.00)
-		case 2:
-			return UIColor(red: 0.106, green: 0.557, blue: 0.839, alpha: 1.00)
-		case 3:
-			return UIColor(red: 0.173, green: 0.251, blue: 0.325, alpha: 1.00)
-		case 4:
-			return UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00)
-		case 5:
-			return UIColor(red: 0.580, green: 0.290, blue: 0.675, alpha: 1.00)
-		default:
-			return UIColor.clear
 		}
 	}
 	
@@ -89,99 +70,91 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		return UserDefaults.standard.bool(forKey: "workout" + String(identifier))
 	}
 	
-	// MARK: - UITableView Methods
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutCell
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		self.view.endEditing(true)
 		
-		var exerciseDurationVar : String?
-		var restDurationVar : String?
+		if segue.identifier == "startWorkout" {
+			guard let destination = segue.destination as? TVWorkoutViewController else {
+				return
+			}
+			
+			destination.restDuration = Int(selectedRestDuration!)!
+			destination.exerciseDuration = Int(selectedExerciseDuration!)!
+			destination.workoutID = selectedCellIndex
+		}
+	}
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+	// swiftlint:disable function_body_length
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? WorkoutCell else {
+			fatalError("Unexpected cell found")
+		}
 		
 		// Set cell information based on the workout
-		if let path = Bundle.main.path(forResource: "workout" + String(indexPath.row), ofType: "plist"), let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
-			cell.title.text = String(describing: dict["workoutName"]!)
-			exerciseDurationVar = String(describing: dict["defaultExerciseDuration"]!)
-			restDurationVar = String(describing: dict["defaultRestDuration"]!)
-			cell.itemCount.text = String((dict["exercises"] as! NSDictionary).count)
-		}
+		
+		let path = Bundle.main.path(forResource: "workout" + String(indexPath.row), ofType: "plist")
+		guard let dict = NSDictionary(contentsOfFile: path!) as? [String: AnyObject],
+			  let exercises = dict["exercises"] as? NSDictionary
 		else {
-			assertionFailure("Could Not Load .plist " + String(indexPath.row))
+			fatalError("Could Not Load Valid .plist")
 		}
 		
-		switch indexPath.row {
-		case 0:
-			cell.icon.image = UIImage(named: "core-x")
-			break
-		case 1:
-			cell.icon.image = UIImage(named: "myrtl")
-			break
-		case 2:
-			cell.icon.image = UIImage(named: "leg-day")
-			break
-		case 3:
-			cell.icon.image = UIImage(named: "pushup")
-			break
-		case 4:
-			cell.icon.image = UIImage(named: "yoga")
-			break
-		case 5:
-			cell.icon.image = UIImage(named: "coachLiz")
-			break
-		default:
-			break
-		}
-		
-		cell.backgroundColor = cellBackgroundColor(indexPath)
+		cell.title.text = String(describing: dict["workoutName"]!)
+		cell.itemCount.text = String(exercises.count)
+		cell.backgroundColor = WorkoutDataManager.getWorkoutColor(workoutID: indexPath.row)
+		cell.icon.image = WorkoutDataManager.getWorkoutLogo(workoutID: indexPath.row)
 		cell.icon.image = (cell.icon.image?.withRenderingMode(.alwaysTemplate))!
 		cell.icon.tintColor = UIColor.white
 		cell.title.textColor = UIColor.white
 		
 		// Style the cell if its unlocked or not
-		if workoutUnlocked(indexPath.row) {
-			cell.title.alpha = 1
-			cell.icon.alpha = 1
-			cell.itemCount.alpha = 1
-			cell.itemLabel.alpha = 1
-			cell.button.setTitle("Start Workout", for: .normal)
-		}
-		else {
-			cell.title.alpha = 0.5
-			cell.icon.alpha = 0.25
-			cell.itemCount.alpha = 0.25
-			cell.itemLabel.alpha = 0.25
-			cell.button.setTitle("Purchase Workout", for: .normal)
+		let unlocked = workoutUnlocked(indexPath.row)
+		cell.title.alpha = unlocked ? 1 : 0.5
+		cell.icon.alpha = unlocked ? 1 : 0.25
+		cell.itemCount.alpha = unlocked ? 1 : 0.25
+		cell.itemLabel.alpha = unlocked ? 1 : 0.25
+		
+		if unlocked {
+			cell.button.setTitle("Start", for: .normal)
+		} else {
+			cell.button.setTitle("Purchase", for: .normal)
 		}
 		
 		// Completion block to start the workout
 		cell.completion = {
 			
 			if self.workoutUnlocked(indexPath.row) {
-				GlobalVariables.exerciseID = indexPath.row
-				let alert = UIAlertController(title: cell.title.text, message: NSLocalizedString("Please configure your workout (exercise and rest duration)", comment: ""), preferredStyle: UIAlertController.Style.alert)
-				alert.addAction(UIAlertAction(title: NSLocalizedString("Start Workout", comment: ""), style: UIAlertAction.Style.default, handler: { _ in
+				let alert = UIAlertController(title: cell.title.text,
+											  message: "Please configure your workout (exercise and rest duration)",
+											  preferredStyle: UIAlertController.Style.alert)
+				alert.addAction(UIAlertAction(title: "Start Workout",
+											  style: UIAlertAction.Style.default,
+											  handler: { _ in
 					let exerciseDurationTextField = alert.textFields![0] as UITextField
 					let restDurationTextField = alert.textFields![1] as UITextField
 					
-					GlobalVariables.exerciseDuration = Int(exerciseDurationTextField.text!)!
-					GlobalVariables.restDuration = Int(restDurationTextField.text!)!
+					self.selectedExerciseDuration = exerciseDurationTextField.text!
+					self.selectedRestDuration = restDurationTextField.text!
 					self.performSegue(withIdentifier: "startWorkout", sender: self)
 				}))
 				alert.addTextField { (textField) in
-					textField.placeholder = NSLocalizedString("Exercise Duration (sec.)", comment: "")
+					textField.placeholder = "Exercise Duration (sec.)"
 					textField.keyboardType = .numberPad
-					textField.text = exerciseDurationVar
+					textField.text = String(describing: dict["defaultExerciseDuration"]!)
 				}
 				alert.addTextField { (textField) in
-					textField.placeholder = NSLocalizedString("Rest Duration (sec.)", comment: "")
+					textField.placeholder = "Rest Duration (sec.)"
 					textField.keyboardType = .numberPad
-					textField.text = restDurationVar
+					textField.text = String(describing: dict["defaultRestDuration"]!)
 				}
 				alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (_) in })
 				self.present(alert, animated: true, completion: nil)
-				self.performSegue(withIdentifier: "startWorkout", sender: self)
-			}
-			else {
-				let alert = UIAlertController(title: "You Don't Own This Workout", message: "Do you want to purchase it?", preferredStyle: UIAlertController.Style.alert)
+			} else {
+				let alert = UIAlertController(title: "You Don't Own This Workout",
+											  message: "Do you want to purchase it?",
+											  preferredStyle: UIAlertController.Style.alert)
 				alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { _ in
 					self.buyWorkout(indexPath.row)
 				}))
@@ -198,8 +171,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 		
 		if let prevFocus = context.previouslyFocusedIndexPath {
-			let cell = tableView.cellForRow(at: prevFocus) as! WorkoutCell
-			cell.backgroundColor = cellBackgroundColor(prevFocus)
+			guard let cell = tableView.cellForRow(at: prevFocus) as?  WorkoutCell else {
+				return
+			}
+			cell.backgroundColor = WorkoutDataManager.getWorkoutColor(workoutID: prevFocus.row)
 			cell.title.textColor = UIColor.white
 			cell.workoutList.textColor = UIColor.white
 			cell.itemCount.textColor = UIColor.white
@@ -207,7 +182,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			cell.icon.tintColor = UIColor.white
 		}
 		if let nextFoc = context.nextFocusedIndexPath {
-			let cell = tableView.cellForRow(at: nextFoc) as! WorkoutCell
+			guard let cell = tableView.cellForRow(at: nextFoc) as? WorkoutCell else {
+				return
+			}
 			cell.backgroundColor = redColor
 			cell.title.textColor = UIColor.black
 			cell.workoutList.textColor = UIColor.black
@@ -216,17 +193,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			cell.icon.tintColor = UIColor.black
 		}
 		
-		
 		let indexPath = context.nextFocusedIndexPath
 		
-		extendedCell = nil
-		if indexPath?.row != nil && extendedCell != indexPath?.row {
+		if indexPath?.row != nil && selectedCellIndex != indexPath?.row {
 			// Grow/Shrink the cell on selection
-			extendedCell = indexPath?.row
+			selectedCellIndex = indexPath!.row
 		}
 		tableView.beginUpdates()
 		tableView.endUpdates()
-		
 		
 	}
 	
@@ -234,22 +208,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		tableView.deselectRow(at: indexPath, animated: true)
 		
 		if workoutUnlocked(indexPath.row) {
-			(tableView.cellForRow(at: indexPath) as! WorkoutCell).completion()
-		}
-		else {
+			guard let cell = tableView.cellForRow(at: indexPath) as? WorkoutCell else {
+				return
+			}
+			
+			cell.completion()
+		} else {
 			buyWorkout(indexPath.row)
 		}
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if (extendedCell == indexPath.row) {
+		if selectedCellIndex == indexPath.row {
 			return 300
 		}
 		return 115
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 6
+		return WorkoutDataManager.getWorkoutCount()
 	}
-	
 }

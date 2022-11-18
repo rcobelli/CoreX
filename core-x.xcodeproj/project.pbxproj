@@ -175,6 +175,8 @@
 		948DB7EF21DE9EF200846B08 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948DB7EE21DE9EF200846B08 /* HealthKit.framework */; };
 		948DB7F121DE9EF500846B08 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948DB7F021DE9EF500846B08 /* StoreKit.framework */; };
 		948DB7F321DE9F4000846B08 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948DB7F221DE9F4000846B08 /* Intents.framework */; };
+		94ABBF4229282D54004535D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94ABBF4129282D54004535D0 /* LaunchScreen.storyboard */; };
+		94ABBF4529283102004535D0 /* ReviewKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABBF43292830FC004535D0 /* ReviewKitHelper.swift */; };
 		94D6C10C1CA7591700CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
 		94D6C1141CA75AB000CFC621 /* workout4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C10E1CA7591700CFC621 /* workout4.plist */; };
 		94D6C1161CA760B000CFC621 /* yoga.tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D6C1151CA760B000CFC621 /* yoga.tv.png */; };
@@ -383,6 +385,8 @@
 		948DB7EE21DE9EF200846B08 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		948DB7F021DE9EF500846B08 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		948DB7F221DE9F4000846B08 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		94ABBF4129282D54004535D0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		94ABBF43292830FC004535D0 /* ReviewKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewKitHelper.swift; sourceTree = "<group>"; };
 		94D6C10D1CA7591700CFC621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workout4.plist; sourceTree = "<group>"; };
 		94D6C1151CA760B000CFC621 /* yoga.tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yoga.tv.png; sourceTree = "<group>"; };
 		94D6C1171CA7641C00CFC621 /* workout4-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout4-0.png"; sourceTree = "<group>"; };
@@ -625,6 +629,7 @@
 				940AE7671C66987000DC472D /* leg-day.tv.png */,
 				940AE7691C66990400DC472D /* myrtl.tv.png */,
 				94D6C1151CA760B000CFC621 /* yoga.tv.png */,
+				94ABBF4129282D54004535D0 /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 				946CD39F1C1D1EA10012C263 /* WorkoutCell.swift */,
 				948BBC811CC7014F002CBA8F /* HealthManager.swift */,
 				942924DD1E47B7E800511EF7 /* StoreManager.swift */,
+				94ABBF43292830FC004535D0 /* ReviewKitHelper.swift */,
 				947A0B5629270272007430D2 /* WorkoutData.swift */,
 			);
 			name = "Minor Classes";
@@ -1105,6 +1111,7 @@
 				9455B7581E480A670021309E /* workout5-5.png in Resources */,
 				940AE75B1C666F2600DC472D /* workout0-1.png in Resources */,
 				940AE7591C666F2200DC472D /* workout1.plist in Resources */,
+				94ABBF4229282D54004535D0 /* LaunchScreen.storyboard in Resources */,
 				940AE7491C666F0F00DC472D /* workout2-6.png in Resources */,
 				940AE7601C666F2600DC472D /* workout0-6.png in Resources */,
 				940AE74F1C666F1F00DC472D /* workout1-2.png in Resources */,
@@ -1295,6 +1302,7 @@
 				946CD3A01C1D1EA10012C263 /* WorkoutCell.swift in Sources */,
 				947A0B5729270272007430D2 /* WorkoutData.swift in Sources */,
 				9415850A1C1D103D00AFDBD0 /* ViewController.swift in Sources */,
+				94ABBF4529283102004535D0 /* ReviewKitHelper.swift in Sources */,
 				941585081C1D103D00AFDBD0 /* AppDelegate.swift in Sources */,
 				946CD3D91C1DDB630012C263 /* RadialChart.swift in Sources */,
 				948BBC821CC7014F002CBA8F /* HealthManager.swift in Sources */,

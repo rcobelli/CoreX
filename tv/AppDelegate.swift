@@ -14,8 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		// Make sure Core X is always available
+		UserDefaults.standard.set(true, forKey: "workout0")
 		
 		// Complete any outstanding transactions
 		SwiftyStoreKit.completeTransactions(atomically: true) { products in
@@ -33,8 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				}
 			}
 		}
-		
-		UserDefaults.standard.set(true, forKey: "workout0")
 
 		return true
 	}
@@ -49,12 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationWillTerminate(_ application: UIApplication) {}
 
-
 }
 
 extension UIViewController {
 	func isDarkMode() -> Bool {
-		guard(traitCollection.responds(to: #selector(getter: UITraitCollection.userInterfaceStyle)))
+		guard traitCollection.responds(to: #selector(getter: UITraitCollection.userInterfaceStyle))
 			else { return true }
 	
 		let style = traitCollection.userInterfaceStyle
@@ -68,11 +66,3 @@ extension UIViewController {
 		}
 	}
 }
-
-struct GlobalVariables {
-	static var restDuration = 0
-	static var exerciseDuration = 0
-	static var exerciseID = 0
-	static var workoutName = ""
-}
-

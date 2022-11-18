@@ -84,7 +84,7 @@ class WorkoutViewController: UIViewController {
 		stopButtonWidthConstraint.constant = 210
 		resumeButton.alpha = 0
 		
-		timerLabel.text = "0:" + String(format: "%02d", exerciseDuration)
+		timerLabel.text = String(format: "%01d:%02d", (exerciseDuration / 60), (exerciseDuration % 60))
 		timerLabel.alpha = 1
 		
 		updateExercise()
@@ -139,7 +139,7 @@ class WorkoutViewController: UIViewController {
 		if seconds < exerciseDuration {
 			// Still during exercise
 			timerLabel.alpha = 1
-			timerLabel.text = "0:" + String(format: "%02d", exerciseDuration-seconds)
+			timerLabel.text = String(format: "%01d:%02d", ((exerciseDuration-seconds) / 60), ((exerciseDuration-seconds) % 60))
 			
 			self.circleChart.endArc = CGFloat(Float(self.seconds) / Float(self.exerciseDuration))
 		} else if seconds == exerciseDuration {
@@ -147,7 +147,7 @@ class WorkoutViewController: UIViewController {
 			circleChart.endArc = 0
 			
 			timerLabel.alpha = 0.33
-			timerLabel.text = "0:" + String(format: "%02d", exerciseDuration)
+			timerLabel.text = String(format: "%01d:%02d", (exerciseDuration / 60), (exerciseDuration % 60))
 			exerciseNumber += 1
 			
 			playSound()

@@ -7,7 +7,9 @@
 //
 
 import UIKit
+#if os(iOS)
 import HealthKit
+#endif
 
 struct WorkoutDataManager {
 	static func getWorkoutLogo(workoutID: Int) -> UIImage {
@@ -27,6 +29,7 @@ struct WorkoutDataManager {
 		}
 	}
 	
+	#if os(iOS)
 	static func getWorkoutType(workoutID: Int) -> HKWorkoutActivityType {
 		switch workoutID {
 		case 1:
@@ -43,6 +46,7 @@ struct WorkoutDataManager {
 			return HKWorkoutActivityType.coreTraining
 		}
 	}
+	#endif
 	
 	static func getWorkoutCalories(workoutID: Int, duration: Double) -> Double {
 		switch workoutID {
