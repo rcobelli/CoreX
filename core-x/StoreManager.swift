@@ -11,60 +11,34 @@ import StoreKit
 import SwiftyStoreKit
 
 extension UIViewController {
-	
 	func buyWorkout(_ row: Int) {
-		var id = ""
-		switch row {
-		case 1:
-			id = "com.rybel_llc.core_x.myrtl"
-			break
-		case 2:
-			id = "com.rybel_llc.core_x.leg_day"
-			break
-		case 3:
-			id = "com.rybel_llc.core_x.pushups"
-			break
-		case 4:
-			id = "com.rybel_llc.core_x.yoga"
-			break
-		case 5:
-			id = "com.rybel_llc.core_x.coach_liz"
-			break
-		default:
-			return
-		}
-		
-		SwiftyStoreKit.purchaseProduct(id, atomically: true) { result in
+		SwiftyStoreKit.purchaseProduct(WorkoutDataManager.getWorkoutStoreID(workoutID: row), atomically: true) { result in
 			switch result {
 			case .success(let product):
 				print("Purchase Success: \(product.productId)")
+				
 				self.deliverProduct(product.productId)
 			case .error(let error):
-				SweetAlert().showAlert("Purchasing Workout", subTitle: "Something went wrong. Please try again", style: AlertStyle.error)
 				print("Purchase Failed: \(error)")
+				
+				let alertController = UIAlertController(title: "Purchasing Workout",
+														message: "Something went wrong. Please try again",
+														preferredStyle: .alert)
+				let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+				alertController.addAction(action)
+				self.present(alertController, animated: true, completion: nil)
 			}
 		}
 	}
 	
 	func deliverProduct(_ identifier: String) {
 		print("Identifier: " + identifier)
-		if identifier == "com.rybel_llc.core_x.myrtl" {
-			UserDefaults.standard.set(true, forKey: "workout1")
-		}
-		else if identifier == "com.rybel_llc.core_x.leg_day" {
-			UserDefaults.standard.set(true, forKey: "workout2")
-		}
-		else if identifier == "com.rybel_llc.core_x.pushups" {
-			UserDefaults.standard.set(true, forKey: "workout3")
-		}
-		else if identifier == "com.rybel_llc.core_x.yoga" {
-			UserDefaults.standard.set(true, forKey: "workout4")
-		}
-		else if identifier == "com.rybel_llc.core_x.coach_liz" {
-			UserDefaults.standard.set(true, forKey: "workout5")
-		}
+		UserDefaults.standard.set(true, forKey: "workout\(WorkoutDataManager.getWorkoutId(storeID: identifier))")
 		
-		SweetAlert().showAlert("Purchased Workout", subTitle: "Success!", style: AlertStyle.success)
+		let alertController = UIAlertController(title: "Purchased Workout", message: "Success!", preferredStyle: .alert)
+		let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+		alertController.addAction(action)
+		self.present(alertController, animated: true, completion: nil)
 		
 		UserDefaults.standard.synchronize()
 		viewWillAppear(true)
@@ -78,5 +52,38 @@ extension UIViewController {
 			return false
 		}
 		return true
+	}
+}
+
+struct ReviewKitHelper {
+	static let numberOfTimesLaunchedKey = "numberOfTimesLaunched"
+	
+	static func displayReviewPrompt() {
+		guard let currentVersion = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String else {
+			return
+		}
+		
+		let lastVersionPromptedForReview = UserDefaults.standard.string(forKey: "lastVersion")
+		let numberOfTimesLaunched = UserDefaults.standard.integer(forKey: numberOfTimesLaunchedKey)
+		
+		if numberOfTimesLaunched > 2 && currentVersion != lastVersionPromptedForReview
+			&& !ProcessInfo.processInfo.arguments.contains("testing") {
+			
+			forceDisplayReviewPrompt()
+			UserDefaults.standard.set(currentVersion, forKey: "lastVersion")
+		}
+	}
+	
+	static func forceDisplayReviewPrompt() {
+		if let scene = UIApplication.shared.connectedScenes
+			.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+			
+			SKStoreReviewController.requestReview(in: scene)
+		}
+	}
+	
+	static func incrementNumberOfTimesLaunched() {
+		let numberOfTimesLaunched = UserDefaults.standard.integer(forKey: numberOfTimesLaunchedKey) + 1
+		UserDefaults.standard.set(numberOfTimesLaunched, forKey: numberOfTimesLaunchedKey)
 	}
 }

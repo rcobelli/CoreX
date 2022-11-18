@@ -1,4 +1,4 @@
- //
+//
 //  AppDelegate.swift
 //  core-x
 //
@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 	
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Make sure Core X is always available
 		UserDefaults.standard.set(true, forKey: "workout0")
@@ -34,12 +33,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		}
 		
+		// Style the app
+		let appearance = UINavigationBarAppearance()
+		appearance.configureWithOpaqueBackground()
+		appearance.backgroundColor = UIColor(red: 0.92, green: 0.24, blue: 0.21, alpha: 1.00)
+		appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+		UINavigationBar.appearance().standardAppearance = appearance
+		UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
+		UINavigationBar.appearance().tintColor = UIColor.white
+		
+		UNUserNotificationCenter.current().delegate = self
+		
+		NSSetUncaughtExceptionHandler { exception in
+		   print(exception)
+		   print(exception.callStackSymbols)
+		}
+		
+		ReviewKitHelper.incrementNumberOfTimesLaunched()
+		
 		return true
 	}
 
 	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 		// Handle the siri shortcut
-		let viewController = window?.rootViewController as! ViewController
+		guard let viewController = window?.rootViewController as? ViewController else {
+			return false
+		}
 		viewController.startMostRecentWorkout()
 		
 		return true
@@ -55,12 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationWillTerminate(_ application: UIApplication) {}
 
-
 }
 
-struct GlobalVariables {
-	static var restDuration = 0
-	static var exerciseDuration = 0
-	static var exerciseID = 0
-	static var workoutName = ""
+extension AppDelegate: UNUserNotificationCenterDelegate {
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		completionHandler([.banner, .list, .badge, .sound])
+	}
 }

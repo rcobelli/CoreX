@@ -13,7 +13,7 @@ import MediaPlayer
 import Eureka
 import SwiftyStoreKit
 
-class SettingsViewController: FormViewController, MFMailComposeViewControllerDelegate {
+class SettingsViewController: FormViewController {
 
 	@IBOutlet weak var doneButton: UIBarButtonItem!
 	
@@ -23,23 +23,8 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 		form +++ ButtonRow() { (row: ButtonRow) -> Void in
 				row.title = "Restore Purchases"
 				}
-				.onCellSelection { (cell, row) in
-					SwiftyStoreKit.restorePurchases(atomically: true) { results in
-						if results.restoreFailedPurchases.count > 0 {
-							print("Restore Failed: \(results.restoreFailedPurchases)")
-							_ = SweetAlert().showAlert("Restore Purchases", subTitle: "We were unable to restore your purchases. Please try again.", style: AlertStyle.error)
-						}
-						else if results.restoredPurchases.count > 0 {
-							print("Restore Success: \(results.restoredPurchases)")
-							for item in results.restoredPurchases {
-								self.deliverProduct(item.productId)
-							}
-							_ = SweetAlert().showAlert("Restore Purchases", subTitle: "Your purchases have been restored", style: AlertStyle.success)
-						}
-						else {
-							_ = SweetAlert().showAlert("Restore Purchases", subTitle: "There was nothing to restore", style: AlertStyle.success)
-						}
-					}
+				.onCellSelection { (_, _) in
+					self.restorePurchasesAction()
 			}
 			<<< ButtonRow() { (row: ButtonRow) -> Void in
 				row.title = "Submit New Workout Idea"
@@ -47,71 +32,27 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 					row.disabled = true
 				}
 				}
-				.onCellSelection { (cell, row) in
+				.onCellSelection { (_, _) in
 					if MFMailComposeViewController.canSendMail() {
 						let picker = MFMailComposeViewController()
 						picker.mailComposeDelegate = self
 						picker.setToRecipients(["info@rybel-llc.com"])
 						picker.setSubject("New Workout Suggestion")
-						picker.setMessageBody(NSLocalizedString("Let us know of a new workout you would like to see in the app!", comment: ""), isHTML: false)
+						picker.setMessageBody("Let us know of a new workout you would like to see in the app!", isHTML: false)
 						
 						self.present(picker, animated: true, completion: nil)
 					}
-					else {
-						_ = SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("The mail app is not configured. You can email us at info@rybel-llc.com instead", comment: ""), style: AlertStyle.error)
-					}
 			}
 			
-			+++ Section(header: "Music", footer: "")
-			<<< PickerInlineRow<String>("PickerInlineRow") { (row : PickerInlineRow<String>) -> Void in
-				row.title = "Select Music Playlist"
-				row.options = ["No Music"]
-				
-				if UserDefaults.standard.string(forKey: "playlistName") != nil {
-					row.value = UserDefaults.standard.string(forKey: "playlistName")
-				}
-				
-				if MPMediaLibrary.authorizationStatus() == .authorized {
-					let myMediaQuery = MPMediaQuery.playlists()
-					for item in myMediaQuery.collections! {
-						let value = item.value(forProperty: MPMediaPlaylistPropertyName) as! String
-						row.options.append(value)
-					}
-				}
-				else {
-					MPMediaLibrary.requestAuthorization { _ in
-					}
-				}
-				
-				}.onChange({ row in
-					if row.value! == "No Music" {
-						UserDefaults.standard.set(nil, forKey: "playlistName")
-					}
-					else {
-						UserDefaults.standard.set(row.value!, forKey: "playlistName")
-					}
-				})
-			<<< SwitchRow("set_none") {
-				$0.title = "Shuffle"
-				$0.value = UserDefaults.standard.bool(forKey: "shuffleMusic")
-				}.onChange { cell in
-					if cell.value ?? false {
-						UserDefaults.standard.set(true, forKey: "shuffleMusic")
-					}
-					else {
-						UserDefaults.standard.set(false, forKey: "shuffleMusic")
-					}
-			}
-			
-			
-			+++ Section(header: "Send Feedback", footer: "Version " + String(describing: Bundle.main.infoDictionary!["CFBundleShortVersionString"]!))
+			+++ Section(header: "Send Feedback",
+						footer: "Version " + String(describing: Bundle.main.infoDictionary!["CFBundleShortVersionString"]!))
 			<<< ButtonRow() { (row: ButtonRow) -> Void in
 				row.title = "Email"
 				if !MFMailComposeViewController.canSendMail() {
 					row.disabled = true
 				}
 				}
-				.onCellSelection { (cell, row) in
+				.onCellSelection { (_, _) in
 					if MFMailComposeViewController.canSendMail() {
 						let picker = MFMailComposeViewController()
 						picker.setToRecipients(["info@rybel-llc.com"])
@@ -120,15 +61,12 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 						picker.setMessageBody(NSLocalizedString("Tell us what you really think about Core-X", comment: ""), isHTML: false)
 						self.present(picker, animated: true, completion: nil)
 					}
-					else {
-						_ = SweetAlert().showAlert(NSLocalizedString("Can't Send Mail", comment: ""), subTitle: NSLocalizedString("The mail app is not configured. You can email us at info@rybel-llc.com instead", comment: ""), style: AlertStyle.error)
-					}
 			}
 			<<< ButtonRow() { (row: ButtonRow) -> Void in
 				row.title = "Leave App Store Review"
 				}
-				.onCellSelection { (cell, row) in
-					UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/core-x/id972403903")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+				.onCellSelection { (_, _) in
+					ReviewKitHelper.forceDisplayReviewPrompt()
 			}
     }
 	
@@ -136,14 +74,34 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
 		self.dismiss(animated: true, completion: nil)
 	}
 	
-	
-	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-		dismiss(animated: true, completion: nil)
+	func restorePurchasesAction() {
+		SwiftyStoreKit.restorePurchases(atomically: true) { results in
+			var message = "There was nothing to restore"
+			
+			if results.restoreFailedPurchases.count > 0 {
+				print("Restore Failed: \(results.restoreFailedPurchases)")
+				
+				message = "We were unable to restore your purchases. Please try again."
+			} else if results.restoredPurchases.count > 0 {
+				print("Restore Success: \(results.restoredPurchases)")
+				for item in results.restoredPurchases {
+					self.deliverProduct(item.productId)
+				}
+				
+				message = "Your purchases have been restored"
+			}
+			
+			let alertController = UIAlertController(title: "Restore Purchases", message: message, preferredStyle: .alert)
+			let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+			alertController.addAction(action)
+			self.present(alertController, animated: true, completion: nil)
+		}
 	}
 
 }
 
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+		dismiss(animated: true, completion: nil)
+	}
 }

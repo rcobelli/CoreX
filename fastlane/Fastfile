@@ -29,6 +29,7 @@ platform :ios do
     upload_to_app_store(
       force: true, # Set to true to skip PDF verification
       automatic_release: true,
+      overwrite_screenshots: true
     )
   end
   lane :beta do
@@ -41,6 +42,6 @@ platform :ios do
     build_app
 
     # Upload to testflight and wait for processing
-    upload_to_testflight(username: "rybelllc@gmail.com")
+    upload_to_testflight(username: "apple@rybel-llc.com")
   end
 end

@@ -1,20 +1,20 @@
 PODS:
-  - Eureka (5.1.0)
-  - SwiftyStoreKit (0.15.0)
+  - Eureka (5.4.0)
+  - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
   - Eureka
   - SwiftyStoreKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Eureka
     - SwiftyStoreKit
 
 SPEC CHECKSUMS:
-  Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
-  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
+  Eureka: fadaa9fa3d6e402d3c60f78f24edf3d7bafc9c29
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 2fd6c91e85a1dedbb94dedc614c4cc3c7071fcb0
+PODFILE CHECKSUM: ecc1f58cb62756e69286206be3e5304a05ebd6f4
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.11.3

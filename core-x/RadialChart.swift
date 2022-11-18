@@ -9,10 +9,9 @@
 import UIKit
 
 class RadialChart: UIView {
-	
 
-	var endArc:CGFloat = 0.0{   // in range of 0.0 to 1.0
-		didSet{
+	var endArc: CGFloat = 0.0 {   // in range of 0.0 to 1.0
+		didSet {
 			setNeedsDisplay()
 			UIView.transition(with: self, duration: 0.1, options: .transitionCrossDissolve, animations: {
 				self.layer.displayIfNeeded()
@@ -20,20 +19,20 @@ class RadialChart: UIView {
 		}
 	}
 	
-	@IBInspectable var arcWidth : CGFloat = 5.0
+	@IBInspectable var arcWidth: CGFloat = 5.0
 	
 	var arcColor = UIColor(red: 0.914, green: 0.443, blue: 0.129, alpha: 1.00)
 	var arcBackgroundColor = UIColor.clear
 
     override func draw(_ rect: CGRect) {
 		let fullCircle = 2.0 * CGFloat(Double.pi)
-		let start:CGFloat = -0.25 * fullCircle
-		let end:CGFloat = endArc * fullCircle + start
+		let start: CGFloat = -0.25 * fullCircle
+		let end: CGFloat = endArc * fullCircle + start
 		let centerPoint = CGPoint(x: rect.midX, y: rect.midY)
-		var radius:CGFloat = 0.0
-		if rect.width > rect.height{
+		var radius: CGFloat = 0.0
+		if rect.width > rect.height {
 			radius = (rect.width - arcWidth) / 2.0
-		}else{
+		} else {
 			radius = (rect.height - arcWidth) / 2.0
 		}
 		

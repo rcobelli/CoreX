@@ -1,12 +1,15 @@
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
   - core-xUITests
+  - SweetAlert.swift
+  - fastlane/SnapshotHelper.swift
 disabled_rules:
   - trailing_whitespace
   - todo
   - vertical_parameter_alignment
-
-
+identifier_name:
+  excluded:
+    - id
 line_length:
   ignores_function_declarations: true
   ignores_comments: true

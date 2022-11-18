@@ -32,12 +32,12 @@ class WorkoutCell: UITableViewCell {
 		}
 	}
 	
-	internal var completion : ()->Void = {}
+	internal var completion : () -> Void = {}
 	
     override func awakeFromNib() {
         super.awakeFromNib()
 		
-		self.clipsToBounds = true;
+		self.clipsToBounds = true
 		
 		#if os(iOS)
 			exerciseWidth.constant = 70
@@ -54,14 +54,8 @@ class WorkoutCell: UITableViewCell {
     }
 
 	@IBAction func start(_ sender: AnyObject) {
-		#if os(iOS)
-			GlobalVariables.restDuration = Int(restDuration.text!)!
-			GlobalVariables.exerciseDuration = Int(exerciseDuration.text!)!
-		#endif
-		
 		completion()
 	}
-	
 	
 	@IBAction func editingBegan(_ sender: AnyObject) {
 		exerciseWidth.constant = 100
