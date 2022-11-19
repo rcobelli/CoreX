@@ -24,6 +24,8 @@ struct WorkoutDataManager {
 			return UIImage(named: "yoga")!
 		case 5:
 			return UIImage(named: "coachLiz")!
+		case 6:
+			return UIImage(named: "hannah")!
 		default:
 			return UIImage(named: "core-x")!
 		}
@@ -42,6 +44,8 @@ struct WorkoutDataManager {
 			return HKWorkoutActivityType.yoga
 		case 5:
 			return HKWorkoutActivityType.flexibility
+		case 6:
+			return HKWorkoutActivityType.coreTraining
 		default:
 			return HKWorkoutActivityType.coreTraining
 		}
@@ -62,6 +66,8 @@ struct WorkoutDataManager {
 			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 25.0) * 2.0)
 		case 5:
 			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 25.0) * 2.0)
+		case 6:
+			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 28.0) * 2.0)
 		default:
 			return 0.0
 		}
@@ -81,6 +87,8 @@ struct WorkoutDataManager {
 			return 11
 		case 5:
 			return 8
+		case 6:
+			return 7
 		default:
 			return 0
 		}
@@ -98,6 +106,8 @@ struct WorkoutDataManager {
 			return "com.rybel_llc.core_x.yoga"
 		case 5:
 			return "com.rybel_llc.core_x.coach_liz"
+		case 6:
+			return "com.rybel_llc.core_x.coach_hannah"
 		default:
 			return ""
 		}
@@ -115,6 +125,8 @@ struct WorkoutDataManager {
 			return 4
 		case "com.rybel_llc.core_x.coach_liz":
 			return 5
+		case "com.rybel_llc.core_x.coach_hannah":
+			return 6
 		default:
 			return 0
 		}
@@ -134,6 +146,8 @@ struct WorkoutDataManager {
 			return "Yogata Be Kidding Me"
 		case 5:
 			return "Coach Liz Stretch Routine"
+		case 6:
+			return "Coach Hannah Core Routine"
 		default:
 			return ""
 		}
@@ -153,12 +167,14 @@ struct WorkoutDataManager {
 			return UIColor(red: 0.000, green: 0.718, blue: 0.573, alpha: 1.00) // #00B792
 		case 5:
 			return UIColor(red: 0.580, green: 0.290, blue: 0.675, alpha: 1.00) // #944AAC
+		case 6:
+			return UIColor(red: 0.07, green: 0.52, blue: 0.48, alpha: 1.00) // #11857B
 		default:
 			return UIColor.white
 		}
 	}
 
 	static func getWorkoutCount() -> Int {
-		return 6
+		return 7
 	}
 }
