@@ -17,7 +17,6 @@ class UITests: XCTestCase {
 		app.launch()
     }
 
-
     func testExample() {
 		let app = XCUIApplication()
 		snapshot("1-homeScreen")

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -542,13 +542,11 @@
 		9454D3A71E5FF36F00DB381E /* watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				942127571E9892890052424E /* watch Extension.entitlements */,
 				9454D3A81E5FF36F00DB381E /* InterfaceController.swift */,
-				9454D3AA1E5FF36F00DB381E /* ExtensionDelegate.swift */,
-				9454D3AC1E5FF36F00DB381E /* Assets.xcassets */,
-				9454D3AE1E5FF36F00DB381E /* Info.plist */,
-				9454D3DA1E5FF52200DB381E /* TableRowController.swift */,
 				9454D3DB1E5FF52200DB381E /* WorkoutController.swift */,
+				942127571E9892890052424E /* watch Extension.entitlements */,
+				9454D3AE1E5FF36F00DB381E /* Info.plist */,
+				94ABBF4729286F68004535D0 /* Supporting Files */,
 			);
 			path = "watch Extension";
 			sourceTree = "<group>";
@@ -678,6 +676,16 @@
 			name = "Workout 3";
 			sourceTree = "<group>";
 		};
+		94ABBF4729286F68004535D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9454D3AC1E5FF36F00DB381E /* Assets.xcassets */,
+				9454D3AA1E5FF36F00DB381E /* ExtensionDelegate.swift */,
+				9454D3DA1E5FF52200DB381E /* TableRowController.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		94D6C1091CA758ED00CFC621 /* Workout 4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,8 +758,8 @@
 				947E6C581C42DDA900678A1F /* Embed Watch Content */,
 				94C8D2911E3ECCE400D291B2 /* Embed Foundation Extensions */,
 				9455B7521E47F4070021309E /* Embed Frameworks */,
-				94E0CE9A20CF235A00E4E1F3 /* ShellScript */,
 				9215EFDB58CE2751AC6FF63F /* [CP] Embed Pods Frameworks */,
+				94ABBF4629286550004535D0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -790,7 +798,6 @@
 				9454D39F1E5FF36F00DB381E /* Sources */,
 				9454D3A01E5FF36F00DB381E /* Frameworks */,
 				9454D3A11E5FF36F00DB381E /* Resources */,
-				94F4AF6D245CE691009139E7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -870,14 +877,10 @@
 					};
 					9454D3961E5FF36F00DB381E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = AL6H9GEC6N;
-						ProvisioningStyle = Automatic;
 					};
 					9454D3A21E5FF36F00DB381E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = AL6H9GEC6N;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes.watchos.extension = {
 								enabled = 1;
@@ -1191,23 +1194,9 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-core-x/Pods-core-x-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		94E0CE9A20CF235A00E4E1F3 /* ShellScript */ = {
+		94ABBF4629286550004535D0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/SimulatorStatusMagiciOS.framework",
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/SimulatorStatusMagiciOS.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# This script embeds (and codesigns) a framework within an iOS app binary, but only when the configuration is Debug.\n# It must be called from, or copied into an Xcode Run Script build phase with following setup:\n# Input Files:\n#     - Path to framework within project folder (source path)\n#     - For example: $(SRCROOT)/ThirdPartyFrameworks/SimulatorStatusMagiciOS.framework\n# Output Files:\n#     - Desired path to framework within ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH} (destination path)\n#     - For example: ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagiciOS.framework\n#\n# For explanation of Input & Output Files, check out: https://indiestack.com/2014/12/speeding-up-custom-script-phases/\n# This script adapted from: https://stackoverflow.com/a/40484337/9051514 (thanks Ricardo Duarte!)\n\nif [[ -z ${SCRIPT_INPUT_FILE_0} || -z ${SCRIPT_OUTPUT_FILE_0} ]]; then\necho \"This Xcode Run Script build phase must be configured with Input & Output Files\"\nexit 1\nfi\n\necho \"Embed ${SCRIPT_INPUT_FILE_0}\"\nif [[ $CONFIGURATION == 'Debug' ]]; then\nFRAMEWORK_SOURCE=${SCRIPT_INPUT_FILE_0}\nFRAMEWORK_DESTINATION=${SCRIPT_OUTPUT_FILE_0}\nDESTINATION_FOLDER=`dirname ${FRAMEWORK_DESTINATION}`\n\nmkdir -p ${DESTINATION_FOLDER}\ncp -Rv ${FRAMEWORK_SOURCE} ${FRAMEWORK_DESTINATION}\n\nCODE_SIGN_IDENTITY_FOR_ITEMS=\"${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\nif [ \"${CODE_SIGN_IDENTITY_FOR_ITEMS}\" = \"\" ] ; then\nCODE_SIGN_IDENTITY_FOR_ITEMS=\"${CODE_SIGN_IDENTITY}\"\nfi\n\nBINARY_NAME=`basename ${FRAMEWORK_DESTINATION} .framework`\ncodesign --force --verbose --sign \"${CODE_SIGN_IDENTITY_FOR_ITEMS}\" ${FRAMEWORK_DESTINATION}/${BINARY_NAME}\necho \" ✅ Embedded successfully\"\nelse\necho \" ❌ Non Debug build detected - do not embed\"\nfi\n";
-		};
-		94F4AF6D245CE691009139E7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1547,7 +1536,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1568,7 +1558,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "core-x/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x";
@@ -1595,7 +1588,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "core-x/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 3.0.0;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1617,9 +1613,15 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = "watch Extension/watch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AL6H9GEC6N;
 				INFOPLIST_FILE = "watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -1642,9 +1644,15 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = "watch Extension/watch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AL6H9GEC6N;
 				INFOPLIST_FILE = "watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -1666,6 +1674,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AL6H9GEC6N;
 				IBSC_MODULE = watch_Extension;
 				INFOPLIST_FILE = watch/Info.plist;
@@ -1691,6 +1701,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AL6H9GEC6N;
 				IBSC_MODULE = watch_Extension;
 				INFOPLIST_FILE = watch/Info.plist;
@@ -1716,7 +1728,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = AL6H9GEC6N;
 				INFOPLIST_FILE = tv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 3.0.0;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "workout0 workout1 workout2 workout3 workout4 workout5";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x";
@@ -1738,7 +1753,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = AL6H9GEC6N;
 				INFOPLIST_FILE = tv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 3.0.0;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "workout0 workout1 workout2 workout3 workout4 workout5";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.core-x";
@@ -1766,7 +1784,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = UITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.UITests";
@@ -1793,7 +1815,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = UITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rybel-llc.UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

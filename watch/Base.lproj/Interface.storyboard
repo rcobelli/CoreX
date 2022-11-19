@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="21507" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42"/>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="21501"/>
     </dependencies>
     <scenes>
         <!--Core-X-->
@@ -34,6 +31,7 @@
                     </connections>
                 </controller>
             </objects>
+            <point key="canvasLocation" x="139" y="-266"/>
         </scene>
         <!--Workout-->
         <scene sceneID="SoZ-Td-oL8">
@@ -65,7 +63,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="289" y="37"/>
+            <point key="canvasLocation" x="481" y="-267"/>
         </scene>
     </scenes>
 </document>

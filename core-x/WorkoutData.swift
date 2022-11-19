@@ -7,7 +7,7 @@
 //
 
 import UIKit
-#if os(iOS)
+#if os(iOS) || os(watchOS)
 import HealthKit
 #endif
 
@@ -29,7 +29,7 @@ struct WorkoutDataManager {
 		}
 	}
 	
-	#if os(iOS)
+	#if os(iOS) || os(watchOS)
 	static func getWorkoutType(workoutID: Int) -> HKWorkoutActivityType {
 		switch workoutID {
 		case 1:
@@ -117,6 +117,25 @@ struct WorkoutDataManager {
 			return 5
 		default:
 			return 0
+		}
+	}
+	
+	static func getWorkoutName(workoutID: Int) -> String {
+		switch workoutID {
+		case 0:
+			return "Core X"
+		case 1:
+			return "Myrtl"
+		case 2:
+			return "Leg-Day"
+		case 3:
+			return "101 Pushups"
+		case 4:
+			return "Yogata Be Kidding Me"
+		case 5:
+			return "Coach Liz Stretch Routine"
+		default:
+			return ""
 		}
 	}
 

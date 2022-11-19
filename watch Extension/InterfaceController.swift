@@ -10,56 +10,55 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
-
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        
-		UserDefaults.standard.set(true, forKey: "workout0")
+class InterfaceController: WKInterfaceController {
+	
+	@IBOutlet weak var table: WKInterfaceTable!
+	
+	override func awake(withContext context: Any?) {
+		super.awake(withContext: context)
 		
 		let watchSession = WCSession.default
 		watchSession.delegate = self
 		watchSession.activate()
-		
-		setupTable()
-    }
-	
-	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
-		for (key, value) in (applicationContext as! [String : Bool]) {
-			UserDefaults.standard.set(value, forKey: key)
-		}
 	}
 	
-	@IBOutlet weak var table: WKInterfaceTable!
-	
-	let workouts = ["Core X", "Myrtl", "Leg-Day", "101 Pushups", "Yoga", "Coach Liz"]
-	
 	func setupTable() {
-		table.setNumberOfRows(workouts.count, withRowType: "TableRowController")
-		for (index, workoutName) in workouts.enumerated() {
-			let row = table.rowController(at: index) as! TableRowController
-			row.titleLabel.setText(workoutName)
+		table.setNumberOfRows(WorkoutDataManager.getWorkoutCount(), withRowType: "TableRowController")
+		for index in 0..<WorkoutDataManager.getWorkoutCount() {
+			guard let row = table.rowController(at: index) as? TableRowController else {
+				return
+			}
+			row.titleLabel.setText(WorkoutDataManager.getWorkoutName(workoutID: index))
 		}
 	}
 	
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		if UserDefaults.standard.bool(forKey: "workout" + String(rowIndex)) {
 			pushController(withName: "Workout", context: rowIndex)
-			WKInterfaceController.reloadRootControllers(withNames: ["Workout"], contexts: [rowIndex])
-		}
-		else {
-			let action = WKAlertAction(title: "Ok", style: .cancel) {}
-			presentAlert(withTitle: "Workout Not Purchased", message: "You can purchase this workout in the iPhone App", preferredStyle: .actionSheet, actions: [action])
+		} else {
+			presentAlert(withTitle: "Workout Not Purchased",
+						 message: "You can purchase this workout in the iPhone App",
+						 preferredStyle: .alert,
+						 actions: [WKAlertAction(title: "Ok", style: .default, handler: {})])
 		}
 	}
+}
+
+extension InterfaceController: WCSessionDelegate {
 	
 	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-		print(error ?? "No Error")
+		setupTable()
 	}
 	
-	func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+	func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+		print(applicationContext)
+		
 		for item in applicationContext {
-			UserDefaults.standard.set(Bool(truncating: item.1 as! NSNumber), forKey: item.0)
+			guard let value = item.1 as? NSNumber else {
+				print("Unable to cast value to NSNumber")
+				return
+			}
+			UserDefaults.standard.set(Bool(truncating: value), forKey: item.0)
 		}
 		
 		print("\(applicationContext)")
@@ -68,5 +67,14 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 		}
 	}
 	
+	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String: AnyObject]) {
+		print(applicationContext)
+		
+		guard let appContext = applicationContext as? [String: Bool] else {
+			return
+		}
+		for (key, value) in appContext {
+			UserDefaults.standard.set(value, forKey: key)
+		}
+	}
 }
-

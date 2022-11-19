@@ -11,139 +11,124 @@ import HealthKit
 
 class WorkoutController: WKInterfaceController, HKWorkoutSessionDelegate {
 	
-	var timer = Timer()
-	
-	
 	@IBOutlet var timerLabel: WKInterfaceLabel!
 	@IBOutlet var workoutTitle: WKInterfaceLabel!
 	
 	var exercises = NSDictionary()
+
+	public var workoutID = 0
 	
-	var workoutID = 0
+	var seconds = 0
+	var exerciseNumber = 0
 	
-	var timerRunning = true;
-	var count = 0
-	var exercise = 0
+	var exerciseDuration = 30
+	var restDuration = 5
 	
-	var exerciseDuration = 0
-	var restDuration = 0
-	
-	var exerciseID = -1
-	
+	var timer = Timer()
 	var healthStore = HKHealthStore()
-	var session : HKWorkoutSession?
+	var session: HKWorkoutSession?
 	
 	override func awake(withContext context: Any?) {
-		workoutID = context as! Int
+		guard let workoutID = context as? Int else {
+			fatalError("Invalid workout ID")
+		}
 		
-		if let path = Bundle.main.path(forResource: "workout" + String(workoutID), ofType: "plist"), let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
-			exercises = dict["exercises"] as! NSDictionary
-			exerciseDuration = 30
-			restDuration = 5
-			self.setTitle((dict["workoutName"] as! String))
-		}
+		let path = Bundle.main.path(forResource: "workout" + String(workoutID), ofType: "plist")
+		guard let dict = NSDictionary(contentsOfFile: path!) as? [String: AnyObject],
+			  let exercises = dict["exercises"] as? NSDictionary,
+			  let workoutName = dict["workoutName"] as? String
 		else {
-			fatalError("Could Not Load .plist")
+			fatalError("Could Not Load Valid .plist")
 		}
-		UserDefaults.standard.set(exercises, forKey: "exercises")
+		
+		// TODO: Pull durations from the iPhone
+		
+	    self.setTitle(workoutName)
+		self.exercises = exercises
 		
 		let configuration = HKWorkoutConfiguration()
 		configuration.activityType = .coreTraining
 		configuration.locationType = .indoor
 		
 		do {
-			session = try HKWorkoutSession(configuration: configuration)
+			let healthStore = HKHealthStore()
+			session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
 			
 			session!.delegate = self
-			healthStore.start(session!)
-		}
-		catch let error as NSError {
+			session!.startActivity(with: Date())
+		} catch let error as NSError {
 			// Perform proper error handling here...
 			fatalError("*** Unable to create the workout session: \(error.localizedDescription) ***")
 		}
 		
-		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutController.everySecond), userInfo: nil, repeats: true)
+		timer = Timer.scheduledTimer(timeInterval: 1.0,
+									 target: self,
+									 selector: #selector(WorkoutController.everySecond),
+									 userInfo: nil,
+									 repeats: true)
 		
 		updateActivity()
 	}
 	
 	@objc func everySecond() {
-		count = count + 1
-		if count <= exerciseDuration {
+		seconds += 1
+		
+		if seconds < exerciseDuration {
+			// Still during exercise
+			timerLabel.setText(String(30 - seconds))
 			workoutTitle.setTextColor(UIColor.white)
-		}
-		else if count == exerciseDuration + 1 && exercise < exercises.count {
-			exercise = exercise + 1
-			if exercise < exercises.count {
-				workoutTitle.setTextColor(UIColor.red)
+		} else if seconds == exerciseDuration {
+			// Start rest
+			
+			timerLabel.setText("0")
+			workoutTitle.setTextColor(UIColor.red)
+			exerciseNumber += 1
+			
+			if exerciseNumber < exercises.count {
+				WKInterfaceDevice.current().play(.notification)
 				updateActivity()
-			}
-			else {
+			} else {
+				WKInterfaceDevice.current().play(.stop)
 				endWorkout()
 			}
+		} else if seconds == exerciseDuration + restDuration {
+			// Start workout
+			seconds = 0
 			WKInterfaceDevice.current().play(.notification)
 		}
-		else if count < exerciseDuration + restDuration {
-			// Just catching something BS from triggering below
-		}
-		else if (exercise < exercises.count) {
-			count = 0
-			
-			WKInterfaceDevice.current().play(.notification)
-		}
-		else {
-			endWorkout()
-		}
-		if (count > 30) {
-			timerLabel.setText(String(0))
-		}
-		else {
-			timerLabel.setText(String(30 - count))
-		}
-		
 	}
 	
 	func endWorkout() {
-		HealthManager().saveWorkout(30.0, workoutNumber: self.workoutID, completion: { (success, error ) -> Void in
-			if( success ) {
-				print("Workout saved!")
-			}
-			else if( error != nil ) {
+		HealthManager().saveWorkout(Double(exerciseDuration),
+									workoutNumber: self.workoutID,
+									completion: { (_, error ) -> Void in
+			if error != nil {
 				print("\(String(describing: error))")
 			}
 		})
 		
-		
-		end()
+		session = nil
+		pop()
 	}
 	
 	func updateActivity() {
-		exerciseID = exerciseID + 1
-		
-		let exercises = UserDefaults.standard.dictionary(forKey: "exercises")!
-		let currentExercise = exercises["Item " + String(exerciseID)]! as! [String:String]
+		guard let currentExercise = exercises["Item " + String(exerciseNumber)]! as? [String: String] else {
+			return
+		}
 		
 		workoutTitle.setText(String(currentExercise["itemName"]!))
 	}
 	
-	@IBAction func end() {
+	override func didDeactivate() {
 		timer.invalidate()
 		if session != nil {
-			healthStore.end(session!)
+			session?.stopActivity(with: Date())
 		}
-		WKInterfaceDevice.current().play(.stop)
-		WKInterfaceController.reloadRootControllers(withNames: ["main"], contexts: nil)
 	}
 	
-	func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-	}
+	func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {}
 	
-	func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-		print(error)
-	}
+	func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {}
 	
-	func workoutSession(_ workoutSession: HKWorkoutSession, didGenerate event: HKWorkoutEvent) {
-		print(event)
-	}
-	
+	func workoutSession(_ workoutSession: HKWorkoutSession, didGenerate event: HKWorkoutEvent) {}
 }
