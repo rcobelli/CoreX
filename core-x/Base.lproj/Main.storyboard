@@ -322,10 +322,10 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5G9-41-vx6">
-                                <rect key="frame" x="20" y="280.66666666666669" width="374" height="175"/>
+                                <rect key="frame" x="20" y="276.66666666666669" width="374" height="183"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4b-7i-9oT">
-                                        <rect key="frame" x="207" y="105" width="100" height="50"/>
+                                        <rect key="frame" x="207" y="113" width="100" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.71764705882352942" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="1DR-Kd-aJA"/>
@@ -340,7 +340,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ede-Xc-4ah">
-                                        <rect key="frame" x="66" y="105" width="210" height="50"/>
+                                        <rect key="frame" x="66" y="113" width="210" height="50"/>
                                         <color key="backgroundColor" red="0.88627450980392153" green="0.26666666666666666" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="AzA-oV-Ujh"/>
@@ -355,20 +355,20 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ij3-Hb-5dL">
-                                        <rect key="frame" x="8" y="0.0" width="358" height="97"/>
+                                        <rect key="frame" x="8" y="8" width="358" height="97"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="97" id="v7e-mP-7Tc"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.66000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84861449088935059" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Ij3-Hb-5dL" firstAttribute="top" secondItem="5G9-41-vx6" secondAttribute="top" id="4ce-Vt-XjN"/>
+                                    <constraint firstItem="Ij3-Hb-5dL" firstAttribute="top" secondItem="5G9-41-vx6" secondAttribute="top" constant="8" id="4ce-Vt-XjN"/>
                                     <constraint firstItem="ede-Xc-4ah" firstAttribute="leading" secondItem="5G9-41-vx6" secondAttribute="leading" constant="66" id="D2G-z8-hBq"/>
                                     <constraint firstAttribute="trailing" secondItem="G4b-7i-9oT" secondAttribute="trailing" constant="67" id="V3v-CE-qZU"/>
                                     <constraint firstItem="Ij3-Hb-5dL" firstAttribute="leading" secondItem="5G9-41-vx6" secondAttribute="leading" constant="8" id="biM-gU-mKF"/>

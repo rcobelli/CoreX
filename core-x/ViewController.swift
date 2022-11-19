@@ -59,18 +59,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 				self.present(alertController, animated: true, completion: nil)
 			}
 		}
-		
-		// TODO: Send workout defaults to watch (rest & duration times)
-		let data = ["workout1": UserDefaults.standard.bool(forKey: "workout1"),
-		            "workout2": UserDefaults.standard.bool(forKey: "workout2"),
-		            "workout3": UserDefaults.standard.bool(forKey: "workout3"),
-		            "workout4": UserDefaults.standard.bool(forKey: "workout4"),
-		            "workout5": UserDefaults.standard.bool(forKey: "workout5")]
-		
+
 		if WCSession.isSupported() {
 			let watchSession = WCSession.default
 			watchSession.delegate = self
 			watchSession.activate()
+			
+			var data: [String: Bool] = [:]
+			for index in 0..<WorkoutDataManager.getWorkoutCount() {
+				data["workout" + String(index)] = UserDefaults.standard.bool(forKey: "workout" + String(index))
+			}
+			
 			if watchSession.isPaired && watchSession.isWatchAppInstalled {
 				do {
 					try watchSession.updateApplicationContext(data)
@@ -153,8 +152,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 		cell.itemCount.text = String(exercises.count)
 		
 		var list = ""
-		for item in exercises {
-			list += "-" + String((item.value["itemName"]!)) + "\n"
+		for index in 0..<exercises.count {
+			let item = exercises["Item \(index)"]!
+			list += "-\(item["itemName"]!)\n"
 		}
 		
 		cell.workoutList.text = list

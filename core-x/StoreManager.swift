@@ -45,12 +45,16 @@ extension UIViewController {
 	}
 	
 	func shouldDisplayAd() -> Bool {
-		if UserDefaults.standard.bool(forKey: "workout1") || UserDefaults.standard.bool(forKey: "workout2") ||
-			UserDefaults.standard.bool(forKey: "workout3") || UserDefaults.standard.bool(forKey: "workout4") ||
-			UserDefaults.standard.bool(forKey: "workout5") ||
-			UserDefaults.standard.bool(forKey: "removedAds") || ProcessInfo.processInfo.arguments.contains("testing") {
+		if (ProcessInfo.processInfo.arguments.contains("testing")) {
 			return false
 		}
+		
+		for index in 1..<WorkoutDataManager.getWorkoutCount() {
+			if UserDefaults.standard.bool(forKey: "workout\(index)") {
+				return false
+			}
+		}
+		
 		return true
 	}
 }

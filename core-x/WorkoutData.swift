@@ -51,17 +51,17 @@ struct WorkoutDataManager {
 	static func getWorkoutCalories(workoutID: Int, duration: Double) -> Double {
 		switch workoutID {
 		case 0:
-			return 10.0 * ((duration / 30.0) * 8.0)
+			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 30.0) * 8.0)
 		case 1:
-			return 14.0 * ((duration / 20.0) * 4.0)
+			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 20.0) * 4.0)
 		case 2:
-			return 9.0 * ((duration / 30.0) * 2.0)
+			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 30.0) * 2.0)
 		case 3:
-			return 20.0 * ((duration / 20.0) * 20.0)
+			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 20.0) * 20.0)
 		case 4:
-			return 11.0 * ((duration / 25.0) * 2.0)
+			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 25.0) * 2.0)
 		case 5:
-			return 6.0 * ((duration / 25.0) * 2.0)
+			return Double(getExerciseCountForWorkout(workoutID: workoutID)) * ((duration / 25.0) * 2.0)
 		default:
 			return 0.0
 		}
