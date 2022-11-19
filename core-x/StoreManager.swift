@@ -43,18 +43,4 @@ extension UIViewController {
 		UserDefaults.standard.synchronize()
 		viewWillAppear(true)
 	}
-	
-	func shouldDisplayAd() -> Bool {
-		if ProcessInfo.processInfo.arguments.contains("testing") {
-			return false
-		}
-		
-		for index in 1..<WorkoutDataManager.getWorkoutCount() {
-			if UserDefaults.standard.bool(forKey: "workout\(index)") {
-				return false
-			}
-		}
-		
-		return true
-	}
 }
