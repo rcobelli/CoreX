@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>180618</string>
+	<string>180620</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
@@ -48,5 +48,9 @@
 	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Save workouts to the Health app</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Save workouts to the Health app</string>
 </dict>
 </plist>

@@ -45,7 +45,7 @@ extension UIViewController {
 	}
 	
 	func shouldDisplayAd() -> Bool {
-		if (ProcessInfo.processInfo.arguments.contains("testing")) {
+		if ProcessInfo.processInfo.arguments.contains("testing") {
 			return false
 		}
 		

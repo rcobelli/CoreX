@@ -82,7 +82,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 	
 	// Check if a workout has been unlocked or a trial is available
 	func workoutUnlocked(_ identifier: Int) -> Bool {
-		return UserDefaults.standard.bool(forKey: "workout" + String(identifier))
+		return ProcessInfo.processInfo.arguments.contains("testing") || UserDefaults.standard.bool(forKey: "workout" + String(identifier))
 	}
 	
 	// Check if a trial is available for a workout

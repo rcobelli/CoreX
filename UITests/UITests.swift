@@ -19,10 +19,15 @@ class UITests: XCTestCase {
 
     func testExample() {
 		let app = XCUIApplication()
+		let coreX = app.tables.cells.element(boundBy: 0)
+		let myrtl = app.tables.cells.element(boundBy: 1)
+		
 		snapshot("1-homeScreen")
-		app.tables.cells.element(boundBy: 0).tap()
+		myrtl.tap()
+		myrtl.children(matching: .textField).element(boundBy: 0).tap()
 		snapshot("2-workoutSetup")
-		app.buttons.element(boundBy: 1).tap()
+		coreX.tap()
+		coreX.children(matching: .button).element(boundBy: 0).tap()
 		sleep(12/5)
 		snapshot("0-midWorkout")
     }
