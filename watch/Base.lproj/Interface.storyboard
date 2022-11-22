@@ -50,11 +50,7 @@
                     </items>
                     <menu key="menu" id="2sI-DS-gWP">
                         <items>
-                            <menuItem title="End Workout" icon="decline" id="pfD-gN-KDF">
-                                <connections>
-                                    <action selector="end" destination="2Qi-dr-APK" id="P5C-OX-eWr"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="End Workout" icon="decline" id="pfD-gN-KDF"/>
                         </items>
                     </menu>
                     <connections>

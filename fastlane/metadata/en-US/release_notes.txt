@@ -1,6 +1,1 @@
-  - Added Coach Hannah Core Routine workout
-  - Updated Leg Day workout
-  - Improve the categorization of workouts in the Health app
-  - Removed music integration
-  - Updated for iOS 16 & watchOS 9
-  - Minor bug fixes & performance enhancements
+Fix watchOS breaking bug

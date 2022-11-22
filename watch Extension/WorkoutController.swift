@@ -119,7 +119,7 @@ class WorkoutController: WKInterfaceController, HKWorkoutSessionDelegate {
 		workoutTitle.setText(String(currentExercise["itemName"]!))
 	}
 	
-	override func didDeactivate() {
+	override func willDisappear() {
 		timer.invalidate()
 		if session != nil {
 			session?.stopActivity(with: Date())
