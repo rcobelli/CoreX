@@ -1,26 +1,6 @@
-# Uncomment the lines below you want to change by removing the # in the beginning
+require 'open-uri'
 
-# A list of devices you want to take the screenshots from
-devices([
-  "iPhone 8 Plus",
-  "iPhone 11 Pro Max",
-  "iPad Pro (12.9-inch) (2nd generation)",
-  "iPad Pro (12.9-inch) (6th generation)",
-])
-
-languages([
-  "en-US"
-])
+eval(open('https://gist.githubusercontent.com/rcobelli/efd294050bc98d58d2b43fdf279b9eb2/raw/58b73a10c50c278f082bf4aaee44046a4cc13d8e/snapTemplate.rb').read)
 
 app_identifier "com.rybel-llc.core-x"
-
 scheme "core-x"
-
-reinstall_app true
-
-clear_previous_screenshots true
-
-stop_after_first_error true
-
-# For more information about all available options run
-# snapshot --help

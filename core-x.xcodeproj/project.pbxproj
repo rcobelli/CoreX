@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3370DB5D6A471D65B26D5769 /* Pods_watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE20FE2940ACDCF8536BF25E /* Pods_watch.framework */; };
+		87AB20987ADFA7A664A3CA32 /* Pods_watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2604EFFC19B453FC25446C /* Pods_watch_Extension.framework */; };
 		940AE7431C666F0F00DC472D /* workout2-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438D1C39EFA900E9BC18 /* workout2-2.png */; };
 		940AE7441C666F0F00DC472D /* workout2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438E1C39EFA900E9BC18 /* workout2-1.png */; };
 		940AE7451C666F0F00DC472D /* workout2-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 942C438F1C39EFA900E9BC18 /* workout2-0.png */; };
@@ -220,6 +222,8 @@
 		94F7848F1C24EB0300C40DFC /* workout1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784911C24EB0300C40DFC /* workout1.plist */; };
 		94F784971C24EB0E00C40DFC /* workout0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F784991C24EB0E00C40DFC /* workout0.plist */; };
 		94FC20351D25F0B30043329B /* workout5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94FC20341D25F0B30043329B /* workout5.plist */; };
+		9CB3BEB31159E59C18B41089 /* Pods_core_x.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D12CC3A912E0190DA01810E0 /* Pods_core_x.framework */; };
+		F32E3C577F1F9B2B9E45ACA9 /* Pods_tv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03540A90AB340755D9E35C4F /* Pods_tv.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -292,12 +296,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03540A90AB340755D9E35C4F /* Pods_tv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A63AEECF1DCECF87808915 /* Pods-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-watch Extension/Pods-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		0C196CA96071D6D9A7965CBA /* Pods-core-xUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-xUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-core-xUITests/Pods-core-xUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		16CDE8F18B220868B63DADCD /* Pods-tv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tv.release.xcconfig"; path = "Pods/Target Support Files/Pods-tv/Pods-tv.release.xcconfig"; sourceTree = "<group>"; };
 		1E7F493326E82DB1581B2315 /* Pods-watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-watch/Pods-watch.debug.xcconfig"; sourceTree = "<group>"; };
 		61437BBAEA6818C088930F48 /* Pods-tv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tv/Pods-tv.debug.xcconfig"; sourceTree = "<group>"; };
 		6F2A4AB47FA5F8BD8EA82BDF /* Pods-core-xUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-xUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-core-xUITests/Pods-core-xUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F2604EFFC19B453FC25446C /* Pods_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5A5B8C007E02BE252E310E /* Pods-core-x.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-x.debug.xcconfig"; path = "Pods/Target Support Files/Pods-core-x/Pods-core-x.debug.xcconfig"; sourceTree = "<group>"; };
 		941585041C1D103D00AFDBD0 /* core-x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "core-x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941585071C1D103D00AFDBD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -420,6 +426,8 @@
 		94FC20341D25F0B30043329B /* workout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = workout5.plist; sourceTree = "<group>"; };
 		9C73E21727A19F7A4384C3D7 /* Pods-watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-watch Extension/Pods-watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		AE9C28EA3CC9DAC158A27098 /* Pods-watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watch.release.xcconfig"; path = "Pods/Target Support Files/Pods-watch/Pods-watch.release.xcconfig"; sourceTree = "<group>"; };
+		BE20FE2940ACDCF8536BF25E /* Pods_watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D12CC3A912E0190DA01810E0 /* Pods_core_x.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_core_x.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6120D8289B20E8A42F209D8 /* Pods-core-x.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-x.release.xcconfig"; path = "Pods/Target Support Files/Pods-core-x/Pods-core-x.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -431,6 +439,7 @@
 				948DB7F321DE9F4000846B08 /* Intents.framework in Frameworks */,
 				948DB7F121DE9EF500846B08 /* StoreKit.framework in Frameworks */,
 				948DB7EF21DE9EF200846B08 /* HealthKit.framework in Frameworks */,
+				9CB3BEB31159E59C18B41089 /* Pods_core_x.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87AB20987ADFA7A664A3CA32 /* Pods_watch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +455,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32E3C577F1F9B2B9E45ACA9 /* Pods_tv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3370DB5D6A471D65B26D5769 /* Pods_watch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +611,10 @@
 				948DB7F221DE9F4000846B08 /* Intents.framework */,
 				948DB7F021DE9EF500846B08 /* StoreKit.framework */,
 				948DB7EE21DE9EF200846B08 /* HealthKit.framework */,
+				D12CC3A912E0190DA01810E0 /* Pods_core_x.framework */,
+				03540A90AB340755D9E35C4F /* Pods_tv.framework */,
+				BE20FE2940ACDCF8536BF25E /* Pods_watch.framework */,
+				7F2604EFFC19B453FC25446C /* Pods_watch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
